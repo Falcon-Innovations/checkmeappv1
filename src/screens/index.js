@@ -4,6 +4,25 @@ import OTPVerification from './auth/OTPVerification';
 
 import Onboard from './start/Onboard';
 
-import Dasboard from './home/Dashboard';
+import Dashboard from './home/Dashboard';
 
-export {Login, Register, OTPVerification, Onboard, Dasboard};
+import {
+  ProfileOverview,
+  EditProfile,
+  PersonalDashboard,
+  ResetPassword,
+  Settings,
+} from './profile';
+
+export {
+  Login,
+  Register,
+  OTPVerification,
+  Onboard,
+  Dashboard,
+  ProfileOverview,
+  EditProfile,
+  PersonalDashboard,
+  ResetPassword,
+  Settings,
+};
