@@ -5,6 +5,8 @@ import Input from './inputs/Input';
 import AppButton from './utils/AppButton';
 import AuthButton from './utils/AuthButton';
 import AppStatusBar from './utils/AppStatusBar';
+import CustomStatusBar from './utils/CustomStatusBar';
+
 import SocialBtn from './utils/SocialBtn';
 import SocialButton from './utils/SocialButton';
 
@@ -15,6 +17,7 @@ import SimpleLoader from './utils/SimpleLoader';
 import Seperator from './utils/Seperator';
 
 import DashboardCard from './DashboardCard';
+import ImagePickerModal from './ImagePickerModal';
 
 export {
   PhoneInputField,
@@ -23,6 +26,7 @@ export {
   AppButton,
   AuthButton,
   AppStatusBar,
+  CustomStatusBar,
   SimpleLoader,
   Error,
   Loader,
@@ -30,4 +34,5 @@ export {
   SocialButton,
   Seperator,
   DashboardCard,
+  ImagePickerModal,
 };

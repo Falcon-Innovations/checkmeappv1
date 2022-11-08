@@ -181,7 +181,9 @@ const Dashboard = ({navigation}) => {
                 <View style={{width: '90%', paddingHorizontal: 10}}>
                   <Text
                     style={{
-                      fontFamily: 'Poppins_SemiBold',
+                      fontFamily: 'Poppins_Medium',
+                      color: COLORS.textColor,
+                      fontWeight: '600',
                       fontSize: Platform.OS == 'ios' ? 12 : 12,
                     }}>
                     Grab a fruit today!
@@ -189,6 +191,7 @@ const Dashboard = ({navigation}) => {
                   <Text
                     style={{
                       fontFamily: 'Poppins_Regular',
+
                       fontSize: Platform.OS == 'ios' ? 12 : 10,
                     }}>
                     Fruit and vegitables should be and important part of your
