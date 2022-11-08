@@ -14,6 +14,8 @@ import SimpleLoader from './utils/SimpleLoader';
 
 import Seperator from './utils/Seperator';
 
+import DashboardCard from './DashboardCard';
+
 export {
   PhoneInputField,
   TextAreaInput,
@@ -27,4 +29,5 @@ export {
   SocialBtn,
   SocialButton,
   Seperator,
+  DashboardCard,
 };

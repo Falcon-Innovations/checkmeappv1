@@ -33,7 +33,7 @@ function serializeOTP(otp) {
 
 const OTPVerification = ({route}) => {
   const {phoneNumber} = route.params;
-  const {checkOTP} = React.useContext(UserContext);
+  const {checkOTP, sendOTP} = React.useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [delay, setDelay] = useState(MAX_DELAY);
   const handleCheckOTP = async () => {
@@ -76,7 +76,13 @@ const OTPVerification = ({route}) => {
 
   if (loading) return <Loader visible={true} />;
 
-  console.log(otp, 'From verificaiton screen');
+  const resendOTP = async () => {
+    if (isValid) {
+      setLoading(true);
+      await sendOTP({phoneNumber: phoneNumber});
+      setLoading(false);
+    }
+  };
 
   const verifyImage =
     'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910045/verifyotp_wvldpw.png';
@@ -197,6 +203,7 @@ const OTPVerification = ({route}) => {
           </View>
         </View>
         <Pressable
+          onPress={resendOTP}
           disabled={delay > 0}
           style={{
             paddingHorizontal: 15,

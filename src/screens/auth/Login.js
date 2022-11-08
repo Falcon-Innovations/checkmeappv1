@@ -46,7 +46,7 @@ const Login = () => {
     Keyboard.dismiss();
     let isValid = true;
     if (!inputs.phone) {
-      handleErrors('Please input your phonr number', 'phonr');
+      handleErrors('Please input your phonr number', 'phone');
       isValid = false;
     }
     // if (!inputs.pin) {
