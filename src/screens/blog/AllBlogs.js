@@ -226,7 +226,11 @@ const AllBlogs = () => {
                 />
               ) : (
                 <View>
-                  <Text style={{fontFamily: 'Poppins_Regular'}}>
+                  <Text
+                    style={{
+                      fontFamily: 'Poppins_Regular',
+                      color: COLORS.textColor,
+                    }}>
                     No blog has been added to the system yet. Please be patient
                   </Text>
                 </View>

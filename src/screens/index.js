@@ -13,6 +13,7 @@ import RiskFactors from './health/RiskFactors';
 import BookMammogram from './health/BookMammogram';
 
 import AllBlogs from './blog/AllBlogs';
+import BlogDetails from './blog/BlogDetails';
 
 import {
   ProfileOverview,
@@ -39,4 +40,5 @@ export {
   RiskFactors,
   BookMammogram,
   AllBlogs,
+  BlogDetails,
 };
