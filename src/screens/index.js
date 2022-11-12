@@ -15,6 +15,10 @@ import BookMammogram from './health/BookMammogram';
 import AllBlogs from './blog/AllBlogs';
 import BlogDetails from './blog/BlogDetails';
 
+import Specialists from './specialists/Specialists';
+import SpecialistDetails from './specialists/SpecialistDetails';
+import BookSpecialist from './specialists/BookSpecialist';
+
 import {
   ProfileOverview,
   EditProfile,
@@ -41,4 +45,7 @@ export {
   BookMammogram,
   AllBlogs,
   BlogDetails,
+  Specialists,
+  SpecialistDetails,
+  BookSpecialist,
 };

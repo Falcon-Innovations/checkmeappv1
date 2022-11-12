@@ -8,9 +8,9 @@ import {
   Register,
   Login,
   OTPVerification,
-
-  // Specialists,
-  // SpecialistDetails,
+  Specialists,
+  SpecialistDetails,
+  BookSpecialist,
   ProfileOverview,
   PersonalDashboard,
   EditProfile,
@@ -79,10 +79,10 @@ const RootNavigator = () => {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="OTPVerification" component={OTPVerification} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
-        {/* <Stack.Screen name="Specialists" component={Specialists} />
+        <Stack.Screen name="Specialists" component={Specialists} />
         <Stack.Screen name="SpecialistDetails" component={SpecialistDetails} />
         <Stack.Screen name="BookSpecialist" component={BookSpecialist} />
-        <Stack.Screen name="Hospitals" component={Hospitals} />
+        {/* <Stack.Screen name="Hospitals" component={Hospitals} />
         <Stack.Screen name="detailHospitals" component={DetailHospital} /> */}
         <Stack.Screen name="ProfileOverview" component={ProfileOverview} />
         <Stack.Screen name="PersonalDashboard" component={PersonalDashboard} />
