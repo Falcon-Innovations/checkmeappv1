@@ -16,9 +16,8 @@ import {
   EditProfile,
   ResetPassword,
   Settings,
-  // AllBlogs,
-
-  // BlogDetails,
+  AllBlogs,
+  BlogDetails,
   BookMammogram,
   SelfExamination,
   MenstraulCycle,
@@ -89,9 +88,9 @@ const RootNavigator = () => {
         <Stack.Screen name="PersonalDashboard" component={PersonalDashboard} />
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="Settings" component={Settings} />
-        {/* <Stack.Screen name="ResetPassword" component={ResetPassword} />
+        {/* <Stack.Screen name="ResetPassword" component={ResetPassword} /> */}
         <Stack.Screen name="Blogs" component={AllBlogs} />
-        <Stack.Screen name="BlogDetails" component={BlogDetails} /> */}
+        <Stack.Screen name="BlogDetails" component={BlogDetails} />
         <Stack.Screen name="BookMammogram" component={BookMammogram} />
         <Stack.Screen name="SelfExamination" component={SelfExamination} />
         <Stack.Screen name="MenstraulCycle" component={MenstraulCycle} />
@@ -136,7 +135,7 @@ const BottomTabNavigator = () => {
       />
       <Tab.Screen
         name="Learn"
-        component={Dashboard}
+        component={AllBlogs}
         options={{
           tabBarLabel: t('blog'),
           tabBarIcon: ({color}) => (
