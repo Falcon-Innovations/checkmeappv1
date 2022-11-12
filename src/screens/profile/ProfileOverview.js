@@ -113,7 +113,12 @@ const ProfileOverview = () => {
               </View>
             </View>
             <View>
-              <Text style={{fontFamily: 'Poppins_Medium', fontSize: 16}}>
+              <Text
+                style={{
+                  fontFamily: 'Poppins_Medium',
+                  fontSize: 16,
+                  color: COLORS.textColor,
+                }}>
                 {state?.user?.name}
               </Text>
               <Text
@@ -150,7 +155,12 @@ const ProfileOverview = () => {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                   }}>
-                  <Text style={{fontFamily: 'Poppins_Regular', fontSize: 14}}>
+                  <Text
+                    style={{
+                      fontFamily: 'Poppins_Regular',
+                      fontSize: 14,
+                      color: COLORS.textColor,
+                    }}>
                     {item.title}
                   </Text>
                   <Icon
@@ -179,7 +189,12 @@ const ProfileOverview = () => {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                 }}>
-                <Text style={{fontFamily: 'Poppins_Regular', fontSize: 14}}>
+                <Text
+                  style={{
+                    fontFamily: 'Poppins_Regular',
+                    fontSize: 14,
+                    color: COLORS.textColor,
+                  }}>
                   {t('logout')}
                 </Text>
                 <Icon

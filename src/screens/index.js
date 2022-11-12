@@ -6,6 +6,14 @@ import Onboard from './start/Onboard';
 
 import Dashboard from './home/Dashboard';
 
+import SelfExamination from './health/SelfExamination';
+import MenstraulCycle from './health/MenstraulCycle';
+import SetCycle from './health/SetCycle';
+import RiskFactors from './health/RiskFactors';
+import BookMammogram from './health/BookMammogram';
+
+import AllBlogs from './blog/AllBlogs';
+
 import {
   ProfileOverview,
   EditProfile,
@@ -25,4 +33,10 @@ export {
   PersonalDashboard,
   ResetPassword,
   Settings,
+  SelfExamination,
+  MenstraulCycle,
+  SetCycle,
+  RiskFactors,
+  BookMammogram,
+  AllBlogs,
 };

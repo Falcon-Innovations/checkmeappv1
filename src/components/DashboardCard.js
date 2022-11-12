@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 
-import {SIZES} from '../utility';
+import {COLORS, SIZES} from '../utility';
 
 const DashboardCard = () => {
   const navigation = useNavigation();
@@ -58,6 +58,7 @@ const DashboardCard = () => {
               numberOfLines={1}
               style={{
                 position: 'absolute',
+                color: COLORS.textColor,
                 fontSize: 10,
                 fontFamily: 'Poppins_Medium',
                 top: SIZES.screenHeight * 0.14,

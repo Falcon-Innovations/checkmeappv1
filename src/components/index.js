@@ -18,6 +18,7 @@ import Seperator from './utils/Seperator';
 
 import DashboardCard from './DashboardCard';
 import ImagePickerModal from './ImagePickerModal';
+import VideoComponent from './VideoComponent';
 
 export {
   PhoneInputField,
@@ -35,4 +36,5 @@ export {
   Seperator,
   DashboardCard,
   ImagePickerModal,
+  VideoComponent,
 };

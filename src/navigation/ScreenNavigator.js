@@ -19,12 +19,12 @@ import {
   // AllBlogs,
 
   // BlogDetails,
-  // BookMammogram,
-  // SelfExamination,
-  // MenstraulCycle,
-  // SetCycle,
+  BookMammogram,
+  SelfExamination,
+  MenstraulCycle,
+  SetCycle,
   // Notifications,
-  // RiskFactors,
+  RiskFactors,
   // AllAppointments,
   // AppointmentDetails,
 } from '../screens';
@@ -89,17 +89,17 @@ const RootNavigator = () => {
         <Stack.Screen name="PersonalDashboard" component={PersonalDashboard} />
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="Settings" component={Settings} />
-        <Stack.Screen name="ResetPassword" component={ResetPassword} />
-        {/* <Stack.Screen name="Blogs" component={AllBlogs} />
-        <Stack.Screen name="BlogDetails" component={BlogDetails} />
+        {/* <Stack.Screen name="ResetPassword" component={ResetPassword} />
+        <Stack.Screen name="Blogs" component={AllBlogs} />
+        <Stack.Screen name="BlogDetails" component={BlogDetails} /> */}
         <Stack.Screen name="BookMammogram" component={BookMammogram} />
         <Stack.Screen name="SelfExamination" component={SelfExamination} />
         <Stack.Screen name="MenstraulCycle" component={MenstraulCycle} />
         <Stack.Screen name="SetCycle" component={SetCycle} />
-        <Stack.Screen name="Notifications" component={Notifications} />
+        {/* <Stack.Screen name="Notifications" component={Notifications} /> */}
         <Stack.Screen name="RiskFactors" component={RiskFactors} />
-        <Stack.Screen name="AllAppointments" component={AllAppointments} />
-        <Stack.Screen
+        {/* <Stack.Screen name="AllAppointments" component={AllAppointments} /> */}
+        {/* <Stack.Screen
           name="AppointmentDetails"
           component={AppointmentDetails}
         /> */}

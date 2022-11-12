@@ -1,8 +1,8 @@
-import { Dimensions, StyleSheet, Text, TextInput, View } from "react-native";
-import React, { useState } from "react";
-import Icon from "react-native-vector-icons/Ionicons";
+import {Dimensions, StyleSheet, Text, TextInput, View} from 'react-native';
+import React, {useState} from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import { COLORS, SIZES } from "../../utility";
+import {COLORS, SIZES} from '../../utility';
 
 const Input = ({
   label,
@@ -27,9 +27,8 @@ const Input = ({
               ? COLORS.borderColorFocused
               : COLORS.borderColor,
           },
-        ]}
-      >
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
+        ]}>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Icon
             name={iconName}
             size={SIZES.authIconSizes}
@@ -40,6 +39,7 @@ const Input = ({
             secureTextEntry={hidePassword}
             placeholderStyle={styles.placeholder}
             autoCorrect={false}
+            placeholderTextColor={COLORS.textColor}
             onFocus={() => {
               onFocus();
               setIsFocused(true);
@@ -52,7 +52,7 @@ const Input = ({
         {pin && (
           <Icon
             onPress={() => setHidePassword(!hidePassword)}
-            name={hidePassword ? "ios-eye-outline" : "ios-eye-off-outline"}
+            name={hidePassword ? 'ios-eye-outline' : 'ios-eye-off-outline'}
             size={SIZES.authIconSizes}
             color="grey"
             style={{}}
@@ -66,7 +66,7 @@ const Input = ({
 };
 
 export default Input;
-const { width } = Dimensions.get("window");
+const {width} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     marginBottom: 15,
@@ -74,15 +74,15 @@ const styles = StyleSheet.create({
 
   inputContainer: {
     height: 50,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
     fontSize: 18,
     paddingHorizontal: 20,
     borderRadius: 12,
-    justifyContent: "center",
+    justifyContent: 'center',
     borderWidth: 1,
-    justifyContent: "space-between",
-    flexDirection: "row",
-    alignItems: "center",
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
     borderRadius: SIZES.borderRadius,
   },
 
@@ -102,18 +102,19 @@ const styles = StyleSheet.create({
   },
   textInput: {
     flex: 1,
-    color: COLORS.primary,
-    fontFamily: "Poppins_Regular",
+    color: COLORS.textColor,
+    fontFamily: 'Poppins_Regular',
     fontSize: 18,
   },
   placeholder: {
-    fontFamily: "Poppins_Regular",
+    fontFamily: 'Poppins_Regular',
     fontSize: 18,
+    color: COLORS.textColor,
   },
 
   errorMessage: {
     color: COLORS.primary,
-    fontFamily: "Poppins_Regular",
+    fontFamily: 'Poppins_Regular',
     fontSize: 12,
     marginTop: 10,
   },

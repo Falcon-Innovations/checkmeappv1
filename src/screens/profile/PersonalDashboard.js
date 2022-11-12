@@ -122,7 +122,12 @@ const PersonalDashboard = () => {
               </View>
             </View>
             <View>
-              <Text style={{fontFamily: 'Poppins_Medium', fontSize: 16}}>
+              <Text
+                style={{
+                  fontFamily: 'Poppins_Medium',
+                  fontSize: 16,
+                  color: COLORS.textColor,
+                }}>
                 {state?.user?.name}
               </Text>
               <Text
@@ -260,7 +265,12 @@ const PersonalDashboard = () => {
               <>
                 {!user?.data?.doc?.menstrualCycleInfo ? (
                   <View>
-                    <Text>You have not set your cycle</Text>
+                    <Text
+                      style={{
+                        color: COLORS.textColor,
+                      }}>
+                      You have not set your cycle
+                    </Text>
                   </View>
                 ) : (
                   <View
