@@ -90,7 +90,14 @@ const SelfExamination = () => {
           }}>
           <View style={styles.container}>
             <View style={styles.videoContainer}>
-              <VideoComponent />
+              <VideoComponent
+                source={{
+                  uri: 'https://res.cloudinary.com/dftozcqnt/video/upload/v1668790678/Breast_Self_Examination_wllgpw.mp4',
+                }}
+                thumbnail={{
+                  uri: 'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665914654/selfCheck_j6iikk.jpg',
+                }}
+              />
             </View>
 
             {/* {!status.isPlaying && (

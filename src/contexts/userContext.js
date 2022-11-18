@@ -119,7 +119,7 @@ const checkOTP =
         type: 'SIGN_IN',
         payload: {token, user: data?.data?.user},
       });
-      Alert.alert('Success', `Logged in`);
+      Alert.alert('Success', `You are now logged in`);
       customNav.navigate('Root');
     } catch (error) {
       console.log(error?.data);

@@ -9,6 +9,7 @@ const Input = ({
   iconName,
   error,
   pin,
+  onSubmitEditing,
   inputRef,
   onFocus = () => {},
   ...props
@@ -16,7 +17,7 @@ const Input = ({
   const [isFocused, setIsFocused] = useState(false);
   const [hidePassword, setHidePassword] = useState(pin);
   return (
-    <View style={styles.container}>
+    <View O style={styles.container}>
       <View
         style={[
           styles.inputContainer,
@@ -36,6 +37,7 @@ const Input = ({
             style={styles.icon}
           />
           <TextInput
+            ref={inputRef}
             secureTextEntry={hidePassword}
             placeholderStyle={styles.placeholder}
             autoCorrect={false}
@@ -45,6 +47,7 @@ const Input = ({
               setIsFocused(true);
             }}
             onBlur={() => setIsFocused(false)}
+            onSubmitEditing={onSubmitEditing}
             styles={styles.textInput}
             {...props}
           />

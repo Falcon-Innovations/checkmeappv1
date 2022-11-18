@@ -23,6 +23,9 @@ import '../../../assets/i18n/i18n';
 
 const Register = () => {
   const navigation = useNavigation();
+  const inputRef = useRef(null);
+  const ref_input2 = useRef();
+  const phoneInput = useRef(null);
 
   const {t, i18n} = useTranslation();
   const [currentLanguage, setLanguage] = useState(i18n.language);
@@ -42,7 +45,7 @@ const Register = () => {
   };
 
   const {signUp} = React.useContext(UserContext);
-  const phoneInput = useRef(null);
+
   const [inputs, setInputs] = useState({
     fullname: '',
     phone: '',
@@ -183,6 +186,8 @@ const Register = () => {
                 error={errors.fullname}
                 onFocus={() => handleErrors(null, 'fullname')}
                 onChangeText={text => handleOnChange(text, 'fullname')}
+                inputRef={inputRef}
+                onSubmitEditing={() => inputRef.current.focus()}
               />
               <Input
                 // maxLength={35}
@@ -191,6 +196,8 @@ const Register = () => {
                 error={errors.email}
                 onFocus={() => handleErrors(null, 'email')}
                 onChangeText={text => handleOnChange(text, 'email')}
+                onSubmitEditing={() => ref_input2.current.focus()}
+                inputRef={ref_input2}
               />
 
               <PhoneInputField
