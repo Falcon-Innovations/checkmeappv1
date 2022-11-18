@@ -240,12 +240,7 @@ const updateMyAvatar =
         Alert.alert('Success', 'Profile image updated');
       }
     } catch (err) {
-      Alert.alert(
-        'Error',
-        err.response.data.message
-          ? `${err.response.data.message}`
-          : 'Something went wrong, please try again later.',
-      );
+      Alert.alert('Error', 'Something went wrong, please try again later.');
       console.log(err);
       dispatch({type: 'REPORT_ERROR', payload: err});
     }

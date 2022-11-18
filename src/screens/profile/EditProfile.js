@@ -108,10 +108,9 @@ const EditProfile = () => {
 
   const onImageLibraryPress = useCallback(() => {
     setVisible(false);
-
     const options = {
       selectionLimit: 1,
-      mediaType: 'photo',
+      mediaType: 'image/jpeg',
       includeBase64: false,
     };
     ImagePicker.launchImageLibrary(options, setPickerResponse);
@@ -137,7 +136,7 @@ const EditProfile = () => {
     setLoading(true);
     await updateMyAvatar({file: uri});
     setLoading(false);
-    setSelectedImage({localUri: image?.uri});
+    // setSelectedImage({localUri: image?.uri});
   };
 
   console.log(state?.user);
