@@ -159,9 +159,11 @@ const EditProfile = () => {
               source={
                 state?.user?.avatar
                   ? {uri: state?.user?.avatar}
-                  : {
+                  : pickerResponse === null
+                  ? {
                       uri: 'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910045/user_xpovba.png',
                     }
+                  : {uri: image?.uri}
               }
               style={{
                 width: 80,

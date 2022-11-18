@@ -107,7 +107,7 @@ const BookSpecialist = ({route}) => {
             {
               title: 'Ok',
               onPress: () => {
-                navigation.goBack();
+                navigation.navigate('AllAppointments');
               },
             },
           ]);

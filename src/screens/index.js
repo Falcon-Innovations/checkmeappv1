@@ -19,6 +19,12 @@ import Specialists from './specialists/Specialists';
 import SpecialistDetails from './specialists/SpecialistDetails';
 import BookSpecialist from './specialists/BookSpecialist';
 
+import Hospitals from './hospitals/Hospitals';
+import DetailHospital from './hospitals/DetailHospital';
+
+import AllAppointments from './appointments/AllAppointments';
+import AppointmentDetails from './appointments/AppointmentDetails';
+
 import {
   ProfileOverview,
   EditProfile,
@@ -48,4 +54,8 @@ export {
   Specialists,
   SpecialistDetails,
   BookSpecialist,
+  Hospitals,
+  DetailHospital,
+  AllAppointments,
+  AppointmentDetails,
 };

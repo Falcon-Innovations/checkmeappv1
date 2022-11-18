@@ -112,7 +112,7 @@ const BlogDetails = ({route}) => {
             }}>
             <Text style={{fontFamily: 'Poppins_Medium', fontSize: 15}}>
               <Text style={{color: 'gray'}}>By</Text>
-              {` ${item.author.name}`}
+              {` ${item?.author?.name ? item?.author?.name : 'Check Me'}`}
             </Text>
             <View
               style={{

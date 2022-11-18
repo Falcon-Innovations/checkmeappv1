@@ -22,9 +22,12 @@ import {
   SelfExamination,
   MenstraulCycle,
   SetCycle,
+  Hospitals,
+  DetailHospital,
   // Notifications,
   RiskFactors,
-  // AllAppointments,
+  AllAppointments,
+  AppointmentDetails,
   // AppointmentDetails,
 } from '../screens';
 import useGetOnboardingStatus from '../utility/checkIfFirstLaunch';
@@ -82,8 +85,8 @@ const RootNavigator = () => {
         <Stack.Screen name="Specialists" component={Specialists} />
         <Stack.Screen name="SpecialistDetails" component={SpecialistDetails} />
         <Stack.Screen name="BookSpecialist" component={BookSpecialist} />
-        {/* <Stack.Screen name="Hospitals" component={Hospitals} />
-        <Stack.Screen name="detailHospitals" component={DetailHospital} /> */}
+        <Stack.Screen name="Hospitals" component={Hospitals} />
+        <Stack.Screen name="detailHospitals" component={DetailHospital} />
         <Stack.Screen name="ProfileOverview" component={ProfileOverview} />
         <Stack.Screen name="PersonalDashboard" component={PersonalDashboard} />
         <Stack.Screen name="EditProfile" component={EditProfile} />
@@ -97,11 +100,11 @@ const RootNavigator = () => {
         <Stack.Screen name="SetCycle" component={SetCycle} />
         {/* <Stack.Screen name="Notifications" component={Notifications} /> */}
         <Stack.Screen name="RiskFactors" component={RiskFactors} />
-        {/* <Stack.Screen name="AllAppointments" component={AllAppointments} /> */}
-        {/* <Stack.Screen
+        <Stack.Screen name="AllAppointments" component={AllAppointments} />
+        <Stack.Screen
           name="AppointmentDetails"
           component={AppointmentDetails}
-        /> */}
+        />
         <Stack.Screen name="Root" component={BottomTabNavigator} />
       </Stack.Navigator>
     </>
