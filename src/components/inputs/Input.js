@@ -69,7 +69,7 @@ const Input = ({
 };
 
 export default Input;
-const {width} = Dimensions.get('window');
+const width = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   container: {
     marginBottom: 15,
@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     color: COLORS.textColor,
     fontFamily: 'Poppins_Regular',
     fontSize: 18,
+    width: width,
   },
   placeholder: {
     fontFamily: 'Poppins_Regular',

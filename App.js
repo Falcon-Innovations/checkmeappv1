@@ -6,11 +6,19 @@ import './assets/i18n/i18n';
 import Navigation from './src/navigation/ScreenNavigator';
 import {Provider as UserProvider} from './src/contexts/userContext';
 import {ErrorFallback} from './src/components/error-fallback/error-fallback';
+
+import SplashScreen from 'react-native-splash-screen';
+import {useEffect} from 'react';
+
 // import {NetworkGuard} from './src/components/';
 
 registerTranslation('en-GB', enGB);
 
 export default function App() {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <PaperProvider>
