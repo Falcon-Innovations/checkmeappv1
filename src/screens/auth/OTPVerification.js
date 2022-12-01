@@ -62,7 +62,7 @@ const OTPVerification = ({route}) => {
         setDelay(delay - 1);
       }, 1000);
     return () => {
-      clearTimeout(countdown);
+      clearTimeout(countdown);s
     };
   }, [delay, setDelay]);
 
@@ -85,7 +85,7 @@ const OTPVerification = ({route}) => {
   };
 
   const verifyImage =
-    'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910045/verifyotp_wvldpw.png';
+    'https://res.cloudinary.com/dftozcqnt/image/upload/v1669895999/otp_two-factor_1_cdkweo.png';
 
   return (
     <SafeAreaView style={styles.container}>

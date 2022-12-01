@@ -12,6 +12,8 @@ import React, {useState, useRef} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {WebView} from 'react-native-webview';
+import Modal from 'react-native-modal';
+import Icons from 'react-native-vector-icons/Ionicons';
 
 import {COLORS, SIZES} from '../../utility';
 import {Input, AppButton, PhoneInputField} from '../../components';
@@ -290,13 +292,23 @@ const Register = () => {
               </TouchableOpacity>
             </View>
           </KeyboardAwareScrollView>
-          {isModalVisible && (
-            <WebView
-              source={{
-                uri: 'https://checkme-app.falcon-innov.com/privacy.html',
-              }}
-            />
-          )}
+          <Modal
+            animationType="slide"
+            isVisible={isModalVisible}
+            style={{flex: 1}}>
+            <View>
+              <TouchableOpacity
+                style={{alignSelf: 'flex-end'}}
+                onPress={toggleModal}>
+                <Icons name="close" size={20} />
+              </TouchableOpacity>
+              <WebView
+                source={{
+                  uri: 'https://checkme-app.falcon-innov.com/privacy.html',
+                }}
+              />
+            </View>
+          </Modal>
         </SafeAreaView>
       )}
     </>

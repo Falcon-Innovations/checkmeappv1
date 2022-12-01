@@ -79,33 +79,6 @@ const EditProfile = () => {
 
   const maxDate = moment().subtract(7, 'years');
 
-  // const pickImage = async () => {
-  //   let permissionResult =
-  //     await ImagePicker.requestMediaLibraryPermissionsAsync();
-
-  //   if (permissionResult.granted === false) {
-  //     alert('Permission to access camera roll is required!');
-  //     return;
-  //   }
-
-  //   let pickerResult = await ImagePicker.launchImageLibraryAsync({
-  //     mediaTypes: ImagePicker.MediaTypeOptions.All,
-  //     allowsEditing: true,
-  //     aspect: [4, 3],
-  //     quality: 1,
-  //   });
-
-  //   if (pickerResult.cancelled === true) {
-  //     return;
-  //   } else {
-  //     const uri = pickerResult?.uri;
-  //     setLoading(true);
-  //     await updateMyAvatar({file: uri});
-  //     setLoading(false);
-  //     // setSelectedImage({ localUri: pickerResult.uri });
-  //   }
-  // };
-
   const onImageLibraryPress = useCallback(() => {
     setVisible(false);
     const options = {
