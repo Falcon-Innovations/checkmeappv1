@@ -21,6 +21,8 @@ import ImagePickerModal from './ImagePickerModal';
 import VideoComponent from './VideoComponent';
 import AppointmentsCard from './AppointmentsCard';
 
+// import {NetworkGuard} from './network-guard/network-guard';
+
 export {
   PhoneInputField,
   TextAreaInput,
@@ -39,4 +41,5 @@ export {
   ImagePickerModal,
   VideoComponent,
   AppointmentsCard,
+  // NetworkGuard,
 };

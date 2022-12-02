@@ -7,21 +7,33 @@ import {
   TouchableOpacity,
   Keyboard,
   Platform,
+  TouchableWithoutFeedback,
+  ScrollView,
 } from 'react-native';
 import React, {useState, useRef} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+import BottomSheet from 'reanimated-bottom-sheet';
+import Animated from 'react-native-reanimated';
+import {Divider} from 'react-native-elements';
 import {WebView} from 'react-native-webview';
-import Modal from 'react-native-modal';
-import Icons from 'react-native-vector-icons/Ionicons';
 
 import {COLORS, SIZES} from '../../utility';
-import {Input, AppButton, PhoneInputField} from '../../components';
+import {
+  Input,
+  AppButton,
+  PhoneInputField,
+  SocialButton,
+} from '../../components';
 import {Context as UserContext} from '../../contexts/userContext';
 import Loader from '../../components/utils/Loader';
 
 import {useTranslation} from 'react-i18next';
 import '../../../assets/i18n/i18n';
+
+// RNNBottomSheet.init();
 
 const Register = () => {
   const navigation = useNavigation();
@@ -74,14 +86,10 @@ const Register = () => {
       isValid = false;
     }
 
-    // if (!inputs.email) {
-    //   handleErrors('Please input an email', 'email');
-    //   isValid = false;
-    // } else if (inputs.phone.length < 9) {
-    //   handleErrors('Enter a valid email', 'email');
-    //   isValid = false;
-    // }
-
+    if (!inputs.email) {
+      handleErrors('Please input an email', 'email');
+      isValid = false;
+    }
     if (isValid) {
       register();
     }
@@ -107,6 +115,48 @@ const Register = () => {
 
   const authImage =
     'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910061/authImage_mb3hex.png';
+
+  //bottomsheet for web view
+
+  const renderContent = () => (
+    <View
+      style={{
+        backgroundColor: 'white',
+        padding: 16,
+        height: SIZES.screenHeight,
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        // flex: 2,
+      }}>
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+        <Text>Terms ansd conditions</Text>
+        <TouchableOpacity onPress={() => sheetRef.current.snapTo(1)}>
+          <Icon name="close" size={20} />
+        </TouchableOpacity>
+      </View>
+      <Divider
+        style={{marginTop: 5}}
+        orientation="horizontal"
+        width={0.5}
+        height={5}
+        color={'#d3d3d3'}
+      />
+
+      <WebView
+        source={{
+          uri: 'https://checkme-app.falcon-innov.com/privacy.html',
+        }}
+      />
+    </View>
+  );
+
+  const sheetRef = React.createRef(null);
+  const fall = new Animated.Value(1);
 
   return (
     <>
@@ -228,7 +278,8 @@ const Register = () => {
             </View>
             <View style={{alignItems: 'center'}}>
               <Text>{t('terms')}</Text>
-              <TouchableOpacity onPress={toggleModal}>
+              <TouchableWithoutFeedback
+                onPress={() => sheetRef.current.snapTo(0)}>
                 <Text
                   style={{
                     textDecorationLine: 'underline',
@@ -241,7 +292,7 @@ const Register = () => {
                   }}>
                   {t('condition')}
                 </Text>
-              </TouchableOpacity>
+              </TouchableWithoutFeedback>
             </View>
 
             <View style={{marginTop: 20}}>
@@ -257,8 +308,7 @@ const Register = () => {
                 alignItems: 'center',
                 marginVertical: 15,
                 fontFamily: 'Poppins_Regular',
-              }}
-            >
+              }}>
               <Text>Or you can sign up with</Text>
             </View>
 
@@ -292,23 +342,15 @@ const Register = () => {
               </TouchableOpacity>
             </View>
           </KeyboardAwareScrollView>
-          <Modal
-            animationType="slide"
-            isVisible={isModalVisible}
-            style={{flex: 1}}>
-            <View>
-              <TouchableOpacity
-                style={{alignSelf: 'flex-end'}}
-                onPress={toggleModal}>
-                <Icons name="close" size={20} />
-              </TouchableOpacity>
-              <WebView
-                source={{
-                  uri: 'https://checkme-app.falcon-innov.com/privacy.html',
-                }}
-              />
-            </View>
-          </Modal>
+          <BottomSheet
+            ref={sheetRef}
+            snapPoints={[SIZES.screenHeight * 0.9, 0]}
+            borderRadius={10}
+            initialSnap={1}
+            renderContent={renderContent}
+            callbackNode={fall}
+            enabledGestureInteraction={true}
+          />
         </SafeAreaView>
       )}
     </>
