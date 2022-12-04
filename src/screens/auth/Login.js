@@ -194,12 +194,13 @@ const Login = () => {
                 Forgot Password?
               </Text>
             </View> */}
-
             <View style={{marginTop: 20}}>
               <AppButton
                 text={t('login')}
                 color={COLORS.primary}
-                // onPress={() => navigation.navigate('Dashboard')}
+                // onPress={() =>
+                //   navigation.navigate('OTPVerification', inputs.phone)
+                // }
                 onPress={handleSignIn}
                 disabled={loading || !inputs.phone}
               />

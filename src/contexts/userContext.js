@@ -241,7 +241,10 @@ const updateMyAvatar =
       }
     } catch (err) {
       Alert.alert('Error', 'Something went wrong, please try again later.');
-      console.log(err);
+      console.log('*******');
+      console.log(err, 'From update profiel route');
+      console.log('*******');
+
       dispatch({type: 'REPORT_ERROR', payload: err});
     }
   };

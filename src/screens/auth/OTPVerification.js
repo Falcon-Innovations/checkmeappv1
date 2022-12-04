@@ -62,7 +62,7 @@ const OTPVerification = ({route}) => {
         setDelay(delay - 1);
       }, 1000);
     return () => {
-      clearTimeout(countdown);s
+      clearTimeout(countdown);
     };
   }, [delay, setDelay]);
 

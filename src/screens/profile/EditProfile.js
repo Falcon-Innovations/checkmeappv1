@@ -31,7 +31,6 @@ import Loader from '../../components/utils/Loader';
 
 const EditProfile = () => {
   const {state, updateProfile, updateMyAvatar} = React.useContext(UserContext);
-
   const [loading, setLoading] = React.useState(false);
   const [isModalVisible, setModalVisible] = useState(false);
   const [pickerResponse, setPickerResponse] = useState(null);

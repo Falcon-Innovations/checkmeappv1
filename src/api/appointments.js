@@ -1,8 +1,10 @@
 import useFetch from '../hooks/useFetch';
 
-const url = 'https://check-me-backend.herokuapp.com/api/v1/appointments';
+import {BASE_URL} from './client';
 
 export const getMyAppointments = () => {
-  const {loading, data, error} = useFetch(`${url}/my-appointments/`);
+  const {loading, data, error} = useFetch(
+    `${BASE_URL}api/v1/appointments/my-appointments/`,
+  );
   return {loading, data, error};
 };
