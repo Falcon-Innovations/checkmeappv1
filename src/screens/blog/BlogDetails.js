@@ -38,7 +38,7 @@ const BlogDetails = ({route}) => {
           0,
           100,
         )}\nRead More by downloading the Check Me App on Google PLay Store
-          \n ${item?.photo}`,
+          \n https://play.google.com/store/apps/details?id=com.checkmeapp`,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {

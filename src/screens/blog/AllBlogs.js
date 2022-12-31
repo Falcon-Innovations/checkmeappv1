@@ -22,69 +22,6 @@ import {voteBlog} from '../../api/blog';
 import useDataFetching from '../../hooks/useFetchData';
 import Error from '../../components/utils/Error';
 
-const renderItem = ({item, index}) => {
-  return (
-    <TouchableOpacity
-      onPress={() => navigation.navigate('BlogDetails', item)}
-      key={item._id}
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 25,
-      }}>
-      <View>
-        <ImageBackground
-          imageStyle={{borderRadius: 8}}
-          resizeMode="cover"
-          source={{uri: item.photo}}
-          style={{
-            width: SIZES.screenWidth * 0.4,
-            height: SIZES.screenWidth * 0.3,
-          }}></ImageBackground>
-      </View>
-      <View style={{paddingLeft: 20, marginRight: 14}}>
-        <Text
-          style={{
-            color: 'gray',
-            fontFamily: 'Poppins_Regular',
-            fontSize: 12,
-            marginBottom: 8,
-            width: SIZES.screenWidth * 0.4,
-          }}>
-          {moment(item.createdAt).format('ll')}
-        </Text>
-        <Text
-          numberOfLines={3}
-          style={{
-            width: SIZES.screenWidth * 0.49,
-            paddingRight: 5,
-            fontFamily: 'Poppins_SemiBold',
-            color: COLORS.textColor,
-            fontSize: 15.5,
-          }}>
-          {item.title}
-        </Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            marginTop: 12,
-          }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginRight: 18,
-            }}></View>
-          <TouchableOpacity onPress={onShare}>
-            <Icon name="ios-share-outline" size={24} />
-          </TouchableOpacity>
-        </View>
-      </View>
-    </TouchableOpacity>
-  );
-};
-
 const AllBlogs = () => {
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
@@ -94,8 +31,10 @@ const AllBlogs = () => {
   // const { loading, data, error } = useBlogs();
 
   const [loading, error, data, fetchData] = useDataFetching(
-    `${config.app.api_url}/api/v1/articles`,
+    `${config.app.api_url}/articles`,
   );
+
+  console.log(data);
   useEffect(() => {
     const updateData = navigation.addListener('focus', () => {
       fetchData();
@@ -111,7 +50,7 @@ const AllBlogs = () => {
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message: `Check Me Blog | Download Check Me App and Visit Check Me blog for a healthy life style. \n To download go to Google Play Store and search for Check Me`,
+        message: `Check Me Blog | Download Check Me App and Visit Check Me blog for a healthy life style. \n Download from play store at  \nhttps://play.google.com/store/apps/details?id=com.checkmeapp`,
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -128,6 +67,71 @@ const AllBlogs = () => {
   };
 
   console.warn(data);
+
+  const renderItem = ({item, index}) => {
+    return (
+      <TouchableOpacity
+        onPress={() => navigation.navigate('BlogDetails', item)}
+        key={item._id}
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          marginBottom: 25,
+        }}>
+        <View>
+          <ImageBackground
+            imageStyle={{borderRadius: 8}}
+            resizeMode="cover"
+            source={{uri: item.photo}}
+            style={{
+              width: SIZES.screenWidth * 0.4,
+              height: SIZES.screenWidth * 0.3,
+            }}></ImageBackground>
+        </View>
+        <View style={{paddingLeft: 20, marginRight: 14}}>
+          <Text
+            style={{
+              color: 'gray',
+              fontFamily: 'Poppins_Regular',
+              fontSize: 12,
+              marginBottom: 8,
+              width: SIZES.screenWidth * 0.4,
+            }}>
+            {moment(item.createdAt).format('ll')}
+          </Text>
+          <Text
+            numberOfLines={3}
+            style={{
+              width: SIZES.screenWidth * 0.49,
+              paddingRight: 5,
+              fontFamily: 'Poppins_SemiBold',
+              color: COLORS.textColor,
+              fontSize: 15.5,
+            }}>
+            {item.title}
+          </Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginTop: 12,
+            }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginRight: 18,
+              }}></View>
+            <TouchableOpacity onPress={onShare}>
+              <Icon name="ios-share-outline" size={24} />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
+  const len = 7;
 
   return (
     <>

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, NativeModules} from 'react-native';
 import Icons from 'react-native-vector-icons/Feather';
 import {COLORS} from '../../utility';
 import AppButton from '../utils/AppButton';
@@ -15,6 +15,12 @@ export const NetworkGuard = ({children}) => {
     // Unsubscribe
     return unsubscribe();
   }, [networkState]);
+
+  const reload = () => {
+    setNetworkState(null);
+    NetInfo.refresh();
+    NativeModules.DevSettings.reload();
+  };
 
   console.log(networkState, ' From Network Guard');
 
@@ -34,11 +40,7 @@ export const NetworkGuard = ({children}) => {
             }}>
             Oops! It seems like you are not connected
           </Text>
-          <AppButton
-            text="Try again"
-            color={COLORS.primary}
-            onPress={() => NetInfo.refresh()}
-          />
+          <AppButton text="Try again" color={COLORS.primary} onPress={reload} />
         </View>
       </View>
     );

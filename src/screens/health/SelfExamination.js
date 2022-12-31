@@ -16,6 +16,7 @@ import {
   AppButton,
   AppStatusBar,
   CustomStatusBar,
+  Loader,
   VideoComponent,
 } from '../../components';
 import {COLORS, images, SIZES} from '../../utility';
@@ -147,14 +148,19 @@ const SelfExamination = () => {
                     {` Phase ${item.phase}: `}
                     <Text style={{}}>{item.title}</Text>
                   </Text>
-                  <ImageBackground
-                    imageStyle={{borderRadius: 12, resizeMode: 'cover'}}
-                    source={{uri: item.img}}
-                    style={{
-                      width: '100%',
-                      height: SIZES.screenHeight * 0.22,
-                      marginTop: SIZES.screenHeight * 0.02,
-                    }}></ImageBackground>
+                  {!item.img ? (
+                    <SimpleLoader />
+                  ) : (
+                    <ImageBackground
+                      imageStyle={{borderRadius: 12, resizeMode: 'cover'}}
+                      source={{uri: item.img}}
+                      style={{
+                        width: '100%',
+                        height: SIZES.screenHeight * 0.22,
+                        marginTop: SIZES.screenHeight * 0.02,
+                      }}></ImageBackground>
+                  )}
+
                   <View style={{marginTop: SIZES.screenHeight * 0.02}}>
                     <Text
                       style={{

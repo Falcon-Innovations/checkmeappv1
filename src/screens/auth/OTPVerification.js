@@ -77,11 +77,9 @@ const OTPVerification = ({route}) => {
   if (loading) return <Loader visible={true} />;
 
   const resendOTP = async () => {
-    if (isValid) {
-      setLoading(true);
-      await sendOTP({phoneNumber: phoneNumber});
-      setLoading(false);
-    }
+    setLoading(true);
+    await sendOTP({phoneNumber: phoneNumber});
+    setLoading(false);
   };
 
   const verifyImage =
@@ -101,7 +99,7 @@ const OTPVerification = ({route}) => {
             paddingTop: SIZES.screenHeight * 0.02,
             top: 10,
           }}>
-          <Icon name="arrow-left" size={30} />
+          <Icon name="arrow-left" size={30} color={COLORS.textColor} />
         </TouchableOpacity>
         <View
           style={{
@@ -130,6 +128,7 @@ const OTPVerification = ({route}) => {
                 fontFamily: 'Poppins_Regular',
                 fontSize: 14,
                 textAlign: 'left',
+                color: COLORS.textColor,
               }}>
               Please enter the verification code sent to
             </Text>
@@ -294,5 +293,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 30,
+  },
+  img: {
+    height: SIZES.screenHeight * 0.15,
+    width: SIZES.screenWidth,
   },
 });

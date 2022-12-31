@@ -1,7 +1,7 @@
-import {Dimensions, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import {TextInput} from 'react-native-paper';
 import {COLORS, SIZES} from '../../utility';
 
 const Input = ({
@@ -17,8 +17,9 @@ const Input = ({
   const [isFocused, setIsFocused] = useState(false);
   const [hidePassword, setHidePassword] = useState(pin);
   return (
-    <View O style={styles.container}>
-      <View
+    <>
+      <TextInput
+        mode="outlined"
         style={[
           styles.inputContainer,
           {
@@ -28,43 +29,36 @@ const Input = ({
               ? COLORS.borderColorFocused
               : COLORS.borderColor,
           },
-        ]}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Icon
-            name={iconName}
-            size={SIZES.authIconSizes}
-            color={COLORS.lightTextGrey}
-            style={styles.icon}
-          />
-          <TextInput
-            ref={inputRef}
-            secureTextEntry={hidePassword}
-            placeholderStyle={styles.placeholder}
-            autoCorrect={false}
-            placeholderTextColor={COLORS.textColor}
-            onFocus={() => {
-              onFocus();
-              setIsFocused(true);
-            }}
-            onBlur={() => setIsFocused(false)}
-            onSubmitEditing={onSubmitEditing}
-            styles={styles.textInput}
-            {...props}
-          />
-        </View>
-        {pin && (
-          <Icon
-            onPress={() => setHidePassword(!hidePassword)}
-            name={hidePassword ? 'ios-eye-outline' : 'ios-eye-off-outline'}
-            size={SIZES.authIconSizes}
-            color="grey"
-            style={{}}
-          />
-        )}
-      </View>
+        ]}
+        ref={inputRef}
+        activeOutlineColor={error ? COLORS.danger : COLORS.primary}
+        outlineColor={'#D3D3D3'}
+        secureTextEntry={hidePassword}
+        placeholderStyle={styles.placeholder}
+        autoCorrect={false}
+        label={label}
+        placeholderTextColor={COLORS.textColor}
+        onFocus={() => {
+          onFocus();
+          setIsFocused(true);
+        }}
+        right={
+          pin && (
+            <TextInput.Icon
+              onPress={() => setHidePassword(!hidePassword)}
+              icon={hidePassword ? 'eye' : 'eye-off'}
+              color="#D3D3D3"
+            />
+          )
+        }
+        onBlur={() => setIsFocused(false)}
+        onSubmitEditing={onSubmitEditing}
+        styles={styles.textInput}
+        {...props}
+      />
 
       {error && <Text style={styles.errorMessage}>{error}</Text>}
-    </View>
+    </>
   );
 };
 
@@ -76,30 +70,12 @@ const styles = StyleSheet.create({
   },
 
   inputContainer: {
-    height: 50,
-    backgroundColor: '#FFFFFF',
-    fontSize: 18,
-    paddingHorizontal: 20,
-    borderRadius: 12,
-    justifyContent: 'center',
-    borderWidth: 1,
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    alignItems: 'center',
+    fontSize: 14,
+    marginTop: 12,
+    height: 55,
+    backgroundColor: '#fff',
     borderRadius: SIZES.borderRadius,
   },
-
-  // inputContainer: {
-  //   height: 56,
-  //   backgroundColor: "#fff",
-  //   borderWidth: 1,
-  //   borderColor: "#DBD9D9",
-  //   alignItems: "center",
-  //   paddingHorizontal: 15,
-  //   borderRadius: SIZES.borderRadius,
-  //   flexDirection: "row",
-  //   justifyContent: "space-between",
-  // },
   icon: {
     marginRight: 10,
   },
@@ -120,6 +96,7 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     fontFamily: 'Poppins_Regular',
     fontSize: 12,
-    marginTop: 10,
+    marginTop: 4,
+    marginBottom: 1,
   },
 });

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-export const BASE_URL = 'https://check-me-backend.onrender.com/';
+export const BASE_URL = 'http://67.205.166.151/';
 
 let token;
 const getToken = async () => {

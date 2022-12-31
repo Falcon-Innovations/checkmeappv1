@@ -46,17 +46,12 @@ const Login = () => {
     Keyboard.dismiss();
     let isValid = true;
     if (!inputs.phone) {
-      handleErrors('Please input your phonr number', 'phone');
+      handleErrors('Please input phone number', 'phone');
+      isValid = false;
+    } else if (inputs.phone.length < 9) {
+      handleErrors('Please enter valid phone number', 'phone');
       isValid = false;
     }
-    // if (!inputs.pin) {
-    //   handleErrors('Please input a valid pin', 'pin');
-    //   isValid = false;
-    // } else if (inputs.pin.length < 5) {
-    //   handleErrors('Pin is 5 digits', 'password');
-    //   isValid = false;
-    // }
-
     if (isValid) {
       setLoading(true);
       await sendOTP({phoneNumber: inputs.phone});
@@ -153,7 +148,10 @@ const Login = () => {
               </Text>
               <Text
                 numberOfLines={1}
-                style={[styles.welcomeText, {fontFamily: 'Poppins_Medium'}]}>
+                style={[
+                  styles.welcomeText,
+                  {fontFamily: 'Poppins_Medium', color: COLORS.textColor},
+                ]}>
                 {t('welcome2')}
               </Text>
             </View>
@@ -177,6 +175,7 @@ const Login = () => {
                 phoneInput={phoneInput}
                 placeholder={t('placeholder3')}
                 phoneNumber={inputs.phone}
+                error={errors.phone}
                 onChange={text => {
                   handleOnChange(text, 'phone');
                 }}
@@ -197,12 +196,16 @@ const Login = () => {
             <View style={{marginTop: 20}}>
               <AppButton
                 text={t('login')}
-                color={COLORS.primary}
+                color={
+                  !inputs.phone || inputs.phone.length < 9
+                    ? '#d3d3d3'
+                    : COLORS.primary
+                }
                 // onPress={() =>
                 //   navigation.navigate('OTPVerification', inputs.phone)
                 // }
                 onPress={handleSignIn}
-                disabled={loading || !inputs.phone}
+                disabled={loading || !inputs.phone || inputs.phone.length < 9}
               />
             </View>
             {/* <View
@@ -229,7 +232,7 @@ const Login = () => {
                 flexDirection: 'row',
                 marginTop: SIZES.screenHeight * 0.02,
               }}>
-              <Text>{t('noAccount')}</Text>
+              <Text style={{color: COLORS.textColor}}>{t('noAccount')}</Text>
               <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
                 <Text
                   style={{

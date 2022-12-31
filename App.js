@@ -2,7 +2,6 @@ import ErrorBoundary from 'react-native-error-boundary';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {enGB, registerTranslation} from 'react-native-paper-dates';
 import SplashScreen from 'react-native-splash-screen';
-import {NetworkGuard} from './src/components';
 
 import 'react-native-gesture-handler';
 import './assets/i18n/i18n';
@@ -21,11 +20,11 @@ export default function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <PaperProvider>
-        <NetworkGuard>
-          <UserProvider>
-            <Navigation />
-          </UserProvider>
-        </NetworkGuard>
+        {/* <NetworkGuard> */}
+        <UserProvider>
+          <Navigation />
+        </UserProvider>
+        {/* </NetworkGuard> */}
       </PaperProvider>
     </ErrorBoundary>
   );

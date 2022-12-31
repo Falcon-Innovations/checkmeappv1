@@ -41,24 +41,11 @@ const Register = () => {
   const ref_input2 = useRef();
   const phoneInput = useRef(null);
 
+  const {signUp} = React.useContext(UserContext);
+
   const {t, i18n} = useTranslation();
   const [currentLanguage, setLanguage] = useState(i18n.language);
   const [isModalVisible, setModalVisible] = useState(false);
-
-  const [activeLang, setActiveLang] = useState(false);
-
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
-  };
-
-  const changeLanguage = value => {
-    i18n
-      .changeLanguage(value)
-      .then(() => setLanguage(value))
-      .catch(err => console.log(err));
-  };
-
-  const {signUp} = React.useContext(UserContext);
 
   const [inputs, setInputs] = useState({
     fullname: '',
@@ -70,29 +57,43 @@ const Register = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
   const validate = () => {
     Keyboard.dismiss();
     let isValid = true;
     if (!inputs.fullname) {
-      handleErrors('Please input your  fullname', 'fullname');
+      handleErrors('Please enter your  fullname', 'fullname');
       isValid = false;
     }
 
     if (!inputs.phone) {
-      handleErrors('Please input phone number', 'phone');
+      handleErrors('Please enter phone number', 'phone');
       isValid = false;
     } else if (inputs.phone.length < 9) {
-      handleErrors('Enter valid phone number', 'phone');
+      handleErrors('Please enter valid phone number', 'phone');
       isValid = false;
     }
 
     if (!inputs.email) {
-      handleErrors('Please input an email', 'email');
+      handleErrors('Please enter an email', 'email');
+      isValid = false;
+    } else if (!isValidEmail(inputs.email)) {
+      handleErrors('Please enter valid email address', 'email');
       isValid = false;
     }
     if (isValid) {
       register();
     }
+  };
+
+  const changeLanguage = value => {
+    i18n
+      .changeLanguage(value)
+      .then(() => setLanguage(value))
+      .catch(err => console.log(err));
   };
 
   const register = async () => {
@@ -226,13 +227,17 @@ const Register = () => {
                 {t('registerWelcome')}
               </Text>
               <Text
-                style={[styles.welcomeText, {fontFamily: 'Poppins_Medium'}]}>
+                style={[
+                  styles.welcomeText,
+                  {fontFamily: 'Poppins_Medium', color: COLORS.textColor},
+                ]}>
                 {t('registerWelcome2')}
               </Text>
             </View>
             <View style={styles.formContainer}>
               <Input
                 // maxLength={35}
+                label={'Full name'}
                 placeholder={t('placeholder1')}
                 keyboardType="default"
                 error={errors.fullname}
@@ -245,6 +250,7 @@ const Register = () => {
                 // maxLength={35}
                 placeholder={t('placeholder2')}
                 keyboardType="email-address"
+                label={'Email Address'}
                 error={errors.email}
                 onFocus={() => handleErrors(null, 'email')}
                 onChangeText={text => handleOnChange(text, 'email')}
@@ -256,6 +262,7 @@ const Register = () => {
                 phoneInput={phoneInput}
                 placeholder={t('placeholder3')}
                 phoneNumber={inputs.phone}
+                error={errors.phone}
                 onChange={text => {
                   handleOnChange(text, 'phone');
                 }}
@@ -276,8 +283,8 @@ const Register = () => {
                 onChangeText={(text) => handleOnChange(text, "kfirmpin")}
               /> */}
             </View>
-            <View style={{alignItems: 'center'}}>
-              <Text>{t('terms')}</Text>
+            <View style={{alignItems: 'center', marginTop: 15}}>
+              <Text style={{color: COLORS.textColor}}>{t('terms')}</Text>
               <TouchableWithoutFeedback
                 onPress={() => sheetRef.current.snapTo(0)}>
                 <Text
@@ -325,7 +332,7 @@ const Register = () => {
                 justifyContent: 'center',
                 flexDirection: 'row',
               }}>
-              <Text> {t('haveAccount')}</Text>
+              <Text style={{color: COLORS.textColor}}> {t('haveAccount')}</Text>
               <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                 <Text
                   style={{
@@ -377,41 +384,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
 
-  imageContainer: {},
-  phoneInputContainer: {
-    width: '100%',
-    height: 50,
-    backgroundColor: '#FFFFFF',
-    fontSize: 18,
-    paddingHorizontal: 20,
-    borderRadius: 12,
-    justifyContent: 'center',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 5,
-    marginBottom: 10,
-    borderWidth: '1px',
-    borderColor: '#E6E6E6',
-  },
   welcomeText: {
     marginRight: 6,
     fontSize: 14,
   },
 
   formContainer: {
-    marginTop: 20,
-  },
-  resendBtn: {
-    color: '#EB4864',
-    fontSize: 18,
-    marginLeft: 20,
-  },
-  loginView: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 15,
+    marginTop: 8,
   },
   haveAnAccount: {
     fontSize: 15,
