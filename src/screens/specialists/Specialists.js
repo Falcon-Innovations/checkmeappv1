@@ -14,14 +14,20 @@ import {
 import React, {useEffect, useState} from 'react';
 import {Searchbar} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 
 import {COLORS, config, SIZES} from '../../utility';
-import {AppStatusBar, CustomStatusBar} from '../../components';
+import {
+  AppStatusBar,
+  ComingSoonMessage,
+  CustomStatusBar,
+} from '../../components';
 import SimpleLoader from '../../components/utils/SimpleLoader';
 import Error from '../../components/utils/Error';
 import useDataFetching from '../../hooks/useFetchData';
 
 const Specialists = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = query => setSearchQuery(query);
@@ -37,10 +43,6 @@ const Specialists = () => {
     });
     return updateData;
   }, [navigation]);
-
-  // if (loading) {
-  //   return <SimpleLoader />;
-  // }
 
   return (
     <>
@@ -73,7 +75,7 @@ const Specialists = () => {
             }>
             <View>
               <Text style={{fontFamily: 'Poppins_Medium', color: '#333333'}}>
-                Get connected with the best specialists
+                {t('specialistTitle')}
               </Text>
               {loading || error ? (
                 <>
@@ -161,9 +163,7 @@ const Specialists = () => {
                     </View>
                   ) : (
                     <View>
-                      <Text style={{color: COLORS.textColor}}>
-                        Please be patient, specialist are bieng signed up
-                      </Text>
+                      <ComingSoonMessage text={t('message')} />
                     </View>
                   )}
                 </>

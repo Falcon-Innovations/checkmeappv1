@@ -29,16 +29,20 @@ const ProfileOverview = () => {
       screen: 'PersonalDashboard',
     },
     {
+      title: t('mammogram'),
+      screen: 'BookMammogram',
+    },
+    {
       title: t('editProfile'),
       screen: 'EditProfile',
     },
+    // {
+    //   title: 'Appointments',
+    //   screen: 'AllAppointments',
+    // },
     {
-      title: 'Appointments',
-      screen: 'AllAppointments',
-    },
-    {
-      title: t('mammogram'),
-      screen: 'BookMammogram',
+      title: t('help'),
+      screen: 'Help',
     },
 
     {

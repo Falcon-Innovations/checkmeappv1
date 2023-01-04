@@ -69,6 +69,15 @@
     "mammogram": "Réserver une Mammographie",
     "subscription": "Abonnements",
     "settings": "Réglages",
-    "logout": "Se Déconnecter"
+    "logout": "Se Déconnecter",
+    "message": "Merci d'avoir été si patient. Nous ajoutons des spécialistes à la plateforme. Vous serez averti en temps voulu. Pour l'instant, vous pouvez parcourir notre blog pour en savoir plus sur le cancer et la santé des femmes",
+    "specialistTitle": "Connectez-vous avec le meilleur spécialiste du cancer du sein autour de votre localité.",
+    "specBtn": "Parcourir les Articles",
+    "hospitalMessage": "Merci d'avoir été si patient. Les hôpitaux s'inscrivent à la plateforme. Veuillez parcourir notre blog pour en savoir plus sur le cancer du sein et la mammographie",
+    "hosTitle": "Trouvez l'hôpital le plus proche pour votre dépistage et votre consultation",
+    "help": "Aide",
+    "thnkU": "Merci d'utiliser",
+    "thankUnessage": ". Veuillez nous contacter via WhatsApp ou appeler en utilisant le numéro ci-dessous pour toute aide ou demande de renseignements",
+    "call": "Appeler"
   }
 }

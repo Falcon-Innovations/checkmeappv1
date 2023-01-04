@@ -1,6 +1,5 @@
 import {
   Image,
-  Platform,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -85,6 +84,18 @@ const RiskFactors = () => {
             }}>
             {t('headingRisk')}
           </Text>
+          <Image
+            source={{
+              uri: 'https://res.cloudinary.com/dftozcqnt/image/upload/v1671452357/Breastcancer_bc4jt7.jpg',
+            }}
+            style={{
+              width: SIZES.screenWidth - 40,
+              height: 100,
+              alignSelf: 'center',
+              marginTop: 12,
+            }}
+            resizeMode="cover"
+          />
           <View style={{marginVertical: 20}}>
             {data.map(item => (
               <RiskCard

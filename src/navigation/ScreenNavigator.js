@@ -25,9 +25,12 @@ import {
   Hospitals,
   DetailHospital,
   // Notifications,
+  Referal,
   RiskFactors,
   AllAppointments,
   AppointmentDetails,
+  SportHome,
+  Help,
   // AppointmentDetails,
 } from '../screens';
 import useGetOnboardingStatus from '../utility/checkIfFirstLaunch';
@@ -42,9 +45,6 @@ import {
 } from '@react-navigation/native';
 import ResolveAuth from '../screens/auth/ResolveAuth';
 import {COLORS} from '../utility';
-// import BookSpecialist from '../screens/specialists/BookSpecialist';
-// import Hospitals from '../screens/hospitals/Hospitals';
-// import DetailHospital from '../screens/hospitals/DetailHospital';
 
 const Stack = createNativeStackNavigator();
 
@@ -98,6 +98,9 @@ const RootNavigator = () => {
         <Stack.Screen name="SelfExamination" component={SelfExamination} />
         <Stack.Screen name="MenstraulCycle" component={MenstraulCycle} />
         <Stack.Screen name="SetCycle" component={SetCycle} />
+        <Stack.Screen name="Referals" component={Referal} />
+        <Stack.Screen name="Help" component={Help} />
+
         {/* <Stack.Screen name="Notifications" component={Notifications} /> */}
         <Stack.Screen name="RiskFactors" component={RiskFactors} />
         <Stack.Screen name="AllAppointments" component={AllAppointments} />
@@ -105,6 +108,7 @@ const RootNavigator = () => {
           name="AppointmentDetails"
           component={AppointmentDetails}
         />
+        <Stack.Screen name="SportHome" component={SportHome} />
         <Stack.Screen name="Root" component={BottomTabNavigator} />
       </Stack.Navigator>
     </>

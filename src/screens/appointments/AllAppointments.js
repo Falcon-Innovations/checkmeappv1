@@ -110,7 +110,7 @@ const AllAppointments = () => {
                             : `${item.time} am`
                         }
                         status={item.status}
-                        doc={`Dr ${item.recipient.firstName} ${item.recipient.lastName} `}
+                        doc={`Dr ${item?.recipient?.firstName} ${item?.recipient?.lastName} `}
                         date={new Date(item.day)
                           .toUTCString()
                           .split(' ')

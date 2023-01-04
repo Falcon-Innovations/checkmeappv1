@@ -53,7 +53,7 @@
     "code": "code sent to",
     "genetics": "About 5% to 10% of breast cancers are thought to be hereditary, caused by abnormal genes passed from parent to child. Genes are short segments of DNA (deoxyribonucleic acid) found in chromosomes. DNA contains the instructions for building proteins. And proteins control the structure and function of all the cells that make up your body. Think of your genes as an instruction manual for cell growth and function. Changes or mistakes in the DNA are like typographical errors. They may provide the wrong set of instructions, leading to faulty cell growth or function. In any one person, if there is an error in a gene, that same mistake will appear in all the cells that contain the same gene. This is like having an instruction manual in which all the copies have the same typographical error. There are two types of DNA changes: those that are inherited and those that happen over time. Inherited DNA changes are passed down from parent to child. Inherited DNA changes are called germ-line alterations or mutations. DNA changes that happen over the course of a lifetime, as a result of the natural aging process or exposure to chemicals in the environment, are called somatic alterations. Some DNA changes are harmless, but others can cause disease or other health issues. DNA changes that negatively affect health are called mutations.",
     "genTitle": "Genetics",
-    "headingRisk": "  Studies have shown that your risk for breast cancer is due to a combination of factors.",
+    "headingRisk": "Studies have shown that your risk for breast cancer is due to a combination of factors.",
     "ageText": "Everyone alive is growing older. And as with many other diseases, your risk of breast cancer goes up as you get older. For example, according to the American Cancer Society, about 1 out of 8 invasive breast cancers develop in women younger than 45. About 2 out of 3 invasive breast cancers are found in women 55 or older. In fact, the aging process is the biggest risk factor for breast cancer. That's because the longer we live, there are more opportunities for genetic damage (mutations) in the body. And as we age, our bodies are less capable of repairing genetic damage.",
     "age": "Age",
     "smoking": "Smoking",
@@ -69,6 +69,15 @@
     "mammogram": "Book a Mammogram",
     "subscription": "Subscriptions",
     "settings": "Settings",
-    "logout": "Log Out"
+    "logout": "Log Out",
+    "message": "Thank you for being so patient. We are adding specialists to the platform. You will be notified in due time. For now, you can browse our Blog to learn more about cancer and female health",
+    "specialistTitle": " Get connected with the best breast cancer specialist around your locality.",
+    "specBtn": "Browse Articles",
+    "hospitalMessage": "Thank you for being so patient. Hospitals are being signed up for the platform. Please browse our blog to learn more about breast cancer and mammography",
+    "hosTitle": "Find the nearest hospital for your screening and consultation",
+    "help": "Help",
+    "thnkU": "Thank you for using",
+    "thankUnessage": ". Please contact us via whatsapp or Call using the number below for any help or enquiries",
+    "call": "Call"
   }
 }

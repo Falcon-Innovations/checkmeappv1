@@ -13,12 +13,18 @@ import {Searchbar} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {COLORS, config, SIZES} from '../../utility';
-import {AppStatusBar, CustomStatusBar} from '../../components';
+import {
+  AppStatusBar,
+  ComingSoonMessage,
+  CustomStatusBar,
+} from '../../components';
 import SimpleLoader from '../../components/utils/SimpleLoader';
 import {CustomImageBackground} from '../../components/custom-image-background/custom-image-background';
 import useDataFetching from '../../hooks/useFetchData';
+import {useTranslation} from 'react-i18next';
 
 const Hospitals = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = query => setSearchQuery(query);
@@ -70,7 +76,7 @@ const Hospitals = () => {
           </View>
           <View>
             <Text style={{fontFamily: 'Poppins_Medium', color: '#333333'}}>
-              Find the nearest hospital for your screening and consultation
+              {t('hosTitle')}
             </Text>
             {loading || error ? (
               <>
@@ -203,9 +209,7 @@ const Hospitals = () => {
                   </View>
                 ) : (
                   <View>
-                    <Text style={{color: COLORS.textColor}}>
-                      Please be patient, Hospitals are bieng signed up
-                    </Text>
+                    <ComingSoonMessage text={t('hospitalMessage')} />
                   </View>
                 )}
               </>

@@ -23,6 +23,8 @@ import AppointmentsCard from './AppointmentsCard';
 
 import {NetworkGuard} from './network-guard/network-guard';
 
+import ComingSoonMessage from './ComingSoonMessage';
+
 export {
   PhoneInputField,
   TextAreaInput,
@@ -42,4 +44,5 @@ export {
   VideoComponent,
   AppointmentsCard,
   NetworkGuard,
+  ComingSoonMessage,
 };

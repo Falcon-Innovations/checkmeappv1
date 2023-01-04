@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import Icons from 'react-native-vector-icons/Ionicons';
 import ProfileIcon from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
@@ -50,14 +51,14 @@ const PersonalDashboard = () => {
       icon: <Icons name="ios-flower" color="#fff" size={22} />,
     },
     {
-      title: 'Find a Hospital',
-      screen: 'Hospitals',
-      icon: <FontAwesome name="hospital-o" color="#fff" size={22} />,
+      title: 'Appointments',
+      screen: 'AllAppointments',
+      icon: <FontAwesome5Icon name="calendar-day" color="#fff" size={22} />,
     },
     {
-      title: 'Talk to a doctor',
-      screen: 'Specialists',
-      icon: <FontAwesome name="stethoscope" color="#fff" size={22} />,
+      title: 'Refer a friend',
+      screen: 'Referals',
+      icon: <FontAwesome5Icon name="handshake" color="#fff" size={22} />, //stethoscope
     },
   ];
 

@@ -1,20 +1,20 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import en from "./en.json";
-import fr from "./fr.json";
-const LOCALE_PERSISTENCE_KEY = "language";
+import i18n from 'i18next';
+import {initReactI18next} from 'react-i18next';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import en from './en.json';
+import fr from './fr.json';
+const LOCALE_PERSISTENCE_KEY = 'language';
 
 const languageDetector = {
-  type: "languageDetector",
+  type: 'languageDetector',
 
   async: true,
 
-  detect: async (language) => {
+  detect: async language => {
     const persistedLocale = await AsyncStorage.getItem(LOCALE_PERSISTENCE_KEY);
 
     if (!persistedLocale) {
-      return language("en");
+      return language('en');
     }
 
     language(persistedLocale);
@@ -22,7 +22,7 @@ const languageDetector = {
 
   init: () => {},
 
-  cacheUserLanguage: (locale) => {
+  cacheUserLanguage: locale => {
     AsyncStorage.setItem(LOCALE_PERSISTENCE_KEY, locale);
   },
 };
@@ -31,7 +31,8 @@ i18n
   .use(languageDetector)
   .use(initReactI18next)
   .init({
-    compatibilityJSON: "v3",
+    compatibilityJSON: 'v3',
+    fallbackLng: 'en',
     resources: {
       en: en,
       fr: fr,

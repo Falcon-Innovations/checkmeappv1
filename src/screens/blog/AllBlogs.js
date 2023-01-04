@@ -66,8 +66,6 @@ const AllBlogs = () => {
     }
   };
 
-  console.warn(data);
-
   const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity

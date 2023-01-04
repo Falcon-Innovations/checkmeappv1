@@ -135,7 +135,7 @@ const Register = () => {
           alignItems: 'center',
           justifyContent: 'space-between',
         }}>
-        <Text>Terms ansd conditions</Text>
+        <Text>{t('condition')}</Text>
         <TouchableOpacity onPress={() => sheetRef.current.snapTo(1)}>
           <Icon name="close" size={20} />
         </TouchableOpacity>

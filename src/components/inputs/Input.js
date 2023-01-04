@@ -32,7 +32,7 @@ const Input = ({
         ]}
         ref={inputRef}
         activeOutlineColor={error ? COLORS.danger : COLORS.primary}
-        outlineColor={'#D3D3D3'}
+        outlineColor={error ? COLORS.danger : '#D3D3D3'}
         secureTextEntry={hidePassword}
         placeholderStyle={styles.placeholder}
         autoCorrect={false}

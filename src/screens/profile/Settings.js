@@ -66,7 +66,7 @@ const Settings = () => {
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
-      <CustomStatusBar text={'settings'} />
+      <CustomStatusBar text={t('settings')} />
       <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
         <ScrollView style={{marginHorizontal: 15, paddingVertical: 20}}>
           <View>

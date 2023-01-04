@@ -31,7 +31,11 @@ import {
   PersonalDashboard,
   ResetPassword,
   Settings,
+  Referal,
+  Help,
 } from './profile';
+
+import SportHome from './sports/SportHome';
 
 export {
   Login,
@@ -58,4 +62,7 @@ export {
   DetailHospital,
   AllAppointments,
   AppointmentDetails,
+  SportHome,
+  Referal,
+  Help,
 };

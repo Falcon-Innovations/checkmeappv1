@@ -211,7 +211,11 @@ const OTPVerification = ({route}) => {
             marginTop: 20,
             marginBottom: 10,
           }}>
-          <Text style={{fontFamily: 'Poppins_Medium', color: COLORS.primary}}>
+          <Text
+            style={{
+              fontFamily: 'Poppins_Medium',
+              color: delay > 0 ? '#D3D3D3' : COLORS.primary,
+            }}>
             Resend Code {delay > 0 && `in ${delay} seconds`}
           </Text>
         </Pressable>
