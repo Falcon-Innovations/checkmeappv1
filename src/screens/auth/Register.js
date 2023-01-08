@@ -20,7 +20,7 @@ import Animated from 'react-native-reanimated';
 import {Divider} from 'react-native-elements';
 import {WebView} from 'react-native-webview';
 
-import {COLORS, SIZES} from '../../utility';
+import {COLORS, IMAGES, SIZES} from '../../utility';
 import {
   Input,
   AppButton,
@@ -114,8 +114,7 @@ const Register = () => {
     setErrors(prevState => ({...prevState, [input]: errorMessage}));
   };
 
-  const authImage =
-    'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910061/authImage_mb3hex.png';
+  const authImage = IMAGES.authImage;
 
   //bottomsheet for web view
 
@@ -305,8 +304,17 @@ const Register = () => {
             <View style={{marginTop: 20}}>
               <AppButton
                 text={t('register')}
-                color={COLORS.primary}
-                disabled={loading || !inputs.fullname || !inputs.phone}
+                color={
+                  !inputs.phone || inputs.phone.length < 12
+                    ? '#d3d3d3'
+                    : COLORS.primary
+                }
+                disabled={
+                  loading ||
+                  !inputs.fullname ||
+                  !inputs.phone ||
+                  inputs.phone.length < 12
+                }
                 onPress={validate}
               />
             </View>

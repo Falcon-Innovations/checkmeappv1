@@ -1,18 +1,25 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Feather';
 import {COLORS} from '../../utility';
 
-const SocialButton = ({onPress, icon, title, backgroundColor}) => {
+const SocialButton = ({
+  onPress,
+  icon,
+  title,
+  backgroundColor,
+  iconColor,
+  textColor,
+}) => {
   return (
     <View style={styles.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor="transparent"
+        backgroundColor={backgroundColor}
         onPress={onPress}
         style={styles.appButton}
-        iconStyle={{color: COLORS.primary}}>
-        <Text style={styles.appButtonText}>{title}</Text>
+        iconStyle={{color: iconColor}}>
+        <Text style={[styles.appButtonText, {color: textColor}]}>{title}</Text>
       </Icon.Button>
     </View>
   );
@@ -31,7 +38,6 @@ const styles = StyleSheet.create({
   },
   appButtonText: {
     fontSize: 15,
-    fontFamily: 'Poppins_Medium',
   },
   appButtonContainer: {
     paddingVertical: 6,

@@ -15,7 +15,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useTranslation} from 'react-i18next';
 
 import '../../../assets/i18n/i18n';
-import {COLORS, SIZES} from '../../utility';
+import {COLORS, IMAGES, SIZES} from '../../utility';
 import {AppButton, PhoneInputField, Loader} from '../../components';
 import {Context as UserContext} from '../../contexts/userContext';
 
@@ -67,8 +67,7 @@ const Login = () => {
     setErrors(prevState => ({...prevState, [input]: errorMessage}));
   };
 
-  const authImage =
-    'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910061/authImage_mb3hex.png';
+  const authImage = IMAGES.authImage;
 
   return (
     <>
@@ -147,7 +146,7 @@ const Login = () => {
                 {t('welcome1')}
               </Text>
               <Text
-                numberOfLines={1}
+                // numberOfLines={1}
                 style={[
                   styles.welcomeText,
                   {fontFamily: 'Poppins_Medium', color: COLORS.textColor},
@@ -197,7 +196,7 @@ const Login = () => {
               <AppButton
                 text={t('login')}
                 color={
-                  !inputs.phone || inputs.phone.length < 9
+                  !inputs.phone || inputs.phone.length < 12
                     ? '#d3d3d3'
                     : COLORS.primary
                 }
@@ -205,7 +204,7 @@ const Login = () => {
                 //   navigation.navigate('OTPVerification', inputs.phone)
                 // }
                 onPress={handleSignIn}
-                disabled={loading || !inputs.phone || inputs.phone.length < 9}
+                disabled={loading || !inputs.phone || inputs.phone.length < 12}
               />
             </View>
             {/* <View
@@ -277,6 +276,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     marginRight: 6,
     fontSize: 14,
+    flexWrap: 'wrap',
   },
 
   formContainer: {

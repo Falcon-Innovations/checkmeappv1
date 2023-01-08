@@ -13,7 +13,7 @@ import React, {useEffect} from 'react';
 import {Button} from 'react-native-paper';
 import {useTranslation} from 'react-i18next';
 
-import {COLORS, SIZES} from '../../utility';
+import {COLORS, IMAGES, SIZES} from '../../utility';
 import {AppStatusBar, DashboardCard} from '../../components';
 import {Context as AuthContext} from '../../contexts/userContext';
 
@@ -25,8 +25,7 @@ const Dashboard = ({navigation}) => {
   const fruits =
     'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910055/fruits_ajpqm8.png';
 
-  const headerImage =
-    'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910049/nurse_ufaz8i.png';
+  const headerImage = IMAGES.headerImage;
 
   useEffect(() => {
     // This listens to click on the back button for the homescreen and automatically closes the app
@@ -88,7 +87,7 @@ const Dashboard = ({navigation}) => {
                       color: '#fff',
                       fontFamily: 'Poppins_Regular',
                     }}>
-                    Take today's test
+                    {t('takeTest')}
                   </Text>
                 </View>
                 <View

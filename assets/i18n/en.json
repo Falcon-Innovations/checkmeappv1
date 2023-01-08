@@ -19,7 +19,7 @@
     "profile": "Profile",
     "login": "Login",
     "welcome1": "Welcome back!",
-    "welcome2": "Kindly Fill this to sign in.",
+    "welcome2": "Kindly enter your phone number to sign in.",
     "noAccount": "Don't have an account yet?",
     "signup": "Sign Up",
     "onboard1title": "Hospitals",
@@ -78,6 +78,22 @@
     "help": "Help",
     "thnkU": "Thank you for using",
     "thankUnessage": ". Please contact us via whatsapp or Call using the number below for any help or enquiries",
-    "call": "Call"
+    "call": "Call",
+    "refer": "Refer a Friend",
+    "referMessage": " Please share this app with a friend, colleague, or family member. Together, let's fight breast cancer and female health.",
+    "takeTest": "Take today's test",
+
+    "health": "Health",
+    "period": "Track my Period",
+    "appointment": "Appointments",
+    "cycle": "My Cycle",
+    "noCycle": "You have not set your cycle",
+    "day": "Days",
+    "avPeriod": "Average Period",
+    "avCycle": "Average Cycle",
+    "personalDash": "Personal Dashboard",
+    "share": "Share App",
+    "shareMessae1": "Are you scared of breast cancer? Worry not again Check Me is here to help you. ",
+    "shareMessae2": "Download from the Google play store at"
   }
 }

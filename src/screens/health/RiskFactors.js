@@ -6,75 +6,38 @@ import {
   Text,
   View,
 } from 'react-native';
-import React from 'react';
-import {AppStatusBar, CustomStatusBar} from '../../components';
-import {COLORS, images, SIZES} from '../../utility';
-import RiskCard from '../../components/RiskCard';
+import React, {useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
+import {useNavigation} from '@react-navigation/native';
+
+import {AppStatusBar, CustomStatusBar, SimpleLoader} from '../../components';
+import {COLORS, config, SIZES, IMAGES} from '../../utility';
+import RiskCard from '../../components/RiskCard';
+import useDataFetching from '../../hooks/useFetchData';
 
 const RiskFactors = () => {
   const {t} = useTranslation();
-  const data = [
-    {
-      id: 1,
-      titile: t('age'),
-      explaination: t('ageText'),
-      color: '#FAEFD7',
-      image:
-        'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910046/time_lzikik.png',
-    },
-    {
-      id: 2,
-      titile: t('smoking'),
-      explaination: t('smokeText'),
-      color: '#ECE7FE',
-      image:
-        'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910047/smoking_q8jui1.png',
-    },
-    {
-      id: 3,
-      titile: t('alcohol'),
-      explaination: t('alcoholText'),
-      color: '#F8D8D9',
-      image:
-        'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910064/alcohol_c39re8.png',
-    },
-    {
-      id: 4,
-      titile: t('radiation'),
-      explaination: t('radiationText'),
-      color: '#D2E6FE',
-      image:
-        'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910047/Radiation_gykeq6.png',
-    },
-    {
-      id: 5,
-      titile: 'Gender',
-      explaination:
-        "Just being a woman is the biggest risk factor for developing breast cancer. According to a report by VOA Cam, there has been a delay in breast cancer screening since the outbreak of corona. As a result the number of women diagnosed with breast cancer has increased to 2625 cases per 100,000 women per year.While men do develop breast cancer, less than 1% of all new breast cancer cases happen in men. The biggest reasons for the difference in breast cancer rates between men and women are: - Women's breast development takes 3 to 4 years and is usually complete by age 14. It's uncommon for men's breasts to fully form — most of the male breasts you see are fat, not formed glands. Once fully formed, breast cells are very immature and highly active until a woman's first full-term pregnancy. While they are immature, a women's breast cells are very responsive to estrogen and other hormones, including hormone disrupters in the environment. Men's breast cells are inactive and most men have extremely low levels of estrogen. So hormonal stimulation of highly responsive and vulnerable breast cells in women, particularly during the extra-sensitive period of breast development, is why breast cancer is much more common in women than in men.",
-      color: '#F7EAEA',
-      image:
-        'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910054/gender_u8iacu.png',
-    },
-    {
-      id: 6,
-      titile: t('genTitle'),
-      explaination: t('genetics'),
-      color: '#E9EEF7',
-      image:
-        'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910059/dna_mqibmm.png',
-    },
-  ];
+  const navigation = useNavigation();
+  const [loading, error, data, fetchData] = useDataFetching(
+    `${config.app.api_url}/riskFactors`,
+  );
+  useEffect(() => {
+    const updateData = navigation.addListener('focus', () => {
+      fetchData();
+    });
+    return updateData;
+  }, [navigation]);
+
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
-      <CustomStatusBar text="Risk Factors" />
+      <CustomStatusBar text={t('risk')} />
       <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={{
+        <View
+          style={{
+            paddingVertical: 8,
+            alignItems: 'center',
             paddingHorizontal: SIZES.screenWidth * 0.06,
-            paddingTop: SIZES.screenHeight * 0.02,
           }}>
           <Text
             style={{
@@ -86,7 +49,7 @@ const RiskFactors = () => {
           </Text>
           <Image
             source={{
-              uri: 'https://res.cloudinary.com/dftozcqnt/image/upload/v1671452357/Breastcancer_bc4jt7.jpg',
+              uri: IMAGES?.riskfactorsBanner,
             }}
             style={{
               width: SIZES.screenWidth - 40,
@@ -96,17 +59,39 @@ const RiskFactors = () => {
             }}
             resizeMode="cover"
           />
-          <View style={{marginVertical: 20}}>
-            {data.map(item => (
-              <RiskCard
-                key={item.id}
-                title={item.titile}
-                description={item.explaination}
-                color={item.color}
-                image={{uri: item.image}}
-              />
-            ))}
-          </View>
+        </View>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingHorizontal: SIZES.screenWidth * 0.06,
+            paddingTop: SIZES.screenHeight * 0.02,
+          }}>
+          {loading ? (
+            <SimpleLoader />
+          ) : (
+            <>
+              {data?.data?.docs?.length < 1 ? (
+                <View>
+                  <Text>
+                    Please just a little patience we are adding the risk factors
+                    shortly
+                  </Text>
+                </View>
+              ) : (
+                <View style={{marginVertical: 20}}>
+                  {data?.data?.docs?.map(item => (
+                    <RiskCard
+                      key={item?._id}
+                      title={item?.title}
+                      description={item?.description}
+                      color={item?.color}
+                      image={{uri: item?.image}}
+                    />
+                  ))}
+                </View>
+              )}
+            </>
+          )}
         </ScrollView>
       </SafeAreaView>
     </>

@@ -18,7 +18,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import {useNavigation} from '@react-navigation/native';
-import {COLORS, SIZES} from '../../utility';
+import {COLORS, IMAGES, SIZES} from '../../utility';
 import {AppButton, Loader} from '../../components';
 import {Context as UserContext} from '../../contexts/userContext';
 
@@ -36,6 +36,9 @@ const OTPVerification = ({route}) => {
   const {checkOTP, sendOTP} = React.useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [delay, setDelay] = useState(MAX_DELAY);
+  const verifyImage = IMAGES.verifyImage;
+
+  //CHECKopt
   const handleCheckOTP = async () => {
     const smsCode = serializeOTP(otp);
     setLoading(true);
@@ -81,9 +84,6 @@ const OTPVerification = ({route}) => {
     await sendOTP({phoneNumber: phoneNumber});
     setLoading(false);
   };
-
-  const verifyImage =
-    'https://res.cloudinary.com/dftozcqnt/image/upload/v1669895999/otp_two-factor_1_cdkweo.png';
 
   return (
     <SafeAreaView style={styles.container}>

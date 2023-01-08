@@ -12,7 +12,7 @@ import {useTranslation} from 'react-i18next';
 import SendSMS from 'react-native-sms';
 
 import {AppButton, AppStatusBar, CustomStatusBar} from '../../components';
-import {COLORS, SIZES} from '../../utility';
+import {COLORS, IMAGES, SIZES} from '../../utility';
 import {Context as AuthContext} from '../../contexts/userContext';
 import {Platform} from 'react-native';
 
@@ -78,7 +78,7 @@ const Help = () => {
           </Text>
           <Image
             source={{
-              uri: 'https://res.cloudinary.com/dftozcqnt/image/upload/v1672855007/Breast_cancer_awareness-rafiki_bne9ja.png',
+              uri: IMAGES.helpImage,
             }}
             style={styles.image}
             resizeMode="contain"
@@ -92,7 +92,7 @@ const Help = () => {
           </View>
           <View style={{marginTop: 20}}>
             <AppButton
-              text={`${t('call')} +237 673 993 113'`}
+              text={`${t('call')} +237 673 993 113`}
               color={'#9C91AA'}
               onPress={openDialScreen}
             />

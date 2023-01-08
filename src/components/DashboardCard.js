@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 
-import {COLORS, SIZES} from '../utility';
+import {COLORS, IMAGES, SIZES} from '../utility';
 
 const DashboardCard = () => {
   const navigation = useNavigation();
@@ -13,26 +13,26 @@ const DashboardCard = () => {
       id: 1,
       title: t('selfExamine'),
       screen: 'SelfExamination',
-      img: 'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910055/healthy_dutzy0.png',
+      img: IMAGES.selfExamine,
     },
     {
       id: 2,
       title: t('risk'),
       screen: 'RiskFactors',
-      img: 'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910049/risk_jn06br.png',
+      img: IMAGES.riskFactors,
     },
     {
       id: 3,
       title: t('hospitals'),
       screen: 'Hospitals',
-      img: 'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910054/hospitals_q8jow9.png',
+      img: IMAGES.hospital,
     },
 
     {
       id: 4,
       title: 'specialist',
       screen: 'Specialists',
-      img: 'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910060/doc_umpdad.png',
+      img: IMAGES.specialist,
     },
   ];
   return (

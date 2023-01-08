@@ -41,22 +41,22 @@ const PersonalDashboard = () => {
 
   const data = [
     {
-      title: 'Track my period',
+      title: t('period'),
       screen: 'MenstraulCycle',
       icon: <Icons name="ios-water" color="#fff" size={22} />,
     },
     {
-      title: 'Self-examine',
+      title: t('selfExamine'),
       screen: 'SelfExamination',
       icon: <Icons name="ios-flower" color="#fff" size={22} />,
     },
     {
-      title: 'Appointments',
+      title: t('appointment'),
       screen: 'AllAppointments',
       icon: <FontAwesome5Icon name="calendar-day" color="#fff" size={22} />,
     },
     {
-      title: 'Refer a friend',
+      title: t('refer'),
       screen: 'Referals',
       icon: <FontAwesome5Icon name="handshake" color="#fff" size={22} />, //stethoscope
     },
@@ -66,12 +66,12 @@ const PersonalDashboard = () => {
     {
       days: `${user?.data?.doc?.menstrualCycleInfo?.daysBledCount.toFixed(1)}`,
       icon: <Icons name="ios-water" color="#fff" size={20} />,
-      desc: 'Average Period',
+      desc: t('avPeriod'),
     },
     {
       days: `${user?.data?.doc?.menstrualCycleInfo?.dayCount.toFixed(1)}`,
       icon: <Icons name="ios-sync" color="#fff" size={20} />,
-      desc: 'Average Cycle',
+      desc: t('avCycle'),
     },
   ];
 
@@ -81,7 +81,7 @@ const PersonalDashboard = () => {
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
-      <CustomStatusBar text={'Personal Dashboard'} />
+      <CustomStatusBar text={t('personalDash')} />
       <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
         <ScrollView
           contentContainerStyle={{paddingHorizontal: 15, paddingTop: 20}}>
@@ -161,7 +161,7 @@ const PersonalDashboard = () => {
                   fontSize: 17,
                   color: COLORS.textColor,
                 }}>
-                Health
+                {t('health')}
               </Text>
             </View>
             <View
@@ -235,7 +235,7 @@ const PersonalDashboard = () => {
                   fontSize: 17,
                   color: COLORS.textColor,
                 }}>
-                My cycle
+                {t('cycle')}
               </Text>
             </View>
             {loading || error ? (
@@ -270,7 +270,7 @@ const PersonalDashboard = () => {
                       style={{
                         color: COLORS.textColor,
                       }}>
-                      You have not set your cycle
+                      {t('noCycle')}
                     </Text>
                   </View>
                 ) : (
@@ -314,7 +314,7 @@ const PersonalDashboard = () => {
                               color: COLORS.textColor,
                             }}>
                             {cy.days > 0
-                              ? `${cy.days} Days`
+                              ? `${cy.days} ${t('day')}`
                               : `${cy.days} Days`}
                           </Text>
                           <Text

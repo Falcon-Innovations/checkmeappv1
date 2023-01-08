@@ -13,13 +13,11 @@ import LinearGradient from 'react-native-linear-gradient';
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import '../../../assets/i18n/i18n';
-import {COLORS, SIZES} from '../../utility';
+import {COLORS, IMAGES, SIZES} from '../../utility';
 
 const Onboard = props => {
   const {t, i18n} = useTranslation();
   const [currentLanguage, setLanguage] = useState(i18n.language);
-
-  const [activeLang, setActiveLang] = useState(false);
 
   const changeLanguage = value => {
     i18n
@@ -31,24 +29,20 @@ const Onboard = props => {
     {
       title: t('onboard1title'),
       text: t('text1'),
-      image:
-        'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910054/hospital_vpjetb.png',
+      image: IMAGES.onBoard1,
     },
     {
       title: t('onboard2title'),
       text: t('text2'),
-      image:
-        'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910060/doc_umpdad.png',
+      image: IMAGES.onBoard2,
     },
     {
       title: t('onboard3title'),
       text: t('text3'),
-      image:
-        'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910060/calender_wq42mz.png',
+      image: IMAGES.onBoard3,
     },
   ];
 
-  const navigation = useNavigation();
   const renderItem = ({item}) => {
     return (
       <LinearGradient colors={['#F7007D', '#CF6283']} style={styles.slide}>
