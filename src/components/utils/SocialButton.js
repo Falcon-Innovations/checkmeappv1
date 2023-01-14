@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     borderColor: COLORS.primary,
   },
   appButtonText: {
-    fontSize: 15,
+    fontSize: 13,
+    fontFamily: 'Poppins-Regular',
   },
   appButtonContainer: {
     paddingVertical: 6,

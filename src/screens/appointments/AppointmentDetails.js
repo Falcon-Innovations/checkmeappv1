@@ -37,7 +37,7 @@ const AppointmentDetails = ({route}) => {
               <View style={{marginLeft: 8}}>
                 <Text
                   style={{
-                    fontFamily: 'Poppins_Medium',
+                    fontFamily: 'Poppins-Medium',
                     fontSize: 10,
                     color: 'gray',
                   }}>
@@ -62,7 +62,7 @@ const AppointmentDetails = ({route}) => {
               <View style={{marginLeft: 8}}>
                 <Text
                   style={{
-                    fontFamily: 'Poppins_Medium',
+                    fontFamily: 'Poppins-Medium',
                     fontSize: 10,
                     color: 'gray',
                   }}>
@@ -71,7 +71,7 @@ const AppointmentDetails = ({route}) => {
                 <Text
                   numberOfLines={1}
                   style={{
-                    fontFamily: 'Poppins_Medium',
+                    fontFamily: 'Poppins-Medium',
                     fontSize: 10,
                     color: COLORS.primary,
                   }}>
@@ -104,7 +104,7 @@ const AppointmentDetails = ({route}) => {
               <Icons name="ios-information-circle" size={15} />
               <Text
                 style={{
-                  fontFamily: 'Poppins_Regular',
+                  fontFamily: 'Poppins-Regular',
                   fontSize: 10,
                   marginLeft: 12,
                   marginBottom: 12,
@@ -158,8 +158,8 @@ export default AppointmentDetails;
 
 const styles = StyleSheet.create({
   title: {
-    fontFamily: 'Poppins_Medium',
-    fontSize: 16,
+    fontFamily: 'Poppins-Medium',
+    fontSize: 15,
     color: COLORS.primary,
   },
   appointment: {
@@ -185,12 +185,12 @@ const styles = StyleSheet.create({
   elevation: {},
   des: {
     marginBottom: 12,
-    fontFamily: 'Poppins_Medium',
+    fontFamily: 'Poppins-Medium',
     color: COLORS.primary,
     fontSize: 14,
   },
   descText: {
-    fontFamily: 'Poppins_Regular',
+    fontFamily: 'Poppins-Regular',
     fontSize: 14,
   },
 });

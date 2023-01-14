@@ -9,7 +9,8 @@ const AppButton = ({text, color, onPress, ...rest}) => {
         uppercase={false}
         labelStyle={{
           color: '#fff',
-          fontFamily: 'Poppins_Medium',
+          fontSize: 12,
+          fontFamily: 'Poppins-Medium',
           justifyContent: 'center',
         }}
         mode="contained"
@@ -17,6 +18,7 @@ const AppButton = ({text, color, onPress, ...rest}) => {
           height: 45,
           width: '100%',
           alignItems: 'center',
+          justifyContent: 'center',
           paddingTop: 2,
         }}
         theme={{colors: {primary: color}}}

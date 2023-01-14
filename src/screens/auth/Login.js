@@ -8,8 +8,9 @@ import {
   TouchableOpacity,
   Keyboard,
   StatusBar,
+  BackHandler,
 } from 'react-native';
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useTranslation} from 'react-i18next';
@@ -25,15 +26,6 @@ const Login = () => {
   const {t, i18n} = useTranslation();
   const [currentLanguage, setLanguage] = useState(i18n.language);
 
-  const [activeLang, setActiveLang] = useState(false);
-
-  const changeLanguage = value => {
-    i18n
-      .changeLanguage(value)
-      .then(() => setLanguage(value))
-      .catch(err => console.log(err));
-  };
-
   const {signIn, sendOTP} = React.useContext(UserContext);
   const [inputs, setInputs] = useState({
     phone: '',
@@ -41,6 +33,14 @@ const Login = () => {
   const phoneInput = useRef(null);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+
+  //change language
+  const changeLanguage = value => {
+    i18n
+      .changeLanguage(value)
+      .then(() => setLanguage(value))
+      .catch(err => console.log(err));
+  };
 
   const handleSignIn = async () => {
     Keyboard.dismiss();
@@ -103,8 +103,8 @@ const Login = () => {
                 <Text
                   style={
                     currentLanguage === 'en'
-                      ? {fontFamily: 'Poppins_Medium', color: '#fff'}
-                      : {fontFamily: 'Poppins_Medium', color: '#3c1361'}
+                      ? {fontFamily: 'Poppins-Medium', color: '#fff'}
+                      : {fontFamily: 'Poppins-Medium', color: '#3c1361'}
                   }>
                   EN
                 </Text>
@@ -118,8 +118,8 @@ const Login = () => {
                 <Text
                   style={
                     currentLanguage === 'fr'
-                      ? {fontFamily: 'Poppins_Medium', color: '#fff'}
-                      : {fontFamily: 'Poppins_Medium', color: '#3c1361'}
+                      ? {fontFamily: 'Poppins-Medium', color: '#fff'}
+                      : {fontFamily: 'Poppin-Medium', color: '#3c1361'}
                   }>
                   FR
                 </Text>
@@ -141,7 +141,7 @@ const Login = () => {
               <Text
                 style={[
                   styles.welcomeText,
-                  {color: COLORS.primary, fontFamily: 'Poppins_Bold'},
+                  {color: COLORS.primary, fontFamily: 'Poppins-Bold'},
                 ]}>
                 {t('welcome1')}
               </Text>
@@ -149,27 +149,16 @@ const Login = () => {
                 // numberOfLines={1}
                 style={[
                   styles.welcomeText,
-                  {fontFamily: 'Poppins_Medium', color: COLORS.textColor},
+                  {
+                    fontFamily: 'Poppins-Medium',
+                    fontSize: 12,
+                    color: COLORS.textColor,
+                  },
                 ]}>
                 {t('welcome2')}
               </Text>
             </View>
             <View style={styles.formContainer}>
-              {/* <Input
-                placeholder="Enter your email"
-                keyboardType="email-address"
-                error={errors.email}
-                onFocus={() => handleErrors(null, 'email')}
-                onChangeText={(text) => handleOnChange(text, 'email')}
-              />
-              <Input
-                placeholder="Enter your password"
-                error={errors.pin}
-                pin
-                onFocus={() => handleErrors(null, "pin")}
-                onChangeText={(text) => handleOnChange(text, "pin")}
-              /> */}
-
               <PhoneInputField
                 phoneInput={phoneInput}
                 placeholder={t('placeholder3')}
@@ -180,18 +169,7 @@ const Login = () => {
                 }}
               />
             </View>
-            {/* <View>
-              <Text
-                style={{
-                  color: COLORS.primary,
-                  fontFamily: 'Poppins_Medium',
-                  fontSize: 12,
-                  marginLeft: 10,
-                }}
-              >
-                Forgot Password?
-              </Text>
-            </View> */}
+
             <View style={{marginTop: 20}}>
               <AppButton
                 text={t('login')}
@@ -200,28 +178,10 @@ const Login = () => {
                     ? '#d3d3d3'
                     : COLORS.primary
                 }
-                // onPress={() =>
-                //   navigation.navigate('OTPVerification', inputs.phone)
-                // }
                 onPress={handleSignIn}
                 disabled={loading || !inputs.phone || inputs.phone.length < 12}
               />
             </View>
-            {/* <View
-              style={{
-                alignItems: 'center',
-                marginVertical: 15,
-                fontFamily: 'Poppins_Regular',
-              }}
-            >
-              <Text>Or you can sign in with</Text>
-            </View> */}
-
-            {/* <SocialButton
-              icon="google"
-              title="Login with Google"
-              backgroundColor="#3b5998"
-            /> */}
 
             <View
               style={{
@@ -239,8 +199,8 @@ const Login = () => {
                     textDecorationStyle: 'solid',
                     textDecorationColor: '#000',
                     color: COLORS.primary,
-                    fontFamily: 'Poppins_Medium',
-                    fontSize: 15,
+                    fontFamily: 'Poppins-Medium',
+                    fontSize: 14,
                     marginLeft: 10,
                   }}>
                   {t('signup')}
@@ -294,9 +254,9 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   haveAnAccount: {
-    fontSize: 15,
+    fontSize: 13,
     color: '#fff',
-    fontFamily: 'Poppins_Regular',
+    fontFamily: 'Poppins-Regular',
   },
   unActive: {
     paddingHorizontal: 10,

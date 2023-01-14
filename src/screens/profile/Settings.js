@@ -88,7 +88,7 @@ const Settings = () => {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                   }}>
-                  <Text style={{fontFamily: 'Poppins_Regular', fontSize: 14}}>
+                  <Text style={{fontFamily: 'Poppins-Regular', fontSize: 13}}>
                     {setting.title}
                   </Text>
                   <Icon
@@ -114,7 +114,9 @@ const Settings = () => {
                         currentLanguage === 'en' ? '#33A850' : '#d3d3d3',
                       padding: 20,
                     }}>
-                    <Text>{t('enLang')}</Text>
+                    <Text style={{fontSize: 12, fontFamily: 'Poppins-Regular'}}>
+                      {t('enLang')}
+                    </Text>
                   </Pressable>
                   <Pressable
                     onPress={() => changeLanguage('fr')}
@@ -123,13 +125,15 @@ const Settings = () => {
                         currentLanguage === 'fr' ? '#33A850' : '#d3d3d3',
                       padding: 20,
                     }}>
-                    <Text>{t('frLang')}</Text>
+                    <Text style={{fontSize: 12, fontFamily: 'Poppins-Regular'}}>
+                      {t('frLang')}
+                    </Text>
                   </Pressable>
                 </View>
                 <View style={{paddingVertical: 10, alignSelf: 'center'}}>
                   <Button
                     color={COLORS.primary}
-                    title=" Set Language "
+                    title={t('changeLanguage')}
                     onPress={toggleModal}
                   />
                 </View>

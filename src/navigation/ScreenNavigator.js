@@ -29,7 +29,6 @@ import {
   RiskFactors,
   AllAppointments,
   AppointmentDetails,
-  SportHome,
   Help,
   // AppointmentDetails,
 } from '../screens';
@@ -66,7 +65,7 @@ const RootNavigator = () => {
   }
 
   const handleOnboardingDone = () => {
-    navigationRef?.navigate('Signup');
+    navigationRef?.navigate('Login');
   };
 
   return (
@@ -108,7 +107,7 @@ const RootNavigator = () => {
           name="AppointmentDetails"
           component={AppointmentDetails}
         />
-        <Stack.Screen name="SportHome" component={SportHome} />
+
         <Stack.Screen name="Root" component={BottomTabNavigator} />
       </Stack.Navigator>
     </>
@@ -135,6 +134,7 @@ const BottomTabNavigator = () => {
         component={Dashboard}
         options={{
           tabBarLabel: t('home'),
+
           tabBarIcon: ({color}) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),

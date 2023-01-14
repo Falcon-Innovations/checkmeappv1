@@ -15,7 +15,7 @@ const CustomStatusBar = ({text}) => {
         </TouchableOpacity>
         <Text
           style={{
-            fontFamily: 'Poppins_Medium',
+            fontFamily: 'Poppins-Medium',
             fontSize: 12,
             color: COLORS.textColor,
           }}>

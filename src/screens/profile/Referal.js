@@ -54,10 +54,19 @@ const Referal = () => {
             paddingTop: 20,
             paddingBottom: 30,
           }}>
-          <Text style={{color: COLORS.textColor}}>
+          <Text
+            style={{
+              color: COLORS.textColor,
+              fontFamily: 'Poppins-Regular',
+              fontSize: 13,
+            }}>
             {t('thnkU')}{' '}
             <Text
-              style={{fontSize: 15, color: COLORS.primary, fontWeight: 'bold'}}>
+              style={{
+                fontSize: 14,
+                color: COLORS.primary,
+                fontFamily: 'Poppins-Bold',
+              }}>
               Check Me.
             </Text>
             {t('referMessage')}

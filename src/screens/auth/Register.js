@@ -8,9 +8,9 @@ import {
   Keyboard,
   Platform,
   TouchableWithoutFeedback,
-  ScrollView,
+  Pressable,
 } from 'react-native';
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -57,10 +57,12 @@ const Register = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
+  //emailValidation
   function isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
   }
 
+  //formValidation
   const validate = () => {
     Keyboard.dismiss();
     let isValid = true;
@@ -89,6 +91,7 @@ const Register = () => {
     }
   };
 
+  //changeLanguage
   const changeLanguage = value => {
     i18n
       .changeLanguage(value)
@@ -188,8 +191,8 @@ const Register = () => {
                 <Text
                   style={
                     currentLanguage === 'en'
-                      ? {fontFamily: 'Poppins_Medium', color: '#fff'}
-                      : {fontFamily: 'Poppins_Medium', color: '#3c1361'}
+                      ? {fontFamily: 'Poppins-Medium', color: '#fff'}
+                      : {fontFamily: 'Poppins-Medium', color: '#3c1361'}
                   }>
                   EN
                 </Text>
@@ -203,8 +206,8 @@ const Register = () => {
                 <Text
                   style={
                     currentLanguage === 'fr'
-                      ? {fontFamily: 'Poppins_Medium', color: '#fff'}
-                      : {fontFamily: 'Poppins_Medium', color: '#3c1361'}
+                      ? {fontFamily: 'Poppins-Medium', color: '#fff'}
+                      : {fontFamily: 'Poppins-Medium', color: '#3c1361'}
                   }>
                   FR
                 </Text>
@@ -221,14 +224,14 @@ const Register = () => {
               <Text
                 style={[
                   styles.welcomeText,
-                  {color: COLORS.primary, fontFamily: 'Poppins_Bold'},
+                  {color: COLORS.primary, fontFamily: 'Poppins-Bold'},
                 ]}>
                 {t('registerWelcome')}
               </Text>
               <Text
                 style={[
                   styles.welcomeText,
-                  {fontFamily: 'Poppins_Medium', color: COLORS.textColor},
+                  {fontFamily: 'Poppins-Medium', color: COLORS.textColor},
                 ]}>
                 {t('registerWelcome2')}
               </Text>
@@ -266,21 +269,6 @@ const Register = () => {
                   handleOnChange(text, 'phone');
                 }}
               />
-
-              {/* <Input
-                placeholder="Enter a password"
-                error={errors.pin}
-                pin
-                onFocus={() => handleErrors(null, 'pin')}
-                onChangeText={(text) => handleOnChange(text, 'pin')}
-              />
-              <Input
-                placeholder="Confirm your password"
-                error={errors.kfirmPin}
-                pin
-                onFocus={() => handleErrors(null, "kfirmpin")}
-                onChangeText={(text) => handleOnChange(text, "kfirmpin")}
-              /> */}
             </View>
             <View style={{alignItems: 'center', marginTop: 15}}>
               <Text style={{color: COLORS.textColor}}>{t('terms')}</Text>
@@ -292,7 +280,7 @@ const Register = () => {
                     textDecorationStyle: 'solid',
                     textDecorationColor: '#000',
                     color: COLORS.primary,
-                    fontFamily: 'Poppins_Medium',
+                    fontFamily: 'Poppins-Medium',
                     fontSize: 12,
                     marginTop: 5,
                   }}>
@@ -318,20 +306,6 @@ const Register = () => {
                 onPress={validate}
               />
             </View>
-            {/* <View
-              style={{
-                alignItems: 'center',
-                marginVertical: 15,
-                fontFamily: 'Poppins_Regular',
-              }}>
-              <Text>Or you can sign up with</Text>
-            </View>
-
-            <SocialButton
-              icon="google"
-              title="Login with Google"
-              backgroundColor="#3b5998"
-            /> */}
 
             <View
               style={{
@@ -348,8 +322,8 @@ const Register = () => {
                     textDecorationStyle: 'solid',
                     textDecorationColor: '#000',
                     color: COLORS.primary,
-                    fontFamily: 'Poppins_Medium',
-                    fontSize: 15,
+                    fontFamily: 'Poppins-Medium',
+                    fontSize: 14,
                     marginLeft: 10,
                   }}>
                   {t('signin')}
@@ -401,9 +375,9 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   haveAnAccount: {
-    fontSize: 15,
+    fontSize: 14,
     color: '#fff',
-    fontFamily: 'Poppins_Regular',
+    fontFamily: 'Poppins-Regular',
   },
   unActive: {
     paddingHorizontal: 10,

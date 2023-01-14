@@ -12,7 +12,6 @@ import React, {useEffect} from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import Icons from 'react-native-vector-icons/Ionicons';
 import ProfileIcon from 'react-native-vector-icons/AntDesign';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 
 import {useNavigation} from '@react-navigation/native';
@@ -125,7 +124,7 @@ const PersonalDashboard = () => {
             <View>
               <Text
                 style={{
-                  fontFamily: 'Poppins_Medium',
+                  fontFamily: 'Poppins-Medium',
                   fontSize: 16,
                   color: COLORS.textColor,
                 }}>
@@ -133,7 +132,7 @@ const PersonalDashboard = () => {
               </Text>
               <Text
                 style={{
-                  fontFamily: 'Poppins_Regular',
+                  fontFamily: 'Poppins-Regular',
                   fontSize: 12,
                   color: '#AEADAD',
                   marginTop: 2,
@@ -206,8 +205,8 @@ const PersonalDashboard = () => {
                   </View>
                   <Text
                     style={{
-                      fontFamily: 'Poppins_Regular',
-                      fontSize: 14,
+                      fontFamily: 'Poppins-Regular',
+                      fontSize: 12,
                       color: COLORS.textColor,
                       marginTop: 18,
                     }}>
@@ -231,7 +230,7 @@ const PersonalDashboard = () => {
               />
               <Text
                 style={{
-                  fontFamily: 'Poppins_Medium',
+                  fontFamily: 'Poppins-Medium',
                   fontSize: 17,
                   color: COLORS.textColor,
                 }}>
@@ -309,8 +308,8 @@ const PersonalDashboard = () => {
                         <View style={{paddingLeft: 6, paddingBottom: 4}}>
                           <Text
                             style={{
-                              fontFamily: 'Poppins_Medium',
-                              fontSize: 16,
+                              fontFamily: 'Poppins-Medium',
+                              fontSize: 14,
                               color: COLORS.textColor,
                             }}>
                             {cy.days > 0
@@ -319,8 +318,8 @@ const PersonalDashboard = () => {
                           </Text>
                           <Text
                             style={{
-                              fontFamily: 'Poppins_Regular',
-                              fontSize: 11,
+                              fontFamily: 'Poppins-Regular',
+                              fontSize: 10,
                               color: COLORS.textColor,
                             }}>
                             {cy.desc}

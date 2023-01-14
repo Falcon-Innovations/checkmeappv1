@@ -172,7 +172,7 @@ const MenstraulCycle = () => {
             style={{
               justifyContent: 'center',
               fontSize: 18,
-              fontFamily: 'Poppins_Medium',
+              fontFamily: 'Poppins-Medium',
               color: '#fff',
               marginLeft: SIZES.screenWidth * 0.25,
             }}>
@@ -229,7 +229,7 @@ const MenstraulCycle = () => {
                   <View style={{paddingHorizontal: 20, marginTop: 20}}>
                     <Text
                       style={{
-                        fontFamily: 'Poppins_Regular',
+                        fontFamily: 'Poppins-Regular',
                         fontSize: 14,
                         textAlign: 'center',
                         color: COLORS.textColor,
@@ -260,13 +260,13 @@ const MenstraulCycle = () => {
                     </Text>
                     <Text
                       style={{
-                        fontFamily: 'Poppins_Medium',
-                        fontSize: 16,
+                        fontFamily: 'Poppins-Medium',
+                        fontSize: 14,
                         marginTop: 6,
                         color: COLORS.textColor,
                       }}>
                       {/* Started 4 September (15 Days) */}
-                      You have
+                      {`Expect to see your mensis after every ${infoUserCycle} days`}
                     </Text>
                   </View>
                   <View
@@ -304,8 +304,8 @@ const MenstraulCycle = () => {
                         <View style={{paddingLeft: 6, paddingBottom: 4}}>
                           <Text
                             style={{
-                              fontFamily: 'Poppins_Medium',
-                              fontSize: 16,
+                              fontFamily: 'Poppins-Medium',
+                              fontSize: 15,
                               color: COLORS.textColor,
                             }}>
                             {cy.days > 0
@@ -314,8 +314,8 @@ const MenstraulCycle = () => {
                           </Text>
                           <Text
                             style={{
-                              fontFamily: 'Poppins_Regular',
-                              fontSize: 11,
+                              fontFamily: 'Poppins-Regular',
+                              fontSize: 10,
                               color: COLORS.textColor,
                             }}>
                             {cy.desc}
@@ -329,7 +329,7 @@ const MenstraulCycle = () => {
                       paddingHorizontal: 18,
                       marginTop: SIZES.screenHeight * 0.03,
                     }}>
-                    <Text style={{fontFamily: 'Poppins_Medium', fontSize: 15}}>
+                    <Text style={{fontFamily: 'Poppins-Medium', fontSize: 14}}>
                       Cycle Information
                     </Text>
                     <View
@@ -343,8 +343,8 @@ const MenstraulCycle = () => {
                         style={{flexDirection: 'row', alignItems: 'center'}}>
                         <Text
                           style={{
-                            fontFamily: 'Poppins_Medium',
-                            fontSize: 16,
+                            fontFamily: 'Poppins-Medium',
+                            fontSize: 14,
                             marginRight: 14,
                             color: COLORS.textColor,
                           }}>
@@ -352,8 +352,9 @@ const MenstraulCycle = () => {
                         </Text>
                         <Text
                           style={{
-                            fontFamily: 'Poppins_Regular',
+                            fontFamily: 'Poppins-Regular',
                             color: COLORS.textColor,
+                            fontSize: 12,
                           }}>
                           {infoUserPeriod > 0
                             ? `${infoUserPeriod} Days`
@@ -363,7 +364,7 @@ const MenstraulCycle = () => {
                       <View>
                         <Text
                           style={{
-                            fontFamily: 'Poppins_Medium',
+                            fontFamily: 'Poppins-Medium',
                             color: COLORS.textColor,
                           }}
                           t>

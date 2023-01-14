@@ -82,6 +82,7 @@
     "refer": "Refer a Friend",
     "referMessage": " Please share this app with a friend, colleague, or family member. Together, let's fight breast cancer and female health.",
     "takeTest": "Take today's test",
+    "changeLanguage": "Set Language",
 
     "health": "Health",
     "period": "Track my Period",
@@ -94,6 +95,13 @@
     "personalDash": "Personal Dashboard",
     "share": "Share App",
     "shareMessae1": "Are you scared of breast cancer? Worry not again Check Me is here to help you. ",
-    "shareMessae2": "Download from the Google play store at"
+    "shareMessae2": "Download from the Google play store at",
+
+    "weight": "Keep your weight in check today!!.",
+    "physicality": "Be physically active - Exercise at least 30 mins a day.",
+    "fruits": "Eat Your Fruits & Vegetables - and Limit Alcohol (Zero is Best).",
+    "smoke": "Don't Smoke - smoking causes at least 15 different cancers.",
+    "breastFeed": "Breastfeed, If Possible - It lowers the risk of breast cancer",
+    "hormoneControl": "Avoid Hormone Therapy for Menopause - Hormones increase the risk of breast cancer."
   }
 }

@@ -54,8 +54,8 @@ const AllAppointments = () => {
                 borderColor: COLORS.borderCardColor,
               }}
               inputStyle={{
-                fontSize: 14,
-                fontFamily: 'Poppins_Regular',
+                fontSize: 12,
+                fontFamily: 'Poppins-Regular',
               }}
               iconColor="#D2D1D1"
             />
@@ -63,7 +63,7 @@ const AllAppointments = () => {
           <ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{paddingBottom: 10}}>
-            <Text style={{fontFamily: 'Poppins_Medium'}}>
+            <Text style={{fontFamily: 'Poppins-Medium'}}>
               Welcome to your list of appointments
             </Text>
 
@@ -121,7 +121,7 @@ const AllAppointments = () => {
                   </View>
                 ) : (
                   <View style={{marginTop: SIZES.screenHeight * 0.05}}>
-                    <Text style={{fontFamily: 'Poppins_Regular'}}>
+                    <Text style={{fontFamily: 'Poppins-Regular'}}>
                       Sorry!!!, you have no appointments yet. Please book one.
                     </Text>
                     <View style={{alignItems: 'center'}}>

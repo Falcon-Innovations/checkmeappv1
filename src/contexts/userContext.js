@@ -3,6 +3,7 @@ import createContext from './createContext';
 import client from '../api/client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as customNav from '../navigation/customNavigator';
+import axios from 'axios';
 
 const userReducer = (state, action) => {
   switch (action.type) {
@@ -216,8 +217,8 @@ const updateMyAvatar =
     });
 
     try {
-      const response = await client.patch(
-        'api/v1/users/updateAvatar',
+      const response = await axios.patch(
+        'http://67.205.166.151/api/v1/users/updateAvatar',
         formData,
         {
           headers: {

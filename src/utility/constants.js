@@ -54,6 +54,21 @@ const IMAGES = {
     'https://res.cloudinary.com/dftozcqnt/image/upload/v1672855007/Breast_cancer_awareness-rafiki_bne9ja.png',
   shareImage:
     'https://res.cloudinary.com/dftozcqnt/image/upload/v1673139794/undraw_Share_re_9kfx_trrlt3.png',
+
+  weight:
+    'https://res.cloudinary.com/dftozcqnt/image/upload/v1673234986/Low_self-esteem-pana_mtl0yy.png',
+  sportS:
+    'https://res.cloudinary.com/dftozcqnt/image/upload/v1673235367/Personalized_workouts-pana_rxcggd.png',
+  fruits:
+    'https://res.cloudinary.com/dftozcqnt/image/upload/v1673235606/tropical-fruits-white-background-top-view-removebg-preview_dvui4q.png',
+  smoke:
+    'https://res.cloudinary.com/dftozcqnt/image/upload/v1673235768/10320138_4447973-removebg-preview_n7pwzj.png',
+  breastFeed:
+    'https://res.cloudinary.com/dftozcqnt/image/upload/v1673235848/Breastfeeding-pana_n6qjvq.png',
+  birthControl:
+    'https://res.cloudinary.com/dftozcqnt/image/upload/v1673236104/21683577_Couple_with_menstruation_cycle_calendar_and_contraceptives-removebg-preview_kkayxk.png',
+  hormone:
+    'https://res.cloudinary.com/dftozcqnt/image/upload/v1673236418/adaptiveimage.resize.702.404-removebg-preview_vug1ju.png',
 };
 
 export {COLORS, SIZES, IMAGES};

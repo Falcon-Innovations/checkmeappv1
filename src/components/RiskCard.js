@@ -48,16 +48,16 @@ const RiskCard = ({title, description, color, image, onPress, points = []}) => {
             numberOfLines={1}
             style={{
               marginBottom: Platform.OS == 'ios' ? 12 : 8,
-              fontSize: 16,
-              fontFamily: 'Poppins_Medium',
+              fontSize: 15,
+              fontFamily: 'Poppins-Medium',
             }}>
             {title}
           </Text>
           <Text
             numberOfLines={3}
             style={{
-              fontFamily: 'Poppins_Regular',
-              marginBottom: 10,
+              fontFamily: 'Poppins-Regular',
+              marginBottom: 8,
               color: COLORS.textColor,
             }}>
             {description}
@@ -65,9 +65,9 @@ const RiskCard = ({title, description, color, image, onPress, points = []}) => {
           <TouchableOpacity onPress={toggleModal}>
             <Text
               style={{
-                fontFamily: 'Poppins_Medium',
+                fontFamily: 'Poppins-Medium',
                 color: COLORS.primary,
-                fontSize: 16,
+                fontSize: 14,
               }}>
               {t('readMore')}
             </Text>
@@ -113,7 +113,7 @@ const RiskCard = ({title, description, color, image, onPress, points = []}) => {
                 }}>
                 <Text
                   style={{
-                    fontFamily: 'Poppins_SemiBold',
+                    fontFamily: 'Poppins-SemiBold',
                     color: '#3C1053',
                     fontSize: Platform.OS === 'ios' ? 18 : 15,
                   }}>
@@ -133,7 +133,7 @@ const RiskCard = ({title, description, color, image, onPress, points = []}) => {
             <View>
               <Text
                 style={{
-                  fontFamily: 'Poppins_Regular',
+                  fontFamily: 'Poppins-Regular',
                   textAlign: 'left',
                   lineHeight: 24,
                   color: COLORS.textColor,

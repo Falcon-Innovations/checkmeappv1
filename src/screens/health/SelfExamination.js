@@ -128,7 +128,11 @@ const SelfExamination = () => {
               paddingHorizontal: 10,
             }}>
             <Text
-              style={{fontFamily: 'Poppins_Regular', color: COLORS.textColor}}>
+              style={{
+                fontFamily: 'Poppins-Regular',
+                fontSize: 12,
+                color: COLORS.textColor,
+              }}>
               Above is a video, explaining the self check process. We have a
               detailed explaination below. This is to help you undertand the
               self check properly
@@ -140,8 +144,8 @@ const SelfExamination = () => {
                 <View key={index}>
                   <Text
                     style={{
-                      fontFamily: 'Poppins_Medium',
-                      fontSize: 16,
+                      fontFamily: 'Poppins-Medium',
+                      fontSize: 15,
                       marginTop: SIZES.screenHeight * 0.03,
                       color: COLORS.textColor,
                     }}>
@@ -164,8 +168,9 @@ const SelfExamination = () => {
                   <View style={{marginTop: SIZES.screenHeight * 0.02}}>
                     <Text
                       style={{
-                        fontFamily: 'Poppins_Regular',
+                        fontFamily: 'Poppins-Regular',
                         color: COLORS.textColor,
+                        fontSize: 12,
                       }}>
                       {item.description}
                     </Text>
@@ -173,7 +178,7 @@ const SelfExamination = () => {
                   <View style={{marginTop: 10}}>
                     <Text
                       style={{
-                        fontFamily: 'Poppins_Medium',
+                        fontFamily: 'Poppins-Medium',
                         color: COLORS.textColor,
                       }}>
                       Steps to Follow
@@ -183,8 +188,8 @@ const SelfExamination = () => {
                         key={index}
                         style={{
                           paddingLeft: 10,
-                          fontFamily: 'Poppins_Regular',
-                          fontSize: 14,
+                          fontFamily: 'Poppins-Regular',
+                          fontSize: 12,
                           marginTop: 10,
                           lineHeight: 22,
                           color: COLORS.textColor,
@@ -202,7 +207,7 @@ const SelfExamination = () => {
               }}>
               <Text
                 style={{
-                  fontFamily: 'Poppins_Medium',
+                  fontFamily: 'Poppins-Medium',
                   marginBottom: 10,
                   color: COLORS.textColor,
                 }}>
@@ -213,7 +218,7 @@ const SelfExamination = () => {
                   key={index}
                   style={{
                     color: COLORS.textColor,
-                    fontFamily: 'Poppins_Regular',
+                    fontFamily: 'Poppins-Regular',
                     lineHeight: 24,
                   }}>{`\u29BF ${tip}`}</Text>
               ))}

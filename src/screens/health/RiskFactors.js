@@ -41,7 +41,7 @@ const RiskFactors = () => {
           }}>
           <Text
             style={{
-              fontFamily: 'Poppins_Regular',
+              fontFamily: 'Poppins-Regular',
               lineHeight: 22,
               color: COLORS.textColor,
             }}>
@@ -72,7 +72,7 @@ const RiskFactors = () => {
             <>
               {data?.data?.docs?.length < 1 ? (
                 <View>
-                  <Text>
+                  <Text style={{fontSize: 13, fontFamily: 'Poppins-Regular'}}>
                     Please just a little patience we are adding the risk factors
                     shortly
                   </Text>

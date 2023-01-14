@@ -90,8 +90,8 @@ const AllBlogs = () => {
           <Text
             style={{
               color: 'gray',
-              fontFamily: 'Poppins_Regular',
-              fontSize: 12,
+              fontFamily: 'Poppins-Regular',
+              fontSize: 10,
               marginBottom: 8,
               width: SIZES.screenWidth * 0.4,
             }}>
@@ -100,9 +100,10 @@ const AllBlogs = () => {
           <Text
             numberOfLines={3}
             style={{
-              width: SIZES.screenWidth * 0.49,
+              flexWrap: 'wrap',
+              width: SIZES.screenWidth * 0.48,
               paddingRight: 5,
-              fontFamily: 'Poppins_SemiBold',
+              fontFamily: 'Poppins-SemiBold',
               color: COLORS.textColor,
               fontSize: 15.5,
             }}>
@@ -147,29 +148,30 @@ const AllBlogs = () => {
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar text={'News Feed'} />
       <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-        <ScrollView
-          contentContainerStyle={{paddingHorizontal: 15, paddingTop: 20}}
-          refreshControl={
-            <RefreshControl refreshing={loading} onRefresh={fetchData} />
-          }>
-          <View style={{marginVertical: 20, marginHorizontal: 10}}>
-            <Searchbar
-              placeholder="Search News"
-              placeholderTextColor="#D2D1D1"
-              onChangeText={onChangeSearch}
-              value={searchQuery}
-              style={{
-                elevation: 0,
-                borderWidth: 0.5,
-                borderColor: '#EB3E95',
-              }}
-              inputStyle={{
-                fontSize: 14,
-                fontFamily: 'Poppins_Regular',
-              }}
-              iconColor="#D2D1D1"
-            />
-          </View>
+        <View style={{paddingTop: 20, paddingBottom: 8, marginHorizontal: 15}}>
+          <Searchbar
+            placeholder="Search"
+            placeholderTextColor="#D2D1D1"
+            onChangeText={onChangeSearch}
+            value={searchQuery}
+            style={{
+              elevation: 0,
+              borderWidth: 0.5,
+              borderColor: '#EB3E95',
+            }}
+            inputStyle={{
+              fontSize: 12,
+              fontFamily: 'Poppins-Regular',
+            }}
+            iconColor="#D2D1D1"
+          />
+          <Text style={{paddingVertical: 12, fontFamily: 'Poppins-Regular'}}>
+            Everything you need to know about breast cancer and female health
+            can be found here
+          </Text>
+        </View>
+
+        <View style={{paddingHorizontal: 15, paddingTop: 6}}>
           {loading ? (
             <SkeletonPlaceholder borderRadius={4}>
               <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
@@ -191,6 +193,12 @@ const AllBlogs = () => {
             <>
               {data?.data?.docs?.length > 0 ? (
                 <FlatList
+                  scrollEnable={true}
+                  contentContainerStyle={{
+                    paddingHorizontal: 15,
+                    paddingTop: 20,
+                  }}
+                  showsVerticalScrollIndicator={false}
                   data={data?.data?.docs}
                   renderItem={renderItem}
                   keyExtractor={item => item._id}
@@ -199,7 +207,7 @@ const AllBlogs = () => {
                 <View>
                   <Text
                     style={{
-                      fontFamily: 'Poppins_Regular',
+                      fontFamily: 'Poppins-Regular',
                       color: COLORS.textColor,
                     }}>
                     No blog has been added to the system yet. Please be patient
@@ -208,7 +216,7 @@ const AllBlogs = () => {
               )}
             </>
           )}
-        </ScrollView>
+        </View>
       </SafeAreaView>
     </>
   );

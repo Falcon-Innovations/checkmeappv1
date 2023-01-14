@@ -82,6 +82,7 @@
     "refer": "Référez un Ami",
     "referMessage": " Veuillez partager cette application avec un ami, un collègue ou un membre de la famille. Ensemble, luttons contre le cancer du sein et la santé des femmes.",
     "takeTest": "Faites le test d'aujourd'hui",
+    "changeLanguage": "Changer de Langue",
 
     "health": "La Santé",
     "period": "Suivre mes Règles",
@@ -94,6 +95,13 @@
     "personalDash": "Tableau de Bord Personnel",
     "share": "Partager L'application",
     "shareMessae1": "Avez-vous peur du cancer du sein ? Ne vous inquiétez plus Check Me est là pour vous aider .",
-    "shareMessae2": "Télécharger depuis le Google Play Store sur"
+    "shareMessae2": "Télécharger depuis le Google Play Store sur",
+
+    "weight": "Gardez votre poids sous contrôle aujourd'hui !!.",
+    "physicality": "Soyez physiquement actif - Faites de l'exercice au moins 30 minutes par jour.",
+    "fruits": "Mangez vos fruits et légumes - et limitez l'alcool (zéro est le meilleur).",
+    "smoke": "Ne fumez pas - fumer cause au moins 15 cancers différents.",
+    "breastFeed": "Allaiter, si possible - Cela réduit le risque de cancer du sein",
+    "hormoneControl": "Évitez l'hormonothérapie pour la ménopause - Les hormones augmentent le risque de cancer du sein."
   }
 }

@@ -35,6 +35,7 @@ const EditProfile = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [pickerResponse, setPickerResponse] = useState(null);
   const [visible, setVisible] = useState(false);
+  // const [profileImage,setProfileImage] =
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -111,7 +112,23 @@ const EditProfile = () => {
     // setSelectedImage({localUri: image?.uri});
   };
 
-  console.log(state?.user);
+  console.log(image, 'From edit profile');
+
+  const renderProfileImage = () => {
+    let uri = null;
+    if (image?.uri) {
+      uri = image.uri;
+    } else if (state?.user?.avatar) {
+      uri = state?.user?.avatar;
+    } else {
+      uri =
+        'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910045/user_xpovba.png';
+    }
+    return uri;
+  };
+
+  const profileImage = renderProfileImage();
+
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
@@ -127,15 +144,9 @@ const EditProfile = () => {
           <View style={{alignSelf: 'center', flexDirection: 'row'}}>
             <ImageBackground
               imageStyle={{borderRadius: 60}}
-              source={
-                state?.user?.avatar
-                  ? {uri: state?.user?.avatar}
-                  : pickerResponse === null
-                  ? {
-                      uri: 'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910045/user_xpovba.png',
-                    }
-                  : {uri: image?.uri}
-              }
+              source={{
+                uri: profileImage,
+              }}
               style={{
                 width: 80,
                 height: 80,
@@ -154,8 +165,8 @@ const EditProfile = () => {
           </View>
           <View>
             <View>
-              <Text style={styles.title}>Full Name</Text>
               <Input
+                label={'Full Name'}
                 placeholder="Enter your name"
                 keyboardType="default"
                 defaultValue={state?.user?.name}
@@ -163,10 +174,10 @@ const EditProfile = () => {
               />
             </View>
             <View>
-              <Text style={styles.title}>Email Address</Text>
               <Input
+                label={'Email Address'}
                 placeholder="Enter your email"
-                keyboardType="default"
+                keyboardType="email-address"
                 defaultValue={state?.user?.email}
                 onChangeText={text => handleOnChange(text, 'email')}
               />
@@ -267,6 +278,9 @@ const styles = StyleSheet.create({
 
     borderColor: '#DBD9D9',
   },
+  container: {
+    marginTop: 10,
+  },
   dateView: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -275,8 +289,9 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   title: {
-    fontFamily: 'Poppins_Regular',
+    fontFamily: 'Poppins-Regular',
     marginBottom: 6,
     marginLeft: 4,
+    fontSize: 12,
   },
 });

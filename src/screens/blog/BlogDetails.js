@@ -168,7 +168,11 @@ const BlogDetails = ({route}) => {
               {item.content}
             </Text> */}
           </View>
-          <RenderHtml contentWidth={width} source={source} />
+          <RenderHtml
+            tagsStyles={styles.tagsStyles}
+            contentWidth={width}
+            source={source}
+          />
           <View style={{marginTop: 30}} />
         </ScrollView>
       </SafeAreaView>
@@ -178,4 +182,15 @@ const BlogDetails = ({route}) => {
 
 export default BlogDetails;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  tagsStyles: {
+    body: {
+      whiteSpace: 'normal',
+      color: 'gray',
+    },
+    p: {
+      fontFamily: 'Poppins-Regular',
+      color: 'gray',
+    },
+  },
+});

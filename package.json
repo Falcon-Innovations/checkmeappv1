@@ -48,7 +48,6 @@
     "react-native-video": "^5.2.1",
     "react-native-video-player": "^0.14.0",
     "react-native-webview": "^11.25.0",
-    "react-native-webview-fullscreen": "^1.0.3",
     "react-query": "^3.39.2",
     "reanimated-bottom-sheet": "^1.0.0-alpha.22"
   },

@@ -20,7 +20,7 @@ const Help = () => {
   const {t} = useTranslation();
 
   const {state} = React.useContext(AuthContext);
-  const [mobileNumber, setMobileNumber] = useState('+237673993113');
+  const [mobileNumber, setMobileNumber] = useState('+237694914857');
   const [whatsAppMsg, setWhatsAppMsg] = useState(
     `Greetings team Check Me. I am a user of Check Me mobile application. My name is ${state?.user?.name}. Please how do i book an appointment for my breast cancer counseling and screening (REPLACE WITH YOUR MESSAGE)`,
   );
@@ -68,10 +68,19 @@ const Help = () => {
             paddingTop: 20,
             paddingBottom: 30,
           }}>
-          <Text style={{color: COLORS.textColor}}>
+          <Text
+            style={{
+              color: COLORS.textColor,
+              fontFamily: 'Poppins-Regular',
+              fontSize: 13,
+            }}>
             {t('thnkU')}{' '}
             <Text
-              style={{fontSize: 15, color: COLORS.primary, fontWeight: 'bold'}}>
+              style={{
+                fontSize: 14,
+                color: COLORS.primary,
+                fontFamily: 'Poppins-Bold',
+              }}>
               Check Me
             </Text>
             {t('thankUnessage')}
@@ -85,14 +94,14 @@ const Help = () => {
           />
           <View style={{marginTop: 10}}>
             <AppButton
-              text={'WhatsApp +237 673 993 113'}
+              text={'WhatsApp +237 694 914 857'}
               color={COLORS.primary}
               onPress={initiateWhatsAppSMS}
             />
           </View>
           <View style={{marginTop: 20}}>
             <AppButton
-              text={`${t('call')} +237 673 993 113`}
+              text={`${t('call')} +237 694 914 857`}
               color={'#9C91AA'}
               onPress={openDialScreen}
             />

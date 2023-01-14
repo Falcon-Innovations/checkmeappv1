@@ -12,20 +12,16 @@ import {
 import React, {useEffect} from 'react';
 import {Button} from 'react-native-paper';
 import {useTranslation} from 'react-i18next';
+// import {useNavigation} from '@react-navigation/native';
 
 import {COLORS, IMAGES, SIZES} from '../../utility';
 import {AppStatusBar, DashboardCard} from '../../components';
 import {Context as AuthContext} from '../../contexts/userContext';
 
 const Dashboard = ({navigation}) => {
-  const {t, i18n} = useTranslation();
+  const {t} = useTranslation();
   const {state, logout} = React.useContext(AuthContext);
   // const navigation = useNavigation();
-
-  const fruits =
-    'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910055/fruits_ajpqm8.png';
-
-  const headerImage = IMAGES.headerImage;
 
   useEffect(() => {
     // This listens to click on the back button for the homescreen and automatically closes the app
@@ -33,6 +29,48 @@ const Dashboard = ({navigation}) => {
       BackHandler.exitApp();
     });
   }, [navigation]);
+
+  const headerImage = IMAGES.headerImage;
+
+  const dailyTips = [
+    {
+      id: 1,
+      tip: t('weight'),
+      image: IMAGES.weight,
+    },
+    {
+      id: 2,
+      tip: t('physicality'),
+      image: IMAGES.sportS,
+    },
+    {
+      id: 3,
+      tip: t('fruits'),
+      image: IMAGES.fruits,
+    },
+    {
+      id: 4,
+      tip: t('smoke'),
+      image: IMAGES.smoke,
+    },
+    {
+      id: 5,
+      tip: t('breastFeed'),
+      image: IMAGES.breastFeed,
+    },
+    {
+      id: 6,
+      tip: 'Avoid Birth Control Pills, Particularly After Age 35 or If You Smoke.',
+      image: IMAGES.birthControl,
+    },
+    {
+      id: 7,
+      tip: t('hormoneControl'),
+      image: IMAGES.hormone,
+    },
+  ];
+
+  const randomTips = dailyTips[Math.floor(Math.random() * dailyTips.length)];
 
   return (
     <>
@@ -66,26 +104,26 @@ const Dashboard = ({navigation}) => {
                 <View style={{marginBottom: 5, width: '90%'}}>
                   <Text
                     style={{
-                      fontSize: 15,
+                      fontSize: 13,
                       color: '#fff',
-                      fontFamily: 'Poppins_Medium',
+                      fontFamily: 'Poppins-Medium',
                       marginBottom: 5,
                     }}>
                     {t('test')}
                   </Text>
                   <Text
                     style={{
-                      fontSize: 14,
+                      fontSize: 12,
                       color: '#fff',
-                      fontFamily: 'Poppins_Regular',
+                      fontFamily: 'Poppins-Regular',
                     }}>
                     {t('feeling')}
                   </Text>
                   <Text
                     style={{
-                      fontSize: 14,
+                      fontSize: 12,
                       color: '#fff',
-                      fontFamily: 'Poppins_Regular',
+                      fontFamily: 'Poppins-Regular',
                     }}>
                     {t('takeTest')}
                   </Text>
@@ -110,53 +148,26 @@ const Dashboard = ({navigation}) => {
           </View>
           <View style={{paddingHorizontal: 10, paddingTop: 15}}>
             <View>
-              <Text style={{fontFamily: 'Poppins_SemiBold', fontSize: 14}}>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 14,
+                  color: COLORS.textColor,
+                }}>
                 {t('heading')}
               </Text>
-              {/* <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "space-evenly",
-                }}
-              >
-                {tips.map((tip) => (
-                  <View
-                    key={tip.id}
-                    style={{ alignItems: "center", marginVertical: 10 }}
-                  >
-                    <View style={styles.tips}>
-                      <Image
-                        source={tip.img}
-                        style={{
-                          width: SIZES.screenWidth * 0.22,
-                          height: SIZES.screenWidth * 0.22,
-                        }}
-                        resizeMode="contain"
-                      />
-                    </View>
-                    <Text
-                      style={{
-                        fontSize: 9.5,
-                        fontFamily: "Poppins_Medium",
-                        marginTop: 5,
-                      }}
-                    >
-                      {tip.title}
-                    </Text>
-                  </View>
-                ))}
-              </View> */}
 
               <View
                 style={{
                   flexDirection: 'row',
-                  paddingHorizontal: 12,
+                  paddingHorizontal: 14,
                   width: '90%',
-                  paddingBottom: 25,
-                  paddingTop: 10,
+                  paddingBottom: 18,
+                  paddingTop: 12,
                   backgroundColor: '#FBE4DD',
                   alignSelf: 'center',
+                  justifyContent: 'center',
+                  alignContent: 'center',
                   borderRadius: 8,
                   marginTop: 10,
                   marginBottom: 15,
@@ -169,32 +180,30 @@ const Dashboard = ({navigation}) => {
                     width: 42,
                     height: 40,
                     alignItems: 'center',
+                    alignSelf: 'center',
                     borderRadius: 4,
                   }}>
                   <Image
-                    source={{uri: fruits}}
-                    style={{width: 35, height: 35, alignSelf: 'center'}}
+                    source={{uri: randomTips.image}}
+                    style={{width: 35, height: 35, alignSelf: 'flex-start'}}
                     resizeMode="contain"
                   />
                 </View>
-                <View style={{width: '90%', paddingHorizontal: 10}}>
+                <View
+                  style={{
+                    width: '90%',
+                    paddingHorizontal: 10,
+                    justifyContent: 'center',
+                  }}>
                   <Text
+                    numberOfLines={3}
                     style={{
-                      fontFamily: 'Poppins_Medium',
+                      fontFamily: 'Poppins-Regular',
                       color: COLORS.textColor,
-                      fontWeight: '600',
-                      fontSize: Platform.OS == 'ios' ? 12 : 12,
+                      fontWeight: '500',
+                      fontSize: Platform.OS == 'ios' ? 15 : 12,
                     }}>
-                    Grab a fruit today!
-                  </Text>
-                  <Text
-                    style={{
-                      fontFamily: 'Poppins_Regular',
-
-                      fontSize: Platform.OS == 'ios' ? 12 : 10,
-                    }}>
-                    Fruit and vegitables should be and important part of your
-                    daily meal
+                    {randomTips.tip}
                   </Text>
                 </View>
               </View>
@@ -226,10 +235,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingRight: 18,
   },
-  // imageContainer: {
-  //   height: SIZES.screenHeight * 0.22,
-  //   width: SIZES.screenWidth * 0.3,
-  // },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -247,17 +252,18 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    fontFamily: 'Poppins_Bold',
+    fontFamily: 'Poppins-Bold',
     fontSize: 16,
   },
   greeting: {
     color: '#fff',
     fontSize: 20,
-    fontFamily: 'Poppins_SemiBold',
+    fontFamily: 'Poppins-SemiBold',
   },
   testBtn: {
+    fontSize: 11,
     color: COLORS.primary,
-    fontFamily: 'Poppins_Medium',
+    fontFamily: 'Poppins-Medium',
     justifyContent: 'center',
   },
   tips: {

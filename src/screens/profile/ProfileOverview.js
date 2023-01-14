@@ -119,7 +119,7 @@ const ProfileOverview = () => {
             <View>
               <Text
                 style={{
-                  fontFamily: 'Poppins_Medium',
+                  fontFamily: 'Poppins-Medium',
                   fontSize: 16,
                   color: COLORS.textColor,
                 }}>
@@ -127,7 +127,7 @@ const ProfileOverview = () => {
               </Text>
               <Text
                 style={{
-                  fontFamily: 'Poppins_Regular',
+                  fontFamily: 'Poppins-Regular',
                   fontSize: 12,
                   color: '#AEADAD',
                   marginTop: 2,
@@ -161,7 +161,7 @@ const ProfileOverview = () => {
                   }}>
                   <Text
                     style={{
-                      fontFamily: 'Poppins_Regular',
+                      fontFamily: 'Poppins-Regular',
                       fontSize: 14,
                       color: COLORS.textColor,
                     }}>
@@ -195,7 +195,7 @@ const ProfileOverview = () => {
                 }}>
                 <Text
                   style={{
-                    fontFamily: 'Poppins_Regular',
+                    fontFamily: 'Poppins-Regular',
                     fontSize: 14,
                     color: COLORS.textColor,
                   }}>

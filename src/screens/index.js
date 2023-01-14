@@ -35,8 +35,6 @@ import {
   Help,
 } from './profile';
 
-import SportHome from './sports/SportHome';
-
 export {
   Login,
   Register,
@@ -62,7 +60,6 @@ export {
   DetailHospital,
   AllAppointments,
   AppointmentDetails,
-  SportHome,
   Referal,
   Help,
 };

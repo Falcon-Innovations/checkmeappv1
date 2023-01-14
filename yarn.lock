@@ -6336,11 +6336,6 @@ react-native-video@^5.2.1:
     prop-types "^15.7.2"
     shaka-player "^2.5.9"
 
-react-native-webview-fullscreen@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/react-native-webview-fullscreen/-/react-native-webview-fullscreen-1.0.3.tgz#24937e0a13b43495d6b77433c0b62dbe3d1bf5e2"
-  integrity sha512-1NdRV5l08g+qsh+ctldRVfycVOgkuugXJIv6noEvl6xJn2B0amW1YFT+4SRyUbzCkpZl/avxnrRaxY+3t3YOjQ==
-
 react-native-webview@^11.25.0:
   version "11.25.0"
   resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-11.25.0.tgz#fd2e0265224192d7381443cec732af56d6ca4d69"

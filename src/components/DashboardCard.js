@@ -37,7 +37,12 @@ const DashboardCard = () => {
   ];
   return (
     <View style={{marginTop: 10}}>
-      <Text style={{fontFamily: 'Poppins_SemiBold', fontSize: 14}}>
+      <Text
+        style={{
+          color: COLORS.textColor,
+          fontFamily: 'Poppins-Medium',
+          fontSize: 14,
+        }}>
         {t('features')}
       </Text>
       <View style={styles.container}>
@@ -60,7 +65,7 @@ const DashboardCard = () => {
                 position: 'absolute',
                 color: COLORS.textColor,
                 fontSize: 10,
-                fontFamily: 'Poppins_Medium',
+                fontFamily: 'Poppins-Medium',
                 top: SIZES.screenHeight * 0.14,
                 alignSelf: 'center',
                 paddingHorizontal: 5,

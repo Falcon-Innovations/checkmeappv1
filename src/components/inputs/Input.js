@@ -82,20 +82,20 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     color: COLORS.textColor,
-    fontFamily: 'Poppins_Regular',
-    fontSize: 18,
+    fontFamily: 'Poppins-Regular',
+    fontSize: 16,
     width: width,
   },
   placeholder: {
-    fontFamily: 'Poppins_Regular',
-    fontSize: 18,
+    fontFamily: 'Poppins-Regular',
+    fontSize: 16,
     color: COLORS.textColor,
   },
 
   errorMessage: {
     color: COLORS.primary,
     fontFamily: 'Poppins_Regular',
-    fontSize: 12,
+    fontSize: 11,
     marginTop: 4,
     marginBottom: 1,
   },
