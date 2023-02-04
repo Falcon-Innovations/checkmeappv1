@@ -24,6 +24,7 @@ import AppointmentsCard from './AppointmentsCard';
 import {NetworkGuard} from './network-guard/network-guard';
 
 import ComingSoonMessage from './ComingSoonMessage';
+import BlogCard from './BlogCard';
 
 export {
   PhoneInputField,
@@ -45,4 +46,5 @@ export {
   AppointmentsCard,
   NetworkGuard,
   ComingSoonMessage,
+  BlogCard,
 };

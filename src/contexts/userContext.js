@@ -88,16 +88,17 @@ const sendOTP =
       const {data} = await client.post('api/v1/users/sendOTP', {
         phoneNumber,
       });
+      console.log(data);
       if (data.message) {
         Alert.alert('Success', `OTP sent to ${phoneNumber}`);
         customNav.navigate('OTPVerification', {phoneNumber});
       }
     } catch (error) {
-      console.log(error?.data);
+      console.error(error);
       Alert.alert(
         'Error',
-        error?.response?.data?.message
-          ? `${error?.response?.data?.message}`
+        error?.response?.data?.error?.statusText
+          ? `${error?.response?.data?.error?.statusText}`
           : 'Something went wrong, please try again later.',
       );
     }

@@ -8,7 +8,6 @@ import {
   TouchableOpacity,
   Keyboard,
   StatusBar,
-  BackHandler,
 } from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
@@ -26,7 +25,7 @@ const Login = () => {
   const {t, i18n} = useTranslation();
   const [currentLanguage, setLanguage] = useState(i18n.language);
 
-  const {signIn, sendOTP} = React.useContext(UserContext);
+  const {sendOTP} = React.useContext(UserContext);
   const [inputs, setInputs] = useState({
     phone: '',
   });
@@ -146,7 +145,6 @@ const Login = () => {
                 {t('welcome1')}
               </Text>
               <Text
-                // numberOfLines={1}
                 style={[
                   styles.welcomeText,
                   {

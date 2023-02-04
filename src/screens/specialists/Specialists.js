@@ -74,7 +74,12 @@ const Specialists = () => {
               <RefreshControl refreshing={loading} onRefresh={fetchData} />
             }>
             <View>
-              <Text style={{fontFamily: 'Poppins_Medium', color: '#333333'}}>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 13,
+                  color: '#333333',
+                }}>
                 {t('specialistTitle')}
               </Text>
               {loading || error ? (
@@ -168,63 +173,6 @@ const Specialists = () => {
                   )}
                 </>
               )}
-
-              {/* <FlatList
-                columnWrapperStyle={{ marginHorizontal: 5 }}
-                contentContainerStyle={{
-                  alignItems: "center",
-                  paddingBottom: SIZES.screenHeight * 0.076,
-                }}
-                data={dummyData}
-                scrollEnabled={true}
-                showsVerticalScrollIndicator={false}
-                keyExtractor={(item) => item.id}
-                numColumns={2}
-                renderItem={({ item }) => (
-                  <View
-                    style={{
-                      marginHorizontal: 10,
-                      backgroundColor: "#FAFAFA",
-                      padding: 10,
-                      borderRadius: 8,
-                      shadowColor: "#000",
-                      shadowOffset: { width: 0, height: 2 },
-                      shadowOpacity: 0.2,
-                      marginBottom: 10,
-                      elevation: 2,
-                    }}
-                  >
-                    <View style={{ paddingHorizontal: 4 }}>
-                      <View>
-                        <Image
-                          source={item.image}
-                          style={{
-                            width: SIZES.screenWidth * 0.35,
-                            height: SIZES.screenWidth * 0.34,
-                            borderRadius: 8,
-                          }}
-                          resizeMode="contain"
-                        />
-                      </View>
-                      <View style={{ marginHorizontal: 5 }}>
-                        <Text>{item.name}</Text>
-                        <Text
-                          style={{ width: SIZES.screenWidth * 0.3 }}
-                          numberOfLines={1}
-                        >
-                          {item.speciality.join(",")}
-                        </Text>
-                        <Text
-                          style={{ width: SIZES.screenWidth * 0.3 }}
-                          numberOfLines={1}
-                        >
-                          {item.location}
-                        </Text>
-                      </View>
-                    </View>
-                  </View>
-                )}
-              /> */}
             </View>
           </ScrollView>
         </View>

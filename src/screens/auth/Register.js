@@ -8,7 +8,6 @@ import {
   Keyboard,
   Platform,
   TouchableWithoutFeedback,
-  Pressable,
 } from 'react-native';
 import React, {useState, useRef, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
@@ -158,8 +157,8 @@ const Register = () => {
     </View>
   );
 
-  const sheetRef = React.createRef(null);
-  const fall = new Animated.Value(1);
+  // const sheetRef = React.createRef(null);
+  // const fall = new Animated.Value(1);
 
   return (
     <>
@@ -270,10 +269,10 @@ const Register = () => {
                 }}
               />
             </View>
-            <View style={{alignItems: 'center', marginTop: 15}}>
+            {/* <View style={{alignItems: 'center', marginTop: 15}}>
               <Text style={{color: COLORS.textColor}}>{t('terms')}</Text>
               <TouchableWithoutFeedback
-                onPress={() => sheetRef.current.snapTo(0)}>
+                onPress={() => sheetRef?.current?.snapTo(0)}>
                 <Text
                   style={{
                     textDecorationLine: 'underline',
@@ -287,7 +286,7 @@ const Register = () => {
                   {t('condition')}
                 </Text>
               </TouchableWithoutFeedback>
-            </View>
+            </View> */}
 
             <View style={{marginTop: 20}}>
               <AppButton
@@ -331,7 +330,7 @@ const Register = () => {
               </TouchableOpacity>
             </View>
           </KeyboardAwareScrollView>
-          <BottomSheet
+          {/* <BottomSheet
             ref={sheetRef}
             snapPoints={[SIZES.screenHeight * 0.9, 0]}
             borderRadius={10}
@@ -339,7 +338,7 @@ const Register = () => {
             renderContent={renderContent}
             callbackNode={fall}
             enabledGestureInteraction={true}
-          />
+          /> */}
         </SafeAreaView>
       )}
     </>

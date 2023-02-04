@@ -19,7 +19,15 @@ const ComingSoonMessage = ({text}) => {
         style={styles.image}
         resizeMode="cover"
       />
-      <Text style={{color: COLORS.textColor, textAlign: 'center'}}>{text}</Text>
+      <Text
+        style={{
+          fontSize: 12,
+          color: COLORS.textColor,
+          textAlign: 'center',
+          fontFamily: 'Poppins-Regular',
+        }}>
+        {text}
+      </Text>
       <View style={{marginTop: SIZES.screenHeight * 0.06}}>
         <AppButton
           text={t('specBtn')}

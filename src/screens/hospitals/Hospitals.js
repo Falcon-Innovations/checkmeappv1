@@ -29,8 +29,6 @@ const Hospitals = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = query => setSearchQuery(query);
 
-  // const { loading, data, error } = useHospitals();
-
   const [loading, error, data, fetchData] = useDataFetching(
     `${config.app.api_url}/hospitals`,
   );
@@ -40,10 +38,6 @@ const Hospitals = () => {
     });
     return updateData;
   }, [navigation]);
-
-  // if (loading) {
-  //   return <SimpleLoader />;
-  // }
 
   return (
     <>

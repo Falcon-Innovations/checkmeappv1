@@ -5,10 +5,10 @@ import SplashScreen from 'react-native-splash-screen';
 
 import 'react-native-gesture-handler';
 import './assets/i18n/i18n';
-import Navigation from './src/navigation/ScreenNavigator';
 import {Provider as UserProvider} from './src/contexts/userContext';
 import {ErrorFallback} from './src/components/error-fallback/error-fallback';
 import {useEffect} from 'react';
+import Navigation from './src/navigation';
 
 registerTranslation('en-GB', enGB);
 
@@ -20,11 +20,9 @@ export default function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <PaperProvider>
-        {/* <NetworkGuard> */}
         <UserProvider>
           <Navigation />
         </UserProvider>
-        {/* </NetworkGuard> */}
       </PaperProvider>
     </ErrorBoundary>
   );

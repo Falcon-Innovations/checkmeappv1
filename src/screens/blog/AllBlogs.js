@@ -13,14 +13,15 @@ import {
 import React, {useEffect, useState} from 'react';
 import {Searchbar} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import NetInfo from '@react-native-community/netinfo';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
-import {AppStatusBar, CustomStatusBar} from '../../components';
+import {AppStatusBar, BlogCard, CustomStatusBar} from '../../components';
 import {COLORS, config, SIZES} from '../../utility';
 import moment from 'moment';
 import {voteBlog} from '../../api/blog';
 import useDataFetching from '../../hooks/useFetchData';
 import Error from '../../components/utils/Error';
+import NoInternetModal from '../../components/NoInternetModal';
 
 const AllBlogs = () => {
   const navigation = useNavigation();
@@ -28,19 +29,34 @@ const AllBlogs = () => {
   const [like, setLike] = useState(false);
   const onChangeSearch = query => setSearchQuery(query);
 
+  //check network hooks
+  const [isOffline, setOfflineStatus] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+
   // const { loading, data, error } = useBlogs();
 
   const [loading, error, data, fetchData] = useDataFetching(
     `${config.app.api_url}/articles`,
   );
 
-  console.log(data);
   useEffect(() => {
     const updateData = navigation.addListener('focus', () => {
       fetchData();
     });
     return updateData;
   }, [navigation]);
+
+  useEffect(() => {
+    setLoading(true);
+    const removeNetInfoSubscription = NetInfo.addEventListener(state => {
+      const offline = !(state.isConnected && state.isInternetReachable);
+      setLoading(false);
+      setOfflineStatus(offline);
+    });
+    fetchData();
+
+    return () => removeNetInfoSubscription();
+  }, []);
 
   const onLike = async id => {
     await voteBlog(id);
@@ -65,72 +81,6 @@ const AllBlogs = () => {
       alert(error.message);
     }
   };
-
-  const renderItem = ({item, index}) => {
-    return (
-      <TouchableOpacity
-        onPress={() => navigation.navigate('BlogDetails', item)}
-        key={item._id}
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          marginBottom: 25,
-        }}>
-        <View>
-          <ImageBackground
-            imageStyle={{borderRadius: 8}}
-            resizeMode="cover"
-            source={{uri: item.photo}}
-            style={{
-              width: SIZES.screenWidth * 0.4,
-              height: SIZES.screenWidth * 0.3,
-            }}></ImageBackground>
-        </View>
-        <View style={{paddingLeft: 20, marginRight: 14}}>
-          <Text
-            style={{
-              color: 'gray',
-              fontFamily: 'Poppins-Regular',
-              fontSize: 10,
-              marginBottom: 8,
-              width: SIZES.screenWidth * 0.4,
-            }}>
-            {moment(item.createdAt).format('ll')}
-          </Text>
-          <Text
-            numberOfLines={3}
-            style={{
-              flexWrap: 'wrap',
-              width: SIZES.screenWidth * 0.48,
-              paddingRight: 5,
-              fontFamily: 'Poppins-SemiBold',
-              color: COLORS.textColor,
-              fontSize: 15.5,
-            }}>
-            {item.title}
-          </Text>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginTop: 12,
-            }}>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                marginRight: 18,
-              }}></View>
-            <TouchableOpacity onPress={onShare}>
-              <Icon name="ios-share-outline" size={24} />
-            </TouchableOpacity>
-          </View>
-        </View>
-      </TouchableOpacity>
-    );
-  };
-
-  const len = 7;
 
   return (
     <>
@@ -171,9 +121,14 @@ const AllBlogs = () => {
           </Text>
         </View>
 
-        <View style={{paddingHorizontal: 15, paddingTop: 6}}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingHorizontal: 15, paddingTop: 20}}
+          refreshControl={
+            <RefreshControl refreshing={loading} onRefresh={fetchData} />
+          }>
           {loading ? (
-            <SkeletonPlaceholder borderRadius={4}>
+            <SkeletonPlaceholder>
               <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
                 <SkeletonPlaceholder.Item
                   width={SIZES.screenWidth * 0.4}
@@ -192,17 +147,11 @@ const AllBlogs = () => {
           ) : (
             <>
               {data?.data?.docs?.length > 0 ? (
-                <FlatList
-                  scrollEnable={true}
-                  contentContainerStyle={{
-                    paddingHorizontal: 15,
-                    paddingTop: 20,
-                  }}
-                  showsVerticalScrollIndicator={false}
-                  data={data?.data?.docs}
-                  renderItem={renderItem}
-                  keyExtractor={item => item._id}
-                />
+                <>
+                  {data?.data?.docs?.map((item, index) => (
+                    <BlogCard key={index} item={item} onShare={onShare} />
+                  ))}
+                </>
               ) : (
                 <View>
                   <Text
@@ -216,7 +165,12 @@ const AllBlogs = () => {
               )}
             </>
           )}
-        </View>
+        </ScrollView>
+        <NoInternetModal
+          show={isOffline}
+          onRetry={() => fetchData()}
+          isRetrying={loading}
+        />
       </SafeAreaView>
     </>
   );
