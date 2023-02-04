@@ -5,7 +5,7 @@ import Icons from 'react-native-vector-icons/Feather';
 import {useNavigation} from '@react-navigation/native';
 import {COLORS} from '../../utility';
 
-const CustomStatusBar = ({text}) => {
+function CustomStatusBar({text}) {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -27,7 +27,7 @@ const CustomStatusBar = ({text}) => {
       </View>
     </View>
   );
-};
+}
 
 export default CustomStatusBar;
 

@@ -9,7 +9,7 @@ import {
 
 import {COLORS} from '../../utility';
 
-const Loader = ({visible = false}) => {
+function Loader({visible = false}) {
   const {width, height} = useWindowDimensions();
   return (
     visible && (
@@ -21,7 +21,7 @@ const Loader = ({visible = false}) => {
       </View>
     )
   );
-};
+}
 
 const style = StyleSheet.create({
   loader: {

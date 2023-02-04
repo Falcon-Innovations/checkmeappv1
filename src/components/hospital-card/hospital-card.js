@@ -1,10 +1,10 @@
 import React from 'react';
 import {TouchableOpacity, View, Text} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {COLORS, SIZES} from '../../utility';
 import {CustomImageBackground} from '../custom-image-background/custom-image-background';
-import Icon from 'react-native-vector-icons/Ionicons';
 
-export const HospitalCard = ({onPress, imgSrc, name, services, town}) => {
+export function HospitalCard({onPress, imgSrc, name, services, town}) {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -50,20 +50,18 @@ export const HospitalCard = ({onPress, imgSrc, name, services, town}) => {
           }}>
           {services
             .map((service, index) => (
-              <>
-                <Text
-                  key={`${service}-${index}`}
-                  style={{
-                    fontFamily: 'Poppins_Regular',
-                    fontSize: 14,
-                    color: '#AEADAD',
-                    marginBottom: 4,
-                    marginRight: 4,
-                  }}
-                  numberOfLines={1}>
-                  {service}
-                </Text>
-              </>
+              <Text
+                key={`${service}-${index}`}
+                style={{
+                  fontFamily: 'Poppins_Regular',
+                  fontSize: 14,
+                  color: '#AEADAD',
+                  marginBottom: 4,
+                  marginRight: 4,
+                }}
+                numberOfLines={1}>
+                {service}
+              </Text>
             ))
             .slice(0, 2)}
         </View>
@@ -88,4 +86,4 @@ export const HospitalCard = ({onPress, imgSrc, name, services, town}) => {
       </View>
     </TouchableOpacity>
   );
-};
+}

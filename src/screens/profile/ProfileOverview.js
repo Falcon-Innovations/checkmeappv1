@@ -20,7 +20,7 @@ import {Context as AuthContext} from '../../contexts/userContext';
 import {AppStatusBar, CustomStatusBar} from '../../components';
 import {COLORS, SIZES} from '../../utility';
 
-const ProfileOverview = () => {
+function ProfileOverview() {
   const {t} = useTranslation();
 
   const profile = [
@@ -74,7 +74,7 @@ const ProfileOverview = () => {
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
-      <CustomStatusBar text={'Profile'} />
+      <CustomStatusBar text="Profile" />
       <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
         <ScrollView
           contentContainerStyle={{paddingHorizontal: 15, paddingTop: 20}}
@@ -170,7 +170,7 @@ const ProfileOverview = () => {
                   <Icon
                     name="md-chevron-forward-sharp"
                     size={28}
-                    color={'#8A8A8A'}
+                    color="#8A8A8A"
                   />
                 </View>
               </TouchableOpacity>
@@ -204,7 +204,7 @@ const ProfileOverview = () => {
                 <Icon
                   name="md-chevron-forward-sharp"
                   size={28}
-                  color={'#8A8A8A'}
+                  color="#8A8A8A"
                 />
               </View>
             </TouchableOpacity>
@@ -213,7 +213,7 @@ const ProfileOverview = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default ProfileOverview;
 

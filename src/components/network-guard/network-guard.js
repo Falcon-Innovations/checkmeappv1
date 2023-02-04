@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, NativeModules} from 'react-native';
 import Icons from 'react-native-vector-icons/Feather';
+import NetInfo from '@react-native-community/netinfo';
 import {COLORS} from '../../utility';
 import AppButton from '../utils/AppButton';
-import NetInfo from '@react-native-community/netinfo';
 
-export const NetworkGuard = ({children}) => {
+export function NetworkGuard({children}) {
   const [networkState, setNetworkState] = useState(null);
 
   useEffect(() => {
@@ -47,4 +47,4 @@ export const NetworkGuard = ({children}) => {
   }
 
   return <>{children}</>;
-};
+}

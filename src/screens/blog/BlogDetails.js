@@ -15,11 +15,11 @@ import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import RenderHtml from 'react-native-render-html';
 
+import moment from 'moment';
 import {AppStatusBar, CustomStatusBar} from '../../components';
 import {COLORS, SIZES} from '../../utility';
-import moment from 'moment';
 
-const BlogDetails = ({route}) => {
+function BlogDetails({route}) {
   const [like, setLike] = useState(false);
   const {width} = useWindowDimensions();
 
@@ -61,7 +61,7 @@ const BlogDetails = ({route}) => {
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
-      <CustomStatusBar text={'Blog Details'} />
+      <CustomStatusBar text="Blog Details" />
       <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
         <ScrollView
           style={{
@@ -178,7 +178,7 @@ const BlogDetails = ({route}) => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default BlogDetails;
 

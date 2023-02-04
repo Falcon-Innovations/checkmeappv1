@@ -15,7 +15,7 @@ import {COLORS, config, SIZES, IMAGES} from '../../utility';
 import RiskCard from '../../components/RiskCard';
 import useDataFetching from '../../hooks/useFetchData';
 
-const RiskFactors = () => {
+function RiskFactors() {
   const {t} = useTranslation();
   const navigation = useNavigation();
   const [loading, error, data, fetchData] = useDataFetching(
@@ -96,7 +96,7 @@ const RiskFactors = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default RiskFactors;
 

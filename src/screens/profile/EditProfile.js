@@ -29,7 +29,7 @@ import {COLORS} from '../../utility';
 import TextAreaInput from '../../components/inputs/TextAreaInput';
 import Loader from '../../components/utils/Loader';
 
-const EditProfile = () => {
+function EditProfile() {
   const {state, updateProfile, updateMyAvatar} = React.useContext(UserContext);
   const [loading, setLoading] = React.useState(false);
   const [isModalVisible, setModalVisible] = useState(false);
@@ -65,17 +65,13 @@ const EditProfile = () => {
   };
 
   const onDateChange = val => {
-    setInputs(prevState => {
-      return {
-        ...prevState,
-        birthDate: val,
-      };
-    });
+    setInputs(prevState => ({
+      ...prevState,
+      birthDate: val,
+    }));
   };
 
-  const formatDate = date => {
-    return date ? moment(date).format('ll') : null;
-  };
+  const formatDate = date => (date ? moment(date).format('ll') : null);
 
   const maxDate = moment().subtract(7, 'years');
 
@@ -132,14 +128,14 @@ const EditProfile = () => {
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
-      <CustomStatusBar text={'Edit Profile'} />
+      <CustomStatusBar text="Edit Profile" />
       <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-        {loading && <Loader visible={true} />}
+        {loading && <Loader visible />}
         <KeyboardAwareScrollView
           extraHeight={100}
           contentContainerStyle={{paddingBottom: 35}}
           showsVerticalScrollIndicator={false}
-          enableOnAndroid={true}
+          enableOnAndroid
           style={{marginHorizontal: 15, paddingTop: 20}}>
           <View style={{alignSelf: 'center', flexDirection: 'row'}}>
             <ImageBackground
@@ -166,7 +162,7 @@ const EditProfile = () => {
           <View>
             <View>
               <Input
-                label={'Full Name'}
+                label="Full Name"
                 placeholder="Enter your name"
                 keyboardType="default"
                 defaultValue={state?.user?.name}
@@ -175,7 +171,7 @@ const EditProfile = () => {
             </View>
             <View>
               <Input
-                label={'Email Address'}
+                label="Email Address"
                 placeholder="Enter your email"
                 keyboardType="email-address"
                 defaultValue={state?.user?.email}
@@ -251,7 +247,7 @@ const EditProfile = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 const deviceWidth = Dimensions.get('window').width;
 export default EditProfile;

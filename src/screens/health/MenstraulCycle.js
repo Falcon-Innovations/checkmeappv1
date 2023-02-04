@@ -16,15 +16,15 @@ import {useNavigation} from '@react-navigation/native';
 import Icons from 'react-native-vector-icons/Ionicons';
 import Modal from 'react-native-modal';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 import {AppButton, AppStatusBar, Input} from '../../components';
 import {COLORS, config, SIZES} from '../../utility';
 import useDataFetching from '../../hooks/useFetchData';
 import SimpleLoader from '../../components/utils/SimpleLoader';
 import Error from '../../components/utils/Error';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios from 'axios';
 
-const MenstraulCycle = () => {
+function MenstraulCycle() {
   const navigation = useNavigation();
   const [load, setLoad] = useState(false);
   const [isModalVisible, setModalVisible] = useState(false);
@@ -63,13 +63,13 @@ const MenstraulCycle = () => {
   const [num, setNum] = useState('');
   const [numP, setNumP] = useState('');
 
-  //Update cycle
+  // Update cycle
   const updateMentrualCycle = async () => {
     setLoad(true);
 
     const token = await AsyncStorage.getItem('token');
 
-    let data = {
+    const data = {
       dayCount: parseInt(num),
       daysBledCount: parseInt(numP),
     };
@@ -80,7 +80,7 @@ const MenstraulCycle = () => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      data: data,
+      data,
     };
     await axios(configurationData)
       .then(response => {
@@ -102,14 +102,14 @@ const MenstraulCycle = () => {
       });
   };
 
-  //delete
+  // delete
 
   const deleteMentrualCycle = async () => {
     setLoad(true);
 
     const token = await AsyncStorage.getItem('token');
 
-    let data = {
+    const data = {
       dayCount: numOfDays,
       daysBledCount: parseInt(period),
       description: message,
@@ -121,7 +121,7 @@ const MenstraulCycle = () => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      data: data,
+      data,
     };
     await axios(configurationData)
       .then(response => {
@@ -461,7 +461,7 @@ const MenstraulCycle = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default MenstraulCycle;
 

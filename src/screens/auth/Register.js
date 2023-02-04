@@ -19,6 +19,7 @@ import Animated from 'react-native-reanimated';
 import {Divider} from 'react-native-elements';
 import {WebView} from 'react-native-webview';
 
+import {useTranslation} from 'react-i18next';
 import {COLORS, IMAGES, SIZES} from '../../utility';
 import {
   Input,
@@ -29,12 +30,11 @@ import {
 import {Context as UserContext} from '../../contexts/userContext';
 import Loader from '../../components/utils/Loader';
 
-import {useTranslation} from 'react-i18next';
 import '../../../assets/i18n/i18n';
 
 // RNNBottomSheet.init();
 
-const Register = () => {
+function Register() {
   const navigation = useNavigation();
   const inputRef = useRef(null);
   const ref_input2 = useRef();
@@ -56,12 +56,12 @@ const Register = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
-  //emailValidation
+  // emailValidation
   function isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
   }
 
-  //formValidation
+  // formValidation
   const validate = () => {
     Keyboard.dismiss();
     let isValid = true;
@@ -90,7 +90,7 @@ const Register = () => {
     }
   };
 
-  //changeLanguage
+  // changeLanguage
   const changeLanguage = value => {
     i18n
       .changeLanguage(value)
@@ -116,9 +116,9 @@ const Register = () => {
     setErrors(prevState => ({...prevState, [input]: errorMessage}));
   };
 
-  const authImage = IMAGES.authImage;
+  const {authImage} = IMAGES;
 
-  //bottomsheet for web view
+  // bottomsheet for web view
 
   const renderContent = () => (
     <View
@@ -146,7 +146,7 @@ const Register = () => {
         orientation="horizontal"
         width={0.5}
         height={5}
-        color={'#d3d3d3'}
+        color="#d3d3d3"
       />
 
       <WebView
@@ -164,7 +164,7 @@ const Register = () => {
     <>
       {loading ? (
         <View style={styles.viewContainer}>
-          <Loader visible={true} />
+          <Loader visible />
         </View>
       ) : (
         <SafeAreaView style={styles.container}>
@@ -238,7 +238,7 @@ const Register = () => {
             <View style={styles.formContainer}>
               <Input
                 // maxLength={35}
-                label={'Full name'}
+                label="Full name"
                 placeholder={t('placeholder1')}
                 keyboardType="default"
                 error={errors.fullname}
@@ -251,7 +251,7 @@ const Register = () => {
                 // maxLength={35}
                 placeholder={t('placeholder2')}
                 keyboardType="email-address"
-                label={'Email Address'}
+                label="Email Address"
                 error={errors.email}
                 onFocus={() => handleErrors(null, 'email')}
                 onChangeText={text => handleOnChange(text, 'email')}
@@ -343,7 +343,7 @@ const Register = () => {
       )}
     </>
   );
-};
+}
 
 export default Register;
 

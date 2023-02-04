@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {COLORS, SIZES} from '../utility';
 import AppButton from './utils/AppButton';
 
-const ComingSoonMessage = ({text}) => {
+function ComingSoonMessage({text}) {
   const {t} = useTranslation();
   const navigation = useNavigation();
 
@@ -37,7 +37,7 @@ const ComingSoonMessage = ({text}) => {
       </View>
     </View>
   );
-};
+}
 
 export default ComingSoonMessage;
 

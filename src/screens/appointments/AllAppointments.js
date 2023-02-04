@@ -21,7 +21,7 @@ import useDataFetching from '../../hooks/useFetchData';
 import SimpleLoader from '../../components/utils/SimpleLoader';
 import Error from '../../components/utils/Error';
 
-const AllAppointments = () => {
+function AllAppointments() {
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = query => setSearchQuery(query);
@@ -151,7 +151,7 @@ const AllAppointments = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default AllAppointments;
 

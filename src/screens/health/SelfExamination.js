@@ -73,14 +73,14 @@ const tips = [
   'Take your time.',
 ];
 
-const SelfExamination = () => {
+function SelfExamination() {
   const navigation = useNavigation();
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
-      <CustomStatusBar text={'Self Examination'} />
+      <CustomStatusBar text="Self Examination" />
       <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
         <ScrollView
           showsVerticalScrollIndicator={false}
@@ -139,68 +139,67 @@ const SelfExamination = () => {
             </Text>
           </View>
           <View style={{marginHorizontal: 8}}>
-            {selfExamine.map((item, index) => {
-              return (
-                <View key={index}>
+            {selfExamine.map((item, index) => (
+              <View key={index}>
+                <Text
+                  style={{
+                    fontFamily: 'Poppins-Medium',
+                    fontSize: 15,
+                    marginTop: SIZES.screenHeight * 0.03,
+                    color: COLORS.textColor,
+                  }}>
+                  {` Phase ${item.phase}: `}
+                  <Text style={{}}>{item.title}</Text>
+                </Text>
+                {!item.img ? (
+                  <SimpleLoader />
+                ) : (
+                  <ImageBackground
+                    imageStyle={{borderRadius: 12, resizeMode: 'cover'}}
+                    source={{uri: item.img}}
+                    style={{
+                      width: '100%',
+                      height: SIZES.screenHeight * 0.22,
+                      marginTop: SIZES.screenHeight * 0.02,
+                    }}
+                  />
+                )}
+
+                <View style={{marginTop: SIZES.screenHeight * 0.02}}>
+                  <Text
+                    style={{
+                      fontFamily: 'Poppins-Regular',
+                      color: COLORS.textColor,
+                      fontSize: 12,
+                    }}>
+                    {item.description}
+                  </Text>
+                </View>
+                <View style={{marginTop: 10}}>
                   <Text
                     style={{
                       fontFamily: 'Poppins-Medium',
-                      fontSize: 15,
-                      marginTop: SIZES.screenHeight * 0.03,
                       color: COLORS.textColor,
                     }}>
-                    {` Phase ${item.phase}: `}
-                    <Text style={{}}>{item.title}</Text>
+                    Steps to Follow
                   </Text>
-                  {!item.img ? (
-                    <SimpleLoader />
-                  ) : (
-                    <ImageBackground
-                      imageStyle={{borderRadius: 12, resizeMode: 'cover'}}
-                      source={{uri: item.img}}
-                      style={{
-                        width: '100%',
-                        height: SIZES.screenHeight * 0.22,
-                        marginTop: SIZES.screenHeight * 0.02,
-                      }}></ImageBackground>
-                  )}
-
-                  <View style={{marginTop: SIZES.screenHeight * 0.02}}>
+                  {item.steps.map((step, index) => (
                     <Text
+                      key={index}
                       style={{
+                        paddingLeft: 10,
                         fontFamily: 'Poppins-Regular',
-                        color: COLORS.textColor,
                         fontSize: 12,
-                      }}>
-                      {item.description}
-                    </Text>
-                  </View>
-                  <View style={{marginTop: 10}}>
-                    <Text
-                      style={{
-                        fontFamily: 'Poppins-Medium',
+                        marginTop: 10,
+                        lineHeight: 22,
                         color: COLORS.textColor,
                       }}>
-                      Steps to Follow
+                      {`\u2023 ${step.i}`}
                     </Text>
-                    {item.steps.map((step, index) => (
-                      <Text
-                        key={index}
-                        style={{
-                          paddingLeft: 10,
-                          fontFamily: 'Poppins-Regular',
-                          fontSize: 12,
-                          marginTop: 10,
-                          lineHeight: 22,
-                          color: COLORS.textColor,
-                        }}>
-                        {`\u2023 ${step.i}`}
-                      </Text>
-                    ))}
-                  </View>
+                  ))}
                 </View>
-              );
-            })}
+              </View>
+            ))}
             <View
               style={{
                 marginTop: SIZES.screenHeight * 0.035,
@@ -220,7 +219,9 @@ const SelfExamination = () => {
                     color: COLORS.textColor,
                     fontFamily: 'Poppins-Regular',
                     lineHeight: 24,
-                  }}>{`\u29BF ${tip}`}</Text>
+                  }}>
+                  {`\u29BF ${tip}`}
+                </Text>
               ))}
             </View>
             <View
@@ -250,7 +251,7 @@ const SelfExamination = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default SelfExamination;
 

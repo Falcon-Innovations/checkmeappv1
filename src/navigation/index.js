@@ -2,6 +2,12 @@ import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme,
+} from '@react-navigation/native';
 import {
   Onboard,
   Register,
@@ -11,20 +17,14 @@ import {
   AllBlogs,
 } from '../screens';
 import useGetOnboardingStatus from '../utility/checkIfFirstLaunch';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {navigationRef} from './customNavigator';
-import {
-  NavigationContainer,
-  DefaultTheme,
-  DarkTheme,
-} from '@react-navigation/native';
 import ResolveAuth from '../screens/auth/ResolveAuth';
 import {COLORS} from '../utility';
 import ScreenNavigator from './ScreenNavigator';
 
 const Stack = createNativeStackNavigator();
 
-const Navigation = ({colorScheme}) => {
+function Navigation({colorScheme}) {
   return (
     <NavigationContainer
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
@@ -32,9 +32,9 @@ const Navigation = ({colorScheme}) => {
       <RootNavigator />
     </NavigationContainer>
   );
-};
+}
 
-const RootNavigator = () => {
+function RootNavigator() {
   const {isFirstLaunch, isLoading} = useGetOnboardingStatus();
 
   if (isLoading) {
@@ -46,24 +46,22 @@ const RootNavigator = () => {
   };
 
   return (
-    <>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        {isFirstLaunch && (
-          <Stack.Screen name="Onboard">
-            {props => <Onboard {...props} handleDone={handleOnboardingDone} />}
-          </Stack.Screen>
-        )}
-        <Stack.Screen name="Resolve" component={ResolveAuth} />
-        <Stack.Screen name="Signup" component={Register} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="OTPVerification" component={OTPVerification} />
-        <Stack.Screen name="Root" component={BottomTabNavigator} />
-      </Stack.Navigator>
-    </>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      {isFirstLaunch && (
+        <Stack.Screen name="Onboard">
+          {props => <Onboard {...props} handleDone={handleOnboardingDone} />}
+        </Stack.Screen>
+      )}
+      <Stack.Screen name="Resolve" component={ResolveAuth} />
+      <Stack.Screen name="Signup" component={Register} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="OTPVerification" component={OTPVerification} />
+      <Stack.Screen name="Root" component={BottomTabNavigator} />
+    </Stack.Navigator>
   );
-};
+}
 
-const BottomTabNavigator = () => {
+function BottomTabNavigator() {
   const Tab = createMaterialBottomTabNavigator();
   const {t} = useTranslation();
   /**
@@ -121,6 +119,6 @@ const BottomTabNavigator = () => {
       />
     </Tab.Navigator>
   );
-};
+}
 
 export default Navigation;

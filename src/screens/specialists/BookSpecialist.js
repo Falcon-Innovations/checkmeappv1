@@ -32,7 +32,7 @@ import {COLORS, config} from '../../utility';
 import TextAreaInput from '../../components/inputs/TextAreaInput';
 import usePost from '../../hooks/usePost';
 
-const BookSpecialist = ({route}) => {
+function BookSpecialist({route}) {
   const navigation = useNavigation();
   const item = route.params;
 
@@ -45,7 +45,7 @@ const BookSpecialist = ({route}) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [load, setLoad] = useState(false);
 
-  const [loading, postAxiosData] = usePost(`appointments`, 'POST');
+  const [loading, postAxiosData] = usePost('appointments', 'POST');
 
   const showPicker = () => {
     setIsPickerShow(true);
@@ -72,17 +72,17 @@ const BookSpecialist = ({route}) => {
     setSelectedDate(date);
   };
 
-  var startDate = selectedDate ? selectedDate.toString() : 'No date selected';
+  let startDate = selectedDate ? selectedDate.toString() : 'No date selected';
   startDate = new Date(startDate).toUTCString();
   startDate = startDate.split(' ').slice(0, 4).join(' ');
 
-  //Book Specialist
+  // Book Specialist
   const handleBookSpecialist = async () => {
     setLoad(true);
     const token = await AsyncStorage.getItem('token');
 
-    let data = {
-      title: title,
+    const data = {
+      title,
       description: message,
       time: new Date(date).toLocaleTimeString(),
       day: startDate,
@@ -95,7 +95,7 @@ const BookSpecialist = ({route}) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      data: data,
+      data,
     };
     await axios(configurationData)
       .then(response => {
@@ -228,9 +228,9 @@ const BookSpecialist = ({route}) => {
                   </TouchableOpacity>
                   <DateTimePicker
                     value={date}
-                    mode={'time'}
+                    mode="time"
                     display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-                    is24Hour={true}
+                    is24Hour
                     onChange={onChange}
                     style={styles.datePicker}
                   />
@@ -282,7 +282,7 @@ const BookSpecialist = ({route}) => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 const deviceWidth = Dimensions.get('window').width;
 export default BookSpecialist;

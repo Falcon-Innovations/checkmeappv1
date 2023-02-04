@@ -1,9 +1,9 @@
 import {Alert} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 import createContext from './createContext';
 import client from '../api/client';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as customNav from '../navigation/customNavigator';
-import axios from 'axios';
 
 const userReducer = (state, action) => {
   switch (action.type) {
@@ -34,7 +34,12 @@ const userReducer = (state, action) => {
         errorMessage: action.payload.error,
       };
     case 'SIGN_OUT':
-      return {...state, token: null, account: null, user: null};
+      return {
+        ...state,
+        token: null,
+        account: null,
+        user: null,
+      };
     default:
       return state;
   }
@@ -121,7 +126,7 @@ const checkOTP =
         type: 'SIGN_IN',
         payload: {token, user: data?.data?.user},
       });
-      Alert.alert('Success', `You are now logged in`);
+      Alert.alert('Success', 'You are now logged in');
       customNav.navigate('Root');
     } catch (error) {
       console.log(error?.data);
@@ -188,7 +193,7 @@ const updateProfile =
           type: 'PROFILE_UPDATE',
           payload: {user: userData?.user},
         });
-        Alert.alert('Success', `Profile updated`);
+        Alert.alert('Success', 'Profile updated');
       }
     } catch (err) {
       Alert.alert(

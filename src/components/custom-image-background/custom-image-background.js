@@ -2,7 +2,7 @@ import React from 'react';
 import {ImageBackground} from 'react-native';
 import {SIZES} from '../../utility';
 
-export const CustomImageBackground = ({imgSrc}) => {
+export function CustomImageBackground({imgSrc}) {
   return (
     <ImageBackground
       imageStyle={{borderRadius: 8}}
@@ -16,4 +16,4 @@ export const CustomImageBackground = ({imgSrc}) => {
       // defaultSource={}
     />
   );
-};
+}

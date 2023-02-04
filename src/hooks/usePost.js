@@ -17,7 +17,7 @@ const usePost = (url, method = 'POST') => {
       setLoading(true);
 
       await fetch(`${config.app.api_url}/${url}`, {
-        method: method,
+        method,
         body: data,
         headers: {
           Authorization: `Bearer ${token}`,

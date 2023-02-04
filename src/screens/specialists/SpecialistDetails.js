@@ -23,7 +23,7 @@ import {Context as AuthContext} from '../../contexts/userContext';
 import {AppStatusBar, CustomStatusBar} from '../../components';
 import {COLORS, SIZES} from '../../utility';
 
-const SpecialistDetails = ({route}) => {
+function SpecialistDetails({route}) {
   const item = route.params;
 
   const {state} = React.useContext(AuthContext);
@@ -72,8 +72,7 @@ const SpecialistDetails = ({route}) => {
     }
     // Using 91 for India
     // You can change 91 with your country code
-    let url =
-      'whatsapp://send?text=' + whatsAppMsg + '&phone=' + item?.telephone;
+    const url = `whatsapp://send?text=${whatsAppMsg}&phone=${item?.telephone}`;
     Linking.openURL(url)
       .then(data => {
         console.log('WhatsApp Opened');
@@ -115,17 +114,17 @@ const SpecialistDetails = ({route}) => {
     {
       id: 1,
       info: item?.qualification ? item?.qualification : 'Prefer not to say',
-      icon: <Icons name="graduation" size={18} color={'#323131'} />,
+      icon: <Icons name="graduation" size={18} color="#323131" />,
     },
     {
       id: 2,
       info: item?.hospital ? item?.hospital : 'Prefer not to say',
-      icon: <Icons name="briefcase" size={18} color={'#323131'} />,
+      icon: <Icons name="briefcase" size={18} color="#323131" />,
     },
     {
       id: 3,
       info: item?.speciality ? item?.speciality : 'Prefer not to say',
-      icon: <Ribbon name="ribbon" size={18} color={'#323131'} />,
+      icon: <Ribbon name="ribbon" size={18} color="#323131" />,
     },
   ];
 
@@ -145,10 +144,9 @@ const SpecialistDetails = ({route}) => {
             />
             <View>
               <View style={{alignSelf: 'flex-start'}}>
-                <Text
-                  style={
-                    styles.name
-                  }>{`${item?.firstName} ${item?.lastName}`}</Text>
+                <Text style={styles.name}>
+                  {`${item?.firstName} ${item?.lastName}`}
+                </Text>
                 <Text style={styles.speciality}>{item?.speciality}</Text>
                 <Text style={styles.location}>{item?.town}</Text>
               </View>
@@ -212,7 +210,9 @@ const SpecialistDetails = ({route}) => {
                     color: COLORS.primary,
                     fontFamily: 'Poppins_Medium',
                     paddingTop: 5,
-                  }}>{`${item?.experience ? item?.experience : 0} Years`}</Text>
+                  }}>
+                  {`${item?.experience ? item?.experience : 0} Years`}
+                </Text>
               </View>
               <Divider color="#E6E6E6" orientation="vertical" width={2} />
               <View style={{alignItems: 'center'}}>
@@ -363,7 +363,7 @@ const SpecialistDetails = ({route}) => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default SpecialistDetails;
 

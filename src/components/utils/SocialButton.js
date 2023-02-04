@@ -3,14 +3,14 @@ import {View, StyleSheet, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {COLORS} from '../../utility';
 
-const SocialButton = ({
+function SocialButton({
   onPress,
   icon,
   title,
   backgroundColor,
   iconColor,
   textColor,
-}) => {
+}) {
   return (
     <View style={styles.appButtonContainer}>
       <Icon.Button
@@ -23,7 +23,7 @@ const SocialButton = ({
       </Icon.Button>
     </View>
   );
-};
+}
 
 export default SocialButton;
 

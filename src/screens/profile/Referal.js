@@ -18,10 +18,10 @@ import {
 } from '../../components';
 import {COLORS, IMAGES, SIZES} from '../../utility';
 
-const Referal = () => {
+function Referal() {
   const {t} = useTranslation();
 
-  //share
+  // share
   const onShare = async () => {
     try {
       const result = await Share.share({
@@ -92,7 +92,7 @@ const Referal = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default Referal;
 

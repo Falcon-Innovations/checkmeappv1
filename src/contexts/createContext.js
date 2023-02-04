@@ -12,13 +12,13 @@ import useSafeDispatch from '../hooks/useSafeDispatch';
 export default (reducer, actions, defaultValue) => {
   const Context = React.createContext();
 
-  const Provider = ({children}) => {
+  function Provider({children}) {
     const [state, dispatch] = useReducer(reducer, defaultValue);
     const safeDispatch = useSafeDispatch(dispatch);
 
     const boundActions = {};
 
-    for (let key in actions) {
+    for (const key in actions) {
       boundActions[key] = actions[key](safeDispatch);
     }
 
@@ -27,7 +27,7 @@ export default (reducer, actions, defaultValue) => {
         {children}
       </Context.Provider>
     );
-  };
+  }
 
   return {Context, Provider};
 };

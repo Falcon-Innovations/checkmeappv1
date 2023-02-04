@@ -15,21 +15,21 @@ import {Searchbar} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import NetInfo from '@react-native-community/netinfo';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+import moment from 'moment';
 import {AppStatusBar, BlogCard, CustomStatusBar} from '../../components';
 import {COLORS, config, SIZES} from '../../utility';
-import moment from 'moment';
 import {voteBlog} from '../../api/blog';
 import useDataFetching from '../../hooks/useFetchData';
 import Error from '../../components/utils/Error';
 import NoInternetModal from '../../components/NoInternetModal';
 
-const AllBlogs = () => {
+function AllBlogs() {
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
   const [like, setLike] = useState(false);
   const onChangeSearch = query => setSearchQuery(query);
 
-  //check network hooks
+  // check network hooks
   const [isOffline, setOfflineStatus] = useState(false);
   const [isLoading, setLoading] = useState(false);
 
@@ -66,7 +66,8 @@ const AllBlogs = () => {
   const onShare = async () => {
     try {
       const result = await Share.share({
-        message: `Check Me Blog | Download Check Me App and Visit Check Me blog for a healthy life style. \n Download from play store at  \nhttps://play.google.com/store/apps/details?id=com.checkmeapp`,
+        message:
+          'Check Me Blog | Download Check Me App and Visit Check Me blog for a healthy life style. \n Download from play store at  \nhttps://play.google.com/store/apps/details?id=com.checkmeapp',
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -96,7 +97,7 @@ const AllBlogs = () => {
         </View>
       ) : null}
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
-      <CustomStatusBar text={'News Feed'} />
+      <CustomStatusBar text="News Feed" />
       <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
         <View style={{paddingTop: 20, paddingBottom: 8, marginHorizontal: 15}}>
           <Searchbar
@@ -174,7 +175,7 @@ const AllBlogs = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default AllBlogs;
 

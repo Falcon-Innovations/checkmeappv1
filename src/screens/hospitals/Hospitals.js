@@ -12,6 +12,7 @@ import React, {useEffect, useState} from 'react';
 import {Searchbar} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {useTranslation} from 'react-i18next';
 import {COLORS, config, SIZES} from '../../utility';
 import {
   AppStatusBar,
@@ -21,9 +22,8 @@ import {
 import SimpleLoader from '../../components/utils/SimpleLoader';
 import {CustomImageBackground} from '../../components/custom-image-background/custom-image-background';
 import useDataFetching from '../../hooks/useFetchData';
-import {useTranslation} from 'react-i18next';
 
-const Hospitals = () => {
+function Hospitals() {
   const {t} = useTranslation();
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
@@ -152,20 +152,18 @@ const Hospitals = () => {
                             }}>
                             {item?.services
                               .map((service, index) => (
-                                <>
-                                  <Text
-                                    key={index}
-                                    style={{
-                                      fontFamily: 'Poppins_Regular',
-                                      fontSize: 14,
-                                      color: '#AEADAD',
-                                      marginBottom: 4,
-                                      marginRight: 4,
-                                    }}
-                                    numberOfLines={1}>
-                                    {service}
-                                  </Text>
-                                </>
+                                <Text
+                                  key={index}
+                                  style={{
+                                    fontFamily: 'Poppins_Regular',
+                                    fontSize: 14,
+                                    color: '#AEADAD',
+                                    marginBottom: 4,
+                                    marginRight: 4,
+                                  }}
+                                  numberOfLines={1}>
+                                  {service}
+                                </Text>
                               ))
                               .slice(0, 2)}
                           </View>
@@ -197,7 +195,7 @@ const Hospitals = () => {
                     ))}
 
                     {/* ) : (
-                 
+
                   )}
                 </> */}
                   </View>
@@ -213,7 +211,7 @@ const Hospitals = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default Hospitals;
 

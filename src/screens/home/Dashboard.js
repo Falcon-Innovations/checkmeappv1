@@ -18,7 +18,7 @@ import {COLORS, IMAGES, SIZES} from '../../utility';
 import {AppStatusBar, DashboardCard} from '../../components';
 import {Context as AuthContext} from '../../contexts/userContext';
 
-const Dashboard = ({navigation}) => {
+function Dashboard({navigation}) {
   const {t} = useTranslation();
   const {state, logout} = React.useContext(AuthContext);
   const [messages, setMessages] = useState([]);
@@ -35,18 +35,19 @@ const Dashboard = ({navigation}) => {
     const subscribe = messaging().setBackgroundMessageHandler(
       async remoteMessage => {
         // Get the message body
-        let message_body = remoteMessage.notification.body;
+        const message_body = remoteMessage.notification.body;
 
         // Get the message title
-        let message_title = remoteMessage.notification.title;
+        const message_title = remoteMessage.notification.title;
 
         // Get message image
-        let avatar = remoteMessage.notification.android.imageUrl;
+        const avatar = remoteMessage.notification.android.imageUrl;
 
         // Append the message to the current messages state
-        setMessages(messages => {
-          return [...messages, {message_body, message_title, avatar}];
-        });
+        setMessages(messages => [
+          ...messages,
+          {message_body, message_title, avatar},
+        ]);
 
         // Show an alert to the user
         Alert.alert(message_title, message_body);
@@ -56,7 +57,7 @@ const Dashboard = ({navigation}) => {
     return subscribe;
   }, [messages]);
 
-  const headerImage = IMAGES.headerImage;
+  const {headerImage} = IMAGES;
 
   const dailyTips = [
     {
@@ -242,7 +243,7 @@ const Dashboard = ({navigation}) => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default Dashboard;
 

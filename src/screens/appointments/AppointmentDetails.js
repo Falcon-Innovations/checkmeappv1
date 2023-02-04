@@ -12,7 +12,7 @@ import Icons from 'react-native-vector-icons/Ionicons';
 import {AppButton, AppStatusBar, CustomStatusBar} from '../../components';
 import {COLORS, SIZES} from '../../utility';
 
-const AppointmentDetails = ({route}) => {
+function AppointmentDetails({route}) {
   const item = route.params;
   return (
     <>
@@ -152,7 +152,7 @@ const AppointmentDetails = ({route}) => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default AppointmentDetails;
 

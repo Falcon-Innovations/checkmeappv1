@@ -7,11 +7,11 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {AppButton, AppStatusBar, CustomStatusBar} from '../../components';
 import {COLORS, SIZES} from '../../utility';
-import {useNavigation} from '@react-navigation/native';
 
-const BookMammogram = () => {
+function BookMammogram() {
   const navigation = useNavigation();
   return (
     <>
@@ -36,7 +36,7 @@ const BookMammogram = () => {
               textAlign: 'center',
               color: COLORS.textColor,
             }}>
-            {`Book a mammogram `}
+            {'Book a mammogram '}
             <Text style={{fontFamily: 'Poppins_Medium', color: COLORS.primary}}>
               {' appointment \n'}
             </Text>
@@ -76,9 +76,8 @@ const BookMammogram = () => {
                 paddingHorizontal: 20,
                 color: COLORS.textColor,
               }}>
-              {
-                'A mammogram is an x-ray exam of your breast. It can spot signs of breast cancer that are too small to be felt by you or your doctor.'
-              }
+              A mammogram is an x-ray exam of your breast. It can spot signs of
+              breast cancer that are too small to be felt by you or your doctor.
             </Text>
           </View>
 
@@ -98,7 +97,7 @@ const BookMammogram = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default BookMammogram;
 

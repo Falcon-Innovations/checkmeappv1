@@ -4,10 +4,10 @@ import Icon from 'react-native-vector-icons/Feather';
 import Icons from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import {COLORS} from '../utility';
 import {useNavigation} from '@react-navigation/native';
+import {COLORS} from '../utility';
 
-const AppointmentsCard = ({title, time, desc, doc, date, status, onPress}) => {
+function AppointmentsCard({title, time, desc, doc, date, status, onPress}) {
   const navigation = useNavigation();
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
@@ -110,7 +110,7 @@ const AppointmentsCard = ({title, time, desc, doc, date, status, onPress}) => {
       </View>
     </TouchableOpacity>
   );
-};
+}
 
 export default AppointmentsCard;
 

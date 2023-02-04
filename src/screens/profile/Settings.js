@@ -17,7 +17,7 @@ import {useTranslation} from 'react-i18next';
 import {AppStatusBar, CustomStatusBar} from '../../components';
 import {COLORS} from '../../utility';
 
-const Settings = () => {
+function Settings() {
   const navigation = useNavigation();
 
   const [isModalVisible, setModalVisible] = useState(false);
@@ -94,7 +94,7 @@ const Settings = () => {
                   <Icon
                     name="md-chevron-forward-sharp"
                     size={28}
-                    color={'#8A8A8A'}
+                    color="#8A8A8A"
                   />
                 </View>
               </TouchableOpacity>
@@ -144,7 +144,7 @@ const Settings = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default Settings;
 

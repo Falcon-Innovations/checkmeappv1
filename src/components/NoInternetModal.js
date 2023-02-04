@@ -5,7 +5,7 @@ import Modal from 'react-native-modal';
 import AppButton from './utils/AppButton';
 import {COLORS} from '../utility';
 
-const NoInternetModal = ({show, onRetry, isRetrying}) => {
+function NoInternetModal({show, onRetry, isRetrying}) {
   return (
     <Modal isVisible={show} style={styles.modal} animationInTiming={600}>
       <View style={styles.modalContainer}>
@@ -15,14 +15,14 @@ const NoInternetModal = ({show, onRetry, isRetrying}) => {
         </Text>
         <AppButton
           color={COLORS.primary}
-          text={'Try Again'}
+          text="Try Again"
           onPress={() => onRetry()}
           disabled={isRetrying}
         />
       </View>
     </Modal>
   );
-};
+}
 
 export default NoInternetModal;
 

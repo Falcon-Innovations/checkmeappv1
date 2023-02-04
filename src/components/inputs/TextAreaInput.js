@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, TextInput} from 'react-native';
 import React from 'react';
 
-const TextAreaInput = props => {
+function TextAreaInput(props) {
   const {value, onChangeText, ...rest} = props;
   return (
     <View style={styles.textAreaContainer}>
@@ -11,14 +11,14 @@ const TextAreaInput = props => {
         placeholder="Description(optional)"
         placeholderTextColor="#C1C1C1"
         numberOfLines={10}
-        multiline={true}
+        multiline
         value={value}
         onChangeText={onChangeText}
         {...rest}
       />
     </View>
   );
-};
+}
 
 export default TextAreaInput;
 

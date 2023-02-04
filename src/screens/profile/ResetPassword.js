@@ -8,7 +8,7 @@ import {
 } from '../../components';
 import {COLORS} from '../../utility';
 
-const ResetPassword = () => {
+function ResetPassword() {
   const [inputs, setInputs] = useState({
     fullname: '',
     phone: '',
@@ -32,7 +32,7 @@ const ResetPassword = () => {
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
-      <CustomStatusBar text={'Reset Password'} />
+      <CustomStatusBar text="Reset Password" />
       <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
         <ScrollView style={{marginHorizontal: 15, paddingVertical: 15}}>
           <Text
@@ -80,7 +80,7 @@ const ResetPassword = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default ResetPassword;
 

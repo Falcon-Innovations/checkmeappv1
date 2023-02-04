@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {TextInput} from 'react-native-paper';
 import {COLORS, SIZES} from '../../utility';
 
-const Input = ({
+function Input({
   label,
   iconName,
   error,
@@ -13,7 +13,7 @@ const Input = ({
   inputRef,
   onFocus = () => {},
   ...props
-}) => {
+}) {
   const [isFocused, setIsFocused] = useState(false);
   const [hidePassword, setHidePassword] = useState(pin);
   return (
@@ -60,10 +60,10 @@ const Input = ({
       {error && <Text style={styles.errorMessage}>{error}</Text>}
     </>
   );
-};
+}
 
 export default Input;
-const width = Dimensions.get('window').width;
+const {width} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     marginBottom: 15,
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     color: COLORS.textColor,
     fontFamily: 'Poppins-Regular',
     fontSize: 16,
-    width: width,
+    width,
   },
   placeholder: {
     fontFamily: 'Poppins-Regular',

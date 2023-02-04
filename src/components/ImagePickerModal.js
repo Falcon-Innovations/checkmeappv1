@@ -12,12 +12,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import React from 'react';
 import {COLORS} from '../utility';
 
-const ImagePickerModal = ({
+function ImagePickerModal({
   isVisible,
   onClose,
   onImageLibraryPress,
   onCameraPress,
-}) => {
+}) {
   return (
     <Modal
       isVisible={isVisible}
@@ -39,7 +39,7 @@ const ImagePickerModal = ({
       </SafeAreaView>
     </Modal>
   );
-};
+}
 
 export default ImagePickerModal;
 

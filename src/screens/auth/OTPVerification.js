@@ -27,18 +27,18 @@ const MAX_DELAY = 120;
 
 function serializeOTP(otp) {
   const {one, two, three, four} = otp;
-  let tempOtp = [one, two, three, four];
+  const tempOtp = [one, two, three, four];
   return tempOtp.join('');
 }
 
-const OTPVerification = ({route}) => {
+function OTPVerification({route}) {
   const {phoneNumber} = route.params;
   const {checkOTP, sendOTP} = React.useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [delay, setDelay] = useState(MAX_DELAY);
-  const verifyImage = IMAGES.verifyImage;
+  const {verifyImage} = IMAGES;
 
-  //CHECKopt
+  // CHECKopt
   const handleCheckOTP = async () => {
     const smsCode = serializeOTP(otp);
     setLoading(true);
@@ -50,7 +50,7 @@ const OTPVerification = ({route}) => {
   };
 
   const validate = () => {
-    let otpLength = Object.values(otp).length;
+    const otpLength = Object.values(otp).length;
     if (!otpLength || otpLength !== 4) {
       Alert.alert('Error', 'Please check the length of your otp code');
       return;
@@ -73,15 +73,20 @@ const OTPVerification = ({route}) => {
   const secondInput = useRef();
   const thirdInput = useRef();
   const fourthInput = useRef();
-  const [otp, setOtp] = useState({one: '', two: '', three: '', four: ''});
+  const [otp, setOtp] = useState({
+    one: '',
+    two: '',
+    three: '',
+    four: '',
+  });
   const [error, setError] = useState(null);
   const navigation = useNavigation();
 
-  if (loading) return <Loader visible={true} />;
+  if (loading) return <Loader visible />;
 
   const resendOTP = async () => {
     setLoading(true);
-    await sendOTP({phoneNumber: phoneNumber});
+    await sendOTP({phoneNumber});
     setLoading(false);
   };
 
@@ -90,7 +95,7 @@ const OTPVerification = ({route}) => {
       <KeyboardAwareScrollView
         extraHeight={100}
         showsVerticalScrollIndicator={false}
-        enableOnAndroid={true}
+        enableOnAndroid
         style={{paddingBottom: 30}}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
@@ -231,7 +236,7 @@ const OTPVerification = ({route}) => {
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const {height, width} = Dimensions.get('window');
 

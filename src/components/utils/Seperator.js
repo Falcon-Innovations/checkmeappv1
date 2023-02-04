@@ -2,7 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS} from '../../utility';
 
-const Seperator = () => {
+function Seperator() {
   return (
     <View
       style={{
@@ -38,6 +38,6 @@ const Seperator = () => {
       />
     </View>
   );
-};
+}
 
 export default Seperator;

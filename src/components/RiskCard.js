@@ -10,10 +10,10 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import Modal from 'react-native-modal';
-import {COLORS, SIZES} from '../utility';
 import {useTranslation} from 'react-i18next';
+import {COLORS, SIZES} from '../utility';
 
-const RiskCard = ({title, description, color, image, onPress, points = []}) => {
+function RiskCard({title, description, color, image, onPress, points = []}) {
   const {t} = useTranslation();
 
   const [isModalVisible, setModalVisible] = useState(false);
@@ -153,7 +153,7 @@ const RiskCard = ({title, description, color, image, onPress, points = []}) => {
       </Modal>
     </View>
   );
-};
+}
 
 export default RiskCard;
 

@@ -15,7 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import {COLORS, SIZES} from '../../utility';
 
-const DetailHospital = ({route}) => {
+function DetailHospital({route}) {
   const navigation = useNavigation();
   const item = route.params;
 
@@ -240,7 +240,7 @@ const DetailHospital = ({route}) => {
       />
     </>
   );
-};
+}
 
 export default DetailHospital;
 

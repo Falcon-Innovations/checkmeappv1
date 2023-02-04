@@ -25,7 +25,7 @@ import {
 } from '../../components';
 import {COLORS, config, SIZES} from '../../utility';
 
-const SetCycle = () => {
+function SetCycle() {
   const navigation = useNavigation();
   const [selectedStartDate, setSelectedStartDate] = useState(null);
   const [selectedEndDate, setSelectedEndDate] = useState(null);
@@ -35,7 +35,7 @@ const SetCycle = () => {
   const [load, setLoad] = useState(false);
 
   const onDateChange = (date, type) => {
-    //function to handle the date change
+    // function to handle the date change
     if (type === 'END_DATE') {
       setSelectedEndDate(date);
     } else {
@@ -44,22 +44,22 @@ const SetCycle = () => {
     }
   };
 
-  let start = new Date(selectedStartDate).getTime();
-  let end = new Date(selectedEndDate).getTime();
+  const start = new Date(selectedStartDate).getTime();
+  const end = new Date(selectedEndDate).getTime();
 
-  let timeDiff = end - start;
-  let numOfDays = timeDiff / (1000 * 3600 * 24);
+  const timeDiff = end - start;
+  const numOfDays = timeDiff / (1000 * 3600 * 24);
 
   const startDate = moment(selectedStartDate).format('ll');
   const endDate = moment(selectedEndDate).format('ll');
 
-  //set cycle
+  // set cycle
   const setMentrualCycle = async () => {
     setLoad(true);
 
     const token = await AsyncStorage.getItem('token');
 
-    let data = {
+    const data = {
       dayCount: numOfDays,
       daysBledCount: parseInt(period),
       description: message,
@@ -71,7 +71,7 @@ const SetCycle = () => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      data: data,
+      data,
     };
     await axios(configurationData)
       .then(response => {
@@ -101,7 +101,7 @@ const SetCycle = () => {
         <KeyboardAwareScrollView
           showsVerticalScrollIndicator={false}
           //   extraHeight={100}
-          enableOnAndroid={true}
+          enableOnAndroid
           style={{marginHorizontal: 15}}
           contentContainerStyle={{paddingBottom: 20}}>
           <Text
@@ -170,8 +170,8 @@ const SetCycle = () => {
                 </View>
               )}
               <CalendarPicker
-                startFromMonday={true}
-                allowRangeSelection={true}
+                startFromMonday
+                allowRangeSelection
                 minDate={new Date(2018, 1, 1)}
                 maxDate={new Date(2050, 6, 3)}
                 previousTitle="prev"
@@ -218,9 +218,11 @@ const SetCycle = () => {
                     marginTop: 15,
                   }}>
                   <Text style={styles.textStyle}>Cycle Duration</Text>
-                  <Text style={styles.textDate}>{`${
-                    numOfDays < 1 ? 0 : numOfDays
-                  } ${numOfDays <= 1 ? 'Day' : 'Days'}`}</Text>
+                  <Text style={styles.textDate}>
+                    {`${numOfDays < 1 ? 0 : numOfDays} ${
+                      numOfDays <= 1 ? 'Day' : 'Days'
+                    }`}
+                  </Text>
                 </View>
               </View>
             </View>
@@ -265,7 +267,7 @@ const SetCycle = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default SetCycle;
 

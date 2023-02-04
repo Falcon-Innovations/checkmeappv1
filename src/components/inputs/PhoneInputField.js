@@ -2,14 +2,14 @@ import {View, StyleSheet, Dimensions, Text} from 'react-native';
 import PhoneInput from 'react-native-phone-number-input';
 import {COLORS} from '../../utility';
 
-const PhoneInputField = ({
+function PhoneInputField({
   phoneNumber,
   phoneInput,
   placeholder,
   onChange,
   error,
   ...rest
-}) => {
+}) {
   return (
     <>
       <PhoneInput
@@ -31,7 +31,7 @@ const PhoneInputField = ({
       {error && <Text style={styles.errorMessage}>{error}</Text>}
     </>
   );
-};
+}
 
 export default PhoneInputField;
 

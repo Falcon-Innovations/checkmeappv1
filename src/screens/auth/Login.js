@@ -19,7 +19,7 @@ import {COLORS, IMAGES, SIZES} from '../../utility';
 import {AppButton, PhoneInputField, Loader} from '../../components';
 import {Context as UserContext} from '../../contexts/userContext';
 
-const Login = () => {
+function Login() {
   const navigation = useNavigation();
 
   const {t, i18n} = useTranslation();
@@ -33,7 +33,7 @@ const Login = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
-  //change language
+  // change language
   const changeLanguage = value => {
     i18n
       .changeLanguage(value)
@@ -66,14 +66,14 @@ const Login = () => {
     setErrors(prevState => ({...prevState, [input]: errorMessage}));
   };
 
-  const authImage = IMAGES.authImage;
+  const {authImage} = IMAGES;
 
   return (
     <>
       <StatusBar hidden={false} backgroundColor={COLORS.primary} />
       {loading ? (
         <View style={styles.viewContainer}>
-          <Loader visible={true} />
+          <Loader visible />
         </View>
       ) : (
         <SafeAreaView style={styles.container}>
@@ -210,7 +210,7 @@ const Login = () => {
       )}
     </>
   );
-};
+}
 
 export default Login;
 

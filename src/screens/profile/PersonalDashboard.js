@@ -24,7 +24,7 @@ import useDataFetching from '../../hooks/useFetchData';
 import SimpleLoader from '../../components/utils/SimpleLoader';
 import Error from '../../components/utils/Error';
 
-const PersonalDashboard = () => {
+function PersonalDashboard() {
   const {t} = useTranslation();
 
   const [loading, error, user, fetchData] = useDataFetching(
@@ -57,7 +57,7 @@ const PersonalDashboard = () => {
     {
       title: t('refer'),
       screen: 'Referals',
-      icon: <FontAwesome5Icon name="handshake" color="#fff" size={22} />, //stethoscope
+      icon: <FontAwesome5Icon name="handshake" color="#fff" size={22} />, // stethoscope
     },
   ];
 
@@ -336,7 +336,7 @@ const PersonalDashboard = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default PersonalDashboard;
 

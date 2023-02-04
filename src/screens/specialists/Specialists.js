@@ -26,7 +26,7 @@ import SimpleLoader from '../../components/utils/SimpleLoader';
 import Error from '../../components/utils/Error';
 import useDataFetching from '../../hooks/useFetchData';
 
-const Specialists = () => {
+function Specialists() {
   const {t} = useTranslation();
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
@@ -162,7 +162,7 @@ const Specialists = () => {
                       ))}
 
                       {/* ) : (
-                 
+
                   )}
                 </> */}
                     </View>
@@ -179,7 +179,7 @@ const Specialists = () => {
       </SafeAreaView>
     </>
   );
-};
+}
 
 export default Specialists;
 

@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 
 import {COLORS, IMAGES, SIZES} from '../utility';
 
-const DashboardCard = () => {
+function DashboardCard() {
   const navigation = useNavigation();
   const {t} = useTranslation();
   const items = [
@@ -77,7 +77,7 @@ const DashboardCard = () => {
       </View>
     </View>
   );
-};
+}
 
 export default DashboardCard;
 

@@ -8,10 +8,10 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import React from 'react';
 import moment from 'moment';
-import {COLORS, SIZES} from '../utility';
 import {useNavigation} from '@react-navigation/native';
+import {COLORS, SIZES} from '../utility';
 
-const BlogCard = ({item, onShare}) => {
+function BlogCard({item, onShare}) {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
@@ -30,7 +30,8 @@ const BlogCard = ({item, onShare}) => {
           style={{
             width: SIZES.screenWidth * 0.4,
             height: SIZES.screenWidth * 0.3,
-          }}></ImageBackground>
+          }}
+        />
       </View>
       <View style={{paddingLeft: 20, marginRight: 14}}>
         <Text
@@ -66,7 +67,8 @@ const BlogCard = ({item, onShare}) => {
               flexDirection: 'row',
               alignItems: 'center',
               marginRight: 18,
-            }}></View>
+            }}
+          />
           <TouchableOpacity onPress={onShare}>
             <Icon name="ios-share-outline" size={24} />
           </TouchableOpacity>
@@ -74,7 +76,7 @@ const BlogCard = ({item, onShare}) => {
       </View>
     </TouchableOpacity>
   );
-};
+}
 
 export default BlogCard;
 

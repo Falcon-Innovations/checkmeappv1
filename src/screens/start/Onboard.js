@@ -15,7 +15,7 @@ import {useTranslation} from 'react-i18next';
 import '../../../assets/i18n/i18n';
 import {COLORS, IMAGES, SIZES} from '../../utility';
 
-const Onboard = props => {
+function Onboard(props) {
   const {t, i18n} = useTranslation();
   const [currentLanguage, setLanguage] = useState(i18n.language);
 
@@ -43,23 +43,21 @@ const Onboard = props => {
     },
   ];
 
-  const renderItem = ({item}) => {
-    return (
-      <LinearGradient colors={['#F7007D', '#CF6283']} style={styles.slide}>
-        <Image
-          source={{uri: item.image}}
-          style={styles.image}
-          resizeMode="contain"
-        />
-        <View style={{marginTop: 20}}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.text}>{item.text}</Text>
-        </View>
-      </LinearGradient>
-    );
-  };
+  const renderItem = ({item}) => (
+    <LinearGradient colors={['#F7007D', '#CF6283']} style={styles.slide}>
+      <Image
+        source={{uri: item.image}}
+        style={styles.image}
+        resizeMode="contain"
+      />
+      <View style={{marginTop: 20}}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.text}>{item.text}</Text>
+      </View>
+    </LinearGradient>
+  );
 
-  const LanguageSwitcher = () => {
+  function LanguageSwitcher() {
     return (
       <View
         style={{
@@ -111,40 +109,32 @@ const Onboard = props => {
         </View>
       </View>
     );
-  };
+  }
 
   const keyExtractor = item => item.title;
 
-  const renderNextButton = () => {
-    return (
-      <View style={styles.rightTextWrapper}>
-        <Text style={styles.rightText}>{t('next')}</Text>
-      </View>
-    );
-  };
+  const renderNextButton = () => (
+    <View style={styles.rightTextWrapper}>
+      <Text style={styles.rightText}>{t('next')}</Text>
+    </View>
+  );
 
-  const renderDoneButton = () => {
-    return (
-      <View style={styles.doneButtonWrapper}>
-        <Text style={styles.doneButtonText}>{t('start')}</Text>
-      </View>
-    );
-  };
+  const renderDoneButton = () => (
+    <View style={styles.doneButtonWrapper}>
+      <Text style={styles.doneButtonText}>{t('start')}</Text>
+    </View>
+  );
 
-  const renderSkipButton = () => {
-    return (
-      <View style={styles.leftTextWrapper}>
-        <Text style={styles.leftText}>{t('skip')}</Text>
-      </View>
-    );
-  };
-  const renderPrevButton = () => {
-    return (
-      <View style={styles.leftTextWrapper}>
-        <Text style={styles.leftText}>{t('back')}</Text>
-      </View>
-    );
-  };
+  const renderSkipButton = () => (
+    <View style={styles.leftTextWrapper}>
+      <Text style={styles.leftText}>{t('skip')}</Text>
+    </View>
+  );
+  const renderPrevButton = () => (
+    <View style={styles.leftTextWrapper}>
+      <Text style={styles.leftText}>{t('back')}</Text>
+    </View>
+  );
 
   const handleDone = () => {
     props.handleDone();
@@ -170,7 +160,7 @@ const Onboard = props => {
       />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   slide: {

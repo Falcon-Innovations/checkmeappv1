@@ -2,7 +2,7 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {SIZES} from '../utility';
 
-const ExerciseCard = ({exercise}) => {
+function ExerciseCard({exercise}) {
   return (
     <TouchableOpacity style={styles.exeercisStyle}>
       <View style={styles.content}>
@@ -32,7 +32,7 @@ const ExerciseCard = ({exercise}) => {
       </View>
     </TouchableOpacity>
   );
-};
+}
 
 export default ExerciseCard;
 
