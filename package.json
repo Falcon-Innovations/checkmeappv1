@@ -11,8 +11,8 @@
     "format": "prettier --check ./src"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "eslint src/ --fix"
+    "./src": [
+      "eslint ./src --fix"
     ],
     "./src/**": [
       "prettier --write ."
