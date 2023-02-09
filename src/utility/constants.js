@@ -34,7 +34,7 @@ const IMAGES = {
   onBoard3:
     'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910060/calender_wq42mz.png',
   authImage:
-    'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910061/authImage_mb3hex.png',
+    'https://res.cloudinary.com/dftozcqnt/image/upload/v1672855007/Breast_cancer_awareness-rafiki_bne9ja.png',
   verifyImage:
     'https://res.cloudinary.com/dftozcqnt/image/upload/v1669895999/otp_two-factor_1_cdkweo.png',
 

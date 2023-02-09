@@ -7,33 +7,18 @@ import {
   TouchableOpacity,
   Keyboard,
   Platform,
-  TouchableWithoutFeedback,
-  Pressable,
 } from 'react-native';
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import Icon from 'react-native-vector-icons/Ionicons';
-
-import BottomSheet from 'reanimated-bottom-sheet';
-import Animated from 'react-native-reanimated';
-import {Divider} from 'react-native-elements';
-import {WebView} from 'react-native-webview';
 
 import {COLORS, IMAGES, SIZES} from '../../utility';
-import {
-  Input,
-  AppButton,
-  PhoneInputField,
-  SocialButton,
-} from '../../components';
+import {Input, AppButton, PhoneInputField} from '../../components';
 import {Context as UserContext} from '../../contexts/userContext';
 import Loader from '../../components/utils/Loader';
 
 import {useTranslation} from 'react-i18next';
 import '../../../assets/i18n/i18n';
-
-// RNNBottomSheet.init();
 
 const Register = () => {
   const navigation = useNavigation();
@@ -91,14 +76,6 @@ const Register = () => {
     }
   };
 
-  //changeLanguage
-  const changeLanguage = value => {
-    i18n
-      .changeLanguage(value)
-      .then(() => setLanguage(value))
-      .catch(err => console.log(err));
-  };
-
   const register = async () => {
     setLoading(true);
     await signUp({
@@ -117,49 +94,15 @@ const Register = () => {
     setErrors(prevState => ({...prevState, [input]: errorMessage}));
   };
 
+  //changeLanguage
+  const changeLanguage = value => {
+    i18n
+      .changeLanguage(value)
+      .then(() => setLanguage(value))
+      .catch(err => console.log(err));
+  };
+
   const authImage = IMAGES.authImage;
-
-  //bottomsheet for web view
-
-  const renderContent = () => (
-    <View
-      style={{
-        backgroundColor: 'white',
-        padding: 16,
-        height: SIZES.screenHeight,
-        paddingHorizontal: 15,
-        paddingVertical: 10,
-        // flex: 2,
-      }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}>
-        <Text>{t('condition')}</Text>
-        <TouchableOpacity onPress={() => sheetRef.current.snapTo(1)}>
-          <Icon name="close" size={20} />
-        </TouchableOpacity>
-      </View>
-      <Divider
-        style={{marginTop: 5}}
-        orientation="horizontal"
-        width={0.5}
-        height={5}
-        color={'#d3d3d3'}
-      />
-
-      <WebView
-        source={{
-          uri: 'https://checkme-app.falcon-innov.com/privacy.html',
-        }}
-      />
-    </View>
-  );
-
-  const sheetRef = React.createRef(null);
-  const fall = new Animated.Value(1);
 
   return (
     <>
@@ -270,26 +213,8 @@ const Register = () => {
                 }}
               />
             </View>
-            <View style={{alignItems: 'center', marginTop: 15}}>
-              <Text style={{color: COLORS.textColor}}>{t('terms')}</Text>
-              <TouchableWithoutFeedback
-                onPress={() => sheetRef.current.snapTo(0)}>
-                <Text
-                  style={{
-                    textDecorationLine: 'underline',
-                    textDecorationStyle: 'solid',
-                    textDecorationColor: '#000',
-                    color: COLORS.primary,
-                    fontFamily: 'Poppins-Medium',
-                    fontSize: 12,
-                    marginTop: 5,
-                  }}>
-                  {t('condition')}
-                </Text>
-              </TouchableWithoutFeedback>
-            </View>
 
-            <View style={{marginTop: 20}}>
+            <View style={{marginTop: SIZES.screenHeight * 0.06}}>
               <AppButton
                 text={t('register')}
                 color={
@@ -331,15 +256,6 @@ const Register = () => {
               </TouchableOpacity>
             </View>
           </KeyboardAwareScrollView>
-          <BottomSheet
-            ref={sheetRef}
-            snapPoints={[SIZES.screenHeight * 0.9, 0]}
-            borderRadius={10}
-            initialSnap={1}
-            renderContent={renderContent}
-            callbackNode={fall}
-            enabledGestureInteraction={true}
-          />
         </SafeAreaView>
       )}
     </>

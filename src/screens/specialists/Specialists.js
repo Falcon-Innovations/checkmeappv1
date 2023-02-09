@@ -1,11 +1,8 @@
 import {
-  StatusBar,
   StyleSheet,
   Text,
   View,
   SafeAreaView,
-  FlatList,
-  ImageBackground,
   Image,
   ScrollView,
   TouchableOpacity,
@@ -74,7 +71,12 @@ const Specialists = () => {
               <RefreshControl refreshing={loading} onRefresh={fetchData} />
             }>
             <View>
-              <Text style={{fontFamily: 'Poppins_Medium', color: '#333333'}}>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Medium',
+                  fontSize: 12,
+                  color: '#333333',
+                }}>
                 {t('specialistTitle')}
               </Text>
               {loading || error ? (

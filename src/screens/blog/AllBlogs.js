@@ -1,7 +1,6 @@
 import {
   FlatList,
   ImageBackground,
-  RefreshControl,
   SafeAreaView,
   ScrollView,
   Share,
@@ -28,8 +27,6 @@ const AllBlogs = () => {
   const [like, setLike] = useState(false);
   const onChangeSearch = query => setSearchQuery(query);
 
-  // const { loading, data, error } = useBlogs();
-
   const [loading, error, data, fetchData] = useDataFetching(
     `${config.app.api_url}/articles`,
   );
@@ -42,10 +39,10 @@ const AllBlogs = () => {
     return updateData;
   }, [navigation]);
 
-  const onLike = async id => {
-    await voteBlog(id);
-    setLike(!like);
-  };
+  // const onLike = async id => {
+  //   await voteBlog(id);
+  //   setLike(!like);
+  // };
 
   const onShare = async () => {
     try {
@@ -95,7 +92,7 @@ const AllBlogs = () => {
               marginBottom: 8,
               width: SIZES.screenWidth * 0.4,
             }}>
-            {moment(item.createdAt).format('ll')}
+            {moment(item?.createdAt).format('ll')}
           </Text>
           <Text
             numberOfLines={3}
@@ -107,7 +104,7 @@ const AllBlogs = () => {
               color: COLORS.textColor,
               fontSize: 15.5,
             }}>
-            {item.title}
+            {item?.title}
           </Text>
           <View
             style={{
@@ -171,7 +168,11 @@ const AllBlogs = () => {
           </Text>
         </View>
 
-        <View style={{paddingHorizontal: 15, paddingTop: 6}}>
+        <ScrollView
+          contentContainerStyle={{
+            paddingHorizontal: 15,
+            paddingTop: 6,
+          }}>
           {loading ? (
             <SkeletonPlaceholder borderRadius={4}>
               <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
@@ -216,7 +217,7 @@ const AllBlogs = () => {
               )}
             </>
           )}
-        </View>
+        </ScrollView>
       </SafeAreaView>
     </>
   );

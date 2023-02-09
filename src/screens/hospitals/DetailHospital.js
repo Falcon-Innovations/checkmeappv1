@@ -80,8 +80,8 @@ const DetailHospital = ({route}) => {
             }}>
             <Text
               style={{
-                fontFamily: 'Poppins_SemiBold',
-                fontSize: 16,
+                fontFamily: 'Poppins-SemiBold',
+                fontSize: 14,
                 color: COLORS.primary,
               }}
               numberOfLines={1}>

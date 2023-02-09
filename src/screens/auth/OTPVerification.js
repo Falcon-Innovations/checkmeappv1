@@ -6,9 +6,6 @@ import {
   TouchableOpacity,
   Dimensions,
   Image,
-  ScrollView,
-  TouchableWithoutFeedback,
-  Keyboard,
   Alert,
   SafeAreaView,
   Pressable,
@@ -22,7 +19,6 @@ import {COLORS, IMAGES, SIZES} from '../../utility';
 import {AppButton, Loader} from '../../components';
 import {Context as UserContext} from '../../contexts/userContext';
 
-const CELL_COUNT = 4;
 const MAX_DELAY = 120;
 
 function serializeOTP(otp) {
@@ -74,7 +70,6 @@ const OTPVerification = ({route}) => {
   const thirdInput = useRef();
   const fourthInput = useRef();
   const [otp, setOtp] = useState({one: '', two: '', three: '', four: ''});
-  const [error, setError] = useState(null);
   const navigation = useNavigation();
 
   if (loading) return <Loader visible={true} />;

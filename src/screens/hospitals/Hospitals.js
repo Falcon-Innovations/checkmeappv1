@@ -3,7 +3,6 @@ import {
   Text,
   View,
   SafeAreaView,
-  ImageBackground,
   ScrollView,
   TouchableOpacity,
   RefreshControl,
@@ -75,7 +74,12 @@ const Hospitals = () => {
             />
           </View>
           <View>
-            <Text style={{fontFamily: 'Poppins_Medium', color: '#333333'}}>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Medium',
+                fontSize: 12,
+                color: '#333333',
+              }}>
               {t('hosTitle')}
             </Text>
             {loading || error ? (
