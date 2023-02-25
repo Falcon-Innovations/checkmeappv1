@@ -9,18 +9,18 @@ import {
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Icons from 'react-native-vector-icons/Ionicons';
-import {AppButton, AppStatusBar, CustomStatusBar} from '../../components';
-import {COLORS, SIZES} from '../../utility';
+import { AppButton, AppStatusBar, CustomStatusBar } from '../../components';
+import { COLORS, SIZES } from '../../utility';
 
-function AppointmentDetails({route}) {
+function AppointmentDetails({ route }) {
   const item = route.params;
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar text="Appointment Details" />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollView
-          style={{marginHorizontal: 10}}
+          style={{ marginHorizontal: 10 }}
           contentContainerStyle={{
             paddingTop: SIZES.screenHeight * 0.02,
             paddingBottom: SIZES.screenHeight * 0.04,
@@ -34,7 +34,7 @@ function AppointmentDetails({route}) {
               <View style={[styles.iconContainer, styles.elevation]}>
                 <Icon name="user-nurse" size={16} color="#3A3B3C" />
               </View>
-              <View style={{marginLeft: 8}}>
+              <View style={{ marginLeft: 8 }}>
                 <Text
                   style={{
                     fontFamily: 'Poppins-Medium',
@@ -59,7 +59,7 @@ function AppointmentDetails({route}) {
               <View style={[styles.iconContainer, styles.elevation]}>
                 <Icon name="calendar" size={16} color="#3A3B3C" />
               </View>
-              <View style={{marginLeft: 8}}>
+              <View style={{ marginLeft: 8 }}>
                 <Text
                   style={{
                     fontFamily: 'Poppins-Medium',
@@ -94,7 +94,7 @@ function AppointmentDetails({route}) {
           </View>
 
           <View
-            style={{marginTop: SIZES.screenHeight * 0.06, marginBottom: 30}}>
+            style={{ marginTop: SIZES.screenHeight * 0.06, marginBottom: 30 }}>
             <View
               style={{
                 paddingHorizontal: 15,

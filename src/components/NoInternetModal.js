@@ -1,11 +1,11 @@
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
 import Modal from 'react-native-modal';
 import AppButton from './utils/AppButton';
-import {COLORS} from '../utility';
+import { COLORS } from '../utility';
 
-function NoInternetModal({show, onRetry, isRetrying}) {
+function NoInternetModal({ show, onRetry, isRetrying }) {
   return (
     <Modal isVisible={show} style={styles.modal} animationInTiming={600}>
       <View style={styles.modalContainer}>

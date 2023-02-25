@@ -1,42 +1,38 @@
+/* eslint-disable no-unused-expressions */
 import {
   View,
   Text,
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  Dimensions,
   Image,
-  ScrollView,
-  TouchableWithoutFeedback,
-  Keyboard,
   Alert,
   SafeAreaView,
   Pressable,
 } from 'react-native';
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import {useNavigation} from '@react-navigation/native';
-import {COLORS, IMAGES, SIZES} from '../../utility';
-import {AppButton, Loader} from '../../components';
-import {Context as UserContext} from '../../contexts/userContext';
+import { useNavigation } from '@react-navigation/native';
+import { COLORS, IMAGES, SIZES } from '../../utility';
+import { AppButton, Loader } from '../../components';
+import { Context as UserContext } from '../../contexts/userContext';
 
-const CELL_COUNT = 4;
 const MAX_DELAY = 120;
 
 function serializeOTP(otp) {
-  const {one, two, three, four} = otp;
+  const { one, two, three, four } = otp;
   const tempOtp = [one, two, three, four];
   return tempOtp.join('');
 }
 
-function OTPVerification({route}) {
-  const {phoneNumber} = route.params;
-  const {checkOTP, sendOTP} = React.useContext(UserContext);
+function OTPVerification({ route }) {
+  const { phoneNumber } = route.params;
+  const { checkOTP, sendOTP } = React.useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [delay, setDelay] = useState(MAX_DELAY);
-  const {verifyImage} = IMAGES;
+  const { verifyImage } = IMAGES;
 
   // CHECKopt
   const handleCheckOTP = async () => {
@@ -79,14 +75,13 @@ function OTPVerification({route}) {
     three: '',
     four: '',
   });
-  const [error, setError] = useState(null);
   const navigation = useNavigation();
 
   if (loading) return <Loader visible />;
 
   const resendOTP = async () => {
     setLoading(true);
-    await sendOTP({phoneNumber});
+    await sendOTP({ phoneNumber });
     setLoading(false);
   };
 
@@ -96,7 +91,7 @@ function OTPVerification({route}) {
         extraHeight={100}
         showsVerticalScrollIndicator={false}
         enableOnAndroid
-        style={{paddingBottom: 30}}>
+        style={{ paddingBottom: 30 }}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={{
@@ -123,11 +118,11 @@ function OTPVerification({route}) {
             }}>
             <Image
               resizeMode="contain"
-              source={{uri: verifyImage}}
+              source={{ uri: verifyImage }}
               style={styles.img}
             />
           </View>
-          <View style={{paddingVertical: 12, marginBottom: 12}}>
+          <View style={{ paddingVertical: 12, marginBottom: 12 }}>
             <Text
               style={{
                 fontFamily: 'Poppins_Regular',
@@ -157,9 +152,9 @@ function OTPVerification({route}) {
               keyboardType="number-pad"
               maxLength={1}
               ref={firstInput}
-              onChangeText={text => {
-                setOtp({...otp, one: text});
-                text && secondInput.current.focus();
+              onChangeText={(text) => {
+                setOtp({ ...otp, one: text });
+                text ? secondInput.current.focus() : null;
               }}
             />
           </View>
@@ -170,8 +165,8 @@ function OTPVerification({route}) {
               keyboardType="number-pad"
               maxLength={1}
               ref={secondInput}
-              onChangeText={text => {
-                setOtp({...otp, two: text});
+              onChangeText={(text) => {
+                setOtp({ ...otp, two: text });
                 text ? thirdInput.current.focus() : firstInput.current.focus();
               }}
             />
@@ -183,8 +178,8 @@ function OTPVerification({route}) {
               keyboardType="number-pad"
               maxLength={1}
               ref={thirdInput}
-              onChangeText={text => {
-                setOtp({...otp, three: text});
+              onChangeText={(text) => {
+                setOtp({ ...otp, three: text });
                 text
                   ? fourthInput.current.focus()
                   : secondInput.current.focus();
@@ -199,8 +194,8 @@ function OTPVerification({route}) {
               keyboardType="number-pad"
               maxLength={1}
               ref={fourthInput}
-              onChangeText={text => {
-                setOtp({...otp, four: text});
+              onChangeText={(text) => {
+                setOtp({ ...otp, four: text });
                 !text && thirdInput.current.focus();
               }}
             />
@@ -225,7 +220,7 @@ function OTPVerification({route}) {
           </Text>
         </Pressable>
 
-        <View style={{marginTop: 20, marginHorizontal: 15}}>
+        <View style={{ marginTop: 20, marginHorizontal: 15 }}>
           <AppButton
             text="Verify"
             color={COLORS.primary}
@@ -238,10 +233,6 @@ function OTPVerification({route}) {
   );
 }
 
-const {height, width} = Dimensions.get('window');
-
-const setHeight = h => (height / 100) * h;
-const setWidth = w => (width / 100) * w;
 export default OTPVerification;
 
 const styles = StyleSheet.create({
@@ -287,7 +278,6 @@ const styles = StyleSheet.create({
     borderColor: '#C8C8C8',
     borderWidth: 1,
     shadowColor: '#000',
-    // elevation: 4,
   },
   otpText: {
     fontSize: 25,

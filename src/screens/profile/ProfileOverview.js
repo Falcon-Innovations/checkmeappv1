@@ -1,5 +1,4 @@
 import {
-  ImageBackground,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -10,18 +9,18 @@ import {
   Alert,
 } from 'react-native';
 import React from 'react';
-import {Divider} from 'react-native-elements';
+import { Divider } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ProfileIcon from 'react-native-vector-icons/AntDesign';
-import {useNavigation} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
-import {Context as AuthContext} from '../../contexts/userContext';
-import {AppStatusBar, CustomStatusBar} from '../../components';
-import {COLORS, SIZES} from '../../utility';
+import { Context as AuthContext } from '../../contexts/userContext';
+import { AppStatusBar, CustomStatusBar } from '../../components';
+import { COLORS, SIZES } from '../../utility';
 
 function ProfileOverview() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   const profile = [
     {
@@ -50,7 +49,7 @@ function ProfileOverview() {
       screen: 'Settings',
     },
   ];
-  const {state, logout} = React.useContext(AuthContext);
+  const { state, logout } = React.useContext(AuthContext);
 
   const navigation = useNavigation();
 
@@ -65,7 +64,7 @@ function ProfileOverview() {
         },
         {
           text: 'Cancel',
-          onPress: () => console.log('Cancel Pressed'),
+          onPress: () => null,
           style: 'cancel',
         },
       ],
@@ -75,9 +74,9 @@ function ProfileOverview() {
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar text="Profile" />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollView
-          contentContainerStyle={{paddingHorizontal: 15, paddingTop: 20}}
+          contentContainerStyle={{ paddingHorizontal: 15, paddingTop: 20 }}
           showsVerticalScrollIndicator={false}>
           <View
             style={{
@@ -85,7 +84,7 @@ function ProfileOverview() {
               alignItems: 'center',
               paddingHorizontal: 10,
             }}>
-            <View style={{marginRight: 15}}>
+            <View style={{ marginRight: 15 }}>
               <View
                 style={{
                   height: 70,
@@ -99,7 +98,7 @@ function ProfileOverview() {
                       source={{
                         uri: state?.user?.avatar,
                       }}
-                      style={{height: 65, width: 65, borderRadius: 25}}
+                      style={{ height: 65, width: 65, borderRadius: 25 }}
                     />
                   ) : (
                     <ProfileIcon
@@ -136,12 +135,11 @@ function ProfileOverview() {
               </Text>
             </View>
           </View>
-
-          <View style={{marginTop: 15, marginBottom: 25}}>
+          <View style={{ marginTop: 15, marginBottom: 25 }}>
             <Divider orientation="horizontal" color="#C6C4C4" />
           </View>
           <View>
-            {profile.map(item => (
+            {profile.map((item) => (
               <TouchableOpacity
                 onPress={() => navigation.navigate(item.screen, state?.user)}
                 key={item.title}
@@ -220,7 +218,7 @@ export default ProfileOverview;
 const styles = StyleSheet.create({
   shadowProp: {
     shadowColor: '#171717',
-    shadowOffset: {width: -2, height: 4},
+    shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },

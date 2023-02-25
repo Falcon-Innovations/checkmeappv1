@@ -1,4 +1,6 @@
+import React from 'react';
 import {
+  Alert,
   Image,
   SafeAreaView,
   ScrollView,
@@ -7,19 +9,13 @@ import {
   Text,
   View,
 } from 'react-native';
-import React from 'react';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-import {
-  AppButton,
-  AppStatusBar,
-  CustomStatusBar,
-  SocialButton,
-} from '../../components';
-import {COLORS, IMAGES, SIZES} from '../../utility';
+import { AppStatusBar, CustomStatusBar, SocialButton } from '../../components';
+import { COLORS, IMAGES, SIZES } from '../../utility';
 
 function Referal() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   // share
   const onShare = async () => {
@@ -39,7 +35,7 @@ function Referal() {
         // dismissed
       }
     } catch (error) {
-      alert(error.message);
+      Alert.alert(error.message);
     }
   };
 
@@ -78,7 +74,7 @@ function Referal() {
             style={styles.image}
             resizeMode="contain"
           />
-          <View style={{marginTop: 10}}>
+          <View style={{ marginTop: 10 }}>
             <SocialButton
               backgroundColor={COLORS.primary}
               icon="share"

@@ -1,26 +1,25 @@
+import React, { useState } from 'react';
 import {
   Alert,
   Button,
   Dimensions,
   Platform,
   SafeAreaView,
-  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import CalendarPicker from 'react-native-calendar-picker';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Icons from 'react-native-vector-icons/Feather';
 import Modal from 'react-native-modal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 import {
   AppButton,
@@ -28,15 +27,13 @@ import {
   CustomStatusBar,
   Input,
 } from '../../components';
-import {COLORS, config} from '../../utility';
+import { COLORS, config } from '../../utility';
 import TextAreaInput from '../../components/inputs/TextAreaInput';
-import usePost from '../../hooks/usePost';
 
-function BookSpecialist({route}) {
+function BookSpecialist({ route }) {
   const navigation = useNavigation();
   const item = route.params;
 
-  const [datePickerVisible, setDatePickerVisible] = useState(false);
   const [isPickerShow, setIsPickerShow] = useState(false);
   const [date, setDate] = useState(new Date(Date.now()));
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -44,8 +41,6 @@ function BookSpecialist({route}) {
   const [message, setMessage] = useState('');
   const [isModalVisible, setModalVisible] = useState(false);
   const [load, setLoad] = useState(false);
-
-  const [loading, postAxiosData] = usePost('appointments', 'POST');
 
   const showPicker = () => {
     setIsPickerShow(true);
@@ -68,8 +63,8 @@ function BookSpecialist({route}) {
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
-  const onDateChange = date => {
-    setSelectedDate(date);
+  const onDateChange = (data) => {
+    setSelectedDate(data);
   };
 
   let startDate = selectedDate ? selectedDate.toString() : 'No date selected';
@@ -98,7 +93,7 @@ function BookSpecialist({route}) {
       data,
     };
     await axios(configurationData)
-      .then(response => {
+      .then((response) => {
         if (response.data.status === 'success') {
           setTitle('');
           setMessage('');
@@ -113,9 +108,9 @@ function BookSpecialist({route}) {
           ]);
         }
       })
-      .catch(error => {
+      .catch((error) => {
         setLoad(false);
-        console.error('Book Error', error);
+        throw new Error(error);
       });
   };
 
@@ -123,11 +118,11 @@ function BookSpecialist({route}) {
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <KeyboardAwareScrollView
           showsVerticalScrollIndicator={false}
           extraHeight={120}
-          style={{marginHorizontal: 15, paddingVertical: 15}}>
+          style={{ marginHorizontal: 15, paddingVertical: 15 }}>
           <View>
             <Text
               style={{
@@ -138,7 +133,7 @@ function BookSpecialist({route}) {
               Please fill in in the information below to book an appointment.{' '}
             </Text>
           </View>
-          <View style={{marginTop: 25}}>
+          <View style={{ marginTop: 25 }}>
             {/* <View style={{ marginBottom: 10 }}>
               <Input
                 // maxLength={35}
@@ -163,7 +158,7 @@ function BookSpecialist({route}) {
               />
             </View> */}
 
-            <View style={{marginBottom: 10}}>
+            <View style={{ marginBottom: 10 }}>
               <Input
                 // maxLength={35}
                 placeholder="Subject of your message"
@@ -172,14 +167,14 @@ function BookSpecialist({route}) {
                 defaultValue={title}
                 // error={errors.fullname}
                 // onFocus={() => handleErrors(null, "fullname")}
-                onChangeText={text => setTitle(text)}
+                onChangeText={(text) => setTitle(text)}
               />
             </View>
-            <View style={{marginBottom: 25}}>
+            <View style={{ marginBottom: 25 }}>
               <TextAreaInput
                 placeholder="Message"
                 defaultValue={message}
-                onChangeText={text => setMessage(text)}
+                onChangeText={(text) => setMessage(text)}
               />
             </View>
 
@@ -187,7 +182,7 @@ function BookSpecialist({route}) {
               {/* <Text style={styles.title}>Date of Birth</Text> */}
               <View style={styles.dateContainer}>
                 <View style={styles.dateView}>
-                  <Text style={{color: COLORS.textColor}}>{startDate}</Text>
+                  <Text style={{ color: COLORS.textColor }}>{startDate}</Text>
                   <TouchableOpacity onPress={toggleModal}>
                     <Icons name="calendar" size={24} color={COLORS.primary} />
                   </TouchableOpacity>
@@ -196,7 +191,7 @@ function BookSpecialist({route}) {
 
               <View style={styles.dateContainer}>
                 <View style={styles.dateView}>
-                  <Text style={{color: COLORS.textColor}}>
+                  <Text style={{ color: COLORS.textColor }}>
                     {date.toLocaleTimeString('Us', {
                       hour: '2-digit',
                       minute: '2-digit',
@@ -238,7 +233,7 @@ function BookSpecialist({route}) {
               )}
 
               <Modal isVisible={isModalVisible} animationType="slide">
-                <View style={{backgroundColor: '#fff', borderRadius: 8}}>
+                <View style={{ backgroundColor: '#fff', borderRadius: 8 }}>
                   <View
                     style={{
                       paddingHorizontal: 20,
@@ -257,7 +252,7 @@ function BookSpecialist({route}) {
                     />
                   </View>
 
-                  <View style={{paddingVertical: 10}}>
+                  <View style={{ paddingVertical: 10 }}>
                     <Button
                       color={COLORS.primary}
                       title="Set Date"
@@ -269,7 +264,7 @@ function BookSpecialist({route}) {
             </View>
           </View>
 
-          <View style={{marginTop: 20, marginBottom: 30}}>
+          <View style={{ marginTop: 20, marginBottom: 30 }}>
             <AppButton
               text={load ? 'Loading..' : 'Save'}
               color={COLORS.primary}

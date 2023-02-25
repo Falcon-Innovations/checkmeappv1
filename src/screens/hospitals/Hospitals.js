@@ -1,33 +1,34 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import {
   StyleSheet,
   Text,
   View,
   SafeAreaView,
-  ImageBackground,
   ScrollView,
   TouchableOpacity,
   RefreshControl,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {Searchbar} from 'react-native-paper';
-import {useNavigation} from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { Searchbar } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useTranslation} from 'react-i18next';
-import {COLORS, config, SIZES} from '../../utility';
+import { useTranslation } from 'react-i18next';
+import { COLORS, config, SIZES } from '../../utility';
 import {
   AppStatusBar,
   ComingSoonMessage,
   CustomStatusBar,
+  Error,
 } from '../../components';
 import SimpleLoader from '../../components/utils/SimpleLoader';
-import {CustomImageBackground} from '../../components/custom-image-background/custom-image-background';
+import { CustomImageBackground } from '../../components/custom-image-background/custom-image-background';
 import useDataFetching from '../../hooks/useFetchData';
 
 function Hospitals() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
-  const onChangeSearch = query => setSearchQuery(query);
+  const onChangeSearch = (query) => setSearchQuery(query);
 
   const [loading, error, data, fetchData] = useDataFetching(
     `${config.app.api_url}/hospitals`,
@@ -46,11 +47,11 @@ function Hospitals() {
       <SafeAreaView style={styles.container}>
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{marginHorizontal: 20}}
+          contentContainerStyle={{ marginHorizontal: 20 }}
           refreshControl={
             <RefreshControl refreshing={loading} onRefresh={fetchData} />
           }>
-          <View style={{marginVertical: 20}}>
+          <View style={{ marginVertical: 20 }}>
             <Searchbar
               placeholder="Search Hospital"
               placeholderTextColor="#D2D1D1"
@@ -69,7 +70,7 @@ function Hospitals() {
             />
           </View>
           <View>
-            <Text style={{fontFamily: 'Poppins_Medium', color: '#333333'}}>
+            <Text style={{ fontFamily: 'Poppins_Medium', color: '#333333' }}>
               {t('hosTitle')}
             </Text>
             {loading || error ? (
@@ -100,12 +101,12 @@ function Hospitals() {
               <>
                 {data?.data?.docs?.length > 0 ? (
                   <View style={styles.card}>
-                    {data?.data?.docs?.map((item, index) => (
+                    {data?.data?.docs?.map((item) => (
                       <TouchableOpacity
                         onPress={() =>
                           navigation.navigate('detailHospitals', item)
                         }
-                        key={index}
+                        key={item._id}
                         style={{
                           marginTop: SIZES.screenHeight * 0.025,
                           paddingHorizontal: 10,
@@ -118,14 +119,14 @@ function Hospitals() {
                           backgroundColor: '#FAFAFA',
                           marginBottom: 14,
                           shadowColor: '#d3d3d3',
-                          shadowOffset: {width: 3, height: 3},
+                          shadowOffset: { width: 3, height: 3 },
                           shadowOpacity: 1.0,
                         }}>
                         <CustomImageBackground
                           key={item?._id}
                           imgSrc={item?.logo}
                         />
-                        <View style={{paddingHorizontal: 4, marginTop: 14}}>
+                        <View style={{ paddingHorizontal: 4, marginTop: 14 }}>
                           <View
                             style={{
                               flexDirection: 'row',
@@ -144,16 +145,15 @@ function Hospitals() {
                             </Text>
                             <Icon name="heart-outline" size={22} />
                           </View>
-
                           <View
                             style={{
                               flexDirection: 'row',
                               alignItems: 'center',
                             }}>
                             {item?.services
-                              .map((service, index) => (
+                              .map((service) => (
                                 <Text
-                                  key={index}
+                                  key={service}
                                   style={{
                                     fontFamily: 'Poppins_Regular',
                                     fontSize: 14,
@@ -167,7 +167,6 @@ function Hospitals() {
                               ))
                               .slice(0, 2)}
                           </View>
-
                           <View
                             style={{
                               flexDirection: 'row',
@@ -193,11 +192,6 @@ function Hospitals() {
                         </View>
                       </TouchableOpacity>
                     ))}
-
-                    {/* ) : (
-
-                  )}
-                </> */}
                   </View>
                 ) : (
                   <View>
@@ -236,7 +230,7 @@ const styles = StyleSheet.create({
     width: SIZES.screenWidth * 0.43,
     borderRadius: 8,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     marginBottom: 10,
     elevation: 2,

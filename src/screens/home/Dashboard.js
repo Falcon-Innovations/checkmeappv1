@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import {
   Image,
   SafeAreaView,
@@ -8,56 +9,54 @@ import {
   Platform,
   TouchableOpacity,
   BackHandler,
+  Alert,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {Button} from 'react-native-paper';
-import {useTranslation} from 'react-i18next';
-// import {useNavigation} from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { Button } from 'react-native-paper';
+import { useTranslation } from 'react-i18next';
 import messaging from '@react-native-firebase/messaging';
-import {COLORS, IMAGES, SIZES} from '../../utility';
-import {AppStatusBar, DashboardCard} from '../../components';
-import {Context as AuthContext} from '../../contexts/userContext';
+import { COLORS, IMAGES, SIZES } from '../../utility';
+import { AppStatusBar, DashboardCard } from '../../components';
+import { Context as AuthContext } from '../../contexts/userContext';
 
-function Dashboard({navigation}) {
-  const {t} = useTranslation();
-  const {state, logout} = React.useContext(AuthContext);
+function Dashboard({ navigation }) {
+  const { t } = useTranslation();
+  const { state } = React.useContext(AuthContext);
   const [messages, setMessages] = useState([]);
-  // const navigation = useNavigation();
 
   useEffect(() => {
-    // This listens to click on the back button for the homescreen and automatically closes the app
-    navigation.addListener('beforeRemove', e => {
+    navigation.addListener('beforeRemove', () => {
       BackHandler.exitApp();
     });
   }, [navigation]);
 
   useEffect(() => {
     const subscribe = messaging().setBackgroundMessageHandler(
-      async remoteMessage => {
+      async (remoteMessage) => {
         // Get the message body
-        const message_body = remoteMessage.notification.body;
+        const messageBody = remoteMessage.notification.body;
 
         // Get the message title
-        const message_title = remoteMessage.notification.title;
+        const messageTitle = remoteMessage.notification.title;
 
         // Get message image
         const avatar = remoteMessage.notification.android.imageUrl;
 
         // Append the message to the current messages state
-        setMessages(messages => [
-          ...messages,
-          {message_body, message_title, avatar},
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { messageBody, messageTitle, avatar },
         ]);
 
         // Show an alert to the user
-        Alert.alert(message_title, message_body);
+        Alert.alert(messageTitle, messageBody);
       },
     );
 
     return subscribe;
   }, [messages]);
 
-  const {headerImage} = IMAGES;
+  const { headerImage } = IMAGES;
 
   const dailyTips = [
     {
@@ -102,7 +101,7 @@ function Dashboard({navigation}) {
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.container}>
             <View style={styles.header}>
@@ -117,18 +116,18 @@ function Dashboard({navigation}) {
               </TouchableOpacity>
             </View>
             <View style={styles.infoContainer}>
-              <View style={{alignSelf: 'flex-start'}}>
+              <View style={{ alignSelf: 'flex-start' }}>
                 <Image
                   style={{
                     height: SIZES.screenHeight * 0.25,
                     width: SIZES.screenWidth * 0.45,
                   }}
-                  source={{uri: headerImage}}
+                  source={{ uri: headerImage }}
                   resizeMode="contain"
                 />
               </View>
               <View>
-                <View style={{marginBottom: 5, width: '90%'}}>
+                <View style={{ marginBottom: 5, width: '90%' }}>
                   <Text
                     style={{
                       fontSize: 13,
@@ -166,14 +165,14 @@ function Dashboard({navigation}) {
                     onPress={() => navigation.navigate('SelfExamination')}
                     // onPress={handleLogout}
                     uppercase={false}
-                    theme={{colors: {primary: '#fff'}}}>
+                    theme={{ colors: { primary: '#fff' } }}>
                     {t('btnTest')}
                   </Button>
                 </View>
               </View>
             </View>
           </View>
-          <View style={{paddingHorizontal: 10, paddingTop: 15}}>
+          <View style={{ paddingHorizontal: 10, paddingTop: 15 }}>
             <View>
               <Text
                 style={{
@@ -183,7 +182,6 @@ function Dashboard({navigation}) {
                 }}>
                 {t('heading')}
               </Text>
-
               <View
                 style={{
                   flexDirection: 'row',
@@ -211,8 +209,8 @@ function Dashboard({navigation}) {
                     borderRadius: 4,
                   }}>
                   <Image
-                    source={{uri: randomTips.image}}
-                    style={{width: 35, height: 35, alignSelf: 'flex-start'}}
+                    source={{ uri: randomTips.image }}
+                    style={{ width: 35, height: 35, alignSelf: 'flex-start' }}
                     resizeMode="contain"
                   />
                 </View>
@@ -228,7 +226,7 @@ function Dashboard({navigation}) {
                       fontFamily: 'Poppins-Regular',
                       color: COLORS.textColor,
                       fontWeight: '500',
-                      fontSize: Platform.OS == 'ios' ? 15 : 12,
+                      fontSize: Platform.OS === 'ios' ? 15 : 12,
                     }}>
                     {randomTips.tip}
                   </Text>

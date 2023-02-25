@@ -8,18 +8,18 @@ const getToken = async () => {
   try {
     return await AsyncStorage.getItem('token');
   } catch (err) {
-    console.error(err);
+    Promise.reject(err);
   }
+  return token;
 };
 
 getToken()
-  .then(result => {
+  .then((result) => {
     token = result;
   })
-  .catch(err => {
-    console.error(err);
-  })
-  .finally(() => console.log(token));
+  .catch((err) => {
+    Promise.reject(err);
+  });
 
 const headers = {
   'Content-type': 'Application/json',
@@ -28,5 +28,5 @@ const headers = {
 
 export default axios.create({
   baseURL: BASE_URL,
-  headers: {...headers},
+  headers: { ...headers },
 });

@@ -1,3 +1,4 @@
+import React, { useRef, useState } from 'react';
 import {
   Image,
   SafeAreaView,
@@ -9,23 +10,22 @@ import {
   Keyboard,
   StatusBar,
 } from 'react-native';
-import React, {useEffect, useRef, useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {useTranslation} from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useTranslation } from 'react-i18next';
 
 import '../../../assets/i18n/i18n';
-import {COLORS, IMAGES, SIZES} from '../../utility';
-import {AppButton, PhoneInputField, Loader} from '../../components';
-import {Context as UserContext} from '../../contexts/userContext';
+import { COLORS, IMAGES, SIZES } from '../../utility';
+import { AppButton, PhoneInputField, Loader } from '../../components';
+import { Context as UserContext } from '../../contexts/userContext';
 
 function Login() {
   const navigation = useNavigation();
 
-  const {t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   const [currentLanguage, setLanguage] = useState(i18n.language);
 
-  const {sendOTP} = React.useContext(UserContext);
+  const { sendOTP } = React.useContext(UserContext);
   const [inputs, setInputs] = useState({
     phone: '',
   });
@@ -34,11 +34,11 @@ function Login() {
   const [loading, setLoading] = useState(false);
 
   // change language
-  const changeLanguage = value => {
+  const changeLanguage = (value) => {
     i18n
       .changeLanguage(value)
       .then(() => setLanguage(value))
-      .catch(err => console.log(err));
+      .catch((err) => Promise.reject(err));
   };
 
   const handleSignIn = async () => {
@@ -53,20 +53,20 @@ function Login() {
     }
     if (isValid) {
       setLoading(true);
-      await sendOTP({phoneNumber: inputs.phone});
+      await sendOTP({ phoneNumber: inputs.phone });
       setLoading(false);
     }
   };
 
   const handleOnChange = (text, input) => {
-    setInputs(prevState => ({...prevState, [input]: text}));
+    setInputs((prevState) => ({ ...prevState, [input]: text }));
   };
 
   const handleErrors = (errorMessage, input) => {
-    setErrors(prevState => ({...prevState, [input]: errorMessage}));
+    setErrors((prevState) => ({ ...prevState, [input]: errorMessage }));
   };
 
-  const {authImage} = IMAGES;
+  const { authImage } = IMAGES;
 
   return (
     <>
@@ -89,7 +89,7 @@ function Login() {
                 flexDirection: 'row',
                 alignItems: 'center',
                 paddingTop:
-                  Platform.OS == 'ios'
+                  Platform.OS === 'ios'
                     ? SIZES.screenHeight * 0.01
                     : SIZES.screenHeight * 0.04,
               }}>
@@ -97,13 +97,13 @@ function Login() {
                 onPress={() => changeLanguage('en')}
                 style={[
                   currentLanguage === 'en' ? styles.active : styles.unActive,
-                  {marginRight: 8},
+                  { marginRight: 8 },
                 ]}>
                 <Text
                   style={
                     currentLanguage === 'en'
-                      ? {fontFamily: 'Poppins-Medium', color: '#fff'}
-                      : {fontFamily: 'Poppins-Medium', color: '#3c1361'}
+                      ? { fontFamily: 'Poppins-Medium', color: '#fff' }
+                      : { fontFamily: 'Poppins-Medium', color: '#3c1361' }
                   }>
                   EN
                 </Text>
@@ -112,22 +112,22 @@ function Login() {
                 onPress={() => changeLanguage('fr')}
                 style={[
                   currentLanguage === 'fr' ? styles.active : styles.unActive,
-                  {alignItems: 'center'},
+                  { alignItems: 'center' },
                 ]}>
                 <Text
                   style={
                     currentLanguage === 'fr'
-                      ? {fontFamily: 'Poppins-Medium', color: '#fff'}
-                      : {fontFamily: 'Poppin-Medium', color: '#3c1361'}
+                      ? { fontFamily: 'Poppins-Medium', color: '#fff' }
+                      : { fontFamily: 'Poppin-Medium', color: '#3c1361' }
                   }>
                   FR
                 </Text>
               </TouchableOpacity>
             </View>
-            <View style={{paddingTop: 10, paddingBottom: 8}}>
+            <View style={{ paddingTop: 10, paddingBottom: 8 }}>
               <Image
                 resizeMode="contain"
-                source={{uri: authImage}}
+                source={{ uri: authImage }}
                 style={styles.img}
               />
             </View>
@@ -140,7 +140,7 @@ function Login() {
               <Text
                 style={[
                   styles.welcomeText,
-                  {color: COLORS.primary, fontFamily: 'Poppins-Bold'},
+                  { color: COLORS.primary, fontFamily: 'Poppins-Bold' },
                 ]}>
                 {t('welcome1')}
               </Text>
@@ -162,13 +162,13 @@ function Login() {
                 placeholder={t('placeholder3')}
                 phoneNumber={inputs.phone}
                 error={errors.phone}
-                onChange={text => {
+                onChange={(text) => {
                   handleOnChange(text, 'phone');
                 }}
               />
             </View>
 
-            <View style={{marginTop: 20}}>
+            <View style={{ marginTop: 20 }}>
               <AppButton
                 text={t('login')}
                 color={
@@ -189,7 +189,7 @@ function Login() {
                 flexDirection: 'row',
                 marginTop: SIZES.screenHeight * 0.02,
               }}>
-              <Text style={{color: COLORS.textColor}}>{t('noAccount')}</Text>
+              <Text style={{ color: COLORS.textColor }}>{t('noAccount')}</Text>
               <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
                 <Text
                   style={{
@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
   },
   unActive: {
     paddingHorizontal: 10,
-    paddingVertical: Platform.OS == 'ios' ? 8 : 6,
+    paddingVertical: Platform.OS === 'ios' ? 8 : 6,
     borderRadius: 24,
     borderWidth: 2,
     borderColor: COLORS.primary,
@@ -267,7 +267,7 @@ const styles = StyleSheet.create({
   },
   active: {
     paddingHorizontal: 10,
-    paddingVertical: Platform.OS == 'ios' ? 8 : 6,
+    paddingVertical: Platform.OS === 'ios' ? 8 : 6,
     borderRadius: 24,
     borderWidth: 2,
     backgroundColor: COLORS.primary,

@@ -7,16 +7,16 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import {COLORS} from '../../utility';
+import { COLORS } from '../../utility';
 
-function Loader({visible = false}) {
-  const {width, height} = useWindowDimensions();
+function Loader({ visible = false }) {
+  const { width, height } = useWindowDimensions();
   return (
     visible && (
-      <View style={[style.container, {height, width}]}>
+      <View style={[style.container, { height, width }]}>
         <View style={style.loader}>
           <ActivityIndicator size="large" color={COLORS.primary} />
-          <Text style={{marginLeft: 10, fontSize: 16}}>Loading...</Text>
+          <Text style={{ marginLeft: 10, fontSize: 16 }}>Loading...</Text>
         </View>
       </View>
     )

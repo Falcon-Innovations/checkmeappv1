@@ -1,17 +1,11 @@
-import {
-  ImageBackground,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { ImageBackground, Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import React from 'react';
 import moment from 'moment';
-import {useNavigation} from '@react-navigation/native';
-import {COLORS, SIZES} from '../utility';
+import { useNavigation } from '@react-navigation/native';
+import { COLORS, SIZES } from '../utility';
 
-function BlogCard({item, onShare}) {
+function BlogCard({ item, onShare }) {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
@@ -24,16 +18,16 @@ function BlogCard({item, onShare}) {
       }}>
       <View>
         <ImageBackground
-          imageStyle={{borderRadius: 8}}
+          imageStyle={{ borderRadius: 8 }}
           resizeMode="cover"
-          source={{uri: item.photo}}
+          source={{ uri: item.photo }}
           style={{
             width: SIZES.screenWidth * 0.4,
             height: SIZES.screenWidth * 0.3,
           }}
         />
       </View>
-      <View style={{paddingLeft: 20, marginRight: 14}}>
+      <View style={{ paddingLeft: 20, marginRight: 14 }}>
         <Text
           style={{
             color: 'gray',
@@ -79,5 +73,3 @@ function BlogCard({item, onShare}) {
 }
 
 export default BlogCard;
-
-const styles = StyleSheet.create({});

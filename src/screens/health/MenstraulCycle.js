@@ -1,25 +1,24 @@
+/* eslint-disable react/jsx-no-useless-fragment */
+import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   ScrollView,
-  StyleSheet,
   Text,
   View,
   Image,
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Edit from 'react-native-vector-icons/AntDesign';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Icons from 'react-native-vector-icons/Ionicons';
 import Modal from 'react-native-modal';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import {AppButton, AppStatusBar, Input} from '../../components';
-import {COLORS, config, SIZES} from '../../utility';
+import { AppButton, AppStatusBar, Input } from '../../components';
+import { COLORS, config, SIZES } from '../../utility';
 import useDataFetching from '../../hooks/useFetchData';
 import SimpleLoader from '../../components/utils/SimpleLoader';
 import Error from '../../components/utils/Error';
@@ -70,8 +69,8 @@ function MenstraulCycle() {
     const token = await AsyncStorage.getItem('token');
 
     const data = {
-      dayCount: parseInt(num),
-      daysBledCount: parseInt(numP),
+      dayCount: Number(num),
+      daysBledCount: Number(numP),
     };
     const configurationData = {
       method: 'PATCH',
@@ -83,7 +82,7 @@ function MenstraulCycle() {
       data,
     };
     await axios(configurationData)
-      .then(response => {
+      .then((response) => {
         if (response.data.status === 'success') {
           setLoad(false);
           Alert.alert('success', 'Cycle set Successfully', [
@@ -96,50 +95,8 @@ function MenstraulCycle() {
           ]);
         }
       })
-      .catch(error => {
+      .catch(() => {
         setLoad(false);
-        console.error('Book Error', error);
-      });
-  };
-
-  // delete
-
-  const deleteMentrualCycle = async () => {
-    setLoad(true);
-
-    const token = await AsyncStorage.getItem('token');
-
-    const data = {
-      dayCount: numOfDays,
-      daysBledCount: parseInt(period),
-      description: message,
-    };
-    const configurationData = {
-      method: 'PATCH',
-      url: `${config.app.api_url}/users/updateMenstrualCycle`,
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      data,
-    };
-    await axios(configurationData)
-      .then(response => {
-        if (response.data.status === 'success') {
-          setLoad(false);
-          Alert.alert('success', 'Cycle set Successfully', [
-            {
-              title: 'Ok',
-              onPress: () => {
-                navigation.goBack();
-              },
-            },
-          ]);
-        }
-      })
-      .catch(error => {
-        setLoad(false);
-        console.error('Book Error', error);
       });
   };
 
@@ -166,7 +123,7 @@ function MenstraulCycle() {
             name="arrow-back-ios"
             size={25}
             color="#fff"
-            style={{marginLeft: 16}}
+            style={{ marginLeft: 16 }}
           />
           <Text
             style={{
@@ -180,9 +137,9 @@ function MenstraulCycle() {
           </Text>
         </TouchableOpacity>
       </View>
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollView
-          contentContainerStyle={{marginHorizontal: 14, paddingVertical: 18}}>
+          contentContainerStyle={{ marginHorizontal: 14, paddingVertical: 18 }}>
           {loading || error ? (
             <>
               {loading === true && (
@@ -215,7 +172,7 @@ function MenstraulCycle() {
                     justifyContent: 'center',
                     marginTop: SIZES.screenHeight * 0.1,
                   }}>
-                  <View style={{alignItems: 'center'}}>
+                  <View style={{ alignItems: 'center' }}>
                     <Image
                       source={{
                         uri: 'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910051/menstrualCycle_nin7zm.png',
@@ -226,7 +183,7 @@ function MenstraulCycle() {
                       }}
                     />
                   </View>
-                  <View style={{paddingHorizontal: 20, marginTop: 20}}>
+                  <View style={{ paddingHorizontal: 20, marginTop: 20 }}>
                     <Text
                       style={{
                         fontFamily: 'Poppins-Regular',
@@ -239,7 +196,7 @@ function MenstraulCycle() {
                       life
                     </Text>
                   </View>
-                  <View style={{marginTop: SIZES.screenHeight * 0.05}}>
+                  <View style={{ marginTop: SIZES.screenHeight * 0.05 }}>
                     <AppButton
                       text="Add Cycle"
                       color={COLORS.primary}
@@ -248,8 +205,8 @@ function MenstraulCycle() {
                   </View>
                 </View>
               ) : (
-                <View style={{marginTop: 4}}>
-                  <View style={{alignItems: 'center'}}>
+                <View style={{ marginTop: 4 }}>
+                  <View style={{ alignItems: 'center' }}>
                     <Text
                       style={{
                         fontFamily: 'Poppins_Regular',
@@ -275,7 +232,7 @@ function MenstraulCycle() {
                       alignItems: 'center',
                       marginTop: SIZES.screenHeight * 0.05,
                     }}>
-                    {cycle.map(cy => (
+                    {cycle.map((cy) => (
                       <View
                         key={cy.days}
                         style={{
@@ -301,7 +258,7 @@ function MenstraulCycle() {
                           }}>
                           {cy.icon}
                         </View>
-                        <View style={{paddingLeft: 6, paddingBottom: 4}}>
+                        <View style={{ paddingLeft: 6, paddingBottom: 4 }}>
                           <Text
                             style={{
                               fontFamily: 'Poppins-Medium',
@@ -329,7 +286,8 @@ function MenstraulCycle() {
                       paddingHorizontal: 18,
                       marginTop: SIZES.screenHeight * 0.03,
                     }}>
-                    <Text style={{fontFamily: 'Poppins-Medium', fontSize: 14}}>
+                    <Text
+                      style={{ fontFamily: 'Poppins-Medium', fontSize: 14 }}>
                       Cycle Information
                     </Text>
                     <View
@@ -340,7 +298,7 @@ function MenstraulCycle() {
                         marginTop: 10,
                       }}>
                       <View
-                        style={{flexDirection: 'row', alignItems: 'center'}}>
+                        style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Text
                           style={{
                             fontFamily: 'Poppins-Medium',
@@ -374,19 +332,12 @@ function MenstraulCycle() {
                         </Text>
                       </View>
                       <View
-                        style={{flexDirection: 'row', alignItems: 'center'}}>
+                        style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <TouchableOpacity
                           onPress={toggleModal}
-                          style={{marginRight: 14}}>
+                          style={{ marginRight: 14 }}>
                           <Edit name="edit" size={24} color="#0000ff" />
                         </TouchableOpacity>
-                        {/* <View>
-                          <Icon
-                            name="delete-outline"
-                            size={24}
-                            color={COLORS.primary}
-                          />
-                        </View> */}
                       </View>
                     </View>
                   </View>
@@ -396,7 +347,7 @@ function MenstraulCycle() {
           )}
         </ScrollView>
         <Modal isVisible={isModalVisible} animationType="slide">
-          <View style={{backgroundColor: '#fff', borderRadius: 8}}>
+          <View style={{ backgroundColor: '#fff', borderRadius: 8 }}>
             <View
               style={{
                 paddingHorizontal: 20,
@@ -423,22 +374,22 @@ function MenstraulCycle() {
                   <Icons name="close" size={20} />
                 </TouchableOpacity>
               </View>
-              <View style={{marginTop: 12, marginBottom: 10}}>
+              <View style={{ marginTop: 12, marginBottom: 10 }}>
                 <Input
                   maxLength={2}
                   placeholder="Number of days e.g 5"
                   keyboardType="numeric"
                   defaultValue={infoUserCycle?.toString()}
-                  onChangeText={text => setNum(text)}
+                  onChangeText={(text) => setNum(text)}
                 />
               </View>
-              <View style={{marginTop: 12}}>
+              <View style={{ marginTop: 12 }}>
                 <Input
                   maxLength={2}
                   placeholder="Number of days e.g 5"
                   keyboardType="numeric"
                   defaultValue={infoUserPeriod?.toString()}
-                  onChangeText={text => setNumP(text)}
+                  onChangeText={(text) => setNumP(text)}
                 />
               </View>
             </View>
@@ -464,5 +415,3 @@ function MenstraulCycle() {
 }
 
 export default MenstraulCycle;
-
-const styles = StyleSheet.create({});

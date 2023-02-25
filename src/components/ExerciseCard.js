@@ -1,32 +1,32 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import {SIZES} from '../utility';
+import { SIZES } from '../utility';
 
-function ExerciseCard({exercise}) {
+function ExerciseCard({ exercise }) {
   return (
     <TouchableOpacity style={styles.exeercisStyle}>
       <View style={styles.content}>
         <View style={styles.catContainer}>
           <View style={styles.catContent}>
-            <View style={[styles.cat, {backgroundColor: '#664696'}]}>
+            <View style={[styles.cat, { backgroundColor: '#664696' }]}>
               <Text style={[styles.title, {}]}>{exercise.bodyPart}</Text>
             </View>
             <View
               style={[
                 styles.cat,
-                {backgroundColor: '#F0805B', marginLeft: 12},
+                { backgroundColor: '#F0805B', marginLeft: 12 },
               ]}>
               <Text style={[styles.title, {}]}>{exercise.target}</Text>
             </View>
           </View>
-          <View style={{marginTop: 8}}>
+          <View style={{ marginTop: 8 }}>
             <Text style={styles.exerciseName}>{exercise.name}</Text>
           </View>
         </View>
 
         <Image
-          source={{uri: exercise.gifUrl}}
-          style={{width: 100, height: 100, borderRadius: 10}}
+          source={{ uri: exercise.gifUrl }}
+          style={{ width: 100, height: 100, borderRadius: 10 }}
           resizeMode="contain"
         />
       </View>

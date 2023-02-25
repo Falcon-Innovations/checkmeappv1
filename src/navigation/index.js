@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
-import {useTranslation} from 'react-i18next';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+/* eslint-disable react/no-unstable-nested-components */
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   NavigationContainer,
@@ -17,14 +18,14 @@ import {
   AllBlogs,
 } from '../screens';
 import useGetOnboardingStatus from '../utility/checkIfFirstLaunch';
-import {navigationRef} from './customNavigator';
+import { navigationRef } from './customNavigator';
 import ResolveAuth from '../screens/auth/ResolveAuth';
-import {COLORS} from '../utility';
+import { COLORS } from '../utility';
 import ScreenNavigator from './ScreenNavigator';
 
 const Stack = createNativeStackNavigator();
 
-function Navigation({colorScheme}) {
+function Navigation({ colorScheme }) {
   return (
     <NavigationContainer
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
@@ -34,36 +35,9 @@ function Navigation({colorScheme}) {
   );
 }
 
-function RootNavigator() {
-  const {isFirstLaunch, isLoading} = useGetOnboardingStatus();
-
-  if (isLoading) {
-    return null;
-  }
-
-  const handleOnboardingDone = () => {
-    navigationRef?.navigate('Signup');
-  };
-
-  return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-      {isFirstLaunch && (
-        <Stack.Screen name="Onboard">
-          {props => <Onboard {...props} handleDone={handleOnboardingDone} />}
-        </Stack.Screen>
-      )}
-      <Stack.Screen name="Resolve" component={ResolveAuth} />
-      <Stack.Screen name="Signup" component={Register} />
-      <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="OTPVerification" component={OTPVerification} />
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
-    </Stack.Navigator>
-  );
-}
-
 function BottomTabNavigator() {
   const Tab = createMaterialBottomTabNavigator();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   /**
    * The best approach for using a tab navigator,
    * is to nest Stack navigators for each respective tab
@@ -75,14 +49,13 @@ function BottomTabNavigator() {
     <Tab.Navigator
       initialRouteName="Feed"
       activeColor={COLORS.primary}
-      barStyle={{backgroundColor: COLORS.white}}>
+      barStyle={{ backgroundColor: COLORS.white }}>
       <Tab.Screen
         name="Feed"
         component={ScreenNavigator}
         options={{
           tabBarLabel: t('home'),
-
-          tabBarIcon: ({color}) => (
+          tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
         }}
@@ -92,7 +65,7 @@ function BottomTabNavigator() {
         component={AllBlogs}
         options={{
           tabBarLabel: t('blog'),
-          tabBarIcon: ({color}) => (
+          tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="book" color={color} size={26} />
           ),
         }}
@@ -112,12 +85,39 @@ function BottomTabNavigator() {
         component={ProfileOverview}
         options={{
           tabBarLabel: t('profile'),
-          tabBarIcon: ({color}) => (
+          tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account" color={color} size={26} />
           ),
         }}
       />
     </Tab.Navigator>
+  );
+}
+
+function RootNavigator() {
+  const { isFirstLaunch, isLoading } = useGetOnboardingStatus();
+
+  if (isLoading) {
+    return null;
+  }
+
+  const handleOnboardingDone = () => {
+    navigationRef?.navigate('Signup');
+  };
+
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      {isFirstLaunch && (
+        <Stack.Screen name="Onboard">
+          {(props) => <Onboard {...props} handleDone={handleOnboardingDone} />}
+        </Stack.Screen>
+      )}
+      <Stack.Screen name="Resolve" component={ResolveAuth} />
+      <Stack.Screen name="Signup" component={Register} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="OTPVerification" component={OTPVerification} />
+      <Stack.Screen name="Root" component={BottomTabNavigator} />
+    </Stack.Navigator>
   );
 }
 

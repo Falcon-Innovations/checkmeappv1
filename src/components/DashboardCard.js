@@ -1,13 +1,13 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-import {COLORS, IMAGES, SIZES} from '../utility';
+import { COLORS, IMAGES, SIZES } from '../utility';
 
 function DashboardCard() {
   const navigation = useNavigation();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const items = [
     {
       id: 1,
@@ -36,7 +36,7 @@ function DashboardCard() {
     },
   ];
   return (
-    <View style={{marginTop: 10}}>
+    <View style={{ marginTop: 10 }}>
       <Text
         style={{
           color: COLORS.textColor,
@@ -46,13 +46,13 @@ function DashboardCard() {
         {t('features')}
       </Text>
       <View style={styles.container}>
-        {items.map(item => (
+        {items.map((item) => (
           <TouchableOpacity
             onPress={() => navigation.navigate(item.screen)}
             key={item.id}
             style={styles.card}>
             <Image
-              source={{uri: item.img}}
+              source={{ uri: item.img }}
               style={{
                 width: SIZES.screenWidth * 0.22,
                 height: SIZES.screenWidth * 0.22,
@@ -91,8 +91,6 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   card: {
-    marginHorizontal: 5,
-    // marginRight: 15,
     marginHorizontal: 12,
     marginBottom: 20,
     paddingHorizontal: 5,

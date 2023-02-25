@@ -1,8 +1,8 @@
-import {StyleSheet, Text, View, TextInput} from 'react-native';
 import React from 'react';
+import { StyleSheet, View, TextInput } from 'react-native';
 
 function TextAreaInput(props) {
-  const {value, onChangeText, ...rest} = props;
+  const { value, onChangeText, ...rest } = props;
   return (
     <View style={styles.textAreaContainer}>
       <TextInput

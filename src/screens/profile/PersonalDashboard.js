@@ -1,5 +1,5 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import {
-  ImageBackground,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -8,24 +8,25 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import Icons from 'react-native-vector-icons/Ionicons';
 import ProfileIcon from 'react-native-vector-icons/AntDesign';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 
-import {useNavigation} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
-import {Context as AuthContext} from '../../contexts/userContext';
-import {AppStatusBar, CustomStatusBar} from '../../components';
-import {COLORS, config, SIZES} from '../../utility';
+import { Context as AuthContext } from '../../contexts/userContext';
+import { AppStatusBar, CustomStatusBar } from '../../components';
+import { COLORS, config, SIZES } from '../../utility';
 import useDataFetching from '../../hooks/useFetchData';
 import SimpleLoader from '../../components/utils/SimpleLoader';
 import Error from '../../components/utils/Error';
 
 function PersonalDashboard() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
+  const navigation = useNavigation();
 
   const [loading, error, user, fetchData] = useDataFetching(
     `${config.app.api_url}/users/me`,
@@ -74,23 +75,22 @@ function PersonalDashboard() {
     },
   ];
 
-  const {state, logout} = React.useContext(AuthContext);
+  const { state } = React.useContext(AuthContext);
 
-  const navigation = useNavigation();
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar text={t('personalDash')} />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollView
-          contentContainerStyle={{paddingHorizontal: 15, paddingTop: 20}}>
+          contentContainerStyle={{ paddingHorizontal: 15, paddingTop: 20 }}>
           <View
             style={{
               flexDirection: 'row',
               alignItems: 'center',
               paddingHorizontal: 10,
             }}>
-            <View style={{marginRight: 15}}>
+            <View style={{ marginRight: 15 }}>
               <View
                 style={{
                   height: 70,
@@ -104,7 +104,7 @@ function PersonalDashboard() {
                       source={{
                         uri: state?.user?.avatar,
                       }}
-                      style={{height: 65, width: 65, borderRadius: 25}}
+                      style={{ height: 65, width: 65, borderRadius: 25 }}
                     />
                   ) : (
                     <ProfileIcon
@@ -141,8 +141,7 @@ function PersonalDashboard() {
               </Text>
             </View>
           </View>
-
-          <View style={{paddingHorizontal: 5, marginTop: 20}}>
+          <View style={{ paddingHorizontal: 5, marginTop: 20 }}>
             <View
               style={{
                 flexDirection: 'row',
@@ -152,7 +151,7 @@ function PersonalDashboard() {
                 name="target"
                 size={28}
                 color={COLORS.primary}
-                style={{marginRight: 10}}
+                style={{ marginRight: 10 }}
               />
               <Text
                 style={{
@@ -169,13 +168,12 @@ function PersonalDashboard() {
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 alignItems: 'center',
-                alignSelf: 'center',
                 paddingTop: 12,
                 paddingBottom: SIZES.screenHeight * 0.03,
                 justifyContent: 'center',
                 alignSelf: 'flex-start',
               }}>
-              {data.map(item => (
+              {data.map((item) => (
                 <TouchableOpacity
                   onPress={() => navigation.navigate(item.screen)}
                   activeOpacity={0.5}
@@ -216,7 +214,7 @@ function PersonalDashboard() {
               ))}
             </View>
           </View>
-          <View style={{paddingHorizontal: 5, marginTop: 20}}>
+          <View style={{ paddingHorizontal: 5, marginTop: 20 }}>
             <View
               style={{
                 flexDirection: 'row',
@@ -226,7 +224,7 @@ function PersonalDashboard() {
                 name="md-flower-outline"
                 size={28}
                 color={COLORS.primary}
-                style={{marginRight: 10}}
+                style={{ marginRight: 10 }}
               />
               <Text
                 style={{
@@ -279,7 +277,7 @@ function PersonalDashboard() {
                       alignItems: 'center',
                       marginTop: SIZES.screenHeight * 0.05,
                     }}>
-                    {cycle.map(cy => (
+                    {cycle.map((cy) => (
                       <View
                         key={cy.days}
                         style={{
@@ -289,7 +287,6 @@ function PersonalDashboard() {
                           marginHorizontal: SIZES.screenWidth * 0.03,
                           borderRadius: 6,
                           width: '43%',
-
                           marginBottom: 20,
                         }}>
                         <View
@@ -297,7 +294,6 @@ function PersonalDashboard() {
                             height: 40,
                             width: 40,
                             borderRadius: 40,
-
                             backgroundColor: COLORS.primary,
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -305,7 +301,7 @@ function PersonalDashboard() {
                           }}>
                           {cy.icon}
                         </View>
-                        <View style={{paddingLeft: 6, paddingBottom: 4}}>
+                        <View style={{ paddingLeft: 6, paddingBottom: 4 }}>
                           <Text
                             style={{
                               fontFamily: 'Poppins-Medium',
@@ -343,7 +339,7 @@ export default PersonalDashboard;
 const styles = StyleSheet.create({
   shadowProp: {
     shadowColor: '#171717',
-    shadowOffset: {width: -2, height: 4},
+    shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },

@@ -4,22 +4,18 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
-  TouchableOpacity,
-  Alert,
   ImageBackground,
 } from 'react-native';
 import React from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import {
   AppButton,
   AppStatusBar,
   CustomStatusBar,
-  Loader,
+  SimpleLoader,
   VideoComponent,
 } from '../../components';
-import {COLORS, images, SIZES} from '../../utility';
+import { COLORS, SIZES } from '../../utility';
 
 const selfExamine = [
   {
@@ -75,13 +71,11 @@ const tips = [
 
 function SelfExamination() {
   const navigation = useNavigation();
-  const video = React.useRef(null);
-  const [status, setStatus] = React.useState({});
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar text="Self Examination" />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
@@ -138,9 +132,9 @@ function SelfExamination() {
               self check properly
             </Text>
           </View>
-          <View style={{marginHorizontal: 8}}>
-            {selfExamine.map((item, index) => (
-              <View key={index}>
+          <View style={{ marginHorizontal: 8 }}>
+            {selfExamine.map((item) => (
+              <View key={item.phase}>
                 <Text
                   style={{
                     fontFamily: 'Poppins-Medium',
@@ -155,8 +149,8 @@ function SelfExamination() {
                   <SimpleLoader />
                 ) : (
                   <ImageBackground
-                    imageStyle={{borderRadius: 12, resizeMode: 'cover'}}
-                    source={{uri: item.img}}
+                    imageStyle={{ borderRadius: 12, resizeMode: 'cover' }}
+                    source={{ uri: item.img }}
                     style={{
                       width: '100%',
                       height: SIZES.screenHeight * 0.22,
@@ -164,8 +158,7 @@ function SelfExamination() {
                     }}
                   />
                 )}
-
-                <View style={{marginTop: SIZES.screenHeight * 0.02}}>
+                <View style={{ marginTop: SIZES.screenHeight * 0.02 }}>
                   <Text
                     style={{
                       fontFamily: 'Poppins-Regular',
@@ -175,7 +168,7 @@ function SelfExamination() {
                     {item.description}
                   </Text>
                 </View>
-                <View style={{marginTop: 10}}>
+                <View style={{ marginTop: 10 }}>
                   <Text
                     style={{
                       fontFamily: 'Poppins-Medium',
@@ -183,9 +176,9 @@ function SelfExamination() {
                     }}>
                     Steps to Follow
                   </Text>
-                  {item.steps.map((step, index) => (
+                  {item.steps.map((step) => (
                     <Text
-                      key={index}
+                      key={step.i}
                       style={{
                         paddingLeft: 10,
                         fontFamily: 'Poppins-Regular',
@@ -212,9 +205,9 @@ function SelfExamination() {
                 }}>
                 General Tips
               </Text>
-              {tips.map((tip, index) => (
+              {tips.map((tip) => (
                 <Text
-                  key={index}
+                  key={tip}
                   style={{
                     color: COLORS.textColor,
                     fontFamily: 'Poppins-Regular',
@@ -231,14 +224,14 @@ function SelfExamination() {
                 alignItems: 'center',
                 justifyContent: 'space-between',
               }}>
-              <View style={{alignSelf: 'flex-start'}}>
+              <View style={{ alignSelf: 'flex-start' }}>
                 <AppButton
                   text="Talk to a Doctor"
                   color={COLORS.primary}
                   onPress={() => navigation.navigate('Specialists')}
                 />
               </View>
-              <View style={{marginLeft: 5}}>
+              <View style={{ marginLeft: 5 }}>
                 <AppButton
                   text="Book Mamogram "
                   color={COLORS.primary}

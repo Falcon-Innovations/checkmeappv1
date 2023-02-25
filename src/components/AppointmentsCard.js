@@ -1,19 +1,17 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import Icons from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import {useNavigation} from '@react-navigation/native';
-import {COLORS} from '../utility';
+import { COLORS } from '../utility';
 
-function AppointmentsCard({title, time, desc, doc, date, status, onPress}) {
-  const navigation = useNavigation();
+function AppointmentsCard({ title, time, desc, doc, date, status, onPress }) {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <View style={styles.cardContent}>
         <View style={styles.title}>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <FontAwesome name="stethoscope" size={18} color={COLORS.primary} />
 
             <Text
@@ -25,12 +23,12 @@ function AppointmentsCard({title, time, desc, doc, date, status, onPress}) {
               {title}
             </Text>
           </View>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{ flexDirection: 'row' }}>
             <Icon
               name="clock"
               size={14}
               color={COLORS.primary}
-              style={{marginRight: 4}}
+              style={{ marginRight: 4 }}
             />
             <Text
               style={{
@@ -42,7 +40,7 @@ function AppointmentsCard({title, time, desc, doc, date, status, onPress}) {
             </Text>
           </View>
         </View>
-        <View style={{marginTop: 8, paddingLeft: 30}}>
+        <View style={{ marginTop: 8, paddingLeft: 30 }}>
           <Text numberOfLines={2} style={styles.body}>
             {desc}
           </Text>
@@ -98,7 +96,7 @@ function AppointmentsCard({title, time, desc, doc, date, status, onPress}) {
                 flexWrap: 'wrap',
                 marginTop: 4,
               }}>
-              <TouchableOpacity style={[styles.btn, {marginRight: 4}]}>
+              <TouchableOpacity style={[styles.btn, { marginRight: 4 }]}>
                 <Text style={styles.text}>{status}</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.btn}>

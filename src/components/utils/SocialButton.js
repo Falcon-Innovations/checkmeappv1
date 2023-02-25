@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import {COLORS} from '../../utility';
+import { COLORS } from '../../utility';
 
 function SocialButton({
   onPress,
@@ -18,8 +18,10 @@ function SocialButton({
         backgroundColor={backgroundColor}
         onPress={onPress}
         style={styles.appButton}
-        iconStyle={{color: iconColor}}>
-        <Text style={[styles.appButtonText, {color: textColor}]}>{title}</Text>
+        iconStyle={{ color: iconColor }}>
+        <Text style={[styles.appButtonText, { color: textColor }]}>
+          {title}
+        </Text>
       </Icon.Button>
     </View>
   );

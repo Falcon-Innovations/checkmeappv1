@@ -1,17 +1,17 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {useNavigation} from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
 
-import {COLORS, SIZES} from '../utility';
+import { COLORS, SIZES } from '../utility';
 import AppButton from './utils/AppButton';
 
-function ComingSoonMessage({text}) {
-  const {t} = useTranslation();
+function ComingSoonMessage({ text }) {
+  const { t } = useTranslation();
   const navigation = useNavigation();
 
   return (
-    <View style={{marginTop: 20}}>
+    <View style={{ marginTop: 20 }}>
       <Image
         source={{
           uri: 'https://res.cloudinary.com/dftozcqnt/image/upload/v1672852152/Breast_cancer_awareness-pana_rwhcvb.png',
@@ -28,7 +28,7 @@ function ComingSoonMessage({text}) {
         }}>
         {text}
       </Text>
-      <View style={{marginTop: SIZES.screenHeight * 0.06}}>
+      <View style={{ marginTop: SIZES.screenHeight * 0.06 }}>
         <AppButton
           text={t('specBtn')}
           color={COLORS.primary}

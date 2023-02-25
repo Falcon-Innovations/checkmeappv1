@@ -1,44 +1,43 @@
+import React, { useState } from 'react';
 import {
   Image,
   Platform,
   SafeAreaView,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
   Linking,
+  Alert,
 } from 'react-native';
-import React, {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icons from 'react-native-vector-icons/SimpleLineIcons';
 import Ribbon from 'react-native-vector-icons/MaterialCommunityIcons';
 import SendSMS from 'react-native-sms';
-import {Divider} from 'react-native-elements';
-import {FAB} from 'react-native-paper';
-import {Context as AuthContext} from '../../contexts/userContext';
+import { Divider } from 'react-native-elements';
+import { FAB } from 'react-native-paper';
+import { Context as AuthContext } from '../../contexts/userContext';
 
-import {AppStatusBar, CustomStatusBar} from '../../components';
-import {COLORS, SIZES} from '../../utility';
+import { AppStatusBar, CustomStatusBar } from '../../components';
+import { COLORS, SIZES } from '../../utility';
 
-function SpecialistDetails({route}) {
+function SpecialistDetails({ route }) {
   const item = route.params;
-
-  const {state} = React.useContext(AuthContext);
-  const [mobileNumber, setMobileNumber] = useState(item.phone);
-  const [bodySMS, setBodySMS] = useState(
+  const navigation = useNavigation();
+  const { state } = React.useContext(AuthContext);
+  const [bodySMS] = useState(
     `Hello, My name is ${state?.user?.name} I will love to consult`,
   );
-  const [whatsAppMsg, setWhatsAppMsg] = useState(
+  const [whatsAppMsg] = useState(
     `Hello, Dr ${item?.firstName} ${item?.lastName}. I got your details from Check Me mobile application. My name is ${state?.user?.name}. Please how do i book an appointment for my breast cancer counseling and screening`,
   );
 
   const initiateSMS = () => {
     // Check for perfect 10 digit length
     if (item?.telephone.length < 9) {
-      alert('Please insert correct contact number');
+      Alert.alert('Please insert correct contact number');
       return;
     }
 
@@ -54,11 +53,11 @@ function SpecialistDetails({route}) {
       },
       (completed, cancelled, error) => {
         if (completed) {
-          console.log('SMS Sent Completed');
+          Alert.log('SMS Sent Completed');
         } else if (cancelled) {
-          console.log('SMS Sent Cancelled');
+          Alert.log('SMS Sent Cancelled');
         } else if (error) {
-          console.log('Some error occured');
+          Alert.log('Some error occured');
         }
       },
     );
@@ -67,18 +66,18 @@ function SpecialistDetails({route}) {
   const initiateWhatsAppSMS = () => {
     // Check for perfect 10 digit length
     if (item?.telephone.length < 9) {
-      alert("This number isn't on whatsapp for now.");
+      Alert.alert("This number isn't on whatsapp for now.");
       return;
     }
     // Using 91 for India
     // You can change 91 with your country code
     const url = `whatsapp://send?text=${whatsAppMsg}&phone=${item?.telephone}`;
     Linking.openURL(url)
-      .then(data => {
-        console.log('WhatsApp Opened');
+      .then(() => {
+        Alert.alert('WhatsApp Opened');
       })
       .catch(() => {
-        alert('Make sure Whatsapp installed on your device');
+        Alert.alert('Make sure Whatsapp installed on your device');
       });
   };
 
@@ -128,31 +127,28 @@ function SpecialistDetails({route}) {
     },
   ];
 
-  console.log('Data', item);
-  const navigation = useNavigation();
   return (
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollView
-          contentContainerStyle={{marginHorizontal: 14, paddingVertical: 15}}>
+          contentContainerStyle={{ marginHorizontal: 14, paddingVertical: 15 }}>
           <View style={styles.header}>
             <Image
-              source={item?.avatar && {uri: item?.avatar}}
+              source={item?.avatar && { uri: item?.avatar }}
               style={styles.image}
             />
             <View>
-              <View style={{alignSelf: 'flex-start'}}>
+              <View style={{ alignSelf: 'flex-start' }}>
                 <Text style={styles.name}>
                   {`${item?.firstName} ${item?.lastName}`}
                 </Text>
                 <Text style={styles.speciality}>{item?.speciality}</Text>
                 <Text style={styles.location}>{item?.town}</Text>
               </View>
-
               <View style={styles.iconView}>
-                {icons.map(icon => (
+                {icons.map((icon) => (
                   <TouchableOpacity
                     key={icon.id}
                     style={styles.iconContainer}
@@ -175,7 +171,7 @@ function SpecialistDetails({route}) {
                 alignItems: 'center',
                 justifyContent: 'space-between',
               }}>
-              <View style={{alignItems: 'center'}}>
+              <View style={{ alignItems: 'center' }}>
                 <Text
                   style={{
                     fontFamily: 'Poppins_Regular',
@@ -195,7 +191,7 @@ function SpecialistDetails({route}) {
                 </Text>
               </View>
               <Divider color="#E6E6E6" orientation="vertical" width={2} />
-              <View style={{alignItems: 'center'}}>
+              <View style={{ alignItems: 'center' }}>
                 <Text
                   style={{
                     fontFamily: 'Poppins_Regular',
@@ -215,7 +211,7 @@ function SpecialistDetails({route}) {
                 </Text>
               </View>
               <Divider color="#E6E6E6" orientation="vertical" width={2} />
-              <View style={{alignItems: 'center'}}>
+              <View style={{ alignItems: 'center' }}>
                 <Text
                   style={{
                     fontFamily: 'Poppins_Regular',
@@ -251,8 +247,8 @@ function SpecialistDetails({route}) {
               {item?.bio}
             </Text>
           </View>
-          <View style={{paddingTop: 20, paddingBottom: 15}}>
-            {aboutData.map(about => (
+          <View style={{ paddingTop: 20, paddingBottom: 15 }}>
+            {aboutData.map((about) => (
               <View
                 key={about.id}
                 style={{

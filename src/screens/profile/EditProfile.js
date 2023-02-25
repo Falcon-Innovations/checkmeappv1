@@ -9,15 +9,15 @@ import {
   Dimensions,
   Platform,
 } from 'react-native';
-import React, {useCallback, useState} from 'react';
+import React, { useCallback, useState } from 'react';
 import * as ImagePicker from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
 import CalendarPicker from 'react-native-calendar-picker';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Icons from 'react-native-vector-icons/Feather';
 import Modal from 'react-native-modal';
 import moment from 'moment';
-import {Context as UserContext} from '../../contexts/userContext';
+import { Context as UserContext } from '../../contexts/userContext';
 import {
   AppButton,
   AppStatusBar,
@@ -25,12 +25,13 @@ import {
   Input,
   ImagePickerModal,
 } from '../../components';
-import {COLORS} from '../../utility';
+import { COLORS } from '../../utility';
 import TextAreaInput from '../../components/inputs/TextAreaInput';
 import Loader from '../../components/utils/Loader';
 
 function EditProfile() {
-  const {state, updateProfile, updateMyAvatar} = React.useContext(UserContext);
+  const { state, updateProfile, updateMyAvatar } =
+    React.useContext(UserContext);
   const [loading, setLoading] = React.useState(false);
   const [isModalVisible, setModalVisible] = useState(false);
   const [pickerResponse, setPickerResponse] = useState(null);
@@ -50,7 +51,7 @@ function EditProfile() {
   });
 
   const handleOnChange = (text, input) => {
-    setInputs(prevState => ({...prevState, [input]: text}));
+    setInputs((prevState) => ({ ...prevState, [input]: text }));
   };
 
   const handleUpdateProfile = async () => {
@@ -64,14 +65,14 @@ function EditProfile() {
     setLoading(false);
   };
 
-  const onDateChange = val => {
-    setInputs(prevState => ({
+  const onDateChange = (val) => {
+    setInputs((prevState) => ({
       ...prevState,
       birthDate: val,
     }));
   };
 
-  const formatDate = date => (date ? moment(date).format('ll') : null);
+  const formatDate = (date) => (date ? moment(date).format('ll') : null);
 
   const maxDate = moment().subtract(7, 'years');
 
@@ -103,12 +104,10 @@ function EditProfile() {
         ? image?.uri
         : image?.uri.replace('file://', '');
     setLoading(true);
-    await updateMyAvatar({file: uri});
+    await updateMyAvatar({ file: uri });
     setLoading(false);
     // setSelectedImage({localUri: image?.uri});
   };
-
-  console.log(image, 'From edit profile');
 
   const renderProfileImage = () => {
     let uri = null;
@@ -129,17 +128,17 @@ function EditProfile() {
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar text="Edit Profile" />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         {loading && <Loader visible />}
         <KeyboardAwareScrollView
           extraHeight={100}
-          contentContainerStyle={{paddingBottom: 35}}
+          contentContainerStyle={{ paddingBottom: 35 }}
           showsVerticalScrollIndicator={false}
           enableOnAndroid
-          style={{marginHorizontal: 15, paddingTop: 20}}>
-          <View style={{alignSelf: 'center', flexDirection: 'row'}}>
+          style={{ marginHorizontal: 15, paddingTop: 20 }}>
+          <View style={{ alignSelf: 'center', flexDirection: 'row' }}>
             <ImageBackground
-              imageStyle={{borderRadius: 60}}
+              imageStyle={{ borderRadius: 60 }}
               source={{
                 uri: profileImage,
               }}
@@ -166,7 +165,7 @@ function EditProfile() {
                 placeholder="Enter your name"
                 keyboardType="default"
                 defaultValue={state?.user?.name}
-                onChangeText={text => handleOnChange(text, 'fullname')}
+                onChangeText={(text) => handleOnChange(text, 'fullname')}
               />
             </View>
             <View>
@@ -175,7 +174,7 @@ function EditProfile() {
                 placeholder="Enter your email"
                 keyboardType="email-address"
                 defaultValue={state?.user?.email}
-                onChangeText={text => handleOnChange(text, 'email')}
+                onChangeText={(text) => handleOnChange(text, 'email')}
               />
             </View>
 
@@ -193,7 +192,7 @@ function EditProfile() {
                 </View>
               </View>
               <Modal isVisible={isModalVisible} animationType="slide">
-                <View style={{backgroundColor: '#fff', borderRadius: 8}}>
+                <View style={{ backgroundColor: '#fff', borderRadius: 8 }}>
                   <View
                     style={{
                       paddingHorizontal: 20,
@@ -211,7 +210,7 @@ function EditProfile() {
                       }}
                     />
                   </View>
-                  <View style={{paddingVertical: 10, alignSelf: 'center'}}>
+                  <View style={{ paddingVertical: 10, alignSelf: 'center' }}>
                     <Button
                       color={COLORS.primary}
                       title="Set Date"
@@ -225,10 +224,10 @@ function EditProfile() {
               <Text style={styles.title}>Tell us about you</Text>
               <TextAreaInput
                 defaultValue={state?.user?.bio}
-                onChangeText={text => handleOnChange(text, 'bio')}
+                onChangeText={(text) => handleOnChange(text, 'bio')}
               />
             </View>
-            <View style={{marginTop: 20}}>
+            <View style={{ marginTop: 20 }}>
               <AppButton
                 text="Update Info"
                 color={COLORS.primary}

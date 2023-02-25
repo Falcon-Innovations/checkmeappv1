@@ -1,6 +1,6 @@
-import {View, StyleSheet, Dimensions, Text} from 'react-native';
+import { StyleSheet, Dimensions, Text } from 'react-native';
 import PhoneInput from 'react-native-phone-number-input';
-import {COLORS} from '../../utility';
+import { COLORS } from '../../utility';
 
 function PhoneInputField({
   phoneNumber,
@@ -19,10 +19,9 @@ function PhoneInputField({
         layout="first"
         placeholder={placeholder}
         autoFocus={false}
-        // withShadow
         containerStyle={[
           styles.phoneContainer,
-          {borderColor: error ? COLORS.danger : '#D3D3D3'},
+          { borderColor: error ? COLORS.danger : '#D3D3D3' },
         ]}
         textContainerStyle={styles.textInput}
         onChangeFormattedText={onChange}
@@ -35,14 +34,13 @@ function PhoneInputField({
 
 export default PhoneInputField;
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   phoneContainer: {
     width: width - 35,
     height: 55,
     marginBottom: 2,
     borderRadius: 8,
-    // borderColor: '#DBD9D9',
     borderWidth: 1,
     marginTop: 15,
   },
@@ -54,7 +52,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     paddingHorizontal: 20,
     borderRadius: 12,
-
     shadowColor: '#000',
   },
   errorMessage: {

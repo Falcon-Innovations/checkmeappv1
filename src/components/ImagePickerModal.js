@@ -1,16 +1,9 @@
-import {
-  Image,
-  Pressable,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Pressable, SafeAreaView, StyleSheet, Text } from 'react-native';
 import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import React from 'react';
-import {COLORS} from '../utility';
+import { COLORS } from '../utility';
 
 function ImagePickerModal({
   isVisible,

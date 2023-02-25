@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, Text, NativeModules} from 'react-native';
+import { View, Text, NativeModules } from 'react-native';
 import Icons from 'react-native-vector-icons/Entypo';
-import {COLORS} from '../../utility';
+import { COLORS } from '../../utility';
 import AppButton from '../utils/AppButton';
 
 export function ErrorFallback() {
   return (
-    <View style={{justifyContent: 'center', alignSelf: 'center', flex: 1}}>
+    <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1 }}>
       <View
         style={{
           flex: 1,
@@ -29,3 +29,5 @@ export function ErrorFallback() {
     </View>
   );
 }
+
+export const DEFAULT_MESSAGE = 'Ooops, something went wrong';

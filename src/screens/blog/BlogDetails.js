@@ -1,33 +1,26 @@
+import React from 'react';
 import {
-  Image,
   ImageBackground,
   SafeAreaView,
   ScrollView,
   Share,
   StyleSheet,
   Text,
+  Alert,
   TouchableOpacity,
   View,
   useWindowDimensions,
 } from 'react-native';
-import React, {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import RenderHtml from 'react-native-render-html';
 
 import moment from 'moment';
-import {AppStatusBar, CustomStatusBar} from '../../components';
-import {COLORS, SIZES} from '../../utility';
+import { AppStatusBar, CustomStatusBar } from '../../components';
+import { COLORS, SIZES } from '../../utility';
 
-function BlogDetails({route}) {
-  const [like, setLike] = useState(false);
-  const {width} = useWindowDimensions();
-
+function BlogDetails({ route }) {
+  const { width } = useWindowDimensions();
   const item = route.params;
-
-  const onLike = () => {
-    setLike(!like);
-  };
 
   const onShare = async () => {
     try {
@@ -50,7 +43,7 @@ function BlogDetails({route}) {
         // dismissed
       }
     } catch (error) {
-      alert(error.message);
+      Alert.alert(error.message);
     }
   };
 
@@ -62,7 +55,7 @@ function BlogDetails({route}) {
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar text="Blog Details" />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollView
           style={{
             flex: 1,
@@ -71,15 +64,15 @@ function BlogDetails({route}) {
             marginHorizontal: 15,
           }}
           showsVerticalScrollIndicator={false}>
-          <View style={{alignItems: 'center', marginBottom: 10}}>
+          <View style={{ alignItems: 'center', marginBottom: 10 }}>
             <ImageBackground
               resizeMode="cover"
-              source={{uri: item.photo}}
+              source={{ uri: item.photo }}
               style={{
                 width: SIZES.screenWidth * 0.9,
                 height: SIZES.screenHeight * 0.22,
               }}
-              imageStyle={{borderRadius: 12}}>
+              imageStyle={{ borderRadius: 12 }}>
               <View
                 style={{
                   paddingHorizontal: 10,
@@ -110,8 +103,8 @@ function BlogDetails({route}) {
               marginHorizontal: 10,
               marginTop: 8,
             }}>
-            <Text style={{fontFamily: 'Poppins_Medium', fontSize: 15}}>
-              <Text style={{color: 'gray'}}>By</Text>
+            <Text style={{ fontFamily: 'Poppins_Medium', fontSize: 15 }}>
+              <Text style={{ color: 'gray' }}>By</Text>
               {` ${item?.author?.name ? item?.author?.name : 'Check Me'}`}
             </Text>
             <View
@@ -147,7 +140,7 @@ function BlogDetails({route}) {
               paddingHorizontal: 10,
               paddingTop: SIZES.screenHeight * 0.03,
             }}>
-            <Text style={{fontFamily: 'Poppins_SemiBold', fontSize: 20}}>
+            <Text style={{ fontFamily: 'Poppins_SemiBold', fontSize: 20 }}>
               {item.title}
             </Text>
           </View>
@@ -173,7 +166,7 @@ function BlogDetails({route}) {
             contentWidth={width}
             source={source}
           />
-          <View style={{marginTop: 30}} />
+          <View style={{ marginTop: 30 }} />
         </ScrollView>
       </SafeAreaView>
     </>

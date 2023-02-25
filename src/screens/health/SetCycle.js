@@ -1,20 +1,19 @@
 import {
   SafeAreaView,
-  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
   Alert,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import CalendarPicker from 'react-native-calendar-picker';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import moment from 'moment';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 import TextAreaInput from '../../components/inputs/TextAreaInput';
 import {
@@ -23,7 +22,7 @@ import {
   CustomStatusBar,
   Input,
 } from '../../components';
-import {COLORS, config, SIZES} from '../../utility';
+import { COLORS, config, SIZES } from '../../utility';
 
 function SetCycle() {
   const navigation = useNavigation();
@@ -61,7 +60,7 @@ function SetCycle() {
 
     const data = {
       dayCount: numOfDays,
-      daysBledCount: parseInt(period),
+      daysBledCount: Number(period),
       description: message,
     };
     const configurationData = {
@@ -74,7 +73,7 @@ function SetCycle() {
       data,
     };
     await axios(configurationData)
-      .then(response => {
+      .then((response) => {
         if (response.data.status === 'success') {
           setLoad(false);
           Alert.alert('success', 'Cycle set Successfully', [
@@ -87,9 +86,8 @@ function SetCycle() {
           ]);
         }
       })
-      .catch(error => {
+      .catch(() => {
         setLoad(false);
-        console.error('Book Error', error);
       });
   };
 
@@ -97,13 +95,13 @@ function SetCycle() {
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <KeyboardAwareScrollView
           showsVerticalScrollIndicator={false}
           //   extraHeight={100}
           enableOnAndroid
-          style={{marginHorizontal: 15}}
-          contentContainerStyle={{paddingBottom: 20}}>
+          style={{ marginHorizontal: 15 }}
+          contentContainerStyle={{ paddingBottom: 20 }}>
           <Text
             style={{
               paddingTop: 20,
@@ -134,7 +132,7 @@ function SetCycle() {
                   Set your cycle
                 </Text>
                 <TouchableOpacity
-                  style={{marginLeft: 2, padding: 8}}
+                  style={{ marginLeft: 2, padding: 8 }}
                   onPress={() => setVisible(!visible)}>
                   <Icon
                     name="ios-information-circle-outline"
@@ -186,7 +184,7 @@ function SetCycle() {
                 }}
                 onDateChange={onDateChange}
               />
-              <View style={{marginTop: SIZES.screenHeight * 0.03}}>
+              <View style={{ marginTop: SIZES.screenHeight * 0.03 }}>
                 <View
                   style={{
                     flexDirection: 'row',
@@ -226,33 +224,33 @@ function SetCycle() {
                 </View>
               </View>
             </View>
-            <View style={{marginTop: 30}}>
-              <Text style={{fontFamily: 'Poppins_Medium', fontSize: 16}}>
+            <View style={{ marginTop: 30 }}>
+              <Text style={{ fontFamily: 'Poppins_Medium', fontSize: 16 }}>
                 Set your period
               </Text>
-              <Text style={{fontFamily: 'Poppins_Regular', fontSize: 12}}>
+              <Text style={{ fontFamily: 'Poppins_Regular', fontSize: 12 }}>
                 Enter the estimated number of days your period last
               </Text>
-              <View style={{marginTop: 12, marginBottom: 10}}>
+              <View style={{ marginTop: 12, marginBottom: 10 }}>
                 <Input
                   maxLength={1}
                   placeholder="Number of days e.g 5"
                   keyboardType="numeric"
                   defaultValue={period}
-                  onChangeText={text => setPeriod(text)}
+                  onChangeText={(text) => setPeriod(text)}
                 />
               </View>
-              <View style={{marginBottom: 15}}>
-                <Text style={{fontFamily: 'Poppins_Medium', fontSize: 16}}>
+              <View style={{ marginBottom: 15 }}>
+                <Text style={{ fontFamily: 'Poppins_Medium', fontSize: 16 }}>
                   Notes
                 </Text>
                 <TextAreaInput
                   placeholder="Message"
                   defaultValue={message}
-                  onChangeText={text => setMessage(text)}
+                  onChangeText={(text) => setMessage(text)}
                 />
               </View>
-              <View style={{marginTop: SIZES.screenHeight * 0.02}}>
+              <View style={{ marginTop: SIZES.screenHeight * 0.02 }}>
                 <AppButton
                   color={COLORS.primary}
                   text={load ? 'Loading..' : 'Save Cycle'}

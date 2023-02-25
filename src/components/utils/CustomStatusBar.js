@@ -1,11 +1,11 @@
-import {StyleSheet, Text, View, TouchableOpacity, Platform} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icons from 'react-native-vector-icons/Feather';
-import {useNavigation} from '@react-navigation/native';
-import {COLORS} from '../../utility';
+import { useNavigation } from '@react-navigation/native';
+import { COLORS } from '../../utility';
 
-function CustomStatusBar({text}) {
+function CustomStatusBar({ text }) {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -45,15 +45,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginHorizontal: 10,
-    // marginTop: 10,
   },
-
-  // iconContainer: {
-  //   paddingHorizontal: 9,
-  //   paddingVertical: 4,
-  //   backgroundColor: "#FAFAFA",
-  //   borderRadius: 12,
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  // },
 });

@@ -1,8 +1,7 @@
-import {Dimensions, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {TextInput} from 'react-native-paper';
-import {COLORS, SIZES} from '../../utility';
+import { Dimensions, StyleSheet, Text } from 'react-native';
+import React, { useState } from 'react';
+import { TextInput } from 'react-native-paper';
+import { COLORS, SIZES } from '../../utility';
 
 function Input({
   label,
@@ -16,20 +15,24 @@ function Input({
 }) {
   const [isFocused, setIsFocused] = useState(false);
   const [hidePassword, setHidePassword] = useState(pin);
+
+  const renderInputStyles = () => {
+    if (error) {
+      return COLORS.primary;
+    }
+    if (isFocused) {
+      return COLORS.borderColorFocused;
+    }
+    return COLORS.borderColor;
+  };
+
+  const inputStyles = renderInputStyles();
+
   return (
     <>
       <TextInput
         mode="outlined"
-        style={[
-          styles.inputContainer,
-          {
-            borderColor: error
-              ? COLORS.primary
-              : isFocused
-              ? COLORS.borderColorFocused
-              : COLORS.borderColor,
-          },
-        ]}
+        style={[styles.inputContainer, inputStyles]}
         ref={inputRef}
         activeOutlineColor={error ? COLORS.danger : COLORS.primary}
         outlineColor={error ? COLORS.danger : '#D3D3D3'}
@@ -63,7 +66,7 @@ function Input({
 }
 
 export default Input;
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     marginBottom: 15,

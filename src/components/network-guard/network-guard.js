@@ -1,18 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, NativeModules} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, NativeModules } from 'react-native';
 import Icons from 'react-native-vector-icons/Feather';
 import NetInfo from '@react-native-community/netinfo';
-import {COLORS} from '../../utility';
+import { COLORS } from '../../utility';
 import AppButton from '../utils/AppButton';
 
-export function NetworkGuard({children}) {
+export function NetworkGuard({ children }) {
   const [networkState, setNetworkState] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = NetInfo.addEventListener(state => {
+    const unsubscribe = NetInfo.addEventListener((state) => {
       setNetworkState(state);
     });
-    // Unsubscribe
     return unsubscribe();
   }, [networkState]);
 
@@ -22,11 +21,9 @@ export function NetworkGuard({children}) {
     NativeModules.DevSettings.reload();
   };
 
-  console.log(networkState, ' From Network Guard');
-
   if (!networkState?.isConnected && !networkState?.isInternetReachable) {
     return (
-      <View style={{justifyContent: 'center', alignSelf: 'center', flex: 1}}>
+      <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1 }}>
         <View
           style={{
             flex: 1,
@@ -46,5 +43,5 @@ export function NetworkGuard({children}) {
     );
   }
 
-  return <>{children}</>;
+  return <View>{children}</View>;
 }

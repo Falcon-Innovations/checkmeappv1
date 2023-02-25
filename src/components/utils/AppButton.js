@@ -1,8 +1,8 @@
-import {StyleSheet, TouchableOpacity} from 'react-native';
-import {Button} from 'react-native-paper';
+import { TouchableOpacity } from 'react-native';
+import { Button } from 'react-native-paper';
 import React from 'react';
 
-function AppButton({text, color, onPress, ...rest}) {
+function AppButton({ text, color, onPress, ...rest }) {
   return (
     <TouchableOpacity onPress={onPress}>
       <Button
@@ -21,7 +21,7 @@ function AppButton({text, color, onPress, ...rest}) {
           justifyContent: 'center',
           paddingTop: 2,
         }}
-        theme={{colors: {primary: color}}}
+        theme={{ colors: { primary: color } }}
         {...rest}>
         {text}
       </Button>
@@ -30,5 +30,3 @@ function AppButton({text, color, onPress, ...rest}) {
 }
 
 export default AppButton;
-
-const styles = StyleSheet.create({});

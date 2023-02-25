@@ -1,8 +1,8 @@
-import {Dimensions, StyleSheet, Text, View} from 'react-native';
+import { Dimensions, View } from 'react-native';
 import React from 'react';
 import VideoPlayer from 'react-native-video-player';
 
-function VideoComponent({source, thumbnail}) {
+function VideoComponent({ source, thumbnail }) {
   return (
     <View>
       <VideoPlayer
@@ -16,7 +16,5 @@ function VideoComponent({source, thumbnail}) {
     </View>
   );
 }
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 export default VideoComponent;
-
-const styles = StyleSheet.create({});

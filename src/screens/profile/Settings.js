@@ -3,60 +3,39 @@ import {
   Pressable,
   SafeAreaView,
   ScrollView,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useNavigation} from '@react-navigation/native';
 import Modal from 'react-native-modal';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-import {AppStatusBar, CustomStatusBar} from '../../components';
-import {COLORS} from '../../utility';
+import { AppStatusBar, CustomStatusBar } from '../../components';
+import { COLORS } from '../../utility';
 
 function Settings() {
-  const navigation = useNavigation();
-
   const [isModalVisible, setModalVisible] = useState(false);
 
-  const {t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [currentLanguage, setLanguage] = useState(i18n.language);
 
-  const [sessionLocale, setSessionLocale] = React.useState(null);
-
-  const storeSessionLocale = async value => {
-    try {
-      const jsonValue = JSON.stringify(value);
-      await AsyncStorage.setItem(currentLanguage, jsonValue);
-    } catch (e) {
-      // saving error
-    }
-  };
-
-  const changeLanguage = value => {
+  const changeLanguage = (value) => {
     i18n
       .changeLanguage(value)
       .then(() => setLanguage(value))
-      .catch(err => console.log(err));
+      .catch((err) => {
+        throw new Error(err);
+      });
   };
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
 
-  const naviagateToPassword = () => {
-    navigation.navigate('ResetPassword');
-  };
-
   const settings = [
-    // {
-    //   title: t("resetPass"),
-    //   screen: naviagateToPassword,
-    // },
     {
       title: t('changeLang'),
       screen: toggleModal,
@@ -67,10 +46,10 @@ function Settings() {
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar text={t('settings')} />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-        <ScrollView style={{marginHorizontal: 15, paddingVertical: 20}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+        <ScrollView style={{ marginHorizontal: 15, paddingVertical: 20 }}>
           <View>
-            {settings.map(setting => (
+            {settings.map((setting) => (
               <TouchableOpacity
                 onPress={setting.screen}
                 key={setting.title}
@@ -88,7 +67,7 @@ function Settings() {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                   }}>
-                  <Text style={{fontFamily: 'Poppins-Regular', fontSize: 13}}>
+                  <Text style={{ fontFamily: 'Poppins-Regular', fontSize: 13 }}>
                     {setting.title}
                   </Text>
                   <Icon
@@ -99,9 +78,8 @@ function Settings() {
                 </View>
               </TouchableOpacity>
             ))}
-
             <Modal isVisible={isModalVisible} animationType="slide">
-              <View style={{backgroundColor: '#fff', borderRadius: 8}}>
+              <View style={{ backgroundColor: '#fff', borderRadius: 8 }}>
                 <View
                   style={{
                     paddingHorizontal: 20,
@@ -114,7 +92,8 @@ function Settings() {
                         currentLanguage === 'en' ? '#33A850' : '#d3d3d3',
                       padding: 20,
                     }}>
-                    <Text style={{fontSize: 12, fontFamily: 'Poppins-Regular'}}>
+                    <Text
+                      style={{ fontSize: 12, fontFamily: 'Poppins-Regular' }}>
                       {t('enLang')}
                     </Text>
                   </Pressable>
@@ -125,12 +104,13 @@ function Settings() {
                         currentLanguage === 'fr' ? '#33A850' : '#d3d3d3',
                       padding: 20,
                     }}>
-                    <Text style={{fontSize: 12, fontFamily: 'Poppins-Regular'}}>
+                    <Text
+                      style={{ fontSize: 12, fontFamily: 'Poppins-Regular' }}>
                       {t('frLang')}
                     </Text>
                   </Pressable>
                 </View>
-                <View style={{paddingVertical: 10, alignSelf: 'center'}}>
+                <View style={{ paddingVertical: 10, alignSelf: 'center' }}>
                   <Button
                     color={COLORS.primary}
                     title={t('changeLanguage')}
@@ -147,17 +127,3 @@ function Settings() {
 }
 
 export default Settings;
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 18,
-    color: '#000',
-    paddingVertical: 4,
-  },
-  selectedText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: 'tomato',
-    paddingVertical: 4,
-  },
-});

@@ -21,7 +21,7 @@ import ImagePickerModal from './ImagePickerModal';
 import VideoComponent from './VideoComponent';
 import AppointmentsCard from './AppointmentsCard';
 
-import {NetworkGuard} from './network-guard/network-guard';
+import { NetworkGuard } from './network-guard/network-guard';
 
 import ComingSoonMessage from './ComingSoonMessage';
 import BlogCard from './BlogCard';

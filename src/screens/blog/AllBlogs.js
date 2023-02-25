@@ -1,24 +1,20 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import {
-  FlatList,
-  ImageBackground,
   RefreshControl,
   SafeAreaView,
   ScrollView,
   Share,
-  StyleSheet,
   Text,
-  TouchableOpacity,
   View,
+  Alert,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {Searchbar} from 'react-native-paper';
-import {useNavigation} from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { Searchbar } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 import NetInfo from '@react-native-community/netinfo';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
-import moment from 'moment';
-import {AppStatusBar, BlogCard, CustomStatusBar} from '../../components';
-import {COLORS, config, SIZES} from '../../utility';
-import {voteBlog} from '../../api/blog';
+import { AppStatusBar, BlogCard, CustomStatusBar } from '../../components';
+import { COLORS, config, SIZES } from '../../utility';
 import useDataFetching from '../../hooks/useFetchData';
 import Error from '../../components/utils/Error';
 import NoInternetModal from '../../components/NoInternetModal';
@@ -26,14 +22,11 @@ import NoInternetModal from '../../components/NoInternetModal';
 function AllBlogs() {
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
-  const [like, setLike] = useState(false);
-  const onChangeSearch = query => setSearchQuery(query);
+  const onChangeSearch = (query) => setSearchQuery(query);
 
   // check network hooks
   const [isOffline, setOfflineStatus] = useState(false);
-  const [isLoading, setLoading] = useState(false);
-
-  // const { loading, data, error } = useBlogs();
+  const [, setLoading] = useState(false);
 
   const [loading, error, data, fetchData] = useDataFetching(
     `${config.app.api_url}/articles`,
@@ -48,7 +41,7 @@ function AllBlogs() {
 
   useEffect(() => {
     setLoading(true);
-    const removeNetInfoSubscription = NetInfo.addEventListener(state => {
+    const removeNetInfoSubscription = NetInfo.addEventListener((state) => {
       const offline = !(state.isConnected && state.isInternetReachable);
       setLoading(false);
       setOfflineStatus(offline);
@@ -57,11 +50,6 @@ function AllBlogs() {
 
     return () => removeNetInfoSubscription();
   }, []);
-
-  const onLike = async id => {
-    await voteBlog(id);
-    setLike(!like);
-  };
 
   const onShare = async () => {
     try {
@@ -78,8 +66,8 @@ function AllBlogs() {
       } else if (result.action === Share.dismissedAction) {
         // dismissed
       }
-    } catch (error) {
-      alert(error.message);
+    } catch (err) {
+      Alert.alert(err.message);
     }
   };
 
@@ -98,8 +86,9 @@ function AllBlogs() {
       ) : null}
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar text="News Feed" />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-        <View style={{paddingTop: 20, paddingBottom: 8, marginHorizontal: 15}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+        <View
+          style={{ paddingTop: 20, paddingBottom: 8, marginHorizontal: 15 }}>
           <Searchbar
             placeholder="Search"
             placeholderTextColor="#D2D1D1"
@@ -116,7 +105,7 @@ function AllBlogs() {
             }}
             iconColor="#D2D1D1"
           />
-          <Text style={{paddingVertical: 12, fontFamily: 'Poppins-Regular'}}>
+          <Text style={{ paddingVertical: 12, fontFamily: 'Poppins-Regular' }}>
             Everything you need to know about breast cancer and female health
             can be found here
           </Text>
@@ -124,7 +113,7 @@ function AllBlogs() {
 
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{paddingHorizontal: 15, paddingTop: 20}}
+          contentContainerStyle={{ paddingHorizontal: 15, paddingTop: 20 }}
           refreshControl={
             <RefreshControl refreshing={loading} onRefresh={fetchData} />
           }>
@@ -148,11 +137,11 @@ function AllBlogs() {
           ) : (
             <>
               {data?.data?.docs?.length > 0 ? (
-                <>
-                  {data?.data?.docs?.map((item, index) => (
-                    <BlogCard key={index} item={item} onShare={onShare} />
+                <View>
+                  {data?.data?.docs?.map((item) => (
+                    <BlogCard key={item.title} item={item} onShare={onShare} />
                   ))}
-                </>
+                </View>
               ) : (
                 <View>
                   <Text
@@ -178,5 +167,3 @@ function AllBlogs() {
 }
 
 export default AllBlogs;
-
-const styles = StyleSheet.create({});

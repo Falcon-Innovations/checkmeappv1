@@ -1,5 +1,5 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   AllAppointments,
   AllBlogs,
@@ -28,7 +28,7 @@ const Stack = createNativeStackNavigator();
 
 function ScreenNavigator() {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Dashboard" component={Dashboard} />
       <Stack.Screen name="Specialists" component={Specialists} />
       <Stack.Screen name="SpecialistDetails" component={SpecialistDetails} />

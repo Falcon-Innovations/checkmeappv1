@@ -1,4 +1,4 @@
-import {Dimensions} from 'react-native';
+import { Dimensions } from 'react-native';
 
 const COLORS = {
   primary: '#F7007D',
@@ -71,4 +71,4 @@ const IMAGES = {
     'https://res.cloudinary.com/dftozcqnt/image/upload/v1673236418/adaptiveimage.resize.702.404-removebg-preview_vug1ju.png',
 };
 
-export {COLORS, SIZES, IMAGES};
+export { COLORS, SIZES, IMAGES };

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import {
   Image,
   SafeAreaView,
@@ -7,10 +7,10 @@ import {
   Text,
   View,
 } from 'react-native';
-import {Searchbar} from 'react-native-paper';
-import {useNavigation} from '@react-navigation/native';
+import { Searchbar } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 
-import {COLORS, config, SIZES} from '../../utility';
+import { COLORS, config, SIZES } from '../../utility';
 import {
   AppButton,
   AppointmentsCard,
@@ -24,7 +24,7 @@ import Error from '../../components/utils/Error';
 function AllAppointments() {
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
-  const onChangeSearch = query => setSearchQuery(query);
+  const onChangeSearch = (query) => setSearchQuery(query);
 
   const [loading, error, data, fetchData] = useDataFetching(
     `${config.app.api_url}/appointments/my-appointments`,
@@ -41,8 +41,8 @@ function AllAppointments() {
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar />
       <SafeAreaView style={styles.container}>
-        <View style={{flex: 1, marginHorizontal: 15, paddingVertical: 10}}>
-          <View style={{marginTop: 10, marginBottom: 20}}>
+        <View style={{ flex: 1, marginHorizontal: 15, paddingVertical: 10 }}>
+          <View style={{ marginTop: 10, marginBottom: 20 }}>
             <Searchbar
               placeholder="Search Appointment"
               placeholderTextColor="#D2D1D1"
@@ -62,8 +62,8 @@ function AllAppointments() {
           </View>
           <ScrollView
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={{paddingBottom: 10}}>
-            <Text style={{fontFamily: 'Poppins-Medium'}}>
+            contentContainerStyle={{ paddingBottom: 10 }}>
+            <Text style={{ fontFamily: 'Poppins-Medium' }}>
               Welcome to your list of appointments
             </Text>
 
@@ -92,15 +92,15 @@ function AllAppointments() {
                 )}
               </>
             ) : (
-              <>
+              <View>
                 {data?.data?.docs?.length > 0 ? (
-                  <View style={{marginTop: 10}}>
-                    {data?.data?.docs?.map((item, index) => (
+                  <View style={{ marginTop: 10 }}>
+                    {data?.data?.docs?.map((item) => (
                       <AppointmentsCard
                         onPress={() =>
                           navigation.navigate('AppointmentDetails', item)
                         }
-                        key={index}
+                        key={item?.recipient?.firstName}
                         title={item.title}
                         desc={item.description}
                         time={
@@ -120,11 +120,11 @@ function AllAppointments() {
                     ))}
                   </View>
                 ) : (
-                  <View style={{marginTop: SIZES.screenHeight * 0.05}}>
-                    <Text style={{fontFamily: 'Poppins-Regular'}}>
+                  <View style={{ marginTop: SIZES.screenHeight * 0.05 }}>
+                    <Text style={{ fontFamily: 'Poppins-Regular' }}>
                       Sorry!!!, you have no appointments yet. Please book one.
                     </Text>
-                    <View style={{alignItems: 'center'}}>
+                    <View style={{ alignItems: 'center' }}>
                       <Image
                         source={{
                           uri: 'https://res.cloudinary.com/dav5lnlxj/image/upload/v1666400399/calendara_pm8npo.png',
@@ -135,7 +135,7 @@ function AllAppointments() {
                         }}
                       />
                     </View>
-                    <View style={{marginTop: 20, marginBottom: 30}}>
+                    <View style={{ marginTop: 20, marginBottom: 30 }}>
                       <AppButton
                         text="Book Appointment"
                         color={COLORS.primary}
@@ -144,7 +144,7 @@ function AllAppointments() {
                     </View>
                   </View>
                 )}
-              </>
+              </View>
             )}
           </ScrollView>
         </View>
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     width: SIZES.screenWidth * 0.43,
     borderRadius: 8,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     marginBottom: 10,
     elevation: 2,

@@ -8,23 +8,82 @@ import {
   Platform,
 } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
-import React, {useState} from 'react';
-import {useTranslation} from 'react-i18next';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../../../assets/i18n/i18n';
-import {COLORS, IMAGES, SIZES} from '../../utility';
+import { COLORS, IMAGES, SIZES } from '../../utility';
 
-function Onboard(props) {
-  const {t, i18n} = useTranslation();
+function LanguageSwitcher() {
+  const { i18n } = useTranslation();
+
   const [currentLanguage, setLanguage] = useState(i18n.language);
 
-  const changeLanguage = value => {
+  const changeLanguage = (value) => {
     i18n
       .changeLanguage(value)
       .then(() => setLanguage(value))
-      .catch(err => console.log(err));
+      .catch((err) => {
+        throw new Error(err);
+      });
   };
+
+  return (
+    <View
+      style={{
+        backgroundColor: COLORS.primary,
+        paddingTop:
+          Platform.OS === 'ios'
+            ? SIZES.screenHeight * 0.04
+            : SIZES.screenHeight * 0.03,
+      }}>
+      <View
+        style={{
+          paddingTop: 12,
+          marginTop: 8,
+          paddingRight: 25,
+          alignSelf: 'flex-end',
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}>
+        <TouchableOpacity
+          onPress={() => changeLanguage('en')}
+          style={[
+            currentLanguage === 'en' ? styles.active : styles.unActive,
+            { marginRight: 8 },
+          ]}>
+          <Text
+            style={
+              currentLanguage === 'en'
+                ? { fontFamily: 'Poppins_Medium', color: '#fff' }
+                : { fontFamily: 'Poppins_Medium', color: '#3C1053' }
+            }>
+            EN
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => changeLanguage('fr')}
+          style={[
+            currentLanguage === 'fr' ? styles.active : styles.unActive,
+            { alignItems: 'center' },
+          ]}>
+          <Text
+            style={
+              currentLanguage === 'fr'
+                ? { fontFamily: 'Poppins_Medium', color: '#fff' }
+                : { fontFamily: 'Poppins_Medium', color: '#3C1053' }
+            }>
+            FR
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+function Onboard({ handleDone }) {
+  const { t } = useTranslation();
+
   const data = [
     {
       title: t('onboard1title'),
@@ -43,75 +102,21 @@ function Onboard(props) {
     },
   ];
 
-  const renderItem = ({item}) => (
+  const renderItem = ({ item }) => (
     <LinearGradient colors={['#F7007D', '#CF6283']} style={styles.slide}>
       <Image
-        source={{uri: item.image}}
+        source={{ uri: item.image }}
         style={styles.image}
         resizeMode="contain"
       />
-      <View style={{marginTop: 20}}>
+      <View style={{ marginTop: 20 }}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.text}>{item.text}</Text>
       </View>
     </LinearGradient>
   );
 
-  function LanguageSwitcher() {
-    return (
-      <View
-        style={{
-          backgroundColor: COLORS.primary,
-          paddingTop:
-            Platform.OS === 'ios'
-              ? SIZES.screenHeight * 0.04
-              : SIZES.screenHeight * 0.03,
-        }}>
-        <View
-          style={{
-            paddingTop: 12,
-            marginTop: 8,
-            paddingRight: 25,
-            alignSelf: 'flex-end',
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          <TouchableOpacity
-            onPress={() => changeLanguage('en')}
-            style={[
-              currentLanguage === 'en' ? styles.active : styles.unActive,
-              {marginRight: 8},
-            ]}>
-            <Text
-              style={
-                currentLanguage === 'en'
-                  ? {fontFamily: 'Poppins_Medium', color: '#fff'}
-                  : {fontFamily: 'Poppins_Medium', color: '#3C1053'}
-              }>
-              EN
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => changeLanguage('fr')}
-            style={[
-              currentLanguage === 'fr' ? styles.active : styles.unActive,
-              {alignItems: 'center'},
-            ]}>
-            <Text
-              style={
-                currentLanguage === 'fr'
-                  ? {fontFamily: 'Poppins_Medium', color: '#fff'}
-                  : {fontFamily: 'Poppins_Medium', color: '#3C1053'}
-              }>
-              FR
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
-  }
-
-  const keyExtractor = item => item.title;
+  const keyExtractor = (item) => item.title;
 
   const renderNextButton = () => (
     <View style={styles.rightTextWrapper}>
@@ -136,12 +141,12 @@ function Onboard(props) {
     </View>
   );
 
-  const handleDone = () => {
-    props.handleDone();
+  const handleLoaded = () => {
+    handleDone();
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <StatusBar translucent backgroundColor="transparent" />
       <LanguageSwitcher />
       <AppIntroSlider
@@ -156,7 +161,7 @@ function Onboard(props) {
         showSkipButton
         renderSkipButton={renderSkipButton}
         showPrevButton
-        onDone={handleDone}
+        onDone={handleLoaded}
       />
     </View>
   );
@@ -243,7 +248,7 @@ const styles = StyleSheet.create({
   },
   unActive: {
     paddingHorizontal: 10,
-    paddingVertical: Platform.OS == 'ios' ? 8 : 7,
+    paddingVertical: Platform.OS === 'ios' ? 8 : 7,
     borderRadius: 24,
     borderWidth: 2,
     borderColor: '#3C1053',
@@ -252,7 +257,7 @@ const styles = StyleSheet.create({
   },
   active: {
     paddingHorizontal: 10,
-    paddingVertical: Platform.OS == 'ios' ? 8 : 7,
+    paddingVertical: Platform.OS === 'ios' ? 8 : 7,
     borderRadius: 24,
     borderWidth: 2,
     backgroundColor: '#3C1053',

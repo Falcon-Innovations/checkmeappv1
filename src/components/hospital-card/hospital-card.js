@@ -1,10 +1,10 @@
 import React from 'react';
-import {TouchableOpacity, View, Text} from 'react-native';
+import { TouchableOpacity, View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {COLORS, SIZES} from '../../utility';
-import {CustomImageBackground} from '../custom-image-background/custom-image-background';
+import { COLORS, SIZES } from '../../utility';
+import { CustomImageBackground } from '../custom-image-background/custom-image-background';
 
-export function HospitalCard({onPress, imgSrc, name, services, town}) {
+export function HospitalCard({ onPress, imgSrc, name, services, town }) {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -20,11 +20,11 @@ export function HospitalCard({onPress, imgSrc, name, services, town}) {
         backgroundColor: '#FAFAFA',
         marginBottom: 14,
         shadowColor: '#d3d3d3',
-        shadowOffset: {width: 3, height: 3},
+        shadowOffset: { width: 3, height: 3 },
         shadowOpacity: 1.0,
       }}>
       <CustomImageBackground imgSrc={imgSrc} />
-      <View style={{paddingHorizontal: 4, marginTop: 14}}>
+      <View style={{ paddingHorizontal: 4, marginTop: 14 }}>
         <View
           style={{
             flexDirection: 'row',
@@ -49,9 +49,9 @@ export function HospitalCard({onPress, imgSrc, name, services, town}) {
             alignItems: 'center',
           }}>
           {services
-            .map((service, index) => (
+            .map((service) => (
               <Text
-                key={`${service}-${index}`}
+                key={service}
                 style={{
                   fontFamily: 'Poppins_Regular',
                   fontSize: 14,

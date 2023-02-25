@@ -3,18 +3,17 @@ import {
   Image,
   Platform,
   ScrollView,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-native-modal';
-import {useTranslation} from 'react-i18next';
-import {COLORS, SIZES} from '../utility';
+import { useTranslation } from 'react-i18next';
+import { COLORS, SIZES } from '../utility';
 
-function RiskCard({title, description, color, image, onPress, points = []}) {
-  const {t} = useTranslation();
+function RiskCard({ title, description, color, image }) {
+  const { t } = useTranslation();
 
   const [isModalVisible, setModalVisible] = useState(false);
 
@@ -47,7 +46,7 @@ function RiskCard({title, description, color, image, onPress, points = []}) {
           <Text
             numberOfLines={1}
             style={{
-              marginBottom: Platform.OS == 'ios' ? 12 : 8,
+              marginBottom: Platform.OS === 'ios' ? 12 : 8,
               fontSize: 15,
               fontFamily: 'Poppins-Medium',
             }}>
@@ -91,9 +90,9 @@ function RiskCard({title, description, color, image, onPress, points = []}) {
         }}
         isVisible={isModalVisible}
         animationType="slide">
-        <View style={{backgroundColor: '#fff', borderRadius: 8}}>
+        <View style={{ backgroundColor: '#fff', borderRadius: 8 }}>
           <ScrollView
-            contentContainerStyle={{paddingBottom: SIZES.screenHeight * 0.06}}
+            contentContainerStyle={{ paddingBottom: SIZES.screenHeight * 0.06 }}
             style={{
               paddingHorizontal: SIZES.screenWidth * 0.06,
               paddingTop: SIZES.screenHeight * 0.04,
@@ -142,7 +141,7 @@ function RiskCard({title, description, color, image, onPress, points = []}) {
               </Text>
             </View>
           </ScrollView>
-          <View style={{paddingVertical: 10, alignSelf: 'center'}}>
+          <View style={{ paddingVertical: 10, alignSelf: 'center' }}>
             <Button
               color={COLORS.primary}
               title={t('close')}
@@ -156,5 +155,3 @@ function RiskCard({title, description, color, image, onPress, points = []}) {
 }
 
 export default RiskCard;
-
-const styles = StyleSheet.create({});

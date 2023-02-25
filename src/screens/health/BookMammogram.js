@@ -1,15 +1,8 @@
-import {
-  Image,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Image, SafeAreaView, ScrollView, Text, View } from 'react-native';
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {AppButton, AppStatusBar, CustomStatusBar} from '../../components';
-import {COLORS, SIZES} from '../../utility';
+import { useNavigation } from '@react-navigation/native';
+import { AppButton, AppStatusBar, CustomStatusBar } from '../../components';
+import { COLORS, SIZES } from '../../utility';
 
 function BookMammogram() {
   const navigation = useNavigation();
@@ -17,7 +10,7 @@ function BookMammogram() {
     <>
       <AppStatusBar backgroundColor={COLORS.primary} barStyle="light-content" />
       <CustomStatusBar />
-      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollView
           showsVerticalScrollIndicator={false}
           style={{
@@ -37,7 +30,8 @@ function BookMammogram() {
               color: COLORS.textColor,
             }}>
             {'Book a mammogram '}
-            <Text style={{fontFamily: 'Poppins_Medium', color: COLORS.primary}}>
+            <Text
+              style={{ fontFamily: 'Poppins_Medium', color: COLORS.primary }}>
               {' appointment \n'}
             </Text>
             <Text
@@ -66,7 +60,7 @@ function BookMammogram() {
               }}
             />
           </View>
-          <View style={{marginTop: SIZES.screenHeight * 0.1}}>
+          <View style={{ marginTop: SIZES.screenHeight * 0.1 }}>
             <Text
               style={{
                 fontFamily: 'Poppins_Regular',
@@ -80,7 +74,6 @@ function BookMammogram() {
               breast cancer that are too small to be felt by you or your doctor.
             </Text>
           </View>
-
           <View
             style={{
               marginTop: SIZES.screenHeight * 0.1,
@@ -100,5 +93,3 @@ function BookMammogram() {
 }
 
 export default BookMammogram;
-
-const styles = StyleSheet.create({});

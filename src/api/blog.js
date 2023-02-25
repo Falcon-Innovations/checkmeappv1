@@ -1,16 +1,17 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Alert} from 'react-native';
+import { Alert } from 'react-native';
 import useFetch from '../hooks/useFetch';
 import client from './client';
 
 const url = 'https://check-me-backend.herokuapp.com/api/v1/articles';
 
 export const useBlogs = () => {
-  const {loading, data, error} = useFetch(url);
-  return {loading, data, error};
+  const { loading, data, error } = useFetch(url);
+  return { loading, data, error };
 };
 
-export const voteBlog = async articleId => {
+// eslint-disable-next-line consistent-return
+export const voteBlog = async (articleId) => {
   try {
     const token = await AsyncStorage.getItem('token');
     const response = await client.patch(
@@ -22,6 +23,7 @@ export const voteBlog = async articleId => {
         },
       },
     );
+    return response;
   } catch (error) {
     Alert.alert(
       'Error',

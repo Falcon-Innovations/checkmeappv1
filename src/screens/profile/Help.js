@@ -7,21 +7,21 @@ import {
   View,
   Linking,
   Platform,
+  Alert,
 } from 'react-native';
-import React, {useState} from 'react';
-import {useTranslation} from 'react-i18next';
-import SendSMS from 'react-native-sms';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import {AppButton, AppStatusBar, CustomStatusBar} from '../../components';
-import {COLORS, IMAGES, SIZES} from '../../utility';
-import {Context as AuthContext} from '../../contexts/userContext';
+import { AppButton, AppStatusBar, CustomStatusBar } from '../../components';
+import { COLORS, IMAGES, SIZES } from '../../utility';
+import { Context as AuthContext } from '../../contexts/userContext';
 
 function Help() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
-  const {state} = React.useContext(AuthContext);
-  const [mobileNumber, setMobileNumber] = useState('+237694914857');
-  const [whatsAppMsg, setWhatsAppMsg] = useState(
+  const { state } = React.useContext(AuthContext);
+  const [mobileNumber] = useState('+237694914857');
+  const [whatsAppMsg] = useState(
     `Greetings team Check Me. I am a user of Check Me mobile application. My name is ${state?.user?.name}. Please how do i book an appointment for my breast cancer counseling and screening (REPLACE WITH YOUR MESSAGE)`,
   );
 
@@ -29,7 +29,7 @@ function Help() {
   const initiateWhatsAppSMS = () => {
     // Check for perfect 10 digit length
     if (mobileNumber < 9) {
-      alert(
+      Alert.alert(
         `This number ${mobileNumber} isn't on whatsapp or it is wrong  for now.`,
       );
       return;
@@ -38,11 +38,11 @@ function Help() {
     // You can change 91 with your country code
     const url = `whatsapp://send?text=${whatsAppMsg}&phone=${mobileNumber}`;
     Linking.openURL(url)
-      .then(data => {
-        console.log('WhatsApp Opened');
+      .then(() => {
+        Alert.alert('Opening whatsapp..');
       })
       .catch(() => {
-        alert('Make sure Whatsapp is installed on your device');
+        Alert.alert('Make sure Whatsapp is installed on your device');
       });
   };
 
@@ -92,14 +92,14 @@ function Help() {
             style={styles.image}
             resizeMode="contain"
           />
-          <View style={{marginTop: 10}}>
+          <View style={{ marginTop: 10 }}>
             <AppButton
               text="WhatsApp +237 694 914 857"
               color={COLORS.primary}
               onPress={initiateWhatsAppSMS}
             />
           </View>
-          <View style={{marginTop: 20}}>
+          <View style={{ marginTop: 20 }}>
             <AppButton
               text={`${t('call')} +237 694 914 857`}
               color="#9C91AA"

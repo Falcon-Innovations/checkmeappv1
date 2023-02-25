@@ -1,10 +1,10 @@
 import useFetch from '../hooks/useFetch';
-import {BASE_URL} from './client';
+import { BASE_URL } from './client';
 
 const url = `${BASE_URL}api/v1/specialists`;
 
 export const useSpecialists = () => {
-  const {loading, data, error, fetchData} = useFetch(url);
+  const { loading, data, error, fetchData } = useFetch(url);
   return {
     loading,
     data,
@@ -13,8 +13,8 @@ export const useSpecialists = () => {
   };
 };
 
-export const useSpecialist = id => {
-  const {loading, data, error, fetchData} = useFetch(`${url}/${id}`);
+export const useSpecialist = (id) => {
+  const { loading, data, error, fetchData } = useFetch(`${url}/${id}`);
   return {
     loading,
     data,
