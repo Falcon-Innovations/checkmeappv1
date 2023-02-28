@@ -1,4 +1,4 @@
-import {createNavigationContainerRef} from '@react-navigation/native';
+import { createNavigationContainerRef } from '@react-navigation/native';
 
 /**
  * Custom nav navigator for the app.

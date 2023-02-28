@@ -1,3 +1,4 @@
+import React, { useRef, useState } from 'react';
 import {
   Image,
   SafeAreaView,
@@ -9,32 +10,22 @@ import {
   Keyboard,
   StatusBar,
 } from 'react-native';
-import React, {useRef, useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {useTranslation} from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useTranslation } from 'react-i18next';
 
 import '../../../assets/i18n/i18n';
-import {COLORS, SIZES} from '../../utility';
-import {AppButton, PhoneInputField, Loader} from '../../components';
-import {Context as UserContext} from '../../contexts/userContext';
+import { COLORS, IMAGES, SIZES } from '../../utility';
+import { AppButton, PhoneInputField, Loader } from '../../components';
+import { Context as UserContext } from '../../contexts/userContext';
 
-const Login = () => {
+function Login() {
   const navigation = useNavigation();
 
-  const {t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   const [currentLanguage, setLanguage] = useState(i18n.language);
 
-  const [activeLang, setActiveLang] = useState(false);
-
-  const changeLanguage = value => {
-    i18n
-      .changeLanguage(value)
-      .then(() => setLanguage(value))
-      .catch(err => console.log(err));
-  };
-
-  const {signIn, sendOTP} = React.useContext(UserContext);
+  const { sendOTP } = React.useContext(UserContext);
   const [inputs, setInputs] = useState({
     phone: '',
   });
@@ -42,45 +33,47 @@ const Login = () => {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
+  // change language
+  const changeLanguage = (value) => {
+    i18n
+      .changeLanguage(value)
+      .then(() => setLanguage(value))
+      .catch((err) => Promise.reject(err));
+  };
+
   const handleSignIn = async () => {
     Keyboard.dismiss();
     let isValid = true;
     if (!inputs.phone) {
-      handleErrors('Please input your phonr number', 'phonr');
+      handleErrors('Please input phone number', 'phone');
+      isValid = false;
+    } else if (inputs.phone.length < 9) {
+      handleErrors('Please enter valid phone number', 'phone');
       isValid = false;
     }
-    // if (!inputs.pin) {
-    //   handleErrors('Please input a valid pin', 'pin');
-    //   isValid = false;
-    // } else if (inputs.pin.length < 5) {
-    //   handleErrors('Pin is 5 digits', 'password');
-    //   isValid = false;
-    // }
-
     if (isValid) {
       setLoading(true);
-      await sendOTP({phoneNumber: inputs.phone});
+      await sendOTP({ phoneNumber: inputs.phone });
       setLoading(false);
     }
   };
 
   const handleOnChange = (text, input) => {
-    setInputs(prevState => ({...prevState, [input]: text}));
+    setInputs((prevState) => ({ ...prevState, [input]: text }));
   };
 
   const handleErrors = (errorMessage, input) => {
-    setErrors(prevState => ({...prevState, [input]: errorMessage}));
+    setErrors((prevState) => ({ ...prevState, [input]: errorMessage }));
   };
 
-  const authImage =
-    'https://res.cloudinary.com/dav5lnlxj/image/upload/v1665910061/authImage_mb3hex.png';
+  const { authImage } = IMAGES;
 
   return (
     <>
       <StatusBar hidden={false} backgroundColor={COLORS.primary} />
       {loading ? (
         <View style={styles.viewContainer}>
-          <Loader visible={true} />
+          <Loader visible />
         </View>
       ) : (
         <SafeAreaView style={styles.container}>
@@ -96,7 +89,7 @@ const Login = () => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 paddingTop:
-                  Platform.OS == 'ios'
+                  Platform.OS === 'ios'
                     ? SIZES.screenHeight * 0.01
                     : SIZES.screenHeight * 0.04,
               }}>
@@ -104,13 +97,13 @@ const Login = () => {
                 onPress={() => changeLanguage('en')}
                 style={[
                   currentLanguage === 'en' ? styles.active : styles.unActive,
-                  {marginRight: 8},
+                  { marginRight: 8 },
                 ]}>
                 <Text
                   style={
                     currentLanguage === 'en'
-                      ? {fontFamily: 'Poppins_Medium', color: '#fff'}
-                      : {fontFamily: 'Poppins_Medium', color: '#3c1361'}
+                      ? { fontFamily: 'Poppins-Medium', color: '#fff' }
+                      : { fontFamily: 'Poppins-Medium', color: '#3c1361' }
                   }>
                   EN
                 </Text>
@@ -119,22 +112,22 @@ const Login = () => {
                 onPress={() => changeLanguage('fr')}
                 style={[
                   currentLanguage === 'fr' ? styles.active : styles.unActive,
-                  {alignItems: 'center'},
+                  { alignItems: 'center' },
                 ]}>
                 <Text
                   style={
                     currentLanguage === 'fr'
-                      ? {fontFamily: 'Poppins_Medium', color: '#fff'}
-                      : {fontFamily: 'Poppins_Medium', color: '#3c1361'}
+                      ? { fontFamily: 'Poppins-Medium', color: '#fff' }
+                      : { fontFamily: 'Poppin-Medium', color: '#3c1361' }
                   }>
                   FR
                 </Text>
               </TouchableOpacity>
             </View>
-            <View style={{paddingTop: 10, paddingBottom: 8}}>
+            <View style={{ paddingTop: 10, paddingBottom: 8 }}>
               <Image
                 resizeMode="contain"
-                source={{uri: authImage}}
+                source={{ uri: authImage }}
                 style={styles.img}
               />
             </View>
@@ -147,78 +140,46 @@ const Login = () => {
               <Text
                 style={[
                   styles.welcomeText,
-                  {color: COLORS.primary, fontFamily: 'Poppins_Bold'},
+                  { color: COLORS.primary, fontFamily: 'Poppins-Bold' },
                 ]}>
                 {t('welcome1')}
               </Text>
               <Text
-                numberOfLines={1}
-                style={[styles.welcomeText, {fontFamily: 'Poppins_Medium'}]}>
+                style={[
+                  styles.welcomeText,
+                  {
+                    fontFamily: 'Poppins-Medium',
+                    fontSize: 12,
+                    color: COLORS.textColor,
+                  },
+                ]}>
                 {t('welcome2')}
               </Text>
             </View>
             <View style={styles.formContainer}>
-              {/* <Input
-                placeholder="Enter your email"
-                keyboardType="email-address"
-                error={errors.email}
-                onFocus={() => handleErrors(null, 'email')}
-                onChangeText={(text) => handleOnChange(text, 'email')}
-              />
-              <Input
-                placeholder="Enter your password"
-                error={errors.pin}
-                pin
-                onFocus={() => handleErrors(null, "pin")}
-                onChangeText={(text) => handleOnChange(text, "pin")}
-              /> */}
-
               <PhoneInputField
                 phoneInput={phoneInput}
                 placeholder={t('placeholder3')}
                 phoneNumber={inputs.phone}
-                onChange={text => {
+                error={errors.phone}
+                onChange={(text) => {
                   handleOnChange(text, 'phone');
                 }}
               />
             </View>
-            {/* <View>
-              <Text
-                style={{
-                  color: COLORS.primary,
-                  fontFamily: 'Poppins_Medium',
-                  fontSize: 12,
-                  marginLeft: 10,
-                }}
-              >
-                Forgot Password?
-              </Text>
-            </View> */}
 
-            <View style={{marginTop: 20}}>
+            <View style={{ marginTop: 20 }}>
               <AppButton
                 text={t('login')}
-                color={COLORS.primary}
-                // onPress={() => navigation.navigate('Dashboard')}
+                color={
+                  !inputs.phone || inputs.phone.length < 12
+                    ? '#d3d3d3'
+                    : COLORS.primary
+                }
                 onPress={handleSignIn}
-                disabled={loading || !inputs.phone}
+                disabled={loading || !inputs.phone || inputs.phone.length < 12}
               />
             </View>
-            {/* <View
-              style={{
-                alignItems: 'center',
-                marginVertical: 15,
-                fontFamily: 'Poppins_Regular',
-              }}
-            >
-              <Text>Or you can sign in with</Text>
-            </View> */}
-
-            {/* <SocialButton
-              icon="google"
-              title="Login with Google"
-              backgroundColor="#3b5998"
-            /> */}
 
             <View
               style={{
@@ -228,7 +189,7 @@ const Login = () => {
                 flexDirection: 'row',
                 marginTop: SIZES.screenHeight * 0.02,
               }}>
-              <Text>{t('noAccount')}</Text>
+              <Text style={{ color: COLORS.textColor }}>{t('noAccount')}</Text>
               <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
                 <Text
                   style={{
@@ -236,8 +197,8 @@ const Login = () => {
                     textDecorationStyle: 'solid',
                     textDecorationColor: '#000',
                     color: COLORS.primary,
-                    fontFamily: 'Poppins_Medium',
-                    fontSize: 15,
+                    fontFamily: 'Poppins-Medium',
+                    fontSize: 14,
                     marginLeft: 10,
                   }}>
                   {t('signup')}
@@ -249,7 +210,7 @@ const Login = () => {
       )}
     </>
   );
-};
+}
 
 export default Login;
 
@@ -273,6 +234,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     marginRight: 6,
     fontSize: 14,
+    flexWrap: 'wrap',
   },
 
   formContainer: {
@@ -290,13 +252,13 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
   },
   haveAnAccount: {
-    fontSize: 15,
+    fontSize: 13,
     color: '#fff',
-    fontFamily: 'Poppins_Regular',
+    fontFamily: 'Poppins-Regular',
   },
   unActive: {
     paddingHorizontal: 10,
-    paddingVertical: Platform.OS == 'ios' ? 8 : 6,
+    paddingVertical: Platform.OS === 'ios' ? 8 : 6,
     borderRadius: 24,
     borderWidth: 2,
     borderColor: COLORS.primary,
@@ -305,7 +267,7 @@ const styles = StyleSheet.create({
   },
   active: {
     paddingHorizontal: 10,
-    paddingVertical: Platform.OS == 'ios' ? 8 : 6,
+    paddingVertical: Platform.OS === 'ios' ? 8 : 6,
     borderRadius: 24,
     borderWidth: 2,
     backgroundColor: COLORS.primary,

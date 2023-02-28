@@ -1,7 +1,9 @@
-import {Alert} from 'react-native';
+/* eslint-disable no-unused-vars */
+import { Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 import createContext from './createContext';
 import client from '../api/client';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as customNav from '../navigation/customNavigator';
 
 const userReducer = (state, action) => {
@@ -33,44 +35,48 @@ const userReducer = (state, action) => {
         errorMessage: action.payload.error,
       };
     case 'SIGN_OUT':
-      return {...state, token: null, account: null, user: null};
+      return {
+        ...state,
+        token: null,
+        account: null,
+        user: null,
+      };
     default:
       return state;
   }
 };
 
-const logout = dispatch => async () => {
+const logout = (dispatch) => async () => {
   try {
     await AsyncStorage.removeItem('user');
     await AsyncStorage.removeItem('token');
     customNav.navigate('Login');
-    dispatch({type: 'SIGN_OUT'});
+    dispatch({ type: 'SIGN_OUT' });
   } catch (err) {
-    console.error(err);
+    Promise.reject(err);
   }
 };
 
 const signIn =
-  dispatch =>
-  async ({email, password}) => {
+  (dispatch) =>
+  async ({ email, password }) => {
     try {
-      const {data} = await client.post('api/v1/users/login', {
+      const { data } = await client.post('api/v1/users/login', {
         email,
         password,
       });
 
-      const {token, data: userData} = data;
+      const { token, data: userData } = data;
 
       await AsyncStorage.setItem('token', token);
       await AsyncStorage.setItem('user', JSON.stringify(userData?.user));
       dispatch({
         type: 'SIGN_IN',
-        payload: {token, user: data?.data?.user},
+        payload: { token, user: data?.data?.user },
       });
       Alert.alert('Success', `Logged in as ${email}`);
       customNav.navigate('Root');
     } catch (error) {
-      console.log(error?.data);
       Alert.alert(
         'Error',
         error?.response?.data?.message
@@ -81,48 +87,48 @@ const signIn =
   };
 
 const sendOTP =
-  dispatch =>
-  async ({phoneNumber}) => {
+  (dispatch) =>
+  async ({ phoneNumber }) => {
     try {
-      const {data} = await client.post('api/v1/users/sendOTP', {
+      const { data } = await client.post('api/v1/users/sendOTP', {
         phoneNumber,
       });
       if (data.message) {
         Alert.alert('Success', `OTP sent to ${phoneNumber}`);
-        customNav.navigate('OTPVerification', {phoneNumber});
+        customNav.navigate('OTPVerification', { phoneNumber });
       }
     } catch (error) {
-      console.log(error?.data);
       Alert.alert(
         'Error',
-        error?.response?.data?.message
-          ? `${error?.response?.data?.message}`
+        error?.response?.data?.error?.statusText
+          ? `${error?.response?.data?.error?.statusText}`
           : 'Something went wrong, please try again later.',
       );
     }
   };
 
 const checkOTP =
-  dispatch =>
-  async ({phoneNumber, smsCode}) => {
+  (dispatch) =>
+  async ({ phoneNumber, smsCode }) => {
     try {
-      const {data} = await client.post('api/v1/users/checkOTP', {
+      const { data } = await client.post('api/v1/users/checkOTP', {
         phoneNumber,
         smsCode,
       });
 
-      const {token, data: userData} = data;
+      console.log(data, 'From check otp');
+
+      const { token, data: userData } = data;
 
       await AsyncStorage.setItem('token', token);
       await AsyncStorage.setItem('user', JSON.stringify(userData?.user));
       dispatch({
         type: 'SIGN_IN',
-        payload: {token, user: data?.data?.user},
+        payload: { token, user: data?.data?.user },
       });
-      Alert.alert('Success', `Logged in`);
+      Alert.alert('Success', 'You are now logged in');
       customNav.navigate('Root');
     } catch (error) {
-      console.log(error?.data);
       Alert.alert(
         'Error',
         error?.response?.data?.message
@@ -133,8 +139,8 @@ const checkOTP =
   };
 
 const signUp =
-  dispatch =>
-  async ({name, email, telephone}) => {
+  (dispatch) =>
+  async ({ name, email, telephone }) => {
     try {
       const response = await client.post('api/v1/users/signup', {
         name,
@@ -144,8 +150,8 @@ const signUp =
 
       if (response.status === 201) {
         Alert.alert('Success', `OTP sent to ${telephone}`);
-        customNav.navigate('OTPVerification', {phoneNumber: telephone});
-        dispatch({type: 'SIGN_UP'});
+        customNav.navigate('OTPVerification', { phoneNumber: telephone });
+        dispatch({ type: 'SIGN_UP' });
       }
     } catch (err) {
       Alert.alert(
@@ -154,14 +160,13 @@ const signUp =
           ? `${err.response.data.message}`
           : 'Something went wrong, please try again later.',
       );
-      console.log(err);
-      dispatch({type: 'REPORT_ERROR', payload: err});
+      dispatch({ type: 'REPORT_ERROR', payload: err });
     }
   };
 
 const updateProfile =
-  dispatch =>
-  async ({name, email, bio, birthDate}) => {
+  (dispatch) =>
+  async ({ name, email, bio, birthDate }) => {
     const token = await AsyncStorage.getItem('token');
     try {
       const response = await client.patch(
@@ -180,13 +185,13 @@ const updateProfile =
       );
 
       if (response.status === 200) {
-        const {data: userData} = response?.data;
+        const { data: userData } = response.data;
         await AsyncStorage.setItem('user', JSON.stringify(userData?.user));
         dispatch({
           type: 'PROFILE_UPDATE',
-          payload: {user: userData?.user},
+          payload: { user: userData?.user },
         });
-        Alert.alert('Success', `Profile updated`);
+        Alert.alert('Success', 'Profile updated');
       }
     } catch (err) {
       Alert.alert(
@@ -195,14 +200,13 @@ const updateProfile =
           ? `${err.response.data.message}`
           : 'Something went wrong, please try again later.',
       );
-      console.log(err);
-      dispatch({type: 'REPORT_ERROR', payload: err});
+      dispatch({ type: 'REPORT_ERROR', payload: err });
     }
   };
 
 const updateMyAvatar =
-  dispatch =>
-  async ({file}) => {
+  (dispatch) =>
+  async ({ file }) => {
     const token = await AsyncStorage.getItem('token');
     const user = await AsyncStorage.getItem('user');
     const parsedUser = JSON.parse(user);
@@ -216,8 +220,8 @@ const updateMyAvatar =
     });
 
     try {
-      const response = await client.patch(
-        'api/v1/users/updateAvatar',
+      const response = await axios.patch(
+        'http://67.205.166.151/api/v1/users/updateAvatar',
         formData,
         {
           headers: {
@@ -234,44 +238,36 @@ const updateMyAvatar =
         };
         dispatch({
           type: 'PROFILE_UPDATE',
-          payload: {user: updatedUser},
+          payload: { user: updatedUser },
         });
         await AsyncStorage.setItem('user', JSON.stringify(updatedUser));
         Alert.alert('Success', 'Profile image updated');
       }
     } catch (err) {
-      Alert.alert(
-        'Error',
-        err.response.data.message
-          ? `${err.response.data.message}`
-          : 'Something went wrong, please try again later.',
-      );
-      console.log(err);
-      dispatch({type: 'REPORT_ERROR', payload: err});
+      Alert.alert('Error', 'Something went wrong, please try again later.');
+      dispatch({ type: 'REPORT_ERROR', payload: err });
     }
   };
 
 const updatePassword =
-  dispatch =>
-  async ({oldPassword, newPassword}) => {
+  (dispatch) =>
+  async ({ oldPassword, newPassword }) => {
     try {
-      const {data} = await client.patch('api/v1/users/updatePassword', {
+      const { data } = await client.patch('api/v1/users/updatePassword', {
         oldPassword,
         newPassword,
       });
 
-      const {token, data: userData} = data;
+      const { token, data: userData } = data;
 
       await AsyncStorage.setItem('token', token);
       await AsyncStorage.setItem('user', JSON.stringify(userData?.user));
       dispatch({
         type: 'SIGN_IN',
-        payload: {token, user: data?.data?.user},
+        payload: { token, user: data?.data?.user },
       });
-      Alert.alert('Success', `Logged in as ${email}`);
       customNav.navigate('Root');
     } catch (error) {
-      console.log(error?.data);
       Alert.alert(
         'Error',
         error?.response?.data?.message
@@ -281,7 +277,7 @@ const updatePassword =
     }
   };
 
-const tryLocalSignIn = dispatch => async () => {
+const tryLocalSignIn = (dispatch) => async () => {
   const token = await AsyncStorage.getItem('token');
   const user = await AsyncStorage.getItem('user');
 
@@ -289,14 +285,14 @@ const tryLocalSignIn = dispatch => async () => {
     customNav.navigate('Root');
     dispatch({
       type: 'SIGN_IN',
-      payload: {token, user: JSON.parse(user)},
+      payload: { token, user: JSON.parse(user) },
     });
   } else {
     customNav.navigate('Login');
   }
 };
 
-export const {Context, Provider} = createContext(
+export const { Context, Provider } = createContext(
   userReducer,
   {
     signUp,
@@ -313,7 +309,7 @@ export const {Context, Provider} = createContext(
     token: null,
     message: '',
     errorMessage: '',
-    user: {name: '', email: ''},
+    user: { name: '', email: '' },
     account: null,
   },
 );

@@ -1,15 +1,17 @@
-import {View, StyleSheet, Dimensions} from 'react-native';
+import { StyleSheet, Dimensions, Text } from 'react-native';
 import PhoneInput from 'react-native-phone-number-input';
+import { COLORS } from '../../utility';
 
-const PhoneInputField = ({
+function PhoneInputField({
   phoneNumber,
   phoneInput,
   placeholder,
   onChange,
+  error,
   ...rest
-}) => {
+}) {
   return (
-    <View style={styles.container}>
+    <>
       <PhoneInput
         ref={phoneInput}
         defaultValue={phoneNumber}
@@ -17,31 +19,30 @@ const PhoneInputField = ({
         layout="first"
         placeholder={placeholder}
         autoFocus={false}
-        // withShadow
-        containerStyle={styles.phoneContainer}
+        containerStyle={[
+          styles.phoneContainer,
+          { borderColor: error ? COLORS.danger : '#D3D3D3' },
+        ]}
         textContainerStyle={styles.textInput}
         onChangeFormattedText={onChange}
         {...rest}
       />
-    </View>
+      {error && <Text style={styles.errorMessage}>{error}</Text>}
+    </>
   );
-};
+}
 
 export default PhoneInputField;
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-  },
   phoneContainer: {
     width: width - 35,
     height: 55,
-    marginBottom: 15,
-    borderRadius: 12,
-    borderColor: '#DBD9D9',
+    marginBottom: 2,
+    borderRadius: 8,
     borderWidth: 1,
+    marginTop: 15,
   },
   textInput: {
     paddingVertical: 0,
@@ -51,7 +52,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     paddingHorizontal: 20,
     borderRadius: 12,
-
     shadowColor: '#000',
+  },
+  errorMessage: {
+    color: COLORS.primary,
+    fontFamily: 'Poppins_Regular',
+    fontSize: 12,
+    marginTop: 4,
+    marginBottom: 1,
   },
 });

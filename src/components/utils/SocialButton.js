@@ -1,22 +1,31 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {COLORS} from '../../utility';
+import { View, StyleSheet, Text } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
+import { COLORS } from '../../utility';
 
-const SocialButton = ({onPress, icon, title, backgroundColor}) => {
+function SocialButton({
+  onPress,
+  icon,
+  title,
+  backgroundColor,
+  iconColor,
+  textColor,
+}) {
   return (
     <View style={styles.appButtonContainer}>
       <Icon.Button
         name={icon}
-        backgroundColor="transparent"
+        backgroundColor={backgroundColor}
         onPress={onPress}
         style={styles.appButton}
-        iconStyle={{color: COLORS.primary}}>
-        <Text style={styles.appButtonText}>{title}</Text>
+        iconStyle={{ color: iconColor }}>
+        <Text style={[styles.appButtonText, { color: textColor }]}>
+          {title}
+        </Text>
       </Icon.Button>
     </View>
   );
-};
+}
 
 export default SocialButton;
 
@@ -30,8 +39,8 @@ const styles = StyleSheet.create({
     borderColor: COLORS.primary,
   },
   appButtonText: {
-    fontSize: 15,
-    fontFamily: 'Poppins_Medium',
+    fontSize: 13,
+    fontFamily: 'Poppins-Regular',
   },
   appButtonContainer: {
     paddingVertical: 6,

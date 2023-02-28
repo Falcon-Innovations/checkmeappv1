@@ -1,120 +1,105 @@
-import { Dimensions, StyleSheet, Text, TextInput, View } from "react-native";
-import React, { useState } from "react";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Dimensions, StyleSheet, Text } from 'react-native';
+import React, { useState } from 'react';
+import { TextInput } from 'react-native-paper';
+import { COLORS, SIZES } from '../../utility';
 
-import { COLORS, SIZES } from "../../utility";
-
-const Input = ({
+function Input({
   label,
   iconName,
   error,
   pin,
+  onSubmitEditing,
   inputRef,
   onFocus = () => {},
   ...props
-}) => {
+}) {
   const [isFocused, setIsFocused] = useState(false);
   const [hidePassword, setHidePassword] = useState(pin);
+
+  const renderInputStyles = () => {
+    if (error) {
+      return COLORS.primary;
+    }
+    if (isFocused) {
+      return COLORS.borderColorFocused;
+    }
+    return COLORS.borderColor;
+  };
+
+  const inputStyles = renderInputStyles();
+
   return (
-    <View style={styles.container}>
-      <View
-        style={[
-          styles.inputContainer,
-          {
-            borderColor: error
-              ? COLORS.primary
-              : isFocused
-              ? COLORS.borderColorFocused
-              : COLORS.borderColor,
-          },
-        ]}
-      >
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Icon
-            name={iconName}
-            size={SIZES.authIconSizes}
-            color={COLORS.lightTextGrey}
-            style={styles.icon}
-          />
-          <TextInput
-            secureTextEntry={hidePassword}
-            placeholderStyle={styles.placeholder}
-            autoCorrect={false}
-            onFocus={() => {
-              onFocus();
-              setIsFocused(true);
-            }}
-            onBlur={() => setIsFocused(false)}
-            styles={styles.textInput}
-            {...props}
-          />
-        </View>
-        {pin && (
-          <Icon
-            onPress={() => setHidePassword(!hidePassword)}
-            name={hidePassword ? "ios-eye-outline" : "ios-eye-off-outline"}
-            size={SIZES.authIconSizes}
-            color="grey"
-            style={{}}
-          />
-        )}
-      </View>
+    <>
+      <TextInput
+        mode="outlined"
+        style={[styles.inputContainer, inputStyles]}
+        ref={inputRef}
+        activeOutlineColor={error ? COLORS.danger : COLORS.primary}
+        outlineColor={error ? COLORS.danger : '#D3D3D3'}
+        secureTextEntry={hidePassword}
+        placeholderStyle={styles.placeholder}
+        autoCorrect={false}
+        label={label}
+        placeholderTextColor={COLORS.textColor}
+        onFocus={() => {
+          onFocus();
+          setIsFocused(true);
+        }}
+        right={
+          pin && (
+            <TextInput.Icon
+              onPress={() => setHidePassword(!hidePassword)}
+              icon={hidePassword ? 'eye' : 'eye-off'}
+              color="#D3D3D3"
+            />
+          )
+        }
+        onBlur={() => setIsFocused(false)}
+        onSubmitEditing={onSubmitEditing}
+        styles={styles.textInput}
+        {...props}
+      />
 
       {error && <Text style={styles.errorMessage}>{error}</Text>}
-    </View>
+    </>
   );
-};
+}
 
 export default Input;
-const { width } = Dimensions.get("window");
+const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     marginBottom: 15,
   },
 
   inputContainer: {
-    height: 50,
-    backgroundColor: "#FFFFFF",
-    fontSize: 18,
-    paddingHorizontal: 20,
-    borderRadius: 12,
-    justifyContent: "center",
-    borderWidth: 1,
-    justifyContent: "space-between",
-    flexDirection: "row",
-    alignItems: "center",
+    fontSize: 14,
+    marginTop: 12,
+    height: 55,
+    backgroundColor: '#fff',
     borderRadius: SIZES.borderRadius,
   },
-
-  // inputContainer: {
-  //   height: 56,
-  //   backgroundColor: "#fff",
-  //   borderWidth: 1,
-  //   borderColor: "#DBD9D9",
-  //   alignItems: "center",
-  //   paddingHorizontal: 15,
-  //   borderRadius: SIZES.borderRadius,
-  //   flexDirection: "row",
-  //   justifyContent: "space-between",
-  // },
   icon: {
     marginRight: 10,
   },
   textInput: {
     flex: 1,
-    color: COLORS.primary,
-    fontFamily: "Poppins_Regular",
-    fontSize: 18,
+    color: COLORS.textColor,
+    fontFamily: 'Poppins-Regular',
+    fontSize: 16,
+    width,
   },
   placeholder: {
-    fontFamily: "Poppins_Regular",
-    fontSize: 18,
+    fontFamily: 'Poppins-Regular',
+    fontSize: 16,
+    color: COLORS.textColor,
   },
 
   errorMessage: {
     color: COLORS.primary,
-    fontFamily: "Poppins_Regular",
-    fontSize: 12,
-    marginTop: 10,
+    fontFamily: 'Poppins_Regular',
+    fontSize: 11,
+    marginTop: 4,
+    marginBottom: 1,
   },
 });

@@ -1,5 +1,5 @@
 export const config = {
   app: {
-    api_url: "https://check-me-backend.herokuapp.com/api/v1",
+    api_url: 'http://67.205.166.151/api/v1',
   },
 };

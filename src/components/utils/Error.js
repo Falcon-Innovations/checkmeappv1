@@ -1,8 +1,8 @@
 import React from 'react';
-import {Text, StyleSheet, View} from 'react-native';
-import {COLORS} from '../../utility';
+import { Text, StyleSheet, View } from 'react-native';
+import { COLORS } from '../../utility';
 
-const Error = ({error}) => {
+function Error({ error }) {
   return (
     <View style={styles.errorBox}>
       <View
@@ -26,7 +26,7 @@ const Error = ({error}) => {
       <Text style={styles.error}>{error}</Text>
     </View>
   );
-};
+}
 
 export default Error;
 

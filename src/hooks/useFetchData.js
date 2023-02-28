@@ -1,13 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, {
-  useState,
-  useLayoutEffect,
-  useEffect,
-  useCallback,
-  useContext,
-} from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-const useDataFetching = url => {
+const useDataFetching = (url) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
@@ -18,14 +12,14 @@ const useDataFetching = url => {
     setLoading(true);
 
     try {
-      const data = await fetch(url, {
+      const response = await fetch(url, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
       });
-      const result = await data.json();
+      const result = await response.json();
 
       if (result) {
         setData(result);
@@ -40,7 +34,6 @@ const useDataFetching = url => {
 
   useEffect(() => {
     fetchData();
-    // TODO: delete cash
   }, [url]);
 
   return [loading, error, data, fetchData];

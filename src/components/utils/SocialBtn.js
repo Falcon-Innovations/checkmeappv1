@@ -1,8 +1,8 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import {images, SIZES} from '../../utility';
+import { IMAGES, SIZES } from '../../utility';
 
-const SocialBtn = ({onPress = () => {}}) => {
+function SocialBtn({ onPress = () => {} }) {
   return (
     <View
       style={{
@@ -13,16 +13,16 @@ const SocialBtn = ({onPress = () => {}}) => {
       }}>
       <TouchableOpacity onPress={onPress}>
         <Image
-          style={[styles.socials, {marginRight: 20}]}
-          source={images.facebookLogo}
+          style={[styles.socials, { marginRight: 20 }]}
+          source={IMAGES.facebookLogo}
         />
       </TouchableOpacity>
       <TouchableOpacity onPress={onPress}>
-        <Image style={styles.socials} source={images.googleLogo} />
+        <Image style={styles.socials} source={IMAGES.googleLogo} />
       </TouchableOpacity>
     </View>
   );
-};
+}
 
 export default SocialBtn;
 
