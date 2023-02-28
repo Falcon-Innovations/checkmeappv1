@@ -116,6 +116,8 @@ const checkOTP =
         smsCode,
       });
 
+      console.log(data, 'From check otp');
+
       const { token, data: userData } = data;
 
       await AsyncStorage.setItem('token', token);
