@@ -11,15 +11,24 @@ import useDataFetching from '../../hooks/useFetchData';
 function RiskFactors() {
   const { t } = useTranslation();
   const navigation = useNavigation();
-  const [loading, data, fetchData] = useDataFetching(
+  const [loading, error, data, fetchData] = useDataFetching(
     `${config.app.api_url}/riskFactors`,
   );
+
   useEffect(() => {
     const updateData = navigation.addListener('focus', () => {
       fetchData();
     });
     return updateData;
   }, [navigation]);
+
+  if (error) {
+    return (
+      <View>
+        <Text>An unexpected error occured</Text>
+      </View>
+    );
+  }
 
   return (
     <>
