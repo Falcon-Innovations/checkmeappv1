@@ -22,6 +22,7 @@ import { Context as AuthContext } from '../../contexts/userContext';
 function Dashboard({ navigation }) {
   const { t } = useTranslation();
   const { state } = React.useContext(AuthContext);
+  console.log(state, 'From dashboard');
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {

@@ -28,17 +28,14 @@ const languageDetector = {
   },
 };
 
-i18n
-  .use(languageDetector)
-  .use(initReactI18next)
-  .init({
-    compatibilityJSON: 'v3',
-    fallbackLng: 'en',
-    resources: {
-      en,
-      fr,
-    },
-  });
+i18n.use(languageDetector).use(initReactI18next).init({
+  compatibilityJSON: 'v3',
+  fallbackLng: 'en',
+  resources: {
+    en,
+    fr,
+  },
+});
 
 export default i18n;
 
