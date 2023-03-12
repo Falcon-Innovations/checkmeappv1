@@ -8,16 +8,13 @@ import {
   View,
   Alert,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Searchbar } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
-import NetInfo from '@react-native-community/netinfo';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import { AppStatusBar, BlogCard, CustomStatusBar } from '../../components';
-import { COLORS, config, SIZES } from '../../utility';
-import useDataFetching from '../../hooks/useFetchData';
+import { COLORS, SIZES } from '../../utility';
 import Error from '../../components/utils/Error';
-import NoInternetModal from '../../components/NoInternetModal';
+import { useArticles } from '../../api/blog';
 
 function Placeholder() {
   return (
@@ -37,37 +34,18 @@ function Placeholder() {
 }
 
 function AllBlogs() {
-  const navigation = useNavigation();
+  const { data, isLoading, error, refetch, isError } = useArticles();
   const [searchQuery, setSearchQuery] = useState('');
-  const onChangeSearch = (query) => setSearchQuery(query);
+  const articles = data?.data?.data?.docs;
+  const [filteredArticles, setFilteredArticles] = useState(articles);
 
-  // check network hooks
-  const [isOffline, setOfflineStatus] = useState(false);
-  const [, setLoading] = useState(false);
-
-  const [loading, error, data, fetchData] = useDataFetching(
-    `${config.app.api_url}/articles`,
-  );
-
-  useEffect(() => {
-    const updateData = navigation.addListener('focus', () => {
-      fetchData();
-    });
-    return updateData;
-  }, [navigation]);
-
-  useEffect(() => {
-    setLoading(true);
-    const removeNetInfoSubscription = NetInfo.addEventListener((state) => {
-      const offline = !(state.isConnected && state.isInternetReachable);
-      setLoading(false);
-      setOfflineStatus(offline);
-    });
-    fetchData();
-
-    return () => removeNetInfoSubscription();
-  }, []);
-
+  const onChangeSearch = (query) => {
+    setSearchQuery(query);
+    const newData = articles?.filter((article) =>
+      article?.title?.toLowerCase()?.includes(query?.toLowerCase()),
+    );
+    setFilteredArticles(newData);
+  };
   const onShare = async () => {
     try {
       const result = await Share.share({
@@ -88,9 +66,11 @@ function AllBlogs() {
     }
   };
 
+  const noResult = searchQuery?.length > 3 && filteredArticles?.length === 0;
+
   return (
     <>
-      {error ? (
+      {isError ? (
         <View
           style={{
             margin: 20,
@@ -132,37 +112,24 @@ function AllBlogs() {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingHorizontal: 15, paddingTop: 20 }}
           refreshControl={
-            <RefreshControl refreshing={loading} onRefresh={fetchData} />
+            <RefreshControl refreshing={isLoading} onRefresh={refetch} />
           }>
-          {loading ? (
-            <Placeholder />
-          ) : (
-            <>
-              {data?.data?.docs?.length > 0 ? (
-                <View>
-                  {data?.data?.docs?.map((item) => (
-                    <BlogCard key={item.title} item={item} onShare={onShare} />
-                  ))}
-                </View>
-              ) : (
-                <View>
-                  <Text
-                    style={{
-                      fontFamily: 'Poppins-Regular',
-                      color: COLORS.textColor,
-                    }}>
-                    No blog has been added to the system yet. Please be patient
-                  </Text>
-                </View>
-              )}
-            </>
-          )}
+          {isLoading && <Placeholder />}
+          {filteredArticles?.map((item) => (
+            <BlogCard key={item.title} item={item} onShare={onShare} />
+          ))}
+          {noResult ? (
+            <View>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Regular',
+                  color: COLORS.textColor,
+                }}>
+                No blog has been added to the system yet. Please be patient
+              </Text>
+            </View>
+          ) : null}
         </ScrollView>
-        <NoInternetModal
-          show={isOffline}
-          onRetry={() => fetchData()}
-          isRetrying={loading}
-        />
       </SafeAreaView>
     </>
   );
