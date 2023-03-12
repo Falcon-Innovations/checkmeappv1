@@ -4,9 +4,13 @@ import React from 'react';
 import moment from 'moment';
 import { useNavigation } from '@react-navigation/native';
 import { COLORS, SIZES } from '../utility';
+import { useLikeBlog } from '../api/blog';
 
-function BlogCard({ item, onShare }) {
+function BlogCard({ item, onShare, liked = false }) {
   const navigation = useNavigation();
+  const { mutate, isLoading } = useLikeBlog();
+  console.log(item, 'From blogs');
+
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate('BlogDetails', item)}
@@ -60,11 +64,24 @@ function BlogCard({ item, onShare }) {
             style={{
               flexDirection: 'row',
               alignItems: 'center',
-              marginRight: 18,
+              justifyContent: 'space-between',
             }}
           />
           <TouchableOpacity onPress={onShare}>
-            <Icon name="ios-share-outline" size={24} />
+            <Icon
+              name="ios-share-outline"
+              size={24}
+              style={{ marginRight: 10 }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            disabled={isLoading}
+            onPress={() => mutate({ articleId: item?._id })}>
+            <Icon
+              name="heart-outline"
+              color={liked ? COLORS.primary : undefined}
+              size={24}
+            />
           </TouchableOpacity>
         </View>
       </View>
