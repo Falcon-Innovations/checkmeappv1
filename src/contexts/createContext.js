@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo } from 'react';
+import React, { useReducer } from 'react';
 import useSafeDispatch from '../hooks/useSafeDispatch';
 
 /**
@@ -21,13 +21,12 @@ export default (reducer, actions, defaultValue) => {
     Object.keys(actions).forEach((key) => {
       boundActions[key] = actions[key](safeDispatch);
     });
-
-    // for (const key in actions) {
-    //   boundActions[key] = actions[key](safeDispatch);
-    // }
-    const value = useMemo(() => ({ state, ...boundActions }), []);
-
-    return <Context.Provider value={value}>{children}</Context.Provider>;
+    return (
+      // eslint-disable-next-line react/jsx-no-constructed-context-values
+      <Context.Provider value={{ state, ...boundActions }}>
+        {children}
+      </Context.Provider>
+    );
   }
 
   return { Context, Provider };

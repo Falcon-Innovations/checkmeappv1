@@ -1,16 +1,17 @@
+/* eslint-disable consistent-return */
+import { useMutation } from 'react-query';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Alert } from 'react-native';
 import useFetch from '../hooks/useFetch';
 import client from './client';
 
-const url = 'https://check-me-backend.herokuapp.com/api/v1/articles';
+const url = 'https://backend.falcon-innov.com/api/v1/articles';
 
 export const useBlogs = () => {
   const { loading, data, error } = useFetch(url);
   return { loading, data, error };
 };
 
-// eslint-disable-next-line consistent-return
 export const voteBlog = async (articleId) => {
   try {
     const token = await AsyncStorage.getItem('token');
@@ -32,4 +33,30 @@ export const voteBlog = async (articleId) => {
         : 'Something went wrong, please try again later.',
     );
   }
+};
+
+export const likeArticle = async ({ articleId }) => {
+  const token = await AsyncStorage.getItem('token');
+  return client.patch(
+    `${url}/like/${articleId}`,
+    {},
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  );
+};
+
+export const useLikeBlog = () => {
+  return useMutation({
+    onError: (err) => {
+      console.log(err);
+      Alert.alert('Something went wrong');
+    },
+    onSuccess: () => {
+      console.log('Sucess');
+    },
+    mutationFn: likeArticle,
+  });
 };

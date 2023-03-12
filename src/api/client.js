@@ -1,32 +1,32 @@
+/* eslint-disable no-param-reassign */
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const BASE_URL = 'http://67.205.166.151/';
-
-let token;
-const getToken = async () => {
-  try {
-    return await AsyncStorage.getItem('token');
-  } catch (err) {
-    Promise.reject(err);
-  }
-  return token;
-};
-
-getToken()
-  .then((result) => {
-    token = result;
-  })
-  .catch((err) => {
-    Promise.reject(err);
-  });
-
-const headers = {
-  'Content-type': 'Application/json',
-  Authorization: `Bearer ${token}`,
-};
+export const BASE_URL = 'https://backend.falcon-innov.com/';
 
 export default axios.create({
   baseURL: BASE_URL,
-  headers: { ...headers },
 });
+
+axios.interceptors.request.use(
+  async (config) => {
+    const token = await AsyncStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    config.headers.Accept = 'application/json';
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
+
+axios.interceptors.response.use(
+  (response) => {
+    return response.data;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);

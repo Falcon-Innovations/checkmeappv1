@@ -19,6 +19,23 @@ import useDataFetching from '../../hooks/useFetchData';
 import Error from '../../components/utils/Error';
 import NoInternetModal from '../../components/NoInternetModal';
 
+function Placeholder() {
+  return (
+    <SkeletonPlaceholder>
+      <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
+        <SkeletonPlaceholder.Item
+          width={SIZES.screenWidth * 0.4}
+          height={SIZES.screenWidth * 0.3}
+        />
+        <SkeletonPlaceholder.Item marginLeft={20}>
+          <SkeletonPlaceholder.Item width={120} height={20} />
+          <SkeletonPlaceholder.Item marginTop={6} width={80} height={20} />
+        </SkeletonPlaceholder.Item>
+      </SkeletonPlaceholder.Item>
+    </SkeletonPlaceholder>
+  );
+}
+
 function AllBlogs() {
   const navigation = useNavigation();
   const [searchQuery, setSearchQuery] = useState('');
@@ -118,22 +135,7 @@ function AllBlogs() {
             <RefreshControl refreshing={loading} onRefresh={fetchData} />
           }>
           {loading ? (
-            <SkeletonPlaceholder>
-              <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
-                <SkeletonPlaceholder.Item
-                  width={SIZES.screenWidth * 0.4}
-                  height={SIZES.screenWidth * 0.3}
-                />
-                <SkeletonPlaceholder.Item marginLeft={20}>
-                  <SkeletonPlaceholder.Item width={120} height={20} />
-                  <SkeletonPlaceholder.Item
-                    marginTop={6}
-                    width={80}
-                    height={20}
-                  />
-                </SkeletonPlaceholder.Item>
-              </SkeletonPlaceholder.Item>
-            </SkeletonPlaceholder>
+            <Placeholder />
           ) : (
             <>
               {data?.data?.docs?.length > 0 ? (
