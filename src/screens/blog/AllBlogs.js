@@ -36,9 +36,16 @@ function Placeholder() {
 function AllBlogs() {
   const { data, isLoading, error, refetch, isError } = useArticles();
   const [searchQuery, setSearchQuery] = useState('');
-  const onChangeSearch = (query) => setSearchQuery(query);
   const articles = data?.data?.data?.docs;
+  const [filteredArticles, setFilteredArticles] = useState(articles);
 
+  const onChangeSearch = (query) => {
+    setSearchQuery(query);
+    const newData = articles?.filter((article) =>
+      article?.title?.toLowerCase()?.includes(query?.toLowerCase()),
+    );
+    setFilteredArticles(newData);
+  };
   const onShare = async () => {
     try {
       const result = await Share.share({
@@ -58,6 +65,8 @@ function AllBlogs() {
       Alert.alert(err.message);
     }
   };
+
+  const noResult = searchQuery?.length > 3 && filteredArticles?.length === 0;
 
   return (
     <>
@@ -105,29 +114,21 @@ function AllBlogs() {
           refreshControl={
             <RefreshControl refreshing={isLoading} onRefresh={refetch} />
           }>
-          {isLoading ? (
-            <Placeholder />
-          ) : (
-            <>
-              {articles?.length > 0 ? (
-                <View>
-                  {articles?.map((item) => (
-                    <BlogCard key={item.title} item={item} onShare={onShare} />
-                  ))}
-                </View>
-              ) : (
-                <View>
-                  <Text
-                    style={{
-                      fontFamily: 'Poppins-Regular',
-                      color: COLORS.textColor,
-                    }}>
-                    No blog has been added to the system yet. Please be patient
-                  </Text>
-                </View>
-              )}
-            </>
-          )}
+          {isLoading && <Placeholder />}
+          {filteredArticles?.map((item) => (
+            <BlogCard key={item.title} item={item} onShare={onShare} />
+          ))}
+          {noResult ? (
+            <View>
+              <Text
+                style={{
+                  fontFamily: 'Poppins-Regular',
+                  color: COLORS.textColor,
+                }}>
+                No blog has been added to the system yet. Please be patient
+              </Text>
+            </View>
+          ) : null}
         </ScrollView>
       </SafeAreaView>
     </>
