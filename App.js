@@ -21,7 +21,7 @@ Sentry.init({
 
 registerTranslation('en-GB', enGB);
 
-const queryClient = new QueryClient({
+export const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 2 } },
 });
 

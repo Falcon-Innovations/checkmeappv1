@@ -8,16 +8,13 @@ import {
   View,
   Alert,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Searchbar } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
-import NetInfo from '@react-native-community/netinfo';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import { AppStatusBar, BlogCard, CustomStatusBar } from '../../components';
-import { COLORS, config, SIZES } from '../../utility';
-import useDataFetching from '../../hooks/useFetchData';
+import { COLORS, SIZES } from '../../utility';
 import Error from '../../components/utils/Error';
-import NoInternetModal from '../../components/NoInternetModal';
+import { useArticles } from '../../api/blog';
 
 function Placeholder() {
   return (
@@ -37,36 +34,10 @@ function Placeholder() {
 }
 
 function AllBlogs() {
-  const navigation = useNavigation();
+  const { data, isLoading, error, refetch, isError } = useArticles();
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = (query) => setSearchQuery(query);
-
-  // check network hooks
-  const [isOffline, setOfflineStatus] = useState(false);
-  const [, setLoading] = useState(false);
-
-  const [loading, error, data, fetchData] = useDataFetching(
-    `${config.app.api_url}/articles`,
-  );
-
-  useEffect(() => {
-    const updateData = navigation.addListener('focus', () => {
-      fetchData();
-    });
-    return updateData;
-  }, [navigation]);
-
-  useEffect(() => {
-    setLoading(true);
-    const removeNetInfoSubscription = NetInfo.addEventListener((state) => {
-      const offline = !(state.isConnected && state.isInternetReachable);
-      setLoading(false);
-      setOfflineStatus(offline);
-    });
-    fetchData();
-
-    return () => removeNetInfoSubscription();
-  }, []);
+  const articles = data?.data?.data?.docs;
 
   const onShare = async () => {
     try {
@@ -90,7 +61,7 @@ function AllBlogs() {
 
   return (
     <>
-      {error ? (
+      {isError ? (
         <View
           style={{
             margin: 20,
@@ -132,15 +103,15 @@ function AllBlogs() {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingHorizontal: 15, paddingTop: 20 }}
           refreshControl={
-            <RefreshControl refreshing={loading} onRefresh={fetchData} />
+            <RefreshControl refreshing={isLoading} onRefresh={refetch} />
           }>
-          {loading ? (
+          {isLoading ? (
             <Placeholder />
           ) : (
             <>
-              {data?.data?.docs?.length > 0 ? (
+              {articles?.length > 0 ? (
                 <View>
-                  {data?.data?.docs?.map((item) => (
+                  {articles?.map((item) => (
                     <BlogCard key={item.title} item={item} onShare={onShare} />
                   ))}
                 </View>
@@ -158,11 +129,6 @@ function AllBlogs() {
             </>
           )}
         </ScrollView>
-        <NoInternetModal
-          show={isOffline}
-          onRetry={() => fetchData()}
-          isRetrying={loading}
-        />
       </SafeAreaView>
     </>
   );
