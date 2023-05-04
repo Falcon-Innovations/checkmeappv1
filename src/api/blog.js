@@ -5,7 +5,7 @@ import { Alert } from 'react-native';
 import client from './client';
 import { queryClient } from '../../App';
 
-const url = 'https://backend.falcon-innov.com/api/v1/articles';
+const url = 'https://check-me-backend-cameroun.herokuapp.com/api/v1/articles';
 
 export const getArticles = () => {
   return client.get('api/v1/articles');

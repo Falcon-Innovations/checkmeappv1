@@ -1,5 +1,5 @@
 export const config = {
   app: {
-    api_url: 'https://backend.falcon-innov.com/api/v1',
+    api_url: 'https://check-me-backend-cameroun.herokuapp.com/api/v1',
   },
 };
