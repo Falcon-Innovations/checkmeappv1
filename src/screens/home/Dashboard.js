@@ -14,10 +14,9 @@ import {
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
-import messaging from '@react-native-firebase/messaging';
-import { COLORS, IMAGES, SIZES } from '../../utility';
 import { AppStatusBar, DashboardCard } from '../../components';
 import { Context as AuthContext } from '../../contexts/userContext';
+import { IMAGES } from '../../utility';
 
 function Dashboard({ navigation }) {
   const { t } = useTranslation();
@@ -30,32 +29,6 @@ function Dashboard({ navigation }) {
       BackHandler.exitApp();
     });
   }, [navigation]);
-
-  useEffect(() => {
-    const subscribe = messaging().setBackgroundMessageHandler(
-      async (remoteMessage) => {
-        // Get the message body
-        const messageBody = remoteMessage.notification.body;
-
-        // Get the message title
-        const messageTitle = remoteMessage.notification.title;
-
-        // Get message image
-        const avatar = remoteMessage.notification.android.imageUrl;
-
-        // Append the message to the current messages state
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { messageBody, messageTitle, avatar },
-        ]);
-
-        // Show an alert to the user
-        Alert.alert(messageTitle, messageBody);
-      },
-    );
-
-    return subscribe;
-  }, [messages]);
 
   const { headerImage } = IMAGES;
 
