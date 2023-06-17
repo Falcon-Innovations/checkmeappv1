@@ -16,7 +16,7 @@ import { Button } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
 import { AppStatusBar, DashboardCard } from '../../components';
 import { Context as AuthContext } from '../../contexts/userContext';
-import { IMAGES } from '../../utility';
+import { IMAGES, SIZES, COLORS } from '../../utility';
 
 function Dashboard({ navigation }) {
   const { t } = useTranslation();
