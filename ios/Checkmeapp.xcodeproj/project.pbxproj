@@ -8,39 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* CheckmeappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CheckmeappTests.m */; };
-		040029D18CF74C3CA15AB197 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A25E6350CF404AD79EC77F75 /* Lato-Regular.ttf */; };
-		042AE94CE2824CFC9106407C /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77EE3C1CD71F4FF6B6FCA9F9 /* Poppins-Thin.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1BD59EB7CD907FF9239A8C03 /* libPods-Checkmeapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB00AA8A6937D39E8A692D3 /* libPods-Checkmeapp.a */; };
-		1CC82010A5914BABA28A6AD5 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D066BCE078840209E552820 /* Poppins-ExtraLightItalic.ttf */; };
 		1DF85B45D3D9464DB3D3261B /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5ED6898DD8AB4DE081DDB687 /* Poppins-SemiBold.ttf */; };
 		21473B355E82436B8F7FD1B2 /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E35114E9C83C4516A582D6F7 /* Poppins-SemiBoldItalic.ttf */; };
-		2923D5CB16704FC5980FFACA /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAA66EBA7C984A599564B009 /* Poppins-LightItalic.ttf */; };
+		23B30E5D565DA5B0483433D5 /* libPods-Checkmeapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1565AABEA548117B4680D71E /* libPods-Checkmeapp.a */; };
+		27E9EE3AC40C21C40A9C1B9D /* libPods-Checkmeapp-CheckmeappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E3C885A68661CA88739C1 /* libPods-Checkmeapp-CheckmeappTests.a */; };
 		2D89800C931348E2A510EF1C /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 570157AC63ED46009C34726F /* Poppins-ExtraLight.ttf */; };
+		31A3A5A72A3E80490090712C /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A5972A3E80490090712C /* Fontisto.ttf */; };
+		31A3A5A82A3E80490090712C /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A5982A3E80490090712C /* Octicons.ttf */; };
+		31A3A5A92A3E80490090712C /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A5992A3E80490090712C /* Feather.ttf */; };
+		31A3A5AA2A3E80490090712C /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A59A2A3E80490090712C /* Entypo.ttf */; };
+		31A3A5AB2A3E80490090712C /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A59B2A3E80490090712C /* FontAwesome5_Brands.ttf */; };
+		31A3A5AC2A3E80490090712C /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A59C2A3E80490090712C /* MaterialCommunityIcons.ttf */; };
+		31A3A5AD2A3E80490090712C /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A59D2A3E80490090712C /* AntDesign.ttf */; };
+		31A3A5AE2A3E80490090712C /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A59E2A3E80490090712C /* Foundation.ttf */; };
+		31A3A5AF2A3E80490090712C /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A59F2A3E80490090712C /* Ionicons.ttf */; };
+		31A3A5B02A3E80490090712C /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A5A02A3E80490090712C /* FontAwesome5_Solid.ttf */; };
+		31A3A5B12A3E80490090712C /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A5A12A3E80490090712C /* FontAwesome5_Regular.ttf */; };
+		31A3A5B22A3E80490090712C /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A5A22A3E80490090712C /* FontAwesome.ttf */; };
+		31A3A5B32A3E80490090712C /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A5A32A3E80490090712C /* Zocial.ttf */; };
+		31A3A5B42A3E80490090712C /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A5A42A3E80490090712C /* EvilIcons.ttf */; };
+		31A3A5B52A3E80490090712C /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A5A52A3E80490090712C /* SimpleLineIcons.ttf */; };
+		31A3A5B62A3E80490090712C /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A5A62A3E80490090712C /* MaterialIcons.ttf */; };
 		3900B995D4794285BA3A6992 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B79C27945B4F46EE8081ECCE /* Poppins-Bold.ttf */; };
-		40F5AA68308C49F291FE9B33 /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4657042D735B4AE4BFC8236E /* Lato-BoldItalic.ttf */; };
 		4B8A172BCC3E4A80B32B3A1F /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72104899518043939A1B360B /* Poppins-BoldItalic.ttf */; };
-		4C7232FAD6CF46339E54961A /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = F72BA35DD3AE423D8F5C520A /* OFL.txt */; };
 		5CB351F5EE574037BC8CC3E0 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67E450D34004F30881C6F00 /* Poppins-BlackItalic.ttf */; };
-		6F7FD2C988384780A87CEDE0 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D3D565589D2485481510D2B /* Lato-BlackItalic.ttf */; };
-		75113E84B12C4E1E9A3C9DD2 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5081F1849F24AC89F35E2D2 /* Lato-Black.ttf */; };
-		7FCFCCCF53A2484BAF55A65F /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61998176169345E2A3F12A8F /* Lato-ThinItalic.ttf */; };
-		8071A506990C4ED7867122B0 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1769C10938B942D8A7F917F0 /* Poppins-Light.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		85C3C4B86F1F424AA9CC59B0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25EB8EB5AAA1461CAFFC3341 /* Poppins-Regular.ttf */; };
-		878FB657B33B44CFAA5D42F2 /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4617B27F223F4E42A76D49EA /* Lato-Italic.ttf */; };
-		8B6138B597904FC7909CD0E4 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFC357A26378465CA8C4ADAE /* Poppins-ThinItalic.ttf */; };
 		911170CEA3D945D792CA3264 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36C668BA6B97449FA58402D2 /* Poppins-Medium.ttf */; };
 		AA37C3AF558443B9AB3DA87F /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 117889EC483A48E78914F05A /* Poppins-ExtraBoldItalic.ttf */; };
-		AB4F421D52043840A3EFFE5A /* libPods-Checkmeapp-CheckmeappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D308CAF3B1A859DE4680053 /* libPods-Checkmeapp-CheckmeappTests.a */; };
-		C557F0A6EBED47E2809382B0 /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF00AE62A6954994A0B2AF17 /* Lato-LightItalic.ttf */; };
-		CA3D98C570364D1AA4E2281D /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9AA534BD526B443BAA9DC5CB /* Lato-Light.ttf */; };
 		CE7037AEAE2946FBA4A87D77 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EDEECF683704AFB972C3711 /* Poppins-MediumItalic.ttf */; };
 		E310E3502BD749DFAB95A71C /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6045D67A043B4257BC331861 /* Poppins-Black.ttf */; };
-		E4CDD2052F8F49EF95D1D352 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6A2E3B1F5584B73849240B0 /* Lato-Thin.ttf */; };
-		E9F15608A90F4A4986EEA491 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8373900C69564C29AD517EC5 /* Lato-Bold.ttf */; };
 		EDEDBAC4109A4611B1213CCF /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4453D150EBE4905BEF49443 /* Poppins-Italic.ttf */; };
 		EF8730769CEC4AEA84866063 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37C432A66A5546029A072F31 /* Poppins-ExtraBold.ttf */; };
 /* End PBXBuildFile section */
@@ -67,41 +67,41 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Checkmeapp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Checkmeapp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Checkmeapp/main.m; sourceTree = "<group>"; };
-		1769C10938B942D8A7F917F0 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
+		1565AABEA548117B4680D71E /* libPods-Checkmeapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Checkmeapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25EB8EB5AAA1461CAFFC3341 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		2D066BCE078840209E552820 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLightItalic.ttf"; path = "../assets/fonts/Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		2D308CAF3B1A859DE4680053 /* libPods-Checkmeapp-CheckmeappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Checkmeapp-CheckmeappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		31A3A5972A3E80490090712C /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
+		31A3A5982A3E80490090712C /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		31A3A5992A3E80490090712C /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
+		31A3A59A2A3E80490090712C /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
+		31A3A59B2A3E80490090712C /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		31A3A59C2A3E80490090712C /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		31A3A59D2A3E80490090712C /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AntDesign.ttf; sourceTree = "<group>"; };
+		31A3A59E2A3E80490090712C /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		31A3A59F2A3E80490090712C /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		31A3A5A02A3E80490090712C /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		31A3A5A12A3E80490090712C /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		31A3A5A22A3E80490090712C /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		31A3A5A32A3E80490090712C /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		31A3A5A42A3E80490090712C /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
+		31A3A5A52A3E80490090712C /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		31A3A5A62A3E80490090712C /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		36C668BA6B97449FA58402D2 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		37C432A66A5546029A072F31 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
-		3D3D565589D2485481510D2B /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-BlackItalic.ttf"; path = "../assets/fonts/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
-		4617B27F223F4E42A76D49EA /* Lato-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Italic.ttf"; path = "../assets/fonts/Lato-Italic.ttf"; sourceTree = "<group>"; };
-		4657042D735B4AE4BFC8236E /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-BoldItalic.ttf"; path = "../assets/fonts/Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		50FEA069690481A84A500A7D /* Pods-Checkmeapp-CheckmeappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp-CheckmeappTests.debug.xcconfig"; path = "Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		570157AC63ED46009C34726F /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.ttf"; path = "../assets/fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
+		587E3C885A68661CA88739C1 /* libPods-Checkmeapp-CheckmeappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Checkmeapp-CheckmeappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ED6898DD8AB4DE081DDB687 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		6045D67A043B4257BC331861 /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
-		61998176169345E2A3F12A8F /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-ThinItalic.ttf"; path = "../assets/fonts/Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		72104899518043939A1B360B /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../assets/fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
-		77EE3C1CD71F4FF6B6FCA9F9 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Checkmeapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8373900C69564C29AD517EC5 /* Lato-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Bold.ttf"; path = "../assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
-		8EB00AA8A6937D39E8A692D3 /* libPods-Checkmeapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Checkmeapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AA534BD526B443BAA9DC5CB /* Lato-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Light.ttf"; path = "../assets/fonts/Lato-Light.ttf"; sourceTree = "<group>"; };
-		A07B66952F822088CD07FBFC /* Pods-Checkmeapp-CheckmeappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp-CheckmeappTests.debug.xcconfig"; path = "Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A25E6350CF404AD79EC77F75 /* Lato-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; };
+		AFEE7F7ED6923740F20A9584 /* Pods-Checkmeapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp.debug.xcconfig"; path = "Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp.debug.xcconfig"; sourceTree = "<group>"; };
 		B4453D150EBE4905BEF49443 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
-		B5081F1849F24AC89F35E2D2 /* Lato-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Black.ttf"; path = "../assets/fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
 		B79C27945B4F46EE8081ECCE /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
-		BF990F89BBADCA51A99ED090 /* Pods-Checkmeapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp.debug.xcconfig"; path = "Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp.debug.xcconfig"; sourceTree = "<group>"; };
+		BFF8BF250C990FD4382C9C42 /* Pods-Checkmeapp-CheckmeappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp-CheckmeappTests.release.xcconfig"; path = "Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests.release.xcconfig"; sourceTree = "<group>"; };
 		C67E450D34004F30881C6F00 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BlackItalic.ttf"; path = "../assets/fonts/Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
-		C6A2E3B1F5584B73849240B0 /* Lato-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-Thin.ttf"; path = "../assets/fonts/Lato-Thin.ttf"; sourceTree = "<group>"; };
-		CC4558EBA5D10A75810283A5 /* Pods-Checkmeapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp.release.xcconfig"; path = "Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp.release.xcconfig"; sourceTree = "<group>"; };
-		DAA66EBA7C984A599564B009 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-LightItalic.ttf"; path = "../assets/fonts/Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
-		DF00AE62A6954994A0B2AF17 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lato-LightItalic.ttf"; path = "../assets/fonts/Lato-LightItalic.ttf"; sourceTree = "<group>"; };
-		DFC357A26378465CA8C4ADAE /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ThinItalic.ttf"; path = "../assets/fonts/Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
+		C74EC84994A4D388F2B6DB21 /* Pods-Checkmeapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp.release.xcconfig"; path = "Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp.release.xcconfig"; sourceTree = "<group>"; };
 		E35114E9C83C4516A582D6F7 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBoldItalic.ttf"; path = "../assets/fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F59D6EFF9B1F908A8460209F /* Pods-Checkmeapp-CheckmeappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp-CheckmeappTests.release.xcconfig"; path = "Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests.release.xcconfig"; sourceTree = "<group>"; };
-		F72BA35DD3AE423D8F5C520A /* OFL.txt */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = OFL.txt; path = ../assets/fonts/OFL.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB4F421D52043840A3EFFE5A /* libPods-Checkmeapp-CheckmeappTests.a in Frameworks */,
+				27E9EE3AC40C21C40A9C1B9D /* libPods-Checkmeapp-CheckmeappTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BD59EB7CD907FF9239A8C03 /* libPods-Checkmeapp.a in Frameworks */,
+				23B30E5D565DA5B0483433D5 /* libPods-Checkmeapp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +144,7 @@
 		13B07FAE1A68108700A75B9A /* Checkmeapp */ = {
 			isa = PBXGroup;
 			children = (
+				31A3A5962A3E80490090712C /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -158,10 +159,34 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				8EB00AA8A6937D39E8A692D3 /* libPods-Checkmeapp.a */,
-				2D308CAF3B1A859DE4680053 /* libPods-Checkmeapp-CheckmeappTests.a */,
+				1565AABEA548117B4680D71E /* libPods-Checkmeapp.a */,
+				587E3C885A68661CA88739C1 /* libPods-Checkmeapp-CheckmeappTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31A3A5962A3E80490090712C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				31A3A5972A3E80490090712C /* Fontisto.ttf */,
+				31A3A5982A3E80490090712C /* Octicons.ttf */,
+				31A3A5992A3E80490090712C /* Feather.ttf */,
+				31A3A59A2A3E80490090712C /* Entypo.ttf */,
+				31A3A59B2A3E80490090712C /* FontAwesome5_Brands.ttf */,
+				31A3A59C2A3E80490090712C /* MaterialCommunityIcons.ttf */,
+				31A3A59D2A3E80490090712C /* AntDesign.ttf */,
+				31A3A59E2A3E80490090712C /* Foundation.ttf */,
+				31A3A59F2A3E80490090712C /* Ionicons.ttf */,
+				31A3A5A02A3E80490090712C /* FontAwesome5_Solid.ttf */,
+				31A3A5A12A3E80490090712C /* FontAwesome5_Regular.ttf */,
+				31A3A5A22A3E80490090712C /* FontAwesome.ttf */,
+				31A3A5A32A3E80490090712C /* Zocial.ttf */,
+				31A3A5A42A3E80490090712C /* EvilIcons.ttf */,
+				31A3A5A52A3E80490090712C /* SimpleLineIcons.ttf */,
+				31A3A5A62A3E80490090712C /* MaterialIcons.ttf */,
+			);
+			name = Fonts;
+			path = "../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -199,10 +224,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BF990F89BBADCA51A99ED090 /* Pods-Checkmeapp.debug.xcconfig */,
-				CC4558EBA5D10A75810283A5 /* Pods-Checkmeapp.release.xcconfig */,
-				A07B66952F822088CD07FBFC /* Pods-Checkmeapp-CheckmeappTests.debug.xcconfig */,
-				F59D6EFF9B1F908A8460209F /* Pods-Checkmeapp-CheckmeappTests.release.xcconfig */,
+				AFEE7F7ED6923740F20A9584 /* Pods-Checkmeapp.debug.xcconfig */,
+				C74EC84994A4D388F2B6DB21 /* Pods-Checkmeapp.release.xcconfig */,
+				50FEA069690481A84A500A7D /* Pods-Checkmeapp-CheckmeappTests.debug.xcconfig */,
+				BFF8BF250C990FD4382C9C42 /* Pods-Checkmeapp-CheckmeappTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -210,16 +235,6 @@
 		D081D1BFCEC74F7585BC2B13 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B5081F1849F24AC89F35E2D2 /* Lato-Black.ttf */,
-				3D3D565589D2485481510D2B /* Lato-BlackItalic.ttf */,
-				8373900C69564C29AD517EC5 /* Lato-Bold.ttf */,
-				4657042D735B4AE4BFC8236E /* Lato-BoldItalic.ttf */,
-				4617B27F223F4E42A76D49EA /* Lato-Italic.ttf */,
-				9AA534BD526B443BAA9DC5CB /* Lato-Light.ttf */,
-				DF00AE62A6954994A0B2AF17 /* Lato-LightItalic.ttf */,
-				A25E6350CF404AD79EC77F75 /* Lato-Regular.ttf */,
-				C6A2E3B1F5584B73849240B0 /* Lato-Thin.ttf */,
-				61998176169345E2A3F12A8F /* Lato-ThinItalic.ttf */,
 				6045D67A043B4257BC331861 /* Poppins-Black.ttf */,
 				C67E450D34004F30881C6F00 /* Poppins-BlackItalic.ttf */,
 				B79C27945B4F46EE8081ECCE /* Poppins-Bold.ttf */,
@@ -227,18 +242,12 @@
 				37C432A66A5546029A072F31 /* Poppins-ExtraBold.ttf */,
 				117889EC483A48E78914F05A /* Poppins-ExtraBoldItalic.ttf */,
 				570157AC63ED46009C34726F /* Poppins-ExtraLight.ttf */,
-				2D066BCE078840209E552820 /* Poppins-ExtraLightItalic.ttf */,
 				B4453D150EBE4905BEF49443 /* Poppins-Italic.ttf */,
-				1769C10938B942D8A7F917F0 /* Poppins-Light.ttf */,
-				DAA66EBA7C984A599564B009 /* Poppins-LightItalic.ttf */,
 				36C668BA6B97449FA58402D2 /* Poppins-Medium.ttf */,
 				0EDEECF683704AFB972C3711 /* Poppins-MediumItalic.ttf */,
 				25EB8EB5AAA1461CAFFC3341 /* Poppins-Regular.ttf */,
 				5ED6898DD8AB4DE081DDB687 /* Poppins-SemiBold.ttf */,
 				E35114E9C83C4516A582D6F7 /* Poppins-SemiBoldItalic.ttf */,
-				77EE3C1CD71F4FF6B6FCA9F9 /* Poppins-Thin.ttf */,
-				DFC357A26378465CA8C4ADAE /* Poppins-ThinItalic.ttf */,
-				F72BA35DD3AE423D8F5C520A /* OFL.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -250,12 +259,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CheckmeappTests" */;
 			buildPhases = (
-				C7D056CC8849C4712C772F36 /* [CP] Check Pods Manifest.lock */,
+				CC4DDB94311E3B8001B626AC /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				588FA9EC71ADE6DD744AA857 /* [CP] Embed Pods Frameworks */,
-				2A3B5FA803ABA392D1B39167 /* [CP] Copy Pods Resources */,
+				0F464B6FD4F07F95B0BBFCAD /* [CP] Embed Pods Frameworks */,
+				951DC8E332229F7135F126DF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,14 +280,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Checkmeapp" */;
 			buildPhases = (
-				D40746A18FBA56A4E01391BC /* [CP] Check Pods Manifest.lock */,
+				2A0F285366686408A618B4D5 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				DFB584E34450293E3CDD5EB9 /* [CP] Embed Pods Frameworks */,
-				60E6C1D571801FE4CE35F0DF /* [CP] Copy Pods Resources */,
+				0B084DAF5AAB416AF2176EC5 /* [CP] Embed Pods Frameworks */,
+				083B61DB89240793A943401F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -337,37 +346,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A3A5B42A3E80490090712C /* EvilIcons.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				31A3A5AC2A3E80490090712C /* MaterialCommunityIcons.ttf in Resources */,
+				31A3A5B12A3E80490090712C /* FontAwesome5_Regular.ttf in Resources */,
+				31A3A5AF2A3E80490090712C /* Ionicons.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				75113E84B12C4E1E9A3C9DD2 /* Lato-Black.ttf in Resources */,
-				6F7FD2C988384780A87CEDE0 /* Lato-BlackItalic.ttf in Resources */,
-				E9F15608A90F4A4986EEA491 /* Lato-Bold.ttf in Resources */,
-				40F5AA68308C49F291FE9B33 /* Lato-BoldItalic.ttf in Resources */,
-				878FB657B33B44CFAA5D42F2 /* Lato-Italic.ttf in Resources */,
-				CA3D98C570364D1AA4E2281D /* Lato-Light.ttf in Resources */,
-				C557F0A6EBED47E2809382B0 /* Lato-LightItalic.ttf in Resources */,
-				040029D18CF74C3CA15AB197 /* Lato-Regular.ttf in Resources */,
-				E4CDD2052F8F49EF95D1D352 /* Lato-Thin.ttf in Resources */,
-				7FCFCCCF53A2484BAF55A65F /* Lato-ThinItalic.ttf in Resources */,
 				E310E3502BD749DFAB95A71C /* Poppins-Black.ttf in Resources */,
 				5CB351F5EE574037BC8CC3E0 /* Poppins-BlackItalic.ttf in Resources */,
 				3900B995D4794285BA3A6992 /* Poppins-Bold.ttf in Resources */,
+				31A3A5AE2A3E80490090712C /* Foundation.ttf in Resources */,
+				31A3A5A82A3E80490090712C /* Octicons.ttf in Resources */,
+				31A3A5AA2A3E80490090712C /* Entypo.ttf in Resources */,
+				31A3A5B02A3E80490090712C /* FontAwesome5_Solid.ttf in Resources */,
 				4B8A172BCC3E4A80B32B3A1F /* Poppins-BoldItalic.ttf in Resources */,
 				EF8730769CEC4AEA84866063 /* Poppins-ExtraBold.ttf in Resources */,
+				31A3A5AB2A3E80490090712C /* FontAwesome5_Brands.ttf in Resources */,
+				31A3A5A92A3E80490090712C /* Feather.ttf in Resources */,
+				31A3A5B52A3E80490090712C /* SimpleLineIcons.ttf in Resources */,
 				AA37C3AF558443B9AB3DA87F /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				2D89800C931348E2A510EF1C /* Poppins-ExtraLight.ttf in Resources */,
-				1CC82010A5914BABA28A6AD5 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				EDEDBAC4109A4611B1213CCF /* Poppins-Italic.ttf in Resources */,
-				8071A506990C4ED7867122B0 /* Poppins-Light.ttf in Resources */,
-				2923D5CB16704FC5980FFACA /* Poppins-LightItalic.ttf in Resources */,
 				911170CEA3D945D792CA3264 /* Poppins-Medium.ttf in Resources */,
+				31A3A5B32A3E80490090712C /* Zocial.ttf in Resources */,
 				CE7037AEAE2946FBA4A87D77 /* Poppins-MediumItalic.ttf in Resources */,
 				85C3C4B86F1F424AA9CC59B0 /* Poppins-Regular.ttf in Resources */,
+				31A3A5B62A3E80490090712C /* MaterialIcons.ttf in Resources */,
 				1DF85B45D3D9464DB3D3261B /* Poppins-SemiBold.ttf in Resources */,
+				31A3A5B22A3E80490090712C /* FontAwesome.ttf in Resources */,
+				31A3A5A72A3E80490090712C /* Fontisto.ttf in Resources */,
+				31A3A5AD2A3E80490090712C /* AntDesign.ttf in Resources */,
 				21473B355E82436B8F7FD1B2 /* Poppins-SemiBoldItalic.ttf in Resources */,
-				042AE94CE2824CFC9106407C /* Poppins-Thin.ttf in Resources */,
-				8B6138B597904FC7909CD0E4 /* Poppins-ThinItalic.ttf in Resources */,
-				4C7232FAD6CF46339E54961A /* OFL.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,41 +399,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export SENTRY_PROPERTIES=sentry.properties\nexport EXTRA_PACKAGER_ARGS=\"--sourcemap-output $DERIVED_FILE_DIR/main.jsbundle.map\"\nset -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT \\\"../node_modules/@sentry/cli/bin/sentry-cli react-native xcode $REACT_NATIVE_XCODE\\\"\"\n\n/bin/sh ../node_modules/@sentry/react-native/scripts/collect-modules.sh\n";
 		};
-		2A3B5FA803ABA392D1B39167 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		588FA9EC71ADE6DD744AA857 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		60E6C1D571801FE4CE35F0DF /* [CP] Copy Pods Resources */ = {
+		083B61DB89240793A943401F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -441,29 +416,41 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C7D056CC8849C4712C772F36 /* [CP] Check Pods Manifest.lock */ = {
+		0B084DAF5AAB416AF2176EC5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Checkmeapp-CheckmeappTests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D40746A18FBA56A4E01391BC /* [CP] Check Pods Manifest.lock */ = {
+		0F464B6FD4F07F95B0BBFCAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A0F285366686408A618B4D5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -485,21 +472,43 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DFB584E34450293E3CDD5EB9 /* [CP] Embed Pods Frameworks */ = {
+		951DC8E332229F7135F126DF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC4DDB94311E3B8001B626AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Checkmeapp-CheckmeappTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -520,24 +529,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		D699BDB0BCBD4B799CD942D0 /* Upload Debug Symbols to Sentry */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			name = "Upload Debug Symbols to Sentry";
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			shellPath = /bin/sh;
-			shellScript = "
-export SENTRY_PROPERTIES=sentry.properties
-[[ $SENTRY_INCLUDE_NATIVE_SOURCES == \"true\" ]] && INCLUDE_SOURCES_FLAG=\"--include-sources\" || INCLUDE_SOURCES_FLAG=\"\"
-../node_modules/@sentry/cli/bin/sentry-cli debug-files upload \"$INCLUDE_SOURCES_FLAG\"
-";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -572,7 +563,7 @@ export SENTRY_PROPERTIES=sentry.properties
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A07B66952F822088CD07FBFC /* Pods-Checkmeapp-CheckmeappTests.debug.xcconfig */;
+			baseConfigurationReference = 50FEA069690481A84A500A7D /* Pods-Checkmeapp-CheckmeappTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -599,7 +590,7 @@ export SENTRY_PROPERTIES=sentry.properties
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F59D6EFF9B1F908A8460209F /* Pods-Checkmeapp-CheckmeappTests.release.xcconfig */;
+			baseConfigurationReference = BFF8BF250C990FD4382C9C42 /* Pods-Checkmeapp-CheckmeappTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -623,7 +614,7 @@ export SENTRY_PROPERTIES=sentry.properties
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF990F89BBADCA51A99ED090 /* Pods-Checkmeapp.debug.xcconfig */;
+			baseConfigurationReference = AFEE7F7ED6923740F20A9584 /* Pods-Checkmeapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -658,7 +649,7 @@ export SENTRY_PROPERTIES=sentry.properties
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC4558EBA5D10A75810283A5 /* Pods-Checkmeapp.release.xcconfig */;
+			baseConfigurationReference = C74EC84994A4D388F2B6DB21 /* Pods-Checkmeapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

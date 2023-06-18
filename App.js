@@ -1,4 +1,4 @@
-import { Platform } from 'react-native';
+import { Platform, View, Text } from 'react-native';
 import ErrorBoundary from 'react-native-error-boundary';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { enGB, registerTranslation } from 'react-native-paper-dates';

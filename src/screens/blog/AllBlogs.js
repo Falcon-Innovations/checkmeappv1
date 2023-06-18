@@ -8,7 +8,7 @@ import {
   View,
   Alert,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Searchbar } from 'react-native-paper';
 import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import { AppStatusBar, BlogCard, CustomStatusBar } from '../../components';
@@ -67,6 +67,12 @@ function AllBlogs() {
   };
 
   const noResult = searchQuery?.length > 3 && filteredArticles?.length === 0;
+
+  useEffect(() => {
+    if (articles) {
+      setFilteredArticles(articles);
+    }
+  }, [articles]);
 
   return (
     <>
