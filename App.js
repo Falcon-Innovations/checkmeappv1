@@ -14,7 +14,7 @@ import { ErrorFallback } from './src/components/error-fallback/error-fallback';
 import Navigation from './src/navigation';
 import { useOnlineManager } from './src/hooks/useOnlineManager';
 import { useAppState } from './src/hooks/useAppState';
-import useGetFirebaseToken from './src/utility/getFirebaseToken';
+import useInitFCM from './src/hooks/useInitFCM';
 
 Sentry.init({
   dsn: 'https://efc5604af7f94d5783b9f7068d8462f7@o4504313404915712.ingest.sentry.io/4504313407930369',
@@ -43,7 +43,7 @@ export default function App() {
 
   useOnlineManager();
   useAppState(onAppStateChange);
-  useGetFirebaseToken();
+  useInitFCM();
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>

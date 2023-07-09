@@ -4,7 +4,7 @@ import messaging from '@react-native-firebase/messaging';
 
 // const onMessageRecieved = (message) => notifee.displayNotification(JSON.parse(message.data.notifee));
 
-const useGetFirebaseToken = () => {
+const useInitFCM = () => {
   const getFCMToken = async () => {
     await messaging().registerDeviceForRemoteMessages();
     try {
@@ -14,6 +14,7 @@ const useGetFirebaseToken = () => {
       console.log(e);
     }
   };
+
   useEffect(() => {
     getFCMToken();
     const unsubscribeToForgroundMsgs = messaging().onMessage(
@@ -46,4 +47,4 @@ const useGetFirebaseToken = () => {
   return null;
 };
 
-export default useGetFirebaseToken;
+export default useInitFCM;
