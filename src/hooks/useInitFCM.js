@@ -1,8 +1,22 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import messaging from '@react-native-firebase/messaging';
-// import notifee from '@notifee/react-native';
+import notifee from '@notifee/react-native';
 
-// const onMessageRecieved = (message) => notifee.displayNotification(JSON.parse(message.data.notifee));
+const onMessageRecieved = async (message) => {
+  console.log('onMessageRecieved', JSON.stringify(message));
+  console.log(message?.notification?.title);
+  try {
+    await notifee.displayNotification({
+      title: message?.notification?.title,
+      body: message?.notification?.body,
+      android: {
+        channelId: 'test',
+      },
+    });
+  } catch (error) {
+    console.log(error, 'Error From FCM');
+  }
+};
 
 const useInitFCM = () => {
   const getFCMToken = async () => {
@@ -17,29 +31,11 @@ const useInitFCM = () => {
 
   useEffect(() => {
     getFCMToken();
-    const unsubscribeToForgroundMsgs = messaging().onMessage(
-      async (remoteMessage) => {
-        console.log(
-          'A new FCM message arrived!',
-          JSON.stringify(remoteMessage),
-        );
-      },
-    );
+    const unsubscribeToForgroundMsgs = messaging().onMessage(onMessageRecieved);
 
-    messaging().onNotificationOpenedApp((remoteMessage) => {
-      console.log('onNotificationOpenedApp: ', JSON.stringify(remoteMessage));
-    });
+    messaging().onNotificationOpenedApp(onMessageRecieved);
 
-    messaging()
-      .getInitialNotification()
-      .then((remoteMessage) => {
-        if (remoteMessage) {
-          console.log(
-            'Notification caused app to open from quit state:',
-            JSON.stringify(remoteMessage),
-          );
-        }
-      });
+    messaging().getInitialNotification().then(onMessageRecieved);
 
     return unsubscribeToForgroundMsgs;
   }, []);

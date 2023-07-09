@@ -5,7 +5,7 @@ import { enGB, registerTranslation } from 'react-native-paper-dates';
 import * as Sentry from '@sentry/react-native';
 import SplashScreen from 'react-native-splash-screen';
 import { QueryClient, QueryClientProvider, focusManager } from 'react-query';
-
+import notifee, { AuthorizationStatus } from '@notifee/react-native';
 import 'react-native-gesture-handler';
 import './assets/i18n/i18n';
 import { useEffect } from 'react';
@@ -33,11 +33,21 @@ function onAppStateChange(status) {
   }
 }
 
+async function requestUserPermission() {
+  try {
+    const settings = await notifee.requestPermission();
+    if (settings.authorizationStatus >= AuthorizationStatus.AUTHORIZED) {
+      console.log('Permission settings:', settings);
+    } else {
+      console.log('User declined permissions', settings);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
 export default function App() {
   useEffect(() => {
-    // PermissionsAndroid.request(
-    //   PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS,
-    // );
+    requestUserPermission();
     SplashScreen.hide();
   }, []);
 

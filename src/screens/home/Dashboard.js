@@ -9,11 +9,11 @@ import {
   Platform,
   TouchableOpacity,
   BackHandler,
-  Alert,
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Button } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
+import notifee from '@notifee/react-native';
 import { AppStatusBar, DashboardCard } from '../../components';
 import { Context as AuthContext } from '../../contexts/userContext';
 import { IMAGES, SIZES, COLORS } from '../../utility';
@@ -21,8 +21,6 @@ import { IMAGES, SIZES, COLORS } from '../../utility';
 function Dashboard({ navigation }) {
   const { t } = useTranslation();
   const { state } = React.useContext(AuthContext);
-  console.log(state, 'From dashboard');
-  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     navigation.addListener('beforeRemove', () => {
@@ -71,6 +69,33 @@ function Dashboard({ navigation }) {
   ];
 
   const randomTips = dailyTips[Math.floor(Math.random() * dailyTips.length)];
+  const notify = async () => {
+    // Create a channel (required for Android)
+    try {
+      const channelId = await notifee.createChannel({
+        id: 'default',
+        name: 'Default Channel',
+      });
+
+      // Request permissions (required for iOS)
+      await notifee.requestPermission();
+
+      await notifee.displayNotification({
+        title: 'motherfuckerr',
+        body: 'Samuel L Jackson',
+        android: {
+          channelId,
+          // smallIcon: 'name-of-a-small-icon', // optional, defaults to 'ic_launcher'.
+          // pressAction is needed if you want the notification to open the app when pressed
+          pressAction: {
+            id: 'default',
+          },
+        },
+      });
+    } catch (error) {
+      console.log(error, 'COuld not show notification');
+    }
+  };
 
   return (
     <>
@@ -81,7 +106,8 @@ function Dashboard({ navigation }) {
             <View style={styles.header}>
               <Text style={styles.greeting}>{t('welcome')}</Text>
               <TouchableOpacity
-                onPress={() => navigation.navigate('ProfileOverview')}
+                // onPress={() => navigation.navigate('ProfileOverview')}
+                onPress={notify}
                 style={styles.nameContainer}>
                 <Text style={styles.name}>
                   {state?.user?.name.split(' ').shift().charAt(0) +
