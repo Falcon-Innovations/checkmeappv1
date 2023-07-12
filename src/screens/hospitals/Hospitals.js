@@ -63,14 +63,14 @@ function Hospitals() {
                 borderColor: COLORS.borderCardColor,
               }}
               inputStyle={{
-                fontSize: 14,
-                fontFamily: 'Poppins_Regular',
+                fontSize: 12,
+                fontFamily: 'Poppins-Regular',
               }}
               iconColor="#D2D1D1"
             />
           </View>
           <View>
-            <Text style={{ fontFamily: 'Poppins_Medium', color: '#333333' }}>
+            <Text style={{ fontFamily: 'Poppins-Regular', color: '#333333', fontSize:12 }}>
               {t('hosTitle')}
             </Text>
             {loading || error ? (
@@ -136,8 +136,8 @@ function Hospitals() {
                             }}>
                             <Text
                               style={{
-                                fontFamily: 'Poppins_SemiBold',
-                                fontSize: 16,
+                                fontFamily: 'Poppins-SemiBold',
+                                fontSize: 14,
                                 color: COLORS.primary,
                               }}
                               numberOfLines={1}>
@@ -155,8 +155,8 @@ function Hospitals() {
                                 <Text
                                   key={service}
                                   style={{
-                                    fontFamily: 'Poppins_Regular',
-                                    fontSize: 14,
+                                    fontFamily: 'Poppins-Regular',
+                                    fontSize: 12,
                                     color: '#AEADAD',
                                     marginBottom: 4,
                                     marginRight: 4,
@@ -180,8 +180,8 @@ function Hospitals() {
                             />
                             <Text
                               style={{
-                                fontFamily: 'Poppins_Regular',
-                                fontSize: 13,
+                                fontFamily: 'Poppins-Regular',
+                                fontSize: 12,
                                 color: '#222222',
                                 marginLeft: 6,
                               }}
@@ -212,7 +212,7 @@ export default Hospitals;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fffff',
   },
   card: {
     flex: 1,

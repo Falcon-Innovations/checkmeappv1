@@ -7,6 +7,7 @@ import {
   Text,
   View,
   Alert,
+  StyleSheet,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Searchbar } from 'react-native-paper';
@@ -15,6 +16,8 @@ import { AppStatusBar, BlogCard, CustomStatusBar } from '../../components';
 import { COLORS, SIZES } from '../../utility';
 import Error from '../../components/utils/Error';
 import { useArticles } from '../../api/blog';
+import Videos from './Videos';
+
 
 function Placeholder() {
   return (
@@ -38,6 +41,7 @@ function AllBlogs() {
   const [searchQuery, setSearchQuery] = useState('');
   const articles = data?.data?.data?.docs;
   const [filteredArticles, setFilteredArticles] = useState(articles);
+
 
   const onChangeSearch = (query) => {
     setSearchQuery(query);
@@ -91,7 +95,7 @@ function AllBlogs() {
       <CustomStatusBar text="News Feed" />
       <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <View
-          style={{ paddingTop: 20, paddingBottom: 8, marginHorizontal: 15 }}>
+          style={{ paddingTop: 20, paddingBottom: 4, marginHorizontal: 15 }}>
           <Searchbar
             placeholder="Search"
             placeholderTextColor="#D2D1D1"
@@ -108,18 +112,21 @@ function AllBlogs() {
             }}
             iconColor="#D2D1D1"
           />
-          <Text style={{ paddingVertical: 12, fontFamily: 'Poppins-Regular' }}>
+          <Text style={{ paddingVertical: 10, fontFamily: 'Poppins-Regular' }}>
             Everything you need to know about breast cancer and female health
             can be found here
           </Text>
         </View>
-
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingHorizontal: 15, paddingTop: 20 }}
+          contentContainerStyle={{ paddingHorizontal: 15, paddingTop: 0 }}
           refreshControl={
             <RefreshControl refreshing={isLoading} onRefresh={refetch} />
           }>
+          <View style={{ marginTop: 10, marginBottom: 15 }}>
+    
+            <Videos />
+          </View>
           {isLoading && <Placeholder />}
           {filteredArticles?.map((item) => (
             <BlogCard key={item.title} item={item} onShare={onShare} />
@@ -140,5 +147,23 @@ function AllBlogs() {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  videoPlayer: {
+    flex: 1,
+  },
+  videoItem: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+  },
+  videoTitle: {
+    fontSize: 16,
+  },
+});
 
 export default AllBlogs;

@@ -76,20 +76,20 @@ function DetailHospital({ route }) {
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              marginBottom: 8,
+              marginBottom: 2,
             }}>
             <Text
               style={{
-                fontFamily: 'Poppins_SemiBold',
-                fontSize: 16,
+                fontFamily: 'Poppins-SemiBold',
+                fontSize: 15,
                 color: COLORS.primary,
               }}
               numberOfLines={1}>
               {item?.name}
             </Text>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Icons name="star" size={22} color="#fdcc0d" />
-              <Text>4.9(80 reviews)</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
+              <Icons name="star" size={18} color="#fdcc0d" />
+              <Text style={{fontFamily:"Poppins-Regular", fontSize:12}}>4.9(80 reviews)</Text>
             </View>
           </View>
           <View
@@ -101,8 +101,8 @@ function DetailHospital({ route }) {
             <Icon name="ios-location-outline" size={18} color="#222222" />
             <Text
               style={{
-                fontFamily: 'Poppins_Regular',
-                fontSize: 13,
+                fontFamily: 'Poppins-Regular',
+                fontSize: 12,
                 color: '#222222',
                 marginLeft: 6,
               }}
@@ -114,12 +114,12 @@ function DetailHospital({ route }) {
             <Divider orientation="horizontal" width={1.5} color="#d3d3d3" />
           </View>
           <View>
-            <Text style={{ fontFamily: 'Poppins_Medium', fontSize: 16 }}>
+            <Text style={{ fontFamily: 'Poppins-Medium', fontSize: 14 }}>
               About Hopital
             </Text>
             <Text
               style={{
-                fontFamily: 'Poppins_Regular',
+                fontFamily: 'Poppins-Regular',
                 lineHeight: 22,
                 marginTop: 10,
                 color: '#5A5858',
@@ -133,11 +133,11 @@ function DetailHospital({ route }) {
           <View>
             <Text
               style={{
-                fontFamily: 'Poppins_Medium',
-                fontSize: 16,
+                fontFamily: 'Poppins-Medium',
+                fontSize: 14,
                 marginBottom: 10,
               }}>
-              Specialities
+              Services
             </Text>
             <View
               style={{
@@ -162,8 +162,8 @@ function DetailHospital({ route }) {
                     }}>
                     <Text
                       style={{
-                        fontSize: 12,
-                        fontFamily: 'Poppins_Medium',
+                        fontSize: 10,
+                        fontFamily: 'Poppins-Medium',
                         color: COLORS.primary,
                       }}>
                       {service}
@@ -172,6 +172,14 @@ function DetailHospital({ route }) {
                 ))
                 .slice(0, 3)}
             </View>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Medium',
+                fontSize: 14,
+                marginBottom: 10,
+              }}>
+              Specialities
+            </Text>
             <View
               style={{
                 flex: 1,
@@ -195,8 +203,8 @@ function DetailHospital({ route }) {
                     }}>
                     <Text
                       style={{
-                        fontSize: 12,
-                        fontFamily: 'Poppins_Medium',
+                        fontSize: 10,
+                        fontFamily: 'Poppins-Medium',
                         color: COLORS.primary,
                       }}>
                       {service}
@@ -209,8 +217,8 @@ function DetailHospital({ route }) {
           <View>
             <Text
               style={{
-                fontFamily: 'Poppins_Medium',
-                fontSize: 16,
+                fontFamily: 'Poppins-Medium',
+                fontSize: 14,
                 marginBottom: 10,
               }}>
               Service Fee
@@ -218,7 +226,7 @@ function DetailHospital({ route }) {
           </View>
         </View>
       </ScrollView>
-      <FAB icon="calendar-month" style={styles.fab} label="Book Appointment" />
+      <FAB icon="map-marker" style={styles.fab} label="View on map" />
     </>
   );
 }

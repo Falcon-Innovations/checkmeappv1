@@ -26,6 +26,8 @@ import { NetworkGuard } from './network-guard/network-guard';
 import ComingSoonMessage from './ComingSoonMessage';
 import BlogCard from './BlogCard';
 
+import VideoSlider from './VideoSlider';
+
 export {
   PhoneInputField,
   TextAreaInput,
@@ -47,4 +49,5 @@ export {
   NetworkGuard,
   ComingSoonMessage,
   BlogCard,
+  VideoSlider
 };
