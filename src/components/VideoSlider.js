@@ -3,25 +3,29 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import React from 'react'
 import { COLORS, SIZES } from '../utility';
 
-const VideoSlider = ({coverImg, title, date}) => {
+const VideoSlider = ({item}) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => handleOnPress(item)}>
       <ImageBackground
         resizeMode="contain"
-        source={{ uri: coverImg }}
+        source={{ uri: item?.snippet?.thumbnails?.medium?.url }}
         borderRadius={6}
-        // imageStyle={{ opacity: 0.5 }}
         style={{
           width: SIZES.screenWidth * 0.5,
           height: SIZES.screenHeight * 0.17,
         }}>
         <View style={styles.overlay}>
-          <View style={{marginTop:22, alignSelf:"center", justifyContent:"center"}}>
-            <Icon name="play-circle" size={40} color="#fff"/>
+          <View
+            style={{
+              marginTop: 22,
+              alignSelf: 'center',
+              justifyContent: 'center',
+            }}>
+            <Icon name="play-circle" size={40} color="#fff" />
           </View>
           <View style={styles.content}>
-            <Text style={styles.textStyle}>{title}</Text>
-            <Text style={styles.date}>{date}</Text>
+            <Text style={styles.textStyle}>{item?.snippet?.title}</Text>
+            <Text style={styles.date}>{item?.snippet?.publishedAt}</Text>
           </View>
         </View>
       </ImageBackground>
