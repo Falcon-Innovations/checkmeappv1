@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* CheckmeappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CheckmeappTests.m */; };
+		012E112660B7C9B14846EC65 /* libPods-Checkmeapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFEDD7BDFB7C52782A363F6C /* libPods-Checkmeapp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1DF85B45D3D9464DB3D3261B /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5ED6898DD8AB4DE081DDB687 /* Poppins-SemiBold.ttf */; };
 		21473B355E82436B8F7FD1B2 /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E35114E9C83C4516A582D6F7 /* Poppins-SemiBoldItalic.ttf */; };
-		23B30E5D565DA5B0483433D5 /* libPods-Checkmeapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1565AABEA548117B4680D71E /* libPods-Checkmeapp.a */; };
-		27E9EE3AC40C21C40A9C1B9D /* libPods-Checkmeapp-CheckmeappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 587E3C885A68661CA88739C1 /* libPods-Checkmeapp-CheckmeappTests.a */; };
 		2D89800C931348E2A510EF1C /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 570157AC63ED46009C34726F /* Poppins-ExtraLight.ttf */; };
 		31A3A5A72A3E80490090712C /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A5972A3E80490090712C /* Fontisto.ttf */; };
 		31A3A5A82A3E80490090712C /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A5982A3E80490090712C /* Octicons.ttf */; };
@@ -40,6 +39,7 @@
 		911170CEA3D945D792CA3264 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36C668BA6B97449FA58402D2 /* Poppins-Medium.ttf */; };
 		AA37C3AF558443B9AB3DA87F /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 117889EC483A48E78914F05A /* Poppins-ExtraBoldItalic.ttf */; };
 		CE7037AEAE2946FBA4A87D77 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EDEECF683704AFB972C3711 /* Poppins-MediumItalic.ttf */; };
+		D17BA0824D3D838A069DDCE6 /* libPods-Checkmeapp-CheckmeappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE700285A1306D6466543C6C /* libPods-Checkmeapp-CheckmeappTests.a */; };
 		E310E3502BD749DFAB95A71C /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6045D67A043B4257BC331861 /* Poppins-Black.ttf */; };
 		EDEDBAC4109A4611B1213CCF /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B4453D150EBE4905BEF49443 /* Poppins-Italic.ttf */; };
 		EF8730769CEC4AEA84866063 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37C432A66A5546029A072F31 /* Poppins-ExtraBold.ttf */; };
@@ -67,7 +67,6 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Checkmeapp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Checkmeapp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Checkmeapp/main.m; sourceTree = "<group>"; };
-		1565AABEA548117B4680D71E /* libPods-Checkmeapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Checkmeapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25EB8EB5AAA1461CAFFC3341 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		31A3A5972A3E80490090712C /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		31A3A5982A3E80490090712C /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
@@ -85,23 +84,24 @@
 		31A3A5A42A3E80490090712C /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		31A3A5A52A3E80490090712C /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		31A3A5A62A3E80490090712C /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		345930253C8BF1F6D9EE0C52 /* Pods-Checkmeapp-CheckmeappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp-CheckmeappTests.release.xcconfig"; path = "Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests.release.xcconfig"; sourceTree = "<group>"; };
 		36C668BA6B97449FA58402D2 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		37C432A66A5546029A072F31 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
-		50FEA069690481A84A500A7D /* Pods-Checkmeapp-CheckmeappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp-CheckmeappTests.debug.xcconfig"; path = "Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		41D74FB57E837287D3747735 /* Pods-Checkmeapp-CheckmeappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp-CheckmeappTests.debug.xcconfig"; path = "Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		570157AC63ED46009C34726F /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.ttf"; path = "../assets/fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
-		587E3C885A68661CA88739C1 /* libPods-Checkmeapp-CheckmeappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Checkmeapp-CheckmeappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ED6898DD8AB4DE081DDB687 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		6045D67A043B4257BC331861 /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
+		658654B42ABF8ADDB3ECD985 /* Pods-Checkmeapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp.debug.xcconfig"; path = "Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp.debug.xcconfig"; sourceTree = "<group>"; };
+		6DE4103136A912B688837210 /* Pods-Checkmeapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp.release.xcconfig"; path = "Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp.release.xcconfig"; sourceTree = "<group>"; };
 		72104899518043939A1B360B /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../assets/fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Checkmeapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AFEE7F7ED6923740F20A9584 /* Pods-Checkmeapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp.debug.xcconfig"; path = "Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp.debug.xcconfig"; sourceTree = "<group>"; };
+		AE700285A1306D6466543C6C /* libPods-Checkmeapp-CheckmeappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Checkmeapp-CheckmeappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4453D150EBE4905BEF49443 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		B79C27945B4F46EE8081ECCE /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
-		BFF8BF250C990FD4382C9C42 /* Pods-Checkmeapp-CheckmeappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp-CheckmeappTests.release.xcconfig"; path = "Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests.release.xcconfig"; sourceTree = "<group>"; };
 		C67E450D34004F30881C6F00 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BlackItalic.ttf"; path = "../assets/fonts/Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
-		C74EC84994A4D388F2B6DB21 /* Pods-Checkmeapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp.release.xcconfig"; path = "Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp.release.xcconfig"; sourceTree = "<group>"; };
 		E35114E9C83C4516A582D6F7 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBoldItalic.ttf"; path = "../assets/fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		EFEDD7BDFB7C52782A363F6C /* libPods-Checkmeapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Checkmeapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27E9EE3AC40C21C40A9C1B9D /* libPods-Checkmeapp-CheckmeappTests.a in Frameworks */,
+				D17BA0824D3D838A069DDCE6 /* libPods-Checkmeapp-CheckmeappTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23B30E5D565DA5B0483433D5 /* libPods-Checkmeapp.a in Frameworks */,
+				012E112660B7C9B14846EC65 /* libPods-Checkmeapp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,8 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				1565AABEA548117B4680D71E /* libPods-Checkmeapp.a */,
-				587E3C885A68661CA88739C1 /* libPods-Checkmeapp-CheckmeappTests.a */,
+				EFEDD7BDFB7C52782A363F6C /* libPods-Checkmeapp.a */,
+				AE700285A1306D6466543C6C /* libPods-Checkmeapp-CheckmeappTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,10 +224,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AFEE7F7ED6923740F20A9584 /* Pods-Checkmeapp.debug.xcconfig */,
-				C74EC84994A4D388F2B6DB21 /* Pods-Checkmeapp.release.xcconfig */,
-				50FEA069690481A84A500A7D /* Pods-Checkmeapp-CheckmeappTests.debug.xcconfig */,
-				BFF8BF250C990FD4382C9C42 /* Pods-Checkmeapp-CheckmeappTests.release.xcconfig */,
+				658654B42ABF8ADDB3ECD985 /* Pods-Checkmeapp.debug.xcconfig */,
+				6DE4103136A912B688837210 /* Pods-Checkmeapp.release.xcconfig */,
+				41D74FB57E837287D3747735 /* Pods-Checkmeapp-CheckmeappTests.debug.xcconfig */,
+				345930253C8BF1F6D9EE0C52 /* Pods-Checkmeapp-CheckmeappTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -259,12 +259,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CheckmeappTests" */;
 			buildPhases = (
-				CC4DDB94311E3B8001B626AC /* [CP] Check Pods Manifest.lock */,
+				FBA74D2AF7C78D30D620C2A1 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				0F464B6FD4F07F95B0BBFCAD /* [CP] Embed Pods Frameworks */,
-				951DC8E332229F7135F126DF /* [CP] Copy Pods Resources */,
+				3D7BDF7A78C7C411752186FB /* [CP] Embed Pods Frameworks */,
+				3223273BB95AD2A672516753 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,14 +280,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Checkmeapp" */;
 			buildPhases = (
-				2A0F285366686408A618B4D5 /* [CP] Check Pods Manifest.lock */,
+				2C95CD2390DBCF2CBB8DE56F /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				0B084DAF5AAB416AF2176EC5 /* [CP] Embed Pods Frameworks */,
-				083B61DB89240793A943401F /* [CP] Copy Pods Resources */,
+				8DC11A70C0A1CB2CD9A2CAED /* [CP] Embed Pods Frameworks */,
+				BC34D157127AC0BDE5D05EE3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -399,58 +399,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export SENTRY_PROPERTIES=sentry.properties\nexport EXTRA_PACKAGER_ARGS=\"--sourcemap-output $DERIVED_FILE_DIR/main.jsbundle.map\"\nset -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT \\\"../node_modules/@sentry/cli/bin/sentry-cli react-native xcode $REACT_NATIVE_XCODE\\\"\"\n\n/bin/sh ../node_modules/@sentry/react-native/scripts/collect-modules.sh\n";
 		};
-		083B61DB89240793A943401F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0B084DAF5AAB416AF2176EC5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0F464B6FD4F07F95B0BBFCAD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2A0F285366686408A618B4D5 /* [CP] Check Pods Manifest.lock */ = {
+		2C95CD2390DBCF2CBB8DE56F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -472,7 +421,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		951DC8E332229F7135F126DF /* [CP] Copy Pods Resources */ = {
+		3223273BB95AD2A672516753 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -489,7 +438,58 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CC4DDB94311E3B8001B626AC /* [CP] Check Pods Manifest.lock */ = {
+		3D7BDF7A78C7C411752186FB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp-CheckmeappTests/Pods-Checkmeapp-CheckmeappTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DC11A70C0A1CB2CD9A2CAED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC34D157127AC0BDE5D05EE3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBA74D2AF7C78D30D620C2A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -563,7 +563,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50FEA069690481A84A500A7D /* Pods-Checkmeapp-CheckmeappTests.debug.xcconfig */;
+			baseConfigurationReference = 41D74FB57E837287D3747735 /* Pods-Checkmeapp-CheckmeappTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -590,7 +590,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFF8BF250C990FD4382C9C42 /* Pods-Checkmeapp-CheckmeappTests.release.xcconfig */;
+			baseConfigurationReference = 345930253C8BF1F6D9EE0C52 /* Pods-Checkmeapp-CheckmeappTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -614,7 +614,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AFEE7F7ED6923740F20A9584 /* Pods-Checkmeapp.debug.xcconfig */;
+			baseConfigurationReference = 658654B42ABF8ADDB3ECD985 /* Pods-Checkmeapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -649,7 +649,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C74EC84994A4D388F2B6DB21 /* Pods-Checkmeapp.release.xcconfig */;
+			baseConfigurationReference = 6DE4103136A912B688837210 /* Pods-Checkmeapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
