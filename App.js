@@ -53,7 +53,7 @@ export default function App() {
 
   useOnlineManager();
   useAppState(onAppStateChange);
-  useInitFCM();
+  // useInitFCM();
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>

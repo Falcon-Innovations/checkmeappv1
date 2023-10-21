@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import messaging from '@react-native-firebase/messaging';
+// import messaging from '@react-native-firebase/messaging';
 import notifee from '@notifee/react-native';
 
 const onMessageRecieved = async (message) => {
@@ -20,13 +20,13 @@ const onMessageRecieved = async (message) => {
 
 const useInitFCM = () => {
   const getFCMToken = async () => {
-    await messaging().registerDeviceForRemoteMessages();
-    try {
-      const token = await messaging().getToken();
-      console.log('Firebase token', token);
-    } catch (e) {
-      console.log(e);
-    }
+    // await messaging().registerDeviceForRemoteMessages();
+    // try {
+    //   const token = await messaging().getToken();
+    //   console.log('Firebase token', token);
+    // } catch (e) {
+    //   console.log(e);
+    // }
   };
 
   useEffect(() => {
