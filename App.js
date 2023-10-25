@@ -3,9 +3,8 @@ import ErrorBoundary from 'react-native-error-boundary';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { enGB, registerTranslation } from 'react-native-paper-dates';
 import * as Sentry from '@sentry/react-native';
-import SplashScreen from 'react-native-splash-screen';
+import * as SplashScreen from 'expo-splash-screen';
 import { QueryClient, QueryClientProvider, focusManager } from 'react-query';
-import notifee, { AuthorizationStatus } from '@notifee/react-native';
 import 'react-native-gesture-handler';
 import './assets/i18n/i18n';
 import { useEffect } from 'react';
@@ -14,10 +13,11 @@ import { ErrorFallback } from './src/components/error-fallback/error-fallback';
 import Navigation from './src/navigation';
 import { useOnlineManager } from './src/hooks/useOnlineManager';
 import { useAppState } from './src/hooks/useAppState';
-import useInitFCM from './src/hooks/useInitFCM';
+// import useInitFCM from './src/hooks/useInitFCM';
 
 Sentry.init({
   dsn: 'https://efc5604af7f94d5783b9f7068d8462f7@o4504313404915712.ingest.sentry.io/4504313407930369',
+  enableNative: false,
 });
 
 registerTranslation('en-GB', enGB);
@@ -33,22 +33,9 @@ function onAppStateChange(status) {
   }
 }
 
-async function requestUserPermission() {
-  try {
-    const settings = await notifee.requestPermission();
-    if (settings.authorizationStatus >= AuthorizationStatus.AUTHORIZED) {
-      console.log('Permission settings:', settings);
-    } else {
-      console.log('User declined permissions', settings);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-}
 export default function App() {
   useEffect(() => {
-    requestUserPermission();
-    SplashScreen.hide();
+    SplashScreen.hideAsync();
   }, []);
 
   useOnlineManager();

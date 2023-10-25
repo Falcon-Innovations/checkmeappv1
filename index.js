@@ -11,4 +11,4 @@ import { name as appName } from './app.json';
 //   console.log('Message handled in the background!', remoteMessage);
 // });
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent('main', () => App);

@@ -34,10 +34,12 @@
 		3900B995D4794285BA3A6992 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B79C27945B4F46EE8081ECCE /* Poppins-Bold.ttf */; };
 		4B8A172BCC3E4A80B32B3A1F /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72104899518043939A1B360B /* Poppins-BoldItalic.ttf */; };
 		5CB351F5EE574037BC8CC3E0 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67E450D34004F30881C6F00 /* Poppins-BlackItalic.ttf */; };
+		747F0DCD6AF426081321FD52 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C59C816AB0820317C68AE2C /* ExpoModulesProvider.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		85C3C4B86F1F424AA9CC59B0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25EB8EB5AAA1461CAFFC3341 /* Poppins-Regular.ttf */; };
 		911170CEA3D945D792CA3264 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36C668BA6B97449FA58402D2 /* Poppins-Medium.ttf */; };
 		AA37C3AF558443B9AB3DA87F /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 117889EC483A48E78914F05A /* Poppins-ExtraBoldItalic.ttf */; };
+		C119B4794F7579F2E6ED214D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795C9AACE5255AE4634A9CA1 /* ExpoModulesProvider.swift */; };
 		CE7037AEAE2946FBA4A87D77 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EDEECF683704AFB972C3711 /* Poppins-MediumItalic.ttf */; };
 		D17BA0824D3D838A069DDCE6 /* libPods-Checkmeapp-CheckmeappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE700285A1306D6466543C6C /* libPods-Checkmeapp-CheckmeappTests.a */; };
 		E310E3502BD749DFAB95A71C /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6045D67A043B4257BC331861 /* Poppins-Black.ttf */; };
@@ -94,7 +96,9 @@
 		658654B42ABF8ADDB3ECD985 /* Pods-Checkmeapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp.debug.xcconfig"; path = "Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp.debug.xcconfig"; sourceTree = "<group>"; };
 		6DE4103136A912B688837210 /* Pods-Checkmeapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Checkmeapp.release.xcconfig"; path = "Target Support Files/Pods-Checkmeapp/Pods-Checkmeapp.release.xcconfig"; sourceTree = "<group>"; };
 		72104899518043939A1B360B /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../assets/fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
+		795C9AACE5255AE4634A9CA1 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Checkmeapp-CheckmeappTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Checkmeapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8C59C816AB0820317C68AE2C /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Checkmeapp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		AE700285A1306D6466543C6C /* libPods-Checkmeapp-CheckmeappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Checkmeapp-CheckmeappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4453D150EBE4905BEF49443 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		B79C27945B4F46EE8081ECCE /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
@@ -189,6 +193,23 @@
 			path = "../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
+		5DE66A5AB79261112B7D9BF8 /* CheckmeappTests */ = {
+			isa = PBXGroup;
+			children = (
+				795C9AACE5255AE4634A9CA1 /* ExpoModulesProvider.swift */,
+			);
+			name = CheckmeappTests;
+			sourceTree = "<group>";
+		};
+		744FF0E78C0AB069AAA09C8E /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				E528E3BEA9DB7E03EDBC038B /* Checkmeapp */,
+				5DE66A5AB79261112B7D9BF8 /* CheckmeappTests */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +227,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
 				D081D1BFCEC74F7585BC2B13 /* Resources */,
+				744FF0E78C0AB069AAA09C8E /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -250,6 +272,14 @@
 				E35114E9C83C4516A582D6F7 /* Poppins-SemiBoldItalic.ttf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		E528E3BEA9DB7E03EDBC038B /* Checkmeapp */ = {
+			isa = PBXGroup;
+			children = (
+				8C59C816AB0820317C68AE2C /* ExpoModulesProvider.swift */,
+			);
+			name = Checkmeapp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -538,6 +568,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* CheckmeappTests.m in Sources */,
+				C119B4794F7579F2E6ED214D /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +578,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				747F0DCD6AF426081321FD52 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,7 +603,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = CheckmeappTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -582,6 +614,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Checkmeapp.app/Checkmeapp";
@@ -595,7 +628,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = CheckmeappTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -606,6 +639,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Checkmeapp.app/Checkmeapp";
@@ -637,6 +671,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.check-me.app";
 				PRODUCT_NAME = Checkmeapp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -671,6 +706,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.check-me.app";
 				PRODUCT_NAME = Checkmeapp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -729,7 +765,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -794,7 +830,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
