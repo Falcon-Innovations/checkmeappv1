@@ -1,4 +1,11 @@
 {
   "name": "Checkmeapp",
-  "displayName": "Checkmeapp"
+  "displayName": "Checkmeapp",
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "8c9f6e3d-3ce2-4b66-994a-c7ed0837e38b"
+      }
+    }
+  }
 }

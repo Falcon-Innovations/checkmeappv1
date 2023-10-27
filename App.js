@@ -1,13 +1,15 @@
+/* eslint-disable global-require */
 import { Platform } from 'react-native';
 import ErrorBoundary from 'react-native-error-boundary';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { enGB, registerTranslation } from 'react-native-paper-dates';
 import * as Sentry from '@sentry/react-native';
 import * as SplashScreen from 'expo-splash-screen';
+import { useFonts } from 'expo-font';
 import { QueryClient, QueryClientProvider, focusManager } from 'react-query';
 import 'react-native-gesture-handler';
 import './assets/i18n/i18n';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { Provider as UserProvider } from './src/contexts/userContext';
 import { ErrorFallback } from './src/components/error-fallback/error-fallback';
 import Navigation from './src/navigation';
@@ -34,12 +36,30 @@ function onAppStateChange(status) {
 }
 
 export default function App() {
-  useEffect(() => {
-    SplashScreen.hideAsync();
-  }, []);
-
   useOnlineManager();
   useAppState(onAppStateChange);
+
+  const [fontsLoaded, fontError] = useFonts({
+    Poppins_Regular: require('./assets/fonts/Poppins-Regular.ttf'),
+    Poppins_Medium: require('./assets/fonts/Poppins-Medium.ttf'),
+    Poppins_SemiBold: require('./assets/fonts/Poppins-SemiBold.ttf'),
+    Poppins_Bold: require('./assets/fonts/Poppins-Bold.ttf'),
+  });
+
+  async function checkFontsStatus() {
+    if (fontsLoaded || fontError) {
+      await SplashScreen.hideAsync();
+    }
+  }
+
+  useEffect(() => {
+    checkFontsStatus();
+  }, [fontsLoaded, fontError]);
+
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
+
   // useInitFCM();
 
   return (
