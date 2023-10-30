@@ -1,4 +1,5 @@
 /* eslint-disable global-require */
+import { registerRootComponent } from 'expo';
 import { Platform } from 'react-native';
 import ErrorBoundary from 'react-native-error-boundary';
 import { Provider as PaperProvider } from 'react-native-paper';
@@ -9,7 +10,7 @@ import { useFonts } from 'expo-font';
 import { QueryClient, QueryClientProvider, focusManager } from 'react-query';
 import 'react-native-gesture-handler';
 import './assets/i18n/i18n';
-import { useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 import { Provider as UserProvider } from './src/contexts/userContext';
 import { ErrorFallback } from './src/components/error-fallback/error-fallback';
 import Navigation from './src/navigation';
@@ -74,3 +75,5 @@ export default function App() {
     </ErrorBoundary>
   );
 }
+
+registerRootComponent(App);
