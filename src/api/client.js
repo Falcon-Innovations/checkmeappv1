@@ -2,7 +2,7 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const BASE_URL = 'http://localhost:8080/';
+export const BASE_URL = 'https://check-me-backend-cameroun.herokuapp.com/';
 
 export default axios.create({
   baseURL: BASE_URL,
