@@ -10,28 +10,28 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Searchbar } from 'react-native-paper';
-import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
+// import { LinearGradient } from 'expo-linear-gradient';
 import { AppStatusBar, BlogCard, CustomStatusBar } from '../../components';
 import { COLORS, SIZES } from '../../utility';
 import Error from '../../components/utils/Error';
 import { useArticles } from '../../api/blog';
 
-function Placeholder() {
-  return (
-    <SkeletonPlaceholder>
-      <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
-        <SkeletonPlaceholder.Item
-          width={SIZES.screenWidth * 0.4}
-          height={SIZES.screenWidth * 0.3}
-        />
-        <SkeletonPlaceholder.Item marginLeft={20}>
-          <SkeletonPlaceholder.Item width={120} height={20} />
-          <SkeletonPlaceholder.Item marginTop={6} width={80} height={20} />
-        </SkeletonPlaceholder.Item>
-      </SkeletonPlaceholder.Item>
-    </SkeletonPlaceholder>
-  );
-}
+// function Placeholder() {
+//   return (
+//     <SkeletonPlaceholder>
+//       <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
+//         <SkeletonPlaceholder.Item
+//           width={SIZES.screenWidth * 0.4}
+//           height={SIZES.screenWidth * 0.3}
+//         />
+//         <SkeletonPlaceholder.Item marginLeft={20}>
+//           <SkeletonPlaceholder.Item width={120} height={20} />
+//           <SkeletonPlaceholder.Item marginTop={6} width={80} height={20} />
+//         </SkeletonPlaceholder.Item>
+//       </SkeletonPlaceholder.Item>
+//     </SkeletonPlaceholder>
+//   );
+// }
 
 function AllBlogs() {
   const { data, isLoading, error, refetch, isError } = useArticles();
@@ -120,7 +120,7 @@ function AllBlogs() {
           refreshControl={
             <RefreshControl refreshing={isLoading} onRefresh={refetch} />
           }>
-          {isLoading && <Placeholder />}
+          {isLoading && <Text>Loading....</Text>}
           {filteredArticles?.map((item) => (
             <BlogCard key={item.title} item={item} onShare={onShare} />
           ))}

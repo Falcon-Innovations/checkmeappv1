@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from '@expo/vector-icons/Ionicons';
 import { COLORS, SIZES } from '../../utility';
 import { CustomImageBackground } from '../custom-image-background/custom-image-background';
 

@@ -11,7 +11,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import { Searchbar } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from '@expo/vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
 import { COLORS, config, SIZES } from '../../utility';
 import {

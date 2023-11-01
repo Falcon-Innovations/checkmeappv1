@@ -98,6 +98,10 @@ const sendOTP =
         customNav.navigate('OTPVerification', { phoneNumber });
       }
     } catch (error) {
+      console.log('*******');
+      console.log(error);
+      console.log('*******');
+
       Alert.alert(
         'Error',
         error?.response?.data?.error?.statusText

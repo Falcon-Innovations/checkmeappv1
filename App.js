@@ -41,10 +41,10 @@ export default function App() {
   useAppState(onAppStateChange);
 
   const [fontsLoaded, fontError] = useFonts({
-    Poppins_Regular: require('./assets/fonts/Poppins-Regular.ttf'),
-    Poppins_Medium: require('./assets/fonts/Poppins-Medium.ttf'),
-    Poppins_SemiBold: require('./assets/fonts/Poppins-SemiBold.ttf'),
-    Poppins_Bold: require('./assets/fonts/Poppins-Bold.ttf'),
+    'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-Medium': require('./assets/fonts/Poppins-Medium.ttf'),
+    'Poppins-SemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
+    'Poppins-Bold': require('./assets/fonts/Poppins-Bold.ttf'),
   });
 
   async function checkFontsStatus() {

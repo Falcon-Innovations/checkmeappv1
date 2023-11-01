@@ -11,10 +11,10 @@ import {
 } from 'react-native';
 import React, { useCallback, useState } from 'react';
 import * as ImagePicker from 'react-native-image-picker';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from '@expo/vector-icons/Ionicons';
 import CalendarPicker from 'react-native-calendar-picker';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import Icons from 'react-native-vector-icons/Feather';
+import Icons from '@expo/vector-icons/Feather';
 import Modal from 'react-native-modal';
 import moment from 'moment';
 import { Context as UserContext } from '../../contexts/userContext';

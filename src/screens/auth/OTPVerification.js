@@ -11,7 +11,7 @@ import {
   Pressable,
 } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from '@expo/vector-icons/Feather';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import { useNavigation } from '@react-navigation/native';

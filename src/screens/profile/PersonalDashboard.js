@@ -9,10 +9,10 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, { useEffect } from 'react';
-import Icon from 'react-native-vector-icons/Feather';
-import Icons from 'react-native-vector-icons/Ionicons';
-import ProfileIcon from 'react-native-vector-icons/AntDesign';
-import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from '@expo/vector-icons/Feather';
+import Icons from '@expo/vector-icons/Ionicons';
+import ProfileIcon from '@expo/vector-icons/AntDesign';
+import FontAwesome5Icon from '@expo/vector-icons/FontAwesome5';
 
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';

@@ -7,8 +7,8 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import Icons from 'react-native-vector-icons/Ionicons';
+import Icon from '@expo/vector-icons/FontAwesome5';
+import Icons from '@expo/vector-icons/Ionicons';
 import { AppButton, AppStatusBar, CustomStatusBar } from '../../components';
 import { COLORS, SIZES } from '../../utility';
 

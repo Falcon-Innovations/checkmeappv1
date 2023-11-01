@@ -12,9 +12,9 @@ import {
   Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/AntDesign';
-import Icons from 'react-native-vector-icons/SimpleLineIcons';
-import Ribbon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from '@expo/vector-icons/AntDesign';
+import Icons from '@expo/vector-icons/SimpleLineIcons';
+import Ribbon from '@expo/vector-icons/MaterialCommunityIcons';
 import SendSMS from 'react-native-sms';
 import { Divider } from 'react-native-elements';
 import { FAB } from 'react-native-paper';

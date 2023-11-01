@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 import React from 'react';
 import { Divider } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/Ionicons';
-import ProfileIcon from 'react-native-vector-icons/AntDesign';
+import Icon from '@expo/vector-icons/Ionicons';
+import ProfileIcon from '@expo/vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 

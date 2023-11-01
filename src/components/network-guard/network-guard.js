@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, NativeModules } from 'react-native';
-import Icons from 'react-native-vector-icons/Feather';
+import Icons from '@expo/vector-icons/Feather';
 import NetInfo from '@react-native-community/netinfo';
 import { COLORS } from '../../utility';
 import AppButton from '../utils/AppButton';

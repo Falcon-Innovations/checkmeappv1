@@ -8,8 +8,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { Divider } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/Ionicons';
-import Icons from 'react-native-vector-icons/Entypo';
+import Icon from '@expo/vector-icons/Ionicons';
+import Icons from '@expo/vector-icons/Entypo';
 import { FAB } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 

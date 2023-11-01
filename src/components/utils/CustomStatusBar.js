@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import React from 'react';
-import Icon from 'react-native-vector-icons/Ionicons';
-import Icons from 'react-native-vector-icons/Feather';
+import Icon from '@expo/vector-icons/Ionicons';
+import Icons from '@expo/vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
 import { COLORS } from '../../utility';
 

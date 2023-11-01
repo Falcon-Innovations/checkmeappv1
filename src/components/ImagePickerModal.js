@@ -1,6 +1,6 @@
 import { Pressable, SafeAreaView, StyleSheet, Text } from 'react-native';
 import Modal from 'react-native-modal';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from '@expo/vector-icons/Ionicons';
 
 import React from 'react';
 import { COLORS } from '../utility';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, NativeModules } from 'react-native';
-import Icons from 'react-native-vector-icons/Entypo';
+import Icons from '@expo/vector-icons/Entypo';
 import { COLORS } from '../../utility';
 import AppButton from '../utils/AppButton';
 

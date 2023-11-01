@@ -9,10 +9,10 @@ import {
   TouchableOpacity,
   Alert,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import Edit from 'react-native-vector-icons/AntDesign';
+import Icon from '@expo/vector-icons/MaterialIcons';
+import Edit from '@expo/vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
-import Icons from 'react-native-vector-icons/Ionicons';
+import Icons from '@expo/vector-icons/Ionicons';
 import Modal from 'react-native-modal';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
